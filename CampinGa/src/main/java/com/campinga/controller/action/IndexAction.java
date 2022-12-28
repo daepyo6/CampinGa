@@ -13,7 +13,9 @@ public class IndexAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
+
 		request.getRequestDispatcher("main.jsp").forward(request, response);
+
 			
 	}
 
