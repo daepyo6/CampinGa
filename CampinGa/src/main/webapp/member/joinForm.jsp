@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 <script src="script/member.js"></script>
+<link href="member/css/member.css" rel="stylesheet">  
 <article>
 	<form method="post" name="joinForm">		
 		<input type="hidden" name="command" value="join">
@@ -29,8 +30,8 @@
 			<div class="inputDiv">
 				<input type="text" class="joinInput" name="email" size="30"></div>			
 		</div>
-		<input type="button" value="가입하기" onclick="joinCheck()">
-		<input type="button" value="메인으로" onclick="location.href='camp.do?command=index'">
+		<input type="button" class="button" value="가입하기" onclick="joinCheck()">
+		<input type="button" class="button" value="메인으로" onclick="location.href='camp.do?command=index'">
 	</form>
 </article>
 

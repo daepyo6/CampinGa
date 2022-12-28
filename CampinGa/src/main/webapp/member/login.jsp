@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-
-
+<link href="member/css/member.css" rel="stylesheet">  
 
 <article>
 	<h1>Login</h1>
@@ -15,8 +14,8 @@
 		   		 <input type="radio" name="user" value="2"/>사업자
 		</fieldset>
 		<div id="buttons">
-	        <input type="submit" value="로그인" class="submit" 	onclick="return loginCheck()">
-	        <input type="button" value="회원가입" class="cancel" 
+	        <input type="submit" value="로그인" class="button" 	onclick="return loginCheck()">
+	        <input type="button" value="회원가입" class="button" 
 	        	onclick="location.href='camp.do?command=joinForm'">  
 	    </div><br><br>
 	    <div>&nbsp;&nbsp;&nbsp;${message}</div>  
