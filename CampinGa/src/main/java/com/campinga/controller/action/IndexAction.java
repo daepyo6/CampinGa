@@ -12,7 +12,7 @@ public class IndexAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-			System.out.println("hi123123");
+			System.out.println("one");
 			
 	}
 
