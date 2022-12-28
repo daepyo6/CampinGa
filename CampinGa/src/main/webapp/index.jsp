@@ -8,7 +8,6 @@
 <body>
 
 <% response.sendRedirect("camp.do?command=index"); %>
-12121212
 
 </body>
 </html>
