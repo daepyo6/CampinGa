@@ -62,11 +62,11 @@ CREATE TABLE camping
 CREATE TABLE camp_qna
 (
 	qseq number(5) NOT NULL,
-	mseq number(5) NOT NULL,
 	bseq number(5) NOT NULL,
+	mid varchar2(20) NOT NULL,
 	content varchar2(1000) NOT NULL,
 	indate date DEFAULT sysdate,
-	reply varchar2(1000) NOT NULL,
+	reply varchar2(1000),
 	repyn varchar2(2) DEFAULT 'n',
 	PRIMARY KEY (qseq)
 );
@@ -75,21 +75,21 @@ CREATE TABLE camp_qna
 CREATE TABLE favorites
 (
 	fseq number(5) NOT NULL,
-	mseq number(5) NOT NULL,
 	cseq number(5) NOT NULL,
+	mid varchar2(20) NOT NULL,
+	fav_check varchar2(5) DEFAULT 'n',
 	PRIMARY KEY (fseq)
 );
 
 
 CREATE TABLE member
 (
-	mseq number(5) NOT NULL,
 	mid varchar2(20) NOT NULL,
 	pwd varchar2(20) NOT NULL,
 	name varchar2(20) NOT NULL,
 	mphone varchar2(20) NOT NULL,
 	email varchar2(30) NOT NULL,
-	PRIMARY KEY (mseq)
+	PRIMARY KEY (mid)
 );
 
 
@@ -108,7 +108,7 @@ CREATE TABLE reservation
 (
 	reseq number(5) NOT NULL,
 	cseq number(5) NOT NULL,
-	mseq number(5) NOT NULL,
+	mid varchar2(20) NOT NULL,
 	res_date date DEFAULT sysdate,
 	price number(10) DEFAULT 0,
 	people number(2) DEFAULT 0,
@@ -121,8 +121,8 @@ CREATE TABLE reservation
 CREATE TABLE review
 (
 	rseq number(5) NOT NULL,
-	mseq number(5) NOT NULL,
 	bseq number(5) NOT NULL,
+	mid varchar2(20) NOT NULL,
 	content varchar2(1000) NOT NULL,
 	indate date DEFAULT sysdate,
 	PRIMARY KEY (rseq)
@@ -169,64 +169,27 @@ ALTER TABLE reservation
 
 
 ALTER TABLE camp_qna
-	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	ADD FOREIGN KEY (mid)
+	REFERENCES member (mid)
 ;
 
 
 ALTER TABLE favorites
-	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	ADD FOREIGN KEY (mid)
+	REFERENCES member (mid)
 ;
 
 
 ALTER TABLE reservation
-	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	ADD FOREIGN KEY (mid)
+	REFERENCES member (mid)
 ;
 
 
 ALTER TABLE review
-	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	ADD FOREIGN KEY (mid)
+	REFERENCES member (mid)
 ;
-
-
-
-
-
--- 멤버가 로그인 한상태
--- 그 멤버가 즐겨찾기한 캠핑장이름과 전화번호
-
-select 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

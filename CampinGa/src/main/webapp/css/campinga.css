@@ -16,15 +16,19 @@ body {
 }
 
 #logo {
+	position: relative;
 	float: left;
 	width: 180px;
 	height: 80px;
 	margin: 40px 0 0 40px;
+	z-index: 1;
 }
 
 nav#top_menu {
+	position: relative;
 	float: right;
 	margin: 45px 20px;
+	z-index: 1;
 }
 
 nav#top_menu ul li {
@@ -50,8 +54,10 @@ nav#top_menu a:hover {
 }
 
 nav#category_menu {
+	position: relative;
 	margin: 45px 40px;
 	float: left;
+	z-index: 1;
 }
 
 nav#category_menu ul {
