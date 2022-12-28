@@ -38,4 +38,22 @@ public class MemberDao {
 		} finally {Dbman.close(con, pstmt, rs);}
 		return mvo;
 	}
+
+	public int insertMember(MemberVO mvo) {
+		int rs = 0;
+		con = Dbman.getConnection();
+		String sql = "insert into member(mid, pwd, name, mphone, email)"
+				+ "values(?, ?, ?, ?, ?)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mvo.getMid());
+			pstmt.setString(2, mvo.getPwd());
+			pstmt.setString(3, mvo.getName());
+			pstmt.setString(4, mvo.getMphone());
+			pstmt.setString(5, mvo.getEmail());
+			rs = pstmt.executeUpdate();
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, null);}		
+		return rs;
+	}
 }

@@ -6,9 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="css/shopping.css" rel="stylesheet">  
-<script src="member/member.js"></script>
-<script src="mypage/mypage.js"></script>
+<link rel="stylesheet" src="member/css/member.css">
 </head>
 <body>
 
