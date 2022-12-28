@@ -3,6 +3,8 @@ package com.campinga.controller;
 import com.campinga.controller.action.Action;
 import com.campinga.controller.action.IndexAction;
 import com.campinga.controller.action.member.JoinFormAction;
+import com.campinga.controller.action.member.LoginAction;
+import com.campinga.controller.action.member.LoginFormAction;
 
 public class ActionFactory {
 	private ActionFactory() {}
@@ -14,6 +16,8 @@ public class ActionFactory {
 		
 		if( command.equals("index") ) ac = new IndexAction();
 		else if(command.equals("joinForm")) ac = new JoinFormAction();
+		else if(command.equals("login")) ac = new LoginAction();
+		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		
 		return ac;
 	}
