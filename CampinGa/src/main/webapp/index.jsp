@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<% response.sendRedirect("camp.do?command=index"); %>
+<% response.sendRedirect("camp.do?command=joinForm"); %>
 
 </body>
 </html>

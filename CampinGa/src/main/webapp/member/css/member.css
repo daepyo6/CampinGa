@@ -1,1 +1,21 @@
 /*member css*/
+#joinTable{
+    width: 45%;
+    height: 45%;
+    padding: 2%;
+    background-color: white;
+    border:1px solid white;
+    border-radius: 30px;
+}
+.joinInput {
+    border: none;
+    background-color: white;
+}
+.inputDiv{
+    border-bottom: 2px solid #52b788;
+    margin-bottom: 10px;
+}
+.button{
+    background-color: #52b788;
+    border-radius: 5px;
+}
