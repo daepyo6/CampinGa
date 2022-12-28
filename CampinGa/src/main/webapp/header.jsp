@@ -9,6 +9,7 @@
 <link href="css/campinga.css" rel="stylesheet">  
 <script src="member/member.js"></script>
 <script src="mypage/mypage.js"></script>
+
 </head>
 <body>
 

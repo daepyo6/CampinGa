@@ -191,9 +191,10 @@ ALTER TABLE review
 	REFERENCES member (mseq)
 ;
 
+insert into member(mseq, mid, pwd, name, mphone, email)
+values(0, 'somi', '1234', '김소미', '010-1234-1234', 'aaa@naver.com');
 
-
-
+select*from member;
 
 -- 멤버가 로그인 한상태
 -- 그 멤버가 즐겨찾기한 캠핑장이름과 전화번호
