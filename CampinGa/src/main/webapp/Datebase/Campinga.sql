@@ -191,9 +191,10 @@ ALTER TABLE review
 	REFERENCES member (mseq)
 ;
 
+insert into member(mseq, mid, pwd, name, mphone, email)
+values(0, 'somi', '1234', '±è¼Ò¹Ì', '010-1234-1234', 'aaa@naver.com');
 
-
-
+select*from member;
 
 
 
