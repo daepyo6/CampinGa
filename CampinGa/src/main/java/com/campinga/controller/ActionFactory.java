@@ -2,6 +2,7 @@ package com.campinga.controller;
 
 import com.campinga.controller.action.Action;
 import com.campinga.controller.action.IndexAction;
+import com.campinga.controller.action.camping.CategoryAction;
 import com.campinga.controller.action.member.IdCheckFormAction;
 import com.campinga.controller.action.member.JoinAction;
 import com.campinga.controller.action.member.JoinFormAction;
@@ -24,6 +25,7 @@ public class ActionFactory {
 		else if(command.equals("login")) ac = new LoginAction();
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		else if(command.equals("logout")) ac = new LogoutAction();
+		else if(command.equals("category")) ac = new CategoryAction();
 		
 		return ac;
 	}

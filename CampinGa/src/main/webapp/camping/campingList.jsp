@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 <link href="camping/searchList.css" rel="stylesheet">
-
+<script type="text/javascript" src="camping/campingList.js"></script>
+<article>
 	<div id="campSerch">
-        <input type="text" name="nameKey" placeholder="검색할 캠핑장 이름을 입력해주세요">
-		<a href="#" onclick="searchCamp()"><img id="searchBtn" src="../images/sBtn.png"></a>
+        <input type="text" name="nameKey" id="key" placeholder="검색할 캠핑장 이름을 입력해주세요">
+		<a href="#" onclick="searchCamp()"><img id="searchBtn" src="images/sBtn.png"></a>
     </div>
     <div class="clear"></div>
     <hr>
@@ -26,17 +27,7 @@
 	            </div>
 	        </div>
         </c:forEach>
-        <!-- <div id="campInfo">
-        	<a href="#">
-        		<img id="campInfo_img" src="images/camp01.jpg">
-        	</a>
-            <div id="campInfo_text">
-                <span>{해여림 빌리지}</span><span>예약가능</span><br>
-                <span>{해여림 A}{100000}</span><br>
-                <span>{4} ~ {10}</span><br>
-                <span>{바베큐장, 주차장}</span><br>
-            </div>           
-        </div> -->
-    </div>
+    </div>    
     <div class="clear"></div>
+</article>
 <%@ include file="../footer.jsp" %>
