@@ -2,17 +2,21 @@
 
 
 function loginCheck(){
-	if(document.loginFrm.id.value==""){
-		alert("아이디는 필수입력사항입니다");
-		document.loginFrm.id.focus();
-		return false;
-	}else if(document.loginFrm.pwd.value==""){
-		alert("비밀번호는 필수입력사항입니다");
-		document.loginFrm.pwd.focus();
-		return false;
-	}else{
-		return true;	
-	}	
+   if(document.loginFrm.id.value==""){
+      alert("아이디는 필수입력사항입니다");
+      document.loginFrm.id.focus();
+      return false;
+   }else if(document.loginFrm.pwd.value==""){
+      alert("비밀번호는 필수입력사항입니다");
+      document.loginFrm.pwd.focus();
+      return false;
+   }else if(document.loginFrm.user.value==""){
+      alert("개인/사업자 체크는 필수입력사항입니다");
+      document.loginFrm.user.focus();
+      return false;
+   }else{
+      return true; 
+   }   
 }
 
 function idcheck(){
@@ -21,15 +25,15 @@ function idcheck(){
         document.joinForm.id.focus();
         return;
     }
-	var id = document.joinForm.id.value;
-	var url = "camp.do?command=idCheckForm&id="+id;
+   var id = document.joinForm.id.value;
+   var url = "camp.do?command=idCheckForm&id="+id;
     var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=400, scrollbars=no";
     window.open(url, "idCheck", opt);
 }
 
 function idok(id){
     opener.document.joinForm.id.value=id;
-	opener.document.joinForm.reid.value=id;
+   	opener.document.joinForm.reid.value=id;
     self.close();
 }
 
@@ -52,7 +56,7 @@ function joinCheck(){
     }else if(document.joinForm.phone.value==""){
         alert('전화번호를 입력해주세요');
         document.joinForm.phone.focus();
-	}else if(document.joinForm.email.value==""){
+   }else if(document.joinForm.email.value==""){
         alert('이메일을 입력해주세요');
         document.joinForm.email.focus();
     }else {
@@ -60,8 +64,3 @@ function joinCheck(){
         document.joinForm.submit();
     }
 }
-
-
-
-
-

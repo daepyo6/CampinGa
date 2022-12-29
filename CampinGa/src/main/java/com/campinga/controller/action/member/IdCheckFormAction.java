@@ -24,7 +24,7 @@ public class IdCheckFormAction implements Action {
 		
 		request.setAttribute("id", id);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("idCheck.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("member/idCheck.jsp");
 		rd.forward(request, response);	
 	}
 }

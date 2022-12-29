@@ -1,19 +1,12 @@
 package com.campinga.dto;
 
 public class MemberVO {
-	private Integer mseq;
 	private String mid;
 	private String pwd;
 	private String name;
 	private String mphone;
 	private String email;
 	
-	public Integer getMseq() {
-		return mseq;
-	}
-	public void setMseq(Integer mseq) {
-		this.mseq = mseq;
-	}
 	public String getMid() {
 		return mid;
 	}

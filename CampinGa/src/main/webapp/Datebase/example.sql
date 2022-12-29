@@ -2,7 +2,7 @@
 drop sequence businessman_seq;
 create sequence businessman_seq start with 1;
 
-
+select * from member;
 
 -- 사업자 입력 --
 insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3) 

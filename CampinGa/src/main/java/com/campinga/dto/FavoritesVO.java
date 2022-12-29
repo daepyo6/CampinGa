@@ -4,7 +4,14 @@ public class FavoritesVO {
 	private Integer fseq;
 	private Integer mseq;
 	private Integer cseq;
+	private String fav_check;
 	
+	public String getFav_check() {
+		return fav_check;
+	}
+	public void setFav_check(String fav_check) {
+		this.fav_check = fav_check;
+	}
 	public Integer getFseq() {
 		return fseq;
 	}

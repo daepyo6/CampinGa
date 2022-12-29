@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/campinga.css" rel="stylesheet">  
-
+<script src="member/script/member.js"></script>
 </head>
 <body>
 
@@ -28,9 +28,9 @@
 						<li><a href="camp.do?command=join">Join</a></li>
 					</c:when>
 					<c:otherwise>
-						<li>${loginUser.name}(${loginUser.id})</li>
-						<li><a href="camp.do?command=myPage">Mypage</a></li>
+						<li>${loginUser.name}(${loginUser.mid})</li>
 						<li><a href="camp.do?command=logout">Logout</a></li>
+						<li><a href="camp.do?command=myPage">Mypage</a></li>
 					</c:otherwise>
 				</c:choose>
 				<li><a href="camp.do?command=adminNoticeList">Notice</a></li>

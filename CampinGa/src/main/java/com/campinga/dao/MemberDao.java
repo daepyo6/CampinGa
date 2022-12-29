@@ -32,7 +32,6 @@ public class MemberDao {
 				mvo.setPwd(rs.getString("pwd"));
 				mvo.setEmail(rs.getString("email"));
 				mvo.setMphone(rs.getString("mphone"));
-				mvo.setMseq(rs.getInt("mseq"));
 			}
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {Dbman.close(con, pstmt, rs);}
