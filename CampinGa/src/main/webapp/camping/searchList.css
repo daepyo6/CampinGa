@@ -1,0 +1,27 @@
+@charset "UTF-8";
+.clear{
+    clear: both;
+}
+#campInfo{
+    float: left;
+    margin: 10px;
+}
+#campInfo_img{    
+    width: 300px;
+    height: 200px;
+    display: block;
+}
+#searchBtn{
+    width: 1rem;
+}
+#campSerch{
+    float: right;
+}
+#campSerch input{
+    border: none;
+    line-height: 20px;
+    width: 220px;
+}
+#campSerch input:focus{
+    border: none;
+}
