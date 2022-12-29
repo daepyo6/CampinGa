@@ -5,6 +5,6 @@ function searchCamp(){
         alert("검색어를 입력해주세요.")
         return;
     }else{
-        location.href="camp.do?command=searchName&key="+key
+        location.href="camp.do?command=searchResult&key="+key
     }
 }
