@@ -54,7 +54,7 @@ public class LoginAction implements Action {
 				request.setAttribute("message", "비밀번호가 틀렸어요");
 			else if (bvo.getPwd().equals(pwd)) {
 				HttpSession session = request.getSession();
-				session.setAttribute("loginUser", bvo);
+				session.setAttribute("loginBusinessman", bvo);
 				url = "camp.do?command=index";
 			} else
 				request.setAttribute("message", "기타의 이유로 로그인이 실패했어요. 관리자에게 문의하세요");

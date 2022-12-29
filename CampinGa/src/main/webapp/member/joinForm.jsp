@@ -6,7 +6,6 @@
       <input type="hidden" name="command" value="join">
       <div id="joinTable">
          <h1>회원가입</h1>
-         <span>${message}</span>
          <label>이름</label> <br>
          <div class="inputDiv">
             <input type="text" class="joinInput" name="name" size="20">

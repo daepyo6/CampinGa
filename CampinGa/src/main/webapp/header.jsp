@@ -23,14 +23,19 @@
 		<nav id="top_menu"> <!-- 메인메뉴 시작 -->
 			<ul>
 				<c:choose>
-					<c:when test="${empty loginUser}">
-						<li><a href="camp.do?command=loginForm">Login</a></li>
-						<li><a href="camp.do?command=join">Join</a></li>
-					</c:when>
-					<c:otherwise>
+					<c:when test="${not empty loginUser}">
 						<li><p>${loginUser.name}(${loginUser.mid})</p></li>
 						<li><a href="camp.do?command=logout">Logout</a></li>
 						<li><a href="camp.do?command=myPage">Mypage</a></li>
+					</c:when>
+					<c:when test="${not empty loginBusinessman}">
+						<li><p>${loginBusinessman.name}(${loginBusinessman.bid})</p></li>
+						<li><a href="camp.do?command=logout">Logout</a></li>
+						<li><a href="camp.do?command=myPage">Mypage</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="camp.do?command=loginForm">Login</a></li>
+						<li><a href="camp.do?command=joinForm">Join</a></li>
 					</c:otherwise>
 				</c:choose>
 				<li><a href="camp.do?command=adminNoticeList">Notice</a></li>

@@ -15,8 +15,12 @@ public class LogoutAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		session.removeAttribute("loginUser");
-		RequestDispatcher dp=request.getRequestDispatcher("camp.do?command=index");
+		if(session.getAttribute("loginUser") != null)
+			session.removeAttribute("loginUser");
+		else if(session.getAttribute("loginBusinessman") != null)
+			session.removeAttribute("loginBusinessman");
+		
+		RequestDispatcher dp = request.getRequestDispatcher("camp.do?command=index");
 		dp.forward(request, response);
 	}
 }
