@@ -3,9 +3,25 @@ package com.campinga.dto;
 public class FavoritesVO {
 	private Integer fseq;
 	private Integer mseq;
-	private Integer cseq;
+	private Integer bseq;
 	private String fav_check;
+	private String mid;
+	private String cname;
+	private String phone;
+	private Integer rn;
 	
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public String getFav_check() {
 		return fav_check;
 	}
@@ -24,11 +40,23 @@ public class FavoritesVO {
 	public void setMseq(Integer mseq) {
 		this.mseq = mseq;
 	}
-	public Integer getCseq() {
-		return cseq;
+	public Integer getBseq() {
+		return bseq;
 	}
-	public void setCseq(Integer cseq) {
-		this.cseq = cseq;
+	public void setBseq(Integer bseq) {
+		this.bseq = bseq;
+	}
+	public Integer getRn() {
+		return rn;
+	}
+	public void setRn(Integer rn) {
+		this.rn = rn;
+	}
+	public String getCname() {
+		return cname;
+	}
+	public void setCname(String cname) {
+		this.cname = cname;
 	}
 	
 	

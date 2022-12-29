@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>CampinGa</title>
 <link href="css/campinga.css" rel="stylesheet">  
 <script src="member/script/member.js"></script>
 </head>
@@ -26,12 +26,12 @@
 					<c:when test="${not empty loginUser}">
 						<li><p>${loginUser.name}(${loginUser.mid})</p></li>
 						<li><a href="camp.do?command=logout">Logout</a></li>
-						<li><a href="camp.do?command=myPage">Mypage</a></li>
+						<li><a href="camp.do?command=mypage">Mypage</a></li>
 					</c:when>
 					<c:when test="${not empty loginBusinessman}">
 						<li><p>${loginBusinessman.name}(${loginBusinessman.bid})</p></li>
 						<li><a href="camp.do?command=logout">Logout</a></li>
-						<li><a href="camp.do?command=myPage">Mypage</a></li>
+						<li><a href="camp.do?command=mypage">Mypage</a></li>
 					</c:when>
 					<c:otherwise>
 						<li><a href="camp.do?command=loginForm">Login</a></li>

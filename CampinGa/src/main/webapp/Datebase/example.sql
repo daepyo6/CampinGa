@@ -35,8 +35,17 @@ drop sequence favorites_seq;
 create sequence favorites_seq start with 1;
 
 
-insert into favorites(fseq, mid, cseq)
+insert into favorites(fseq, mid, bseq)
+values(favorites_seq.nextval, 'dp', 1);
+insert into favorites(fseq, mid, bseq)
 values(favorites_seq.nextval, 'dp', 2);
+insert into favorites(fseq, mid, bseq)
+values(favorites_seq.nextval, 'dp', 3);
+insert into favorites(fseq, mid, bseq)
+values(favorites_seq.nextval, 'whsia', 3);
+insert into favorites(fseq, mid, bseq)
+values(favorites_seq.nextval, 'dp', 4);
+
 
 select * from favorites; 
 
@@ -72,6 +81,30 @@ insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_
 values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
 'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
 '캠핑장','해여림 A', 'n', 100000, 4, 10);
+insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
+				min_people, max_people  )
+values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
+'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'캠핑장','해여림 B', 'n', 100000, 4, 10);
+
+insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
+				min_people, max_people  )
+values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
+'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'캠핑장','해여림 C', 'n', 100000, 4, 10);
+
+insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
+				min_people, max_people  )
+values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
+'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'캠핑장','해여림 D', 'n', 100000, 4, 10);
+
+insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
+				min_people, max_people  )
+values (camping_seq.nextval, 2,'후시아 빌리지','바베큐장, 주차장',
+'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'캠핑장','후시아 A', 'n', 200000, 4, 10);
+
 
 select * from camping;
 s
@@ -128,3 +161,39 @@ insert into reservation(reseq,cseq,mid,price,people,chk_in,chk_out)values
 
 
 select * from RESERVATION;
+
+
+
+
+
+-- 뷰 생성
+
+-- reservation 안의 사용자아이디와 캠핑장번호로 예약정보와 캠핑장정보를 조회하는 view를 생성
+create or replace view reservate_view
+as
+select r.reseq, c.cname, c.c_class, c.res_sta, r.mid, r.price, r.people, r.res_date, r.chk_in, r.chk_out
+from reservation r, member m, businessman b, camping c
+where m.mid = r.mid and r.cseq = c.cseq and b.bseq = c.bseq;
+
+DROP view reservate_view CASCADE CONSTRAINTS;
+select * from reservate_view;
+
+select res_date from reservate_view;
+
+
+-- favorites 안의 사용자아이디와 캠핑장번호로 즐겨찾기 된 캠핑장정보를 조회하는 view 생성
+create or replace view favorites_view
+as
+select rownum as rn, f.fseq, m.mid, b.cname, b.phone, f.fav_check  
+from favorites f, member m, businessman b
+where f.mid = m.mid and f.bseq = b.bseq;
+
+DROP view favorites_view CASCADE CONSTRAINTS;
+select * from favorites_view;
+
+
+
+
+
+
+
