@@ -37,6 +37,14 @@ nav#top_menu ul li {
 	float: left;
 	font-family: '맑은 고딕', 'Malgun Gothic';
 	font-size: 150%;
+	margin-left: 10px;
+}
+
+nav#top_menu p{
+	text-align: center;
+	color: #7f7f7f;
+	font-weight: bold;
+	line-height: 0px;
 }
 
 nav#top_menu a {
@@ -46,6 +54,7 @@ nav#top_menu a {
 	text-align: center;
 	color: #7f7f7f;
 	font-weight: bold;
+	margin-top: 5px;
 }
 
 nav#top_menu a:hover {

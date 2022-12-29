@@ -28,7 +28,7 @@
 						<li><a href="camp.do?command=join">Join</a></li>
 					</c:when>
 					<c:otherwise>
-						<li>${loginUser.name}(${loginUser.mid})</li>
+						<li><p>${loginUser.name}(${loginUser.mid})</p></li>
 						<li><a href="camp.do?command=logout">Logout</a></li>
 						<li><a href="camp.do?command=myPage">Mypage</a></li>
 					</c:otherwise>

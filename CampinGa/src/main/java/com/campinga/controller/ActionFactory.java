@@ -7,6 +7,7 @@ import com.campinga.controller.action.member.JoinAction;
 import com.campinga.controller.action.member.JoinFormAction;
 import com.campinga.controller.action.member.LoginAction;
 import com.campinga.controller.action.member.LoginFormAction;
+import com.campinga.controller.action.member.LogoutAction;
 
 public class ActionFactory {
 	private ActionFactory() {}
@@ -22,6 +23,7 @@ public class ActionFactory {
 		else if(command.equals("join")) ac = new JoinAction();
 		else if(command.equals("login")) ac = new LoginAction();
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
+		else if(command.equals("logout")) ac = new LogoutAction();
 		
 		return ac;
 	}
