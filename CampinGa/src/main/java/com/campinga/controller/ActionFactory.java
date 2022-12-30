@@ -11,6 +11,13 @@ import com.campinga.controller.action.member.LoginAction;
 import com.campinga.controller.action.member.LoginFormAction;
 import com.campinga.controller.action.member.LogoutAction;
 import com.campinga.controller.action.mypage.MypageAction;
+import com.campinga.controller.action.qna.DeleteQnaAction;
+import com.campinga.controller.action.qna.InsertQnaAction;
+import com.campinga.controller.action.qna.QnaViewAction;
+import com.campinga.controller.action.review.DeleteReviewAction;
+import com.campinga.controller.action.review.InsertReviewAction;
+import com.campinga.controller.action.review.ReviewFormAction;
+import com.campinga.controller.action.review.UpdateReviewAction;
 
 public class ActionFactory {
 	private ActionFactory() {}
@@ -27,15 +34,24 @@ public class ActionFactory {
 		else if(command.equals("login")) ac = new LoginAction();
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		else if(command.equals("logout")) ac = new LogoutAction();
-		else if(command.equals("category")) ac = new CategoryAction();
 		
 		// camping action
 		else if(command.equals("category")) ac = new CategoryAction();
 	    else if(command.equals("searchResult")) ac = new SearchResultAction();
 		
-		
 		// mypage action
 		else if(command.equals("mypage")) ac = new MypageAction();
+		
+		// review action
+		else if(command.equals("reviewForm")) ac = new ReviewFormAction();
+		else if(command.equals("insertReview")) ac = new InsertReviewAction();
+		else if(command.equals("updateReview")) ac = new UpdateReviewAction();
+		else if(command.equals("deleteReview")) ac = new DeleteReviewAction();
+		
+		// qna action
+		else if(command.equals("qnaView")) ac = new QnaViewAction();
+		else if(command.equals("insertQna")) ac = new InsertQnaAction();
+		else if(command.equals("deleteQna")) ac = new DeleteQnaAction();
 		
 		return ac;
 	}
