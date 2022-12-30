@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class ReviewVO {
 	private Integer rseq;
-	private Integer mseq;
+	private String mid;
 	private Integer bseq;
 	private String content;
 	private	Timestamp indate;
@@ -14,12 +14,6 @@ public class ReviewVO {
 	}
 	public void setRseq(Integer rseq) {
 		this.rseq = rseq;
-	}
-	public Integer getMseq() {
-		return mseq;
-	}
-	public void setMseq(Integer mseq) {
-		this.mseq = mseq;
 	}
 	public Integer getBseq() {
 		return bseq;
@@ -38,6 +32,12 @@ public class ReviewVO {
 	}
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
 	
 	

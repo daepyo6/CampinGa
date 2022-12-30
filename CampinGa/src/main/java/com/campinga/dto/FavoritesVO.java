@@ -2,10 +2,9 @@ package com.campinga.dto;
 
 public class FavoritesVO {
 	private Integer fseq;
-	private Integer mseq;
+	private String mid;
 	private Integer bseq;
 	private String fav_check;
-	private String mid;
 	private String cname;
 	private String phone;
 	private Integer rn;
@@ -33,12 +32,6 @@ public class FavoritesVO {
 	}
 	public void setFseq(Integer fseq) {
 		this.fseq = fseq;
-	}
-	public Integer getMseq() {
-		return mseq;
-	}
-	public void setMseq(Integer mseq) {
-		this.mseq = mseq;
 	}
 	public Integer getBseq() {
 		return bseq;

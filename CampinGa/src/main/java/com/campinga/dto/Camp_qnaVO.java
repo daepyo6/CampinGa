@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class Camp_qnaVO {
 	private Integer qseq;
-	private Integer mseq;
+	private String mid;
 	private Integer bseq;
 	private String content;
 	private Timestamp indate;
@@ -16,12 +16,6 @@ public class Camp_qnaVO {
 	}
 	public void setQseq(Integer qseq) {
 		this.qseq = qseq;
-	}
-	public Integer getMseq() {
-		return mseq;
-	}
-	public void setMseq(Integer mseq) {
-		this.mseq = mseq;
 	}
 	public Integer getBseq() {
 		return bseq;
@@ -52,6 +46,12 @@ public class Camp_qnaVO {
 	}
 	public void setRepyn(String repyn) {
 		this.repyn = repyn;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
 	
 	
