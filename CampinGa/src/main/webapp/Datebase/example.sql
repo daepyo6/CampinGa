@@ -192,8 +192,18 @@ DROP view favorites_view CASCADE CONSTRAINTS;
 select * from favorites_view;
 
 
+-- camping 안의 캠핑장 이름으로 정보 조회하는 view
+create or replace view camping_view
+as
+select c.cseq, c.bseq, c.cname, b.caddress1, b.caddress2, b.caddress3, c.facilities,
+		b.phone, c.image, c.content, c.category, c.c_class, c.res_sta, c.price,
+		c.min_people, c.max_people, c.c_indate
+from businessman b, camping c
+where b.bseq = c.bseq;
 
+select * from camping_view;
 
-
+SELECT cseq, cname, caddress1, caddress2, caddress3, phone 
+FROM camping_view where ROWID IN (SELECT MAX(ROWID) FROM camping_view GROUP BY cname);
 
 

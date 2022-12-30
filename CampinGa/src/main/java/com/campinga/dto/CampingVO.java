@@ -16,7 +16,35 @@ public class CampingVO {
 	private Integer min_people;
 	private Integer max_people;
 	private Timestamp c_indate;
+	private String caddress1;
+	private String caddress2;
+	private String caddress3;
+	private String phone;
 	
+	public String getCaddress1() {
+		return caddress1;
+	}
+	public void setCaddress1(String caddress1) {
+		this.caddress1 = caddress1;
+	}
+	public String getCaddress2() {
+		return caddress2;
+	}
+	public void setCaddress2(String caddress2) {
+		this.caddress2 = caddress2;
+	}
+	public String getCaddress3() {
+		return caddress3;
+	}
+	public void setCaddress3(String caddress3) {
+		this.caddress3 = caddress3;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public Integer getCseq() {
 		return cseq;
 	}
