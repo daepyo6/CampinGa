@@ -25,14 +25,14 @@
 			<ul>
 				<c:choose>
 					<c:when test="${not empty loginUser}">
-						<li><p>${loginUser.name}(${loginUser.mid})</p></li>
+						<li><a href="camp.do?command=mypage" style="width: 100px;">
+							${loginUser.name}(${loginUser.mid})</a></li>
 						<li><a href="camp.do?command=logout">Logout</a></li>
-						<li><a href="camp.do?command=mypage">Mypage</a></li>
 					</c:when>
 					<c:when test="${not empty loginBusinessman}">
-						<li><p>${loginBusinessman.name}(${loginBusinessman.bid})</p></li>
+						<li><a href="camp.do?command=mypage">
+							${loginBusinessman.name}(${loginBusinessman.bid})</a></li>
 						<li><a href="camp.do?command=logout">Logout</a></li>
-						<li><a href="camp.do?command=mypage">Mypage</a></li>
 					</c:when>
 					<c:otherwise>
 						<li><a href="camp.do?command=loginForm">Login</a></li>

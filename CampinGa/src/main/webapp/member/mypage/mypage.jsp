@@ -3,13 +3,10 @@
 
 <%@ include file="../../header.jsp"%>
 <article>
-
 	<!-- 회원 간단한 정보 + 정보수정 버튼-->
 	<form>
+		<h1>회원정보</h1>
 		<table id="memberInfoList">
-			<tr>
-				<th>회원정보</th>
-			</tr>
 			<tr>
 				<td>이름</td>
 				<td>${loginUser.name}</td>
@@ -31,6 +28,7 @@
 
 	<!-- "예약 조회" 현재 예약조회, 지난 예약조회-->
 	<form>
+		<h1>예약 조회</h1>
 		<table id="reservateList">
 			<tr>
 				<th>예약일자</th>
@@ -44,11 +42,12 @@
 			<!-- 가짜데이터 이후 c:forEach 사용하여 테이블 조회할 것.-->
 			<c:forEach items="${reList}" var="resVO">
 				<tr>
-					<td>${resVO.res_date}</td>
+					<td><fmt:formatDate value="${resVO.res_date}" type="both" 
+							dateStyle="short" timeStyle="short"/></td>
 					<td><a href="#">${resVO.cname}&nbsp;${resVO.c_class}</a></td>
 					<td>${resVO.people}명</td>
-					<td>${resVO.chk_in}</td>
-					<td>${resVO.chk_out}</td>
+					<td><fmt:formatDate value="${resVO.chk_in}" type="date"/></td>
+					<td><fmt:formatDate value="${resVO.chk_out}" type="date"/></td>
 					<td>${resVO.price}</td>
 					<td><input type="button" value="취소" onclick=""></td>
 				</tr>
@@ -59,6 +58,7 @@
 
 	<!-- "내 즐겨찾기" 현재 회원이 즐겨찾기한 캠핑장의 내역을 출력 -->
 	<form>
+		<h1>즐겨찾기</h1>
 		<table id="favoritesList">
 			<tr>
 				<th>번호</th>

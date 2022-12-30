@@ -14,24 +14,31 @@ import com.campinga.dto.CampingVO;
 public class CategoryAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		//All=1, auto=2, camping=3, caravane=4, campnic=5
+		String url = "camping/campingList.jsp";
+		ArrayList<CampingVO> list = null;
+		// All=1, auto=2, camping=3, caravane=4, campnic=5
 		int category = Integer.parseInt(request.getParameter("kind"));
 		String kind = "";
 		CampDao cdao = CampDao.getInstance();
-		if(category==1) {
-			ArrayList<CampingVO> list = cdao.selectAll();
+		if (category == 1) {
+			list = cdao.selectAll();
 			request.setAttribute("campList", list);
-			request.getRequestDispatcher("camping/campingList.jsp").forward(request, response);
-		} else if(category==2) kind = "auto";
-		else if(category==3) kind = "camping";
-		else if(category==4) kind = "caravane";
-		else if(category==5) kind = "campnic";
-		
-		ArrayList<CampingVO> list = cdao.selectCategory(kind);
+		} else if (category == 2) {
+			kind = "auto";
+			list = cdao.selectCategory(kind);
+		} else if (category == 3) {
+			kind = "camping";
+			list = cdao.selectCategory(kind);
+		} else if (category == 4) {
+			kind = "caravane";
+			list = cdao.selectCategory(kind);
+		} else if (category == 5) {
+			kind = "campnic";
+			list = cdao.selectCategory(kind);
+		}
 		request.setAttribute("campList", list);
-		request.getRequestDispatcher("camping/campingList.jsp").forward(request, response);
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 }
