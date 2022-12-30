@@ -17,24 +17,21 @@ public class QnaViewAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		  String url = "camping/qna/qnaView.jsp";
-	      
-	      
-	       HttpSession session = request.getSession();
-	       MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-	       if (mvo == null) {
-	          url = "camp.do?command=loginForm";
-	       } else {
-	          Camp_qnaDao qdao = Camp_qnaDao.getInstance();
-	          ArrayList<Camp_qnaVO> qnalist = qdao.getQna( mvo.getMid() );
-	          // Camp_qnaVO qvo = qdao.getQna( qseq );
-	          
-	          
-	          request.setAttribute("qnalist", qnalist);
-	       }
-	       request.getRequestDispatcher(url).forward(request, response);
 
+		String url = "camping/campDetail.jsp";
+
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		if (mvo == null) {
+			url = "camp.do?command=loginForm";
+		} else {
+			Camp_qnaDao qdao = Camp_qnaDao.getInstance();
+			ArrayList<Camp_qnaVO> qnalist = qdao.getQna();
+			// Camp_qnaVO qvo = qdao.getQna( qseq );
+
+			request.setAttribute("qnalist", qnalist);
+		}
+		request.getRequestDispatcher(url).forward(request, response);
 
 	}
 

@@ -32,14 +32,13 @@ public class Camp_qnaDao {
 	      
 	   }
 
-	   public ArrayList<Camp_qnaVO> getQna(String mid) {
+	   public ArrayList<Camp_qnaVO> getQna() {
 	      ArrayList<Camp_qnaVO> list = new ArrayList<Camp_qnaVO>();
 	      
-	      String sql = "select * from camp_qna where mid=?";
+	      String sql = "select * from camp_qna";
 	      con = Dbman.getConnection();
 	      try {
 	         pstmt = con.prepareStatement(sql);
-	         pstmt.setString(1, mid);
 	         rs = pstmt.executeQuery();
 	         while(rs.next() ) {
 	            Camp_qnaVO qvo = new Camp_qnaVO();

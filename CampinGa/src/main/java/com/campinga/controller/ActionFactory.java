@@ -2,6 +2,7 @@ package com.campinga.controller;
 
 import com.campinga.controller.action.Action;
 import com.campinga.controller.action.IndexAction;
+import com.campinga.controller.action.camping.CampDetailAction;
 import com.campinga.controller.action.camping.CategoryAction;
 import com.campinga.controller.action.camping.SearchResultAction;
 import com.campinga.controller.action.member.IdCheckFormAction;
@@ -38,6 +39,8 @@ public class ActionFactory {
 		// camping action
 		else if(command.equals("category")) ac = new CategoryAction();
 	    else if(command.equals("searchResult")) ac = new SearchResultAction();
+	    else if(command.equals("campDetail")) ac = new CampDetailAction();
+		
 		
 		// mypage action
 		else if(command.equals("mypage")) ac = new MypageAction();

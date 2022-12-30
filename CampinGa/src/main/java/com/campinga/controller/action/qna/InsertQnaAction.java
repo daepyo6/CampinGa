@@ -16,27 +16,23 @@ public class InsertQnaAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String url = "camp.do?command=qnaView";
-		String bseq = "1";
-		
-		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");   
-	    
-	   if (mvo == null) {
-	    	url = "camp.do?command=loginForm"; 
-	    
-	    }else{
-	    	Camp_qnaVO qvo = new Camp_qnaVO();
-	    	qvo.setContent(request.getParameter("content"));
-	    	qvo.setMid(mvo.getMid());
-	    	
-	    	Camp_qnaDao qdao = Camp_qnaDao.getInstance();
-	    	qdao.insertQna(qvo, 1);
-	    }
-	    response.sendRedirect(url);
-	    
-  
-	}
 
+		String url = "camping/campDetail.jsp";
+		String bseq = "1";
+
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+
+		if (mvo == null) {
+			url = "camp.do?command=loginForm";
+		} else {
+			Camp_qnaVO qvo = new Camp_qnaVO();
+			qvo.setContent(request.getParameter("content"));
+			qvo.setMid(mvo.getMid());
+
+			Camp_qnaDao qdao = Camp_qnaDao.getInstance();
+			qdao.insertQna(qvo, 1);
+		}
+		response.sendRedirect(url);
+	}
 }

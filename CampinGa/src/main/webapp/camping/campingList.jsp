@@ -13,7 +13,7 @@
     <hr>
     <div id="searchResult">  
         <c:forEach items="${campList}" var="campVO">
-        	<a href="camp.do?command=campdetail&bseq=${campVO.bseq}" >
+        	<a href="camp.do?command=campDetail&bseq=${campVO.bseq}" >
 		        <div id="campInfo">	        	
 		            	<img id="campInfo_img" src="images/${campVO.image}">	            
 		            <div id="campInfo_text">

@@ -10,7 +10,7 @@
 			<legend></legend>
 				<label>User ID</label><input name="id" type="text"><br> 
 		        <label>Password</label><input name="pwd" type="password"><br>
-		         <input type="radio" name="user" value="1"/>개인 &nbsp; &nbsp; 
+		         <input type="radio" name="user" value="1" checked="checked"/>개인 &nbsp; &nbsp; 
 		   		 <input type="radio" name="user" value="2"/>사업자
 		</fieldset>
 		<div id="buttons">

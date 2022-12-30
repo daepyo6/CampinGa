@@ -32,7 +32,7 @@ CREATE TABLE businessman
 	name varchar2(20) NOT NULL,
 	phone varchar2(20) NOT NULL,
 	email varchar2(30) NOT NULL,
-	cname varchar2(30) NOT NULL,
+	cname varchar2(50) NOT NULL,
 	caddress1 varchar2(20) NOT NULL,
 	caddress2 varchar2(20) NOT NULL,
 	caddress3 varchar2(100) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE camping
 (
 	cseq number(5) NOT NULL,
 	bseq number(5) NOT NULL,
-	cname varchar2(20) NOT NULL,
+	cname varchar2(50) NOT NULL,
 	facilities varchar2(200),
 	image varchar2(20),
 	content varchar2(1000),
@@ -190,7 +190,4 @@ ALTER TABLE review
 	ADD FOREIGN KEY (mid)
 	REFERENCES member (mid)
 ;
-
-insert into member(mseq, mid, pwd, name, mphone, email)
-values(0, 'somi', '1234', '김소미', '010-1234-1234', 'aaa@naver.com');
 

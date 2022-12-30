@@ -24,6 +24,34 @@ values(businessman_seq.nextval, 'hw', '1234', '정현우', '010-1111-5555', 'abc@ab
 select * from businessman;
 
 
+insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
+				min_people, max_people  )
+values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
+'camp01.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'camping','해여림 AA', 'n', 200000, 4, 10);
+
+insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
+				min_people, max_people  )
+values (camping_seq.nextval, 2,'경주 텐타우스','바베큐장, 주차장, 와이파이',
+'camp01.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'camping','텐타우스 A', 'n', 200000, 4, 10);
+insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
+				min_people, max_people  )
+values (camping_seq.nextval, 3,'연천 써니힐즈','바베큐장, 주차장, 와이파이',
+'camp01.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'auto','써니힐즈 A', 'n', 200000, 4, 10);
+insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
+				min_people, max_people  )
+values (camping_seq.nextval, 4,'홍천 해솔캠핑장','바베큐장, 주차장, 와이파이',
+'camp01.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'caravane','해솔캠핑장 A', 'n', 200000, 4, 10);
+insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
+				min_people, max_people  )
+values (camping_seq.nextval, 4,'태안 굼벵이 캠핑농원','바베큐장, 주차장, 와이파이',
+'camp01.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'campnic','캠핑농원 A', 'n', 200000, 4, 10);
+
+
 
 -- 관리자 입력 -- 
 insert into admin(aid, pwd)
@@ -79,31 +107,31 @@ create sequence camping_seq start with 1;
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
 values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
-'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'camp02.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
 'camping','해여림 A', 'n', 100000, 4, 10);
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
 values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
-'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'camp02.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
 'camping','해여림 B', 'n', 100000, 4, 10);
 
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
 values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
-'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'camp02.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
 'camping','해여림 C', 'n', 100000, 4, 10);
 
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
 values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
-'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
-'캠핑장','해여림 D', 'n', 100000, 4, 10);
+'camp02.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
+'camping','해여림 D', 'n', 100000, 4, 10);
 
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
-values (camping_seq.nextval, 2,'후시아 빌리지','바베큐장, 주차장',
+values (camping_seq.nextval, 4,'홍천 해솔캠핑장','바베큐장, 주차장',
 'w-1.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
-'캠핑장','후시아 A', 'n', 200000, 4, 10);
+'camping','후시아 A', 'n', 200000, 4, 10);
 
 
 select * from camping;
