@@ -19,16 +19,16 @@ function loginCheck(){
    }   
 }
 
-function idcheck(){
+function idcheck(type){
     if(document.joinForm.id.value==""){
         alert("체크할 아이디를 입력해주세요");
         document.joinForm.id.focus();
         return;
-    }
-   var id = document.joinForm.id.value;
-   var url = "camp.do?command=idCheckForm&id="+id;
-    var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=400, scrollbars=no";
-    window.open(url, "idCheck", opt);
+    }	
+    var id = document.joinForm.id.value;
+    var url = "camp.do?command=idCheckForm&id="+id+"&type="+type;
+	var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=400, scrollbars=no";
+	window.open(url, "idCheck", opt);
 }
 
 function idok(id){

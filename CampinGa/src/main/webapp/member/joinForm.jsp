@@ -13,7 +13,7 @@
          <label>아이디</label> <br>
          <div class="inputDiv">
             <input type="text" class="joinInput" name="id" size="20">
-            <input type="button" value="ID중복체크" onclick="idcheck();" class="button">
+            <input type="button" value="ID중복체크" onclick="idcheck(1);" class="button">
             <input type="hidden" name="reid">
          </div>                  
          <label>비밀번호</label> <br>
