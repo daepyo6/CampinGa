@@ -3,13 +3,15 @@
 <link href="camping/searchList.css" rel="stylesheet">
 <script type="text/javascript" src="camping/campingList.js"></script>
 <article>
+	<!-- 지역 검색창 영역(예정) -->
+	<div class="clear"></div>
 	<div id="campSerch">
         <input type="text" name="nameKey" id="key" placeholder="검색할 캠핑장 이름을 입력해주세요">
 		<a href="#" onclick="searchCamp()"><img id="searchBtn" src="images/sBtn.png"></a>
     </div>
     <div class="clear"></div>
     <hr>
-    <div id="searchResult">    	
+    <div id="searchResult">  
         <c:forEach items="${campList}" var="campVO">
 	        <div id="campInfo">
 	        	<a href="camp.do?command=campdetail&cseq=${campVO.cseq}" >
