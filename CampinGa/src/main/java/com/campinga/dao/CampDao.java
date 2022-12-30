@@ -21,7 +21,11 @@ public class CampDao {
 	public ArrayList<CampingVO> selectCategory(String category) {
 		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
 		con = Dbman.getConnection();
-		String sql = "select*from camping where category=?";
+		String sql = "SELECT bseq, cname, category, facilities,"
+				+ " caddress1, caddress2, caddress3, phone, image" 
+				+ " FROM camping_view where "
+				+ " ROWID IN (SELECT MAX(ROWID) FROM camping_view GROUP BY bseq)"
+				+ "	and category=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, category);
@@ -29,16 +33,14 @@ public class CampDao {
 			while (rs.next()) {
 				CampingVO cvo = new CampingVO();
 				cvo.setBseq(rs.getInt("bseq"));
-				cvo.setCseq(rs.getInt("cseq"));
-				cvo.setC_class(rs.getString("c_class"));
 				cvo.setCategory(rs.getString("category"));
 				cvo.setCname(rs.getString("cname"));
 				cvo.setFacilities(rs.getString("facilities"));
+				cvo.setCaddress1(rs.getString("caddress1"));
+				cvo.setCaddress2(rs.getString("caddress2"));
+				cvo.setCaddress3(rs.getString("caddress3"));
 				cvo.setImage(rs.getString("image"));
-				cvo.setMax_people(rs.getInt("max_people"));
-				cvo.setMin_people(rs.getInt("min_people"));
-				cvo.setPrice(rs.getInt("price"));
-				cvo.setRes_sta(rs.getString("res_sta"));
+				cvo.setPhone(rs.getString("phone"));
 				list.add(cvo);
 			}
 		} catch (SQLException e) {e.printStackTrace();
@@ -49,7 +51,11 @@ public class CampDao {
 	public ArrayList<CampingVO> selectName(String key) {
 		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
 		con = Dbman.getConnection();
-		String sql = "select*from camping where cname like '%'||?||'%'";
+		String sql = "SELECT bseq, cname, category, facilities,"
+				+ " caddress1, caddress2, caddress3, phone, image"
+				+ " FROM camping_view where ROWID "
+				+ " IN (SELECT MAX(ROWID) FROM camping_view GROUP BY bseq)"
+				+ " and cname like '%'||?||'%'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, key);
@@ -57,16 +63,44 @@ public class CampDao {
 			while (rs.next()) {
 				CampingVO cvo = new CampingVO();
 				cvo.setBseq(rs.getInt("bseq"));
-				cvo.setCseq(rs.getInt("cseq"));
-				cvo.setC_class(rs.getString("c_class"));
 				cvo.setCategory(rs.getString("category"));
 				cvo.setCname(rs.getString("cname"));
 				cvo.setFacilities(rs.getString("facilities"));
+				cvo.setCaddress1(rs.getString("caddress1"));
+				cvo.setCaddress2(rs.getString("caddress2"));
+				cvo.setCaddress3(rs.getString("caddress3"));
 				cvo.setImage(rs.getString("image"));
-				cvo.setMax_people(rs.getInt("max_people"));
-				cvo.setMin_people(rs.getInt("min_people"));
-				cvo.setPrice(rs.getInt("price"));
-				cvo.setRes_sta(rs.getString("res_sta"));
+				cvo.setPhone(rs.getString("phone"));
+				list.add(cvo);
+			}
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);			
+		}
+		System.out.println(rs!=null);
+		return list;
+	}
+
+	public ArrayList<CampingVO> selectAll() {
+		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
+		con = Dbman.getConnection();
+		String sql = "SELECT bseq, cname, category, facilities,"
+				+ " caddress1, caddress2, caddress3, phone, image"
+				+ " FROM camping_view where ROWID IN (SELECT MAX(ROWID)"
+				+ " FROM camping_view GROUP BY bseq)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				CampingVO cvo = new CampingVO();
+				cvo.setBseq(rs.getInt("bseq"));
+				cvo.setCategory(rs.getString("category"));
+				cvo.setCname(rs.getString("cname"));
+				cvo.setFacilities(rs.getString("facilities"));
+				cvo.setCaddress1(rs.getString("caddress1"));
+				cvo.setCaddress2(rs.getString("caddress2"));
+				cvo.setCaddress3(rs.getString("caddress3"));
+				cvo.setImage(rs.getString("image"));
+				cvo.setPhone(rs.getString("phone"));
 				list.add(cvo);
 			}
 		} catch (SQLException e) {e.printStackTrace();

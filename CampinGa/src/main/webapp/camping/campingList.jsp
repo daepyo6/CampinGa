@@ -13,21 +13,18 @@
     <hr>
     <div id="searchResult">  
         <c:forEach items="${campList}" var="campVO">
-	        <div id="campInfo">
-	        	<a href="camp.do?command=campdetail&cseq=${campVO.cseq}" >
-	            	<img id="campInfo_img" src="images/camp02.jpg">
-	            </a>
-	            <div id="campInfo_text">
-	            	<c:choose>
-	                	<c:when test="${campVO.res_sta=='n'}"><span>예약불가능</span></c:when>
-	                	<c:otherwise><span>예약가능</span></c:otherwise>
-	                </c:choose><br>
-	                <p>${campVO.cname} - ${campVO.c_class}<br>
-	                가격 : ${campVO.price} 원 <br>
-	                인원 : ${campVO.min_people} ~ ${campVO.max_people}명 <br>
-	                편의시설 : ${campVO.facilities}</p>
-	            </div>
-	        </div>
+        	<a href="camp.do?command=campdetail&bseq=${campVO.bseq}" >
+		        <div id="campInfo">	        	
+		            	<img id="campInfo_img" src="images/${campVO.image}">	            
+		            <div id="campInfo_text">
+		                <p>${campVO.cname}<br>
+		                주소 : ${campVO.caddress1} ${campVO.caddress2} <br>
+		                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ${campVO.caddress3} <br>
+		                카테고리 : ${campVO.category}<br>
+		                편의시설 : ${campVO.facilities}</p>
+		            </div>
+		        </div>
+	        </a>
         </c:forEach>
     </div>    
     <div class="clear"></div>
