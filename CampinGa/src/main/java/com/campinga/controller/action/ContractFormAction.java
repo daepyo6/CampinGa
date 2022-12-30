@@ -1,24 +1,24 @@
-package com.campinga.controller.action.member;
+package com.campinga.controller.action;
 
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.campinga.controller.action.Action;
+import com.campinga.dto.MemberVO;
 
-public class JoinFormAction implements Action {
+public class ContractFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		String user = request.getParameter("user");
-		String url = "camp.do?command=index";
-		if(user.equals("1")) {
-			url = "member/joinForm.jsp";
-		} else if(user.equals("2")) {
-			url = "business/joinForm.jsp";
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");		
+		String url = "member/contract.jsp";
+		if(mvo!=null) {
+			url = "camp.do?command=index";
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}

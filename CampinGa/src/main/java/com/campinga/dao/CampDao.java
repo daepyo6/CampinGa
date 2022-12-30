@@ -76,7 +76,6 @@ public class CampDao {
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {Dbman.close(con, pstmt, rs);			
 		}
-		System.out.println(rs!=null);
 		return list;
 	}
 
@@ -106,7 +105,6 @@ public class CampDao {
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {Dbman.close(con, pstmt, rs);			
 		}
-		System.out.println(rs!=null);
 		return list;
 	}
 }

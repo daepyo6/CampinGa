@@ -64,3 +64,30 @@ function joinCheck(){
         document.joinForm.submit();
     }
 }
+
+function joinChoose(type){
+    if(type==1){
+        document.contractFrm.contract.value = "일반회원 가입약관";
+        document.contractFrm.user.value = 1;
+        return;
+    } else if(type==2){
+        document.contractFrm.contract.value = "사업자회원 가입약관";
+        document.contractFrm.user.value = 2;
+        return;
+    }
+    return;
+}
+
+function go_next(){	
+	console.log(document.contractFrm.user.value);
+	if(document.contractFrm.user.value==""){
+		alert("가입유형을 선택해 주세요")
+		return;
+	}
+    if(document.contractFrm.okon[1].checked==true){
+    alert("회원 약관에 동의 하셔야 회원으로 가입이 가능합니다.")
+    }else{
+    document.contractFrm.action = "camp.do?command=joinForm";
+    document.contractFrm.submit();
+    }
+}
