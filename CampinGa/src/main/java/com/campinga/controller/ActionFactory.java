@@ -3,6 +3,7 @@ package com.campinga.controller;
 import com.campinga.controller.action.Action;
 import com.campinga.controller.action.IndexAction;
 import com.campinga.controller.action.camping.CategoryAction;
+import com.campinga.controller.action.camping.SearchResultAction;
 import com.campinga.controller.action.member.IdCheckFormAction;
 import com.campinga.controller.action.member.JoinAction;
 import com.campinga.controller.action.member.JoinFormAction;
@@ -27,6 +28,11 @@ public class ActionFactory {
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		else if(command.equals("logout")) ac = new LogoutAction();
 		else if(command.equals("category")) ac = new CategoryAction();
+		
+		// camping action
+		else if(command.equals("category")) ac = new CategoryAction();
+	    else if(command.equals("searchResult")) ac = new SearchResultAction();
+		
 		
 		// mypage action
 		else if(command.equals("mypage")) ac = new MypageAction();
