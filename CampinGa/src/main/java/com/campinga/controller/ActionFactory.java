@@ -1,7 +1,9 @@
 package com.campinga.controller;
 
 import com.campinga.controller.action.Action;
+import com.campinga.controller.action.ContractFormAction;
 import com.campinga.controller.action.IndexAction;
+import com.campinga.controller.action.business.BusinessJoinAction;
 import com.campinga.controller.action.camping.CategoryAction;
 import com.campinga.controller.action.camping.SearchResultAction;
 import com.campinga.controller.action.member.IdCheckFormAction;
@@ -52,6 +54,10 @@ public class ActionFactory {
 		else if(command.equals("qnaView")) ac = new QnaViewAction();
 		else if(command.equals("insertQna")) ac = new InsertQnaAction();
 		else if(command.equals("deleteQna")) ac = new DeleteQnaAction();
+		
+		//
+		else if(command.equals("contractForm")) ac = new ContractFormAction();
+		else if(command.equals("businessJoin")) ac = new BusinessJoinAction();
 		
 		return ac;
 	}
