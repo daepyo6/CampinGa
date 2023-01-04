@@ -39,4 +39,25 @@ public class BusinessmanDao {
       } finally {Dbman.close(con, pstmt, rs);}
       return bvo;
    }
+
+   public void insertBusiness(BusinessmanVO bvo) {
+	   con = Dbman.getConnection();
+	   String sql = "insert into businessman(bseq, bid, pwd, name, phone, email, cname,"
+	   		      + " caddress1, caddress2, caddress3)"
+	   		      + " values(businessman_seq.nextval,?,?,?,?,?,?,?,?,?)";
+	   try {
+		   pstmt = con.prepareStatement(sql);
+		   pstmt.setString(1, bvo.getBid());
+		   pstmt.setString(2, bvo.getPwd());
+		   pstmt.setString(3, bvo.getName());
+		   pstmt.setString(4, bvo.getPhone());
+		   pstmt.setString(5, bvo.getEmail());
+		   pstmt.setString(6, bvo.getCname());
+		   pstmt.setString(7, bvo.getCaddress1());
+		   pstmt.setString(8, bvo.getCaddress2());
+		   pstmt.setString(9, bvo.getCaddress3());
+		   pstmt.executeUpdate();
+	   } catch (SQLException e) {e.printStackTrace();
+	   } finally {Dbman.close(con, pstmt, rs);}	
+   }
 }

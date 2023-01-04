@@ -36,7 +36,7 @@
 					</c:when>
 					<c:otherwise>
 						<li><a href="camp.do?command=loginForm">Login</a></li>
-						<li><a href="camp.do?command=joinForm">Join</a></li>
+						<li><a href="camp.do?command=contractForm">Join</a></li>
 					</c:otherwise>
 				</c:choose>
 				<li><a href="camp.do?command=reviewForm">Notice</a></li>
