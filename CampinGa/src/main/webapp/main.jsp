@@ -5,30 +5,31 @@
 
 <!-- 메인 이미지 시작 : 각기능별 페이지를 대표하는 이미지-->
 <div id="main_img">
-	<img src="images/main.png"  style="width:1198px; height:600px; 
-				border-radius:20px 20px 20px 20px; border:2px solid white;"> 
+	<img id="mainImg" src="images/main.png"> 	
 </div>
-
 <div id="main_searchbar">
-	<div id="box">
-	    <div class="searchbar">
+	<div id="selects">
+	    <div id="selectAddress">
 	    	<span>지역별</span>
-	    	<select name="" id="">
+	    	<select name="address1" class="selectAd">
 			    <option value="" selected="selected">전체/도</option>
 			    <option value="1">서울시</option>
 			    <option value="2">경기도</option>
 			</select>
-			<select name="" id="">
+			<select name="address2" class="selectAd">
 			    <option value="" selected="selected">전체/시/군</option>
 			</select>
-	    </div>
-	    <div class="searchbar">
-	    	<span>캠핑장명</span> 
-	    	<input type="text" class="text" name="cname" size="20">
 	    </div><br>
-	    <input type="button" class="btn" value="검색">
-    </div>
+	    <div id="searchName">
+	    	<span>캠핑장명</span> 
+	    	<input type="text" id="inputText" name="cname" size="20">
+	    	<input type="button" id="mainBtn" value="검색">
+	    </div>
+	    
+    </div>    
 </div>
+
+
 
 
 
