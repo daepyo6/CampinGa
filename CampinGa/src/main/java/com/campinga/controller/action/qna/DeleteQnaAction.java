@@ -16,11 +16,12 @@ public class DeleteQnaAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		  String qseq = request.getParameter("qseq");
+		  String bseq = request.getParameter("bseq");
 	      
 		  Camp_qnaDao qdao =  Camp_qnaDao.getInstance();
 	      qdao.deleteQna( Integer.parseInt(qseq) );
 	     
-	      response.sendRedirect("camp.do?command=campDetail.jsp");
+	      response.sendRedirect("camp.do?command=campDetail&bseq="+bseq);
 
 	}
 

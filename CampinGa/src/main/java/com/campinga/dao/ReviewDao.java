@@ -19,14 +19,14 @@ public class ReviewDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	  public void insertReview(ReviewVO rvo, String mid) {
+	  public void insertReview(ReviewVO rvo) {
 
 	      String sql = "insert into review (rseq, mid, bseq, content) " + " values(review_seq.nextval , ? , ? , ?) ";
 	      con = Dbman.getConnection();
 	      try {
 	         pstmt = con.prepareStatement(sql);
-	         pstmt.setString(1, mid);
-	         pstmt.setInt(2, 1);
+	         pstmt.setString(1, rvo.getMid());
+	         pstmt.setInt(2, rvo.getBseq());
 	         pstmt.setString(3, rvo.getContent());
 
 	         pstmt.executeUpdate();
@@ -38,15 +38,16 @@ public class ReviewDao {
 
 	   }
 
-	   public ArrayList<ReviewVO> selectReview() {
+	   public ArrayList<ReviewVO> selectReview(int bseq) {
 
 	      ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
 
-	      String sql = "select * from review order by rseq desc ";
+	      String sql = "select * from review where bseq=? order by rseq desc ";
 
 	      con = Dbman.getConnection();
 	      try {
 	         pstmt = con.prepareStatement(sql);
+	         pstmt.setInt(1, bseq);
 	         rs = pstmt.executeQuery();
 	         while (rs.next()) {
 	            ReviewVO rvo = new ReviewVO();
@@ -70,7 +71,7 @@ public class ReviewDao {
 
 	   public void updateReview(ReviewVO rvo) {
 
-	      String sql = "update review set indate=sysdate, content=? where rseq=?";
+	      String sql = "update review set content=? where rseq=?";
 	      con = Dbman.getConnection();
 	      try {
 	         pstmt = con.prepareStatement(sql);

@@ -15,11 +15,12 @@ public class DeleteReviewAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	      String rseq = request.getParameter("rseq");
+	      String bseq = request.getParameter("bseq");
 	      
 	      ReviewDao rdao = ReviewDao.getInstance();
-	      rdao.deleteReview( Integer.parseInt(rseq) );
+	      rdao.deleteReview(Integer.parseInt(rseq));
 	     
-	      response.sendRedirect("camp.do?command=campDetail");
+	      response.sendRedirect("camp.do?command=campDetail&bseq="+bseq);
 
 	}
 

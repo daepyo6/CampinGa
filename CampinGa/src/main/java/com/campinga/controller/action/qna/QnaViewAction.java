@@ -17,7 +17,7 @@ public class QnaViewAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		/*
 		String url = "camping/campDetail.jsp";
 
 		HttpSession session = request.getSession();
@@ -32,7 +32,7 @@ public class QnaViewAction implements Action {
 			request.setAttribute("qnalist", qnalist);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
-
+	*/
 	}
 
 }

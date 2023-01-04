@@ -8,19 +8,20 @@
 		<h1>회원정보</h1>
 		<table id="memberInfoList">
 			<tr>
-				<td>이름</td>
+				<th>이름</th>
 				<td>${loginUser.name}</td>
 			</tr>
 			<tr>
-				<td>이메일</td>
+				<th>이메일</th>
 				<td>${loginUser.email}</td>
 			</tr>
 			<tr>
-				<td>전화번호</td>
+				<th>전화번호</th>
 				<td>${loginUser.mphone}</td>
 			</tr>
 			<tr>
-				<td colspan="3"><input type="button" value="정보수정" onclick=""></td>
+				<td colspan="3"><input type="button" value="정보수정" 
+					onclick="location.href='camp.do?command=editForm'"></td>
 			</tr>
 		</table>
 	</form>

@@ -91,3 +91,27 @@ function go_next(){
     document.contractFrm.submit();
     }
 }
+
+
+
+
+function go_update(){
+	if (document.joinForm.pwd.value == "") {
+	    alert("비밀번호를 입력해 주세요.");
+	    document.joinForm.pwd.focus();
+	}else if ((document.joinForm.pwd.value != document.joinForm.pwdCheck.value)) {
+	    alert("비밀번호가 일치하지 않습니다.");
+	    document.joinForm.pwd.focus();
+	}else if (document.joinForm.name.value == "") {
+	    alert("이름을 입력해 주세요.");
+	    document.joinForm.name.focus();
+	} else if (document.joinForm.phone.value == "") {
+	    alert("전화번호를 입력해 주세요.");
+	    document.joinForm.email.focus();
+	}else {
+	    document.joinForm.action = "camp.do";
+	    document.joinForm.submit();
+	}
+}
+
+

@@ -40,13 +40,14 @@ public class Camp_qnaDao {
 
 	}
 
-	public ArrayList<Camp_qnaVO> selectAllQna() {
+	public ArrayList<Camp_qnaVO> selectAllQna(int bseq) {
 		ArrayList<Camp_qnaVO> list = new ArrayList<Camp_qnaVO>();
 
-		String sql = "select * from camp_qna";
+		String sql = "select * from camp_qna where bseq=? order by qseq desc ";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bseq);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Camp_qnaVO qvo = new Camp_qnaVO();
@@ -67,15 +68,16 @@ public class Camp_qnaDao {
 		return list;
 	}
 
-	public void insertQna(Camp_qnaVO qvo, int bseq) {
+	public void insertQna(Camp_qnaVO qvo) {
 
-		String sql = "insert into camp_qna (qseq, content, mid, bseq) " + " values(qna_seq.nextval , ? , ?, ? )";
+		String sql = "insert into camp_qna (qseq, content, mid, bseq) " + 
+						" values(qna_seq.nextval , ? , ? , ? )";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, qvo.getContent());
 			pstmt.setString(2, qvo.getMid());
-			pstmt.setInt(3, bseq);
+			pstmt.setInt(3, qvo.getBseq());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -86,7 +88,7 @@ public class Camp_qnaDao {
 	}
 
 	public void updateQna(Camp_qnaVO qnaVo) {
-		String sql = "update camp_qna set indate=sysdate, content=? where qseq=?";
+		String sql = "update camp_qna set content=? where qseq=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
