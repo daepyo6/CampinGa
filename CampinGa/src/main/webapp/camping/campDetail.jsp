@@ -4,14 +4,12 @@
 <link href="camping/searchList.css" rel="stylesheet">
 <script type="text/javascript" src="camping/campingList.js"></script>
 <article>
-	<%@ include file="../camping/detail.jsp"%>
-
 	<!-- 캠핑장 세부설명 -->
-
+	<%@ include file="../camping/detail.jsp"%>
 
 	<!-- Q&A -->
 	<div id="QnaBox" align="center">
-		<h2>QnA</h2>
+		<h2>Q & A</h2>
 		<form name="formm" method="post" action="camp.do">
 			<input type="hidden" name="command" value="insertQna">
 			<table id="qnaView" style="width: 700px">
@@ -78,7 +76,7 @@
 					<td align="left">${ReviewVO.content}</td>
 					<td><c:if test="${ReviewVO.mid==loginUser.mid}">
 							<input type="button" value="수정" class="submit"
-								onclick="location.href='camp.do?command=reviewForm&rseq=${ReviewVO.rseq}'">
+								onclick="location.href='camp.do?command=campDetail&rseq=${ReviewVO.rseq}'">
 							<input type="button" value="삭제" class="submit"
 								onclick="location.href='camp.do?command=deleteReview&rseq=${ReviewVO.rseq}'">
 						</c:if>

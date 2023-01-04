@@ -5,7 +5,7 @@
 	<form method="post" name="formm">
 		<fieldset>
 			<span style="float: left; margin-right: 20px;"> 	
-				<img src="../../images/camp01.png" 
+				<img src="../images/camp01.png" 
 					style="border-radius: 20px; width: 600px; margin: 20px 10px 10px 10px" />
 			</span>
 			<h2>행복한 캠핑장</h2>
@@ -29,11 +29,11 @@
 		<br>
 		<fieldset>
 			<legend>detail Info</legend>
-			<span><img src="../../images/camp01.png"
+			<span><img src="../images/camp01.png"
 				style="border-radius: 20px; width: 200px; margin: 20px 10px 10px 10px" /></span>
-			<span><img src="../../images/camp02.png" 
+			<span><img src="../images/camp02.png" 
 				style="border-radius: 20px; width: 200px; margin: 20px 10px 10px 10px" /></span>
-			<span><img src="../../images/camp01.png" 
+			<span><img src="../images/camp01.png" 
 				style="border-radius: 20px; width: 200px; margin: 20px 10px 10px 10px" /></span>
 		</fieldset>
 		<br>

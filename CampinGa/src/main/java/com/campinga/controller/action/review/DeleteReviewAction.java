@@ -19,7 +19,7 @@ public class DeleteReviewAction implements Action {
 	      ReviewDao rdao = ReviewDao.getInstance();
 	      rdao.deleteReview( Integer.parseInt(rseq) );
 	     
-	      response.sendRedirect("camp.do?command=reviewForm");
+	      response.sendRedirect("camp.do?command=campDetail");
 
 	}
 

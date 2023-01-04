@@ -20,7 +20,7 @@ public class DeleteQnaAction implements Action {
 		  Camp_qnaDao qdao =  Camp_qnaDao.getInstance();
 	      qdao.deleteQna( Integer.parseInt(qseq) );
 	     
-	      response.sendRedirect("camping/campDetail.jsp");
+	      response.sendRedirect("camp.do?command=campDetail.jsp");
 
 	}
 

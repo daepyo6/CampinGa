@@ -26,7 +26,7 @@ public class QnaViewAction implements Action {
 			url = "camp.do?command=loginForm";
 		} else {
 			Camp_qnaDao qdao = Camp_qnaDao.getInstance();
-			ArrayList<Camp_qnaVO> qnalist = qdao.getQna();
+			ArrayList<Camp_qnaVO> qnalist = qdao.selectAllQna();
 			// Camp_qnaVO qvo = qdao.getQna( qseq );
 
 			request.setAttribute("qnalist", qnalist);

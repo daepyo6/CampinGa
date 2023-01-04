@@ -31,7 +31,7 @@ public class CampDetailAction implements Action {
 			}
 		}
 		Camp_qnaDao qdao = Camp_qnaDao.getInstance();
-		ArrayList<Camp_qnaVO> qnalist = qdao.getQna();
+		ArrayList<Camp_qnaVO> qnalist = qdao.selectAllQna();
 		
 		request.setAttribute("qnalist", qnalist);
 		request.setAttribute("reviewList", reviewlist);

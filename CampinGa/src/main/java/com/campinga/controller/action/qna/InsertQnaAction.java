@@ -17,7 +17,7 @@ public class InsertQnaAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "camping/campDetail.jsp";
+		String url = "camp.do?command=campDetail";
 		String bseq = "1";
 
 		HttpSession session = request.getSession();

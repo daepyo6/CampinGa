@@ -15,6 +15,7 @@ import com.campinga.controller.action.mypage.MypageAction;
 import com.campinga.controller.action.qna.DeleteQnaAction;
 import com.campinga.controller.action.qna.InsertQnaAction;
 import com.campinga.controller.action.qna.QnaViewAction;
+import com.campinga.controller.action.qna.UpdateQnaAction;
 import com.campinga.controller.action.review.DeleteReviewAction;
 import com.campinga.controller.action.review.InsertReviewAction;
 import com.campinga.controller.action.review.ReviewFormAction;
@@ -54,6 +55,7 @@ public class ActionFactory {
 		// qna action
 		else if(command.equals("qnaView")) ac = new QnaViewAction();
 		else if(command.equals("insertQna")) ac = new InsertQnaAction();
+		else if(command.equals("updateQna")) ac = new UpdateQnaAction();
 		else if(command.equals("deleteQna")) ac = new DeleteQnaAction();
 		
 		return ac;
