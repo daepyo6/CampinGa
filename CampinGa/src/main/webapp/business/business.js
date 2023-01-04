@@ -33,7 +33,7 @@ function busiJoinCheck(){
         alert('상세주소까지 입력해주세요');
         document.joinForm.caddress3.focus();
     }else {
-        document.joinForm.action = "camp.do";
+        document.joinForm.action = "camp.do?command=businessJoin";
         document.joinForm.submit();
     }
 }
