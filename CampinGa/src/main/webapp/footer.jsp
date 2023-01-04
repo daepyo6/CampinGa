@@ -7,7 +7,7 @@
 	<hr>
 	<div id="copy">All contents Copyright 2022  CampinGa.Cop  Inc. all rights reserved<br>
 	Contact mail : campinga@gmail.com  Tel : +82 02-1234-1234<br>
-	Fax : +82 02-1233-1233&nbsp;&nbsp;&nbsp;<a href="camp.do?command=admin">administrator</a>
+	Fax : +82 02-1233-1233&nbsp;&nbsp;&nbsp;<a href="camp.do?command=adminLoginForm">administrator</a>
 	</div>
 </footer>
 

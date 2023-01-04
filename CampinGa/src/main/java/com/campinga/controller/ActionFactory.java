@@ -1,7 +1,12 @@
 package com.campinga.controller;
 
 import com.campinga.controller.action.Action;
+import com.campinga.controller.action.ContractFormAction;
 import com.campinga.controller.action.IndexAction;
+import com.campinga.controller.action.admin.AdminLoginAction;
+import com.campinga.controller.action.admin.AdminLoginFormAction;
+import com.campinga.controller.action.admin.AdminLogoutAction;
+import com.campinga.controller.action.business.BusinessJoinAction;
 import com.campinga.controller.action.camping.CampDetailAction;
 import com.campinga.controller.action.camping.CategoryAction;
 import com.campinga.controller.action.camping.SearchResultAction;
@@ -30,6 +35,7 @@ public class ActionFactory {
 		Action ac = null;
 		
 		if( command.equals("index") ) ac = new IndexAction();
+		else if(command.equals("contractForm")) ac = new ContractFormAction();
 		else if(command.equals("joinForm")) ac = new JoinFormAction();
 		else if(command.equals("idCheckForm")) ac = new IdCheckFormAction();
 		else if(command.equals("join")) ac = new JoinAction();
@@ -41,7 +47,6 @@ public class ActionFactory {
 		else if(command.equals("category")) ac = new CategoryAction();
 	    else if(command.equals("searchResult")) ac = new SearchResultAction();
 	    else if(command.equals("campDetail")) ac = new CampDetailAction();
-		
 		
 		// mypage action
 		else if(command.equals("mypage")) ac = new MypageAction();
@@ -58,6 +63,14 @@ public class ActionFactory {
 		else if(command.equals("updateQna")) ac = new UpdateQnaAction();
 		else if(command.equals("deleteQna")) ac = new DeleteQnaAction();
 		
+		// business action
+	    else if(command.equals("businessJoin")) ac = new BusinessJoinAction();
+		
+		// admin action
+		else if(command.equals("adminLoginForm")) ac = new AdminLoginFormAction();
+	    else if(command.equals("adminLogin")) ac = new AdminLoginAction();
+	    else if(command.equals("adminLogout")) ac = new AdminLogoutAction();
+	
 		return ac;
 	}
 	
