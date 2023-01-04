@@ -1,25 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
-<link href="member/css/member.css" rel="stylesheet">  
 
 <article>
-	<h1>Login</h1>
-	<form method="post" action="camp.do" name="loginFrm">
-		<input type="hidden" name="command" value="login" />
-		<fieldset>
-			<legend></legend>
-				<label>User ID</label><input name="id" type="text"><br> 
-		        <label>Password</label><input name="pwd" type="password"><br>
-		         <input type="radio" name="user" value="1"/>개인 &nbsp; &nbsp; 
-		   		 <input type="radio" name="user" value="2"/>사업자
-		</fieldset>
-		<div id="buttons">
-	        <input type="submit" value="로그인" class="button" 	onclick="return loginCheck()">
-	        <input type="button" value="회원가입" class="button" 
-	        	onclick="location.href='camp.do?command=joinForm'">  
-	    </div><br><br>
-	    <div>&nbsp;&nbsp;&nbsp;${message}</div>  
-	</form>
+    <form method="post" action="camp.do" name="loginFrm" id="loginTable">
+      <input type="hidden" name="command" value="login" />
+      <div class="login">
+      <h2>Login</h2>
+      <fieldset>
+         <legend></legend>
+         <div class="login_id">
+            <label>User ID</label><input name="id" type="text"><br> 
+         </div>
+         <div class="login_pwd">
+              <label>Password</label><input name="pwd" type="password"><br>
+          </div>    
+          <div class="login_radio">
+               <input type="radio" name="user" value="1"/>개인 &nbsp; &nbsp; 
+                <input type="radio" name="user" value="2"/>사업자
+            </div>
+      </fieldset>
+      <div class="buttons">
+           <input type="submit" value="login" class="button" onclick="return loginCheck()">
+           <input type="button" value="join" class="button" 
+              onclick="location.href='camp.do?command=joinForm'">  
+       </div><br><br>
+       <div>&nbsp;&nbsp;&nbsp;${message}</div>  
+   </div>
+   </form>
+   
 </article>
 
 
