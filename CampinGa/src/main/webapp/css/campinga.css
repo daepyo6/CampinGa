@@ -246,6 +246,7 @@ header{
   	background-repeat: no-repeat;
   	background-position:center;
   	color:white;
+  	margin-bottom: 2%;
 }
 .recoCampings{
 	width: 75%;
@@ -301,7 +302,7 @@ header{
   	border-bottom:1.5px solid #90e0ef;
 }
 .cardHeader span{
-	color:black;
+	color:white;
 	font-size:1.2rem;
 	font-weight:500;
 	line-height:2.5;
@@ -328,6 +329,21 @@ header{
 	width: 44px;
   	height: 69px;		
 }
+
+/*footer*/
+footer{
+	background-color:#1d3557;		
+	width: 100%;
+  	height: 200px;	
+}
+.foot{			
+	width: 100%;
+  	height: 100px;	
+}
+
+
+
+
 
 /* login css */
 #loginTable{
@@ -505,3 +521,203 @@ h1 {
     color: #0077b6;
     background-color:#e2edf6;
 }
+
+/*mypage css*/
+#mypage{
+  width: 90%;
+  height: 1000px;
+  background:white;
+  margin:0 auto;
+}
+
+.memberInfoList{
+  width: 90%;
+  height: 50px;
+  padding: 0px 20px;
+  border: 1px solid lightgray;
+  outline: none;
+  color:#0077b6;
+  font-size: 20px;
+  text-align:center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  letter-spacing: 2px;
+}
+
+.memberInfoList tr{
+   margin-top: 50px;
+   width:80%;
+   height: 50px;
+   line-height: 3rem;
+   
+}
+.memberInfoList tr td{
+   margin-top: 30px;
+   line-height: 3rem;
+}
+
+.memberInfoList td input{
+  width: 50px;
+  height: 30px;
+  border: 0;
+  outline: none;
+  border-radius:5px;
+  background:  linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  display :inline-block;
+  margin-right: 10px;
+  font-weight:bold;
+}
+
+.memberInfoList td input:hover{
+    cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
+
+
+/*campdetail css*/
+#cmp_1{
+   border-radius: 30px;
+   width:600px;
+   height:400px;
+   float:left;
+   overflow:hidden;
+   margin: 30px 30px 30px 30px;
+}
+
+#cmp_2{
+   margin: 30px 30px 30px 30px;
+   border-radius: 30px;
+   float:left;
+   width:600px;
+   height:400px;
+   border: 1px solid lightgray;
+   box-sizing: border-box;
+}
+
+#cmp_2 label{
+   line-height: 1.5rem;
+   margin-left:20px;
+}
+
+#cmp_2 h2{
+   margin:20px 20px 20px 20px;
+}
+
+#cmp_2 .submit, .view td input{
+	margin:5px 5px 5px 5px;
+	float:right;
+	border: 0;
+	border-radius:5px;
+	background:linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+	color: white;
+	font-size: 1rem;
+	letter-spacing: 2px;
+	margin-right: 10px;
+	font-weight:bold;
+}
+
+#cmp_2 .submit:hover, .view td input:hover, .btns input:hover{
+    cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
+
+#campingdetail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin:0 auto;
+}
+
+.image{
+	width:100%;
+	height:100%;
+	object-fit:cover; 
+}
+
+
+#cmp_3{
+	margin: 30px 30px 30px 30px;
+	border-radius: 30px;
+	float:left;
+	width:1300px;
+	height:400px;
+	border: 1px solid lightgray;
+	box-sizing: border-box;
+	overflow:hidden;
+	text-align:center;
+}
+
+.img{
+	margin: 30px 30px 30px 30px;
+	border-radius: 100%;
+	width:200px;
+	height:200px;
+}
+
+
+/* Q&A css */
+#QnaBox{
+	border-radius: 30px;
+	width:1300px;
+	height:600px;
+	border: 1px solid lightgray;
+   	box-sizing: border-box;
+    text-align:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin:0 auto;
+}
+
+.view{
+   margin: 30px 50px 50px 50px;
+   text-align:center;
+   border: 1px solid lightgray;
+   line-height: 2.5rem;
+}
+
+.view tr,th,td{
+   margin: 30px 50px 50px 50px;
+   text-align:center;
+   border: 1px solid lightgray;
+}
+
+
+
+/* review css */
+
+#ReviewBox{
+   	margin: 30px 30px 30px 30px;
+   	border-radius: 30px;
+   	width:1300px;
+   	height:600px;
+   	border: 1px solid lightgray;
+   	box-sizing: border-box;
+   	overflow:hidden;
+   	text-align:center;
+   	display: flex;
+	justify-content: center;
+  	align-items: center;
+  	flex-direction: column;
+  	margin:0 auto;
+}
+
+.btns input{
+    border: 0;
+    border-radius:5px;
+  	background:linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+  	color: white;
+  	font-size: 1rem;
+  	letter-spacing: 2px;
+  	margin-right: 10px;
+  	font-weight:bold;
+}
+
