@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.campinga.controller.action.Action;
-import com.campinga.dao.NoticeDao;
+import com.campinga.dao.CampDao;
 
 
-public class AdminNoticeDeleteAction implements Action {
+public class AdminCampingDeleteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "camp.do?command=adminNoticeList";
+         String url = "camp.do?command=adminCampingList";
 		
 		HttpSession session = request.getSession();
 		String avo = (String)session.getAttribute("loginAdmin");
@@ -23,10 +23,11 @@ public class AdminNoticeDeleteAction implements Action {
 			url = "camp.do?command=admin"; 
 		}else {
 			
-			int nseq = Integer.parseInt( request.getParameter("nseq") );
+			String [] cseqArr = request.getParameterValues("cseq");
 			
-			NoticeDao ndao = NoticeDao.getInstance();
-			ndao.deleteQna( nseq );
+			CampDao cdao = CampDao.getInstance();
+			for( String cseq : cseqArr ) {
+				cdao.deleteCamping( Integer.parseInt(cseq) );
 		     
 		   
 			
@@ -34,7 +35,7 @@ public class AdminNoticeDeleteAction implements Action {
 		request.getRequestDispatcher(url).forward(request, response);
 
 
-
+		}
 	}
 
 }

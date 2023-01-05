@@ -59,4 +59,28 @@ var url = "camp.do?command=adminNoticeWrite";
 	document.frm.action = url; 
 	document.frm.submit();
 }
+
+
+function go_delete(){
+
+   var count = 0;
+	if( document.frm.cseq.length == undefined ){
+		if( document.frm.cseq.checked==true ) count++;
+	}else{
+		for( var i=0; i<document.frm.cseq.length; i++){
+			if( document.frm.cseq[i].checked==true){
+				count++;
+			}
+		}
+	}
+	if(count == 0) {
+		alert("삭제할 항목을 선택하세요");
+	}else{
+		document.frm.action = "camp.do?command=adminCampingDelete";
+	    document.frm.submit();
+	}
+	}
+
+
+
 		

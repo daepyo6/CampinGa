@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.campinga.dto.CampingVO;
+
 import com.campinga.util.Dbman;
 
 public class CampDao {
@@ -106,5 +107,42 @@ public class CampDao {
 		} finally {Dbman.close(con, pstmt, rs);			
 		}
 		return list;
+	}
+
+	public ArrayList<CampingVO> selectCamping() {
+		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
+		con = Dbman.getConnection();
+		String sql = "select * from camping_view order by cseq desc";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while( rs.next() ) {
+				CampingVO cvo = new CampingVO();
+				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setBseq(rs.getInt("bseq"));
+				cvo.setCname(rs.getString("cname"));	
+				cvo.setCaddress1(rs.getString("caddress1"));
+				cvo.setCaddress2(rs.getString("caddress2"));
+				cvo.setCaddress3(rs.getString("caddress3"));
+				cvo.setPhone(rs.getString("phone"));
+				cvo.setC_indate(rs.getTimestamp("c_indate"));
+				list.add(cvo);
+			}
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);			
+		}
+		return list;
+	}
+
+	public void deleteCamping(int cseq) {
+		String sql = "delete from camping where cseq=?";
+		con = Dbman.getConnection();
+		try {
+		      pstmt = con.prepareStatement(sql); 
+		      pstmt.setInt(1, cseq);
+		      pstmt.executeUpdate();
+		} catch (Exception e) { e.printStackTrace();
+	    } finally { Dbman.close(con, pstmt, rs); }   	
+		
 	}
 }
