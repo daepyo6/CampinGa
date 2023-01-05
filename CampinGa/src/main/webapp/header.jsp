@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>CampinGa</title>
-<link href="css/campinga.css" rel="stylesheet">  
+<link href="css/campinga.css" rel="stylesheet">
+<script src="script/jquery-3.6.1.js"></script>  
 <script src="member/script/member.js"></script>
 <script src="camping/script/camping.js"></script>
 </head>

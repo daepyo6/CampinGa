@@ -42,23 +42,28 @@
 	</div>
 </div>
 <!-- new 캠핑장 -->
-<div id="newCampings">
-	<div class="mainTitle">새로 추가된 캠핑장!!</div>
-	<div class="newCamp">
-		<img id="newCampImg" src="images/newImg1.jpg">
-		<div class="ImgCover">캠핑장정보<br>자세히보기</div>
-	</div>
-	<div class="newCampName">캠핑장 이름</div>
-	<div class="newCampInfo">율포해수녹차센터는 해수탕과 녹차탕을 갖췄다. 노천탕 앞에는 드넓은 득량만 바다와 솔숲이 펼쳐진다.</div>
-	
+<div class="mainTitle">새로 추가된 캠핑장!!</div>
+<div class="newCampings">
+	<div class="newCampCard">
+		<div class="newCampImgs">
+			<img class="CampImg" src="images/newImg1.jpg">
+			<div class="ImgCover">
+				<span>캠핑장정보</span><br>
+				<span>자세히보기</span>
+			</div>
+		</div>
+		<div class="newCampName">캠핑장 이름</div>
+		<div class="newCampInfo">율포해수녹차센터는 해수탕과 녹차탕을 갖췄다. 노천탕 앞에는 드넓은 득량만 바다와 솔숲이 펼쳐진다.</div>
+	</div>	
 </div>
 
 <!-- 추천 캠핑장 -->
-<div id="bestCampings">
-	<div class="mainTitle">이달의 추천 캠핑장!!</div>
-
+<div class="mainTitle">이달의 추천 캠핑장!!</div>
+<div class="recoCampings">	
+	<div class="recoCampCard">
+	</div>
 </div>
 
-<div class="clear"></div>
+
 
 <%@ include file="footer.jsp" %>
