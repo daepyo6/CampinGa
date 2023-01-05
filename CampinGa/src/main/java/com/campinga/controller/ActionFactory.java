@@ -16,6 +16,9 @@ import com.campinga.controller.action.member.JoinFormAction;
 import com.campinga.controller.action.member.LoginAction;
 import com.campinga.controller.action.member.LoginFormAction;
 import com.campinga.controller.action.member.LogoutAction;
+import com.campinga.controller.action.mypage.CancelReservateAction;
+import com.campinga.controller.action.mypage.DeleteFavoritesAction;
+import com.campinga.controller.action.mypage.DeleteMemberAction;
 import com.campinga.controller.action.mypage.EditFormAction;
 import com.campinga.controller.action.mypage.MypageAction;
 import com.campinga.controller.action.mypage.UpdateUserInfoAction;
@@ -54,6 +57,9 @@ public class ActionFactory {
 		else if(command.equals("mypage")) ac = new MypageAction();
 		else if(command.equals("editForm")) ac = new EditFormAction();
 		else if(command.equals("updateUserInfo")) ac = new UpdateUserInfoAction();
+		else if(command.equals("deleteMember")) ac = new DeleteMemberAction();
+		else if(command.equals("cancelReservate")) ac = new CancelReservateAction();
+		else if(command.equals("deleteFavorites")) ac = new DeleteFavoritesAction();
 		
 		// review action
 		else if(command.equals("reviewForm")) ac = new ReviewFormAction();

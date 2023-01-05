@@ -4,7 +4,7 @@
 <%@ include file="../../header.jsp"%>
 <article>
 	<!-- 회원 간단한 정보 + 정보수정 버튼-->
-	<form>
+	<form method="post" name="memberInfo">
 		<h1>회원정보</h1>
 		<table id="memberInfoList">
 			<tr>
@@ -20,15 +20,17 @@
 				<td>${loginUser.mphone}</td>
 			</tr>
 			<tr>
-				<td colspan="3"><input type="button" value="정보수정" 
+				<td><input type="button" value="정보수정" 
 					onclick="location.href='camp.do?command=editForm'"></td>
+				<td><input type="button" value="회원탈퇴" 
+					onclick="location.href='camp.do?command=deleteMember'"></td>
 			</tr>
 		</table>
 	</form>
 
 
 	<!-- "예약 조회" 현재 예약조회, 지난 예약조회-->
-	<form>
+	<form method="post" name="reservateInfo">
 		<h1>예약 조회</h1>
 		<table id="reservateList">
 			<tr>
@@ -50,7 +52,7 @@
 					<td><fmt:formatDate value="${resVO.chk_in}" type="date"/></td>
 					<td><fmt:formatDate value="${resVO.chk_out}" type="date"/></td>
 					<td>${resVO.price}</td>
-					<td><input type="button" value="취소" onclick=""></td>
+					<td><input type="button" value="취소" onclick="reservate_cancel();"></td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -58,7 +60,8 @@
 	</form>
 
 	<!-- "내 즐겨찾기" 현재 회원이 즐겨찾기한 캠핑장의 내역을 출력 -->
-	<form>
+	<form method="post" name="favorites">
+		
 		<h1>즐겨찾기</h1>
 		<table id="favoritesList">
 			<tr>
@@ -71,9 +74,11 @@
 			<c:forEach items="${favorList}" var="favorVO">
 				<tr>
 					<td>${favorVO.fseq}</td>
-					<td><a href="#">${favorVO.cname}</a></td>
+					<td><a href="camp.do?command=campDetail&bseq=${favorVO.bseq}">${favorVO.cname}</a></td>
 					<td>${favorVO.phone}</td>
-					<td><input type="button" value="취소" onclick=""></td>
+					<td><input type="button" value="취소"
+							onclick="delete_favorites( '${favorVO.fseq}' );">
+					</td>
 				</tr>
 			</c:forEach>
 		</table>

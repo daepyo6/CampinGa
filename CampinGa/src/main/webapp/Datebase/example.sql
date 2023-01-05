@@ -216,7 +216,7 @@ select * from reservate_view;
 -- favorites 안의 사용자아이디와 캠핑장번호로 즐겨찾기 된 캠핑장정보를 조회하는 view 생성
 create or replace view favorites_view
 as
-select rownum as rn, f.fseq, m.mid, b.cname, b.phone, f.fav_check  
+select rownum as rn, f.fseq, f.bseq, m.mid, b.cname, b.phone, f.fav_check  
 from favorites f, member m, businessman b
 where f.mid = m.mid and f.bseq = b.bseq;
 
@@ -236,7 +236,7 @@ where b.bseq = c.bseq;
 select * from camping_view;
 
 SELECT cseq, cname, caddress1, caddress2, caddress3, phone 
-FROM camping_view where ROWID IN (SELECT MAX(ROWID) FROM camping_view GROUP BY cname);
+FROM camping_view where rowid in (select max(rowid) from camping_view GROUP BY cname);
 
 
 -- review 안의 정보로 캠핑장이름 

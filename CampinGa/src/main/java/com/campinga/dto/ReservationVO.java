@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class ReservationVO {
 	private Integer reseq;
+	private Integer bseq;
 	private Integer cseq;
 	private String mid;
 	private Timestamp res_date;
@@ -80,6 +81,12 @@ public class ReservationVO {
 	}
 	public void setChk_out(Timestamp chk_out) {
 		this.chk_out = chk_out;
+	}
+	public Integer getBseq() {
+		return bseq;
+	}
+	public void setBseq(Integer bseq) {
+		this.bseq = bseq;
 	}
 	
 	

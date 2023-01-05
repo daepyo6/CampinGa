@@ -35,6 +35,7 @@ public class MypageAction implements Action {
 	    	// 2. 즐겨찾기 정보를 가져온다.
 	    	FavoritesDao fdao = FavoritesDao.getInstance();
 	    	ArrayList<FavoritesVO> favorList = fdao.getFavoritesList(mvo.getMid());
+	    	
 	    	request.setAttribute("reList", reList);
 	    	request.setAttribute("favorList", favorList);
 	    }

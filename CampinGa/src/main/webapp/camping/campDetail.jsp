@@ -6,7 +6,10 @@
 <article>
 	<!-- 캠핑장 세부설명 -->
 	<%@ include file="../camping/detail.jsp"%>
-
+	
+	<!-- 캠핑장 객실 정보 -->
+	
+	
 	<!-- Q&A -->
 	<div id="QnaBox" align="center">
 		<h2>Q & A</h2>

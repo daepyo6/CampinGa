@@ -11,7 +11,8 @@ import com.campinga.dto.ReservationVO;
 import com.campinga.util.Dbman;
 
 public class ReservationDao {
-	private ReservationDao() {}
+	private ReservationDao() {
+	}
 
 	private static ReservationDao itc = new ReservationDao();
 
@@ -31,7 +32,7 @@ public class ReservationDao {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mid);
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				ReservationVO revo = new ReservationVO();
 				revo.setReseq(rs.getInt("reseq"));
 				revo.setCname(rs.getString("cname"));
@@ -54,4 +55,18 @@ public class ReservationDao {
 		return list;
 	}
 
+	public void cancelReservate(String mid) {
+		String sql = "delete from reservation where mid=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+
+	}
 }

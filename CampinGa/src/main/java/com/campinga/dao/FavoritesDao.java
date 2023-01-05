@@ -33,6 +33,7 @@ public class FavoritesDao {
 				FavoritesVO fvo = new FavoritesVO();
 				fvo.setRn(rs.getInt("rn"));
 				fvo.setFseq(rs.getInt("fseq"));
+				fvo.setBseq(rs.getInt("bseq"));
 				fvo.setMid(rs.getString("mid"));
 				fvo.setCname(rs.getString("cname"));
 				fvo.setFav_check(rs.getString("fav_check"));
@@ -45,5 +46,20 @@ public class FavoritesDao {
 			Dbman.close(con, pstmt, rs);
 		}
 		return list;
+	}
+
+	public void deleteFavorites(int fseq) {
+		String sql = "delete from favorites where fseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		
 	}
 }
