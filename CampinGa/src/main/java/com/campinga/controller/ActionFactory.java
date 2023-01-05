@@ -75,6 +75,7 @@ public class ActionFactory {
 		
 		// business action
 	    else if(command.equals("businessJoin")) ac = new BusinessJoinAction();
+	    else if(command.equals("contractForm")) ac = new ContractFormAction();
 		
 		// admin action
 		else if(command.equals("adminLoginForm")) ac = new AdminLoginFormAction();
