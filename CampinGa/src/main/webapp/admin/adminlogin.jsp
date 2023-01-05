@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="admin/css/admin.css">
+<%@ include file="/admin/header.jsp"%>
 <script src="admin/script/admin.js"></script>
 </head>
 <body>
@@ -26,6 +27,6 @@
 		</div>
 	</article>
 </div>
-
+<%@ include file="/admin/footer.jsp"%>
 </body>
 </html>

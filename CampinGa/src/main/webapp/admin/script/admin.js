@@ -10,4 +10,53 @@ function adminCheck(){
 		}  
 		
 }		
+
+function go_wrt(){
+	document.frm.action = "camp.do?command=adminNoticeWriteForm";
+	document.frm.submit();
+}
+
+function go_detail( nseq ){
+	var url = "camp.do?command=adminNoticeDetail&nseq=" + nseq;
+	document.frm.action = url; 
+	document.frm.submit();
+}
+
+
+function go_mod(nseq){
+	var url = "camp.do?command=adminNoticeUpdateForm&nseq=" + nseq;
+	location.href=url;
+	// document.frm.action = url;
+	// document.frm.submit();
+}
+function go_dod(nseq){
+	var url = "camp.do?command=adminNoticeDelete&nseq=" + nseq ;
+	location.href=url;
+	// document.frm.action = url;
+	// document.frm.submit();
+}
+
+
+
+function go_mod_save(){
+	var url = "camp.do?command=adminNoticeUpdate";
+	document.frm.action = url; 
+	document.frm.submit();
+}
+
+function go_mov(){
+	location.href = "camp.do?command=adminNoticeList";
+}
+
+
+function go_wrt(){
+	document.frm.action = "camp.do?command=adminNoticeWriteForm";
+	document.frm.submit();
+}
+
+function go_save(){
+var url = "camp.do?command=adminNoticeWrite";
+	document.frm.action = url; 
+	document.frm.submit();
+}
 		
