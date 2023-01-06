@@ -3,12 +3,36 @@
 <%@ include file="../header.jsp"%>
 <link href="camping/searchList.css" rel="stylesheet">
 <script type="text/javascript" src="camping/campingList.js"></script>
+<style>
+	
+</style>
 <article>
    <!-- 캠핑장 세부설명 -->
    <%@ include file="../camping/detail.jsp"%>
    
    <!-- 캠핑장 객실 정보 -->
-   
+   <div id="roomBox">
+  	 <h2>Room</h2>
+     <table class="view">
+     	<tr>
+     		<td rowspan="4" > <img src="images/camp01.jpg"> </td>
+     		<td>1-2</td>
+     		<td>1-3</td>
+     	</tr>
+     	<tr>
+     		<td>1-2</td>
+     		<td>1-3</td>
+     	</tr>
+     	<tr>
+     		<td>1-2</td>
+     		<td>1-3</td>
+     	</tr>
+     	<tr>
+     		<td>1-2</td>
+     		<td>1-3</td>
+     	</tr>
+     </table>
+   </div>
    
    <!-- Q&A -->
    <div id="QnaBox">

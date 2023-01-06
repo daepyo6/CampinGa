@@ -10,7 +10,8 @@
 		    	<span>지역별</span>
 		    	<select name="address1" class="selectAd" onchange="chDo(this.value)">
 				    <option selected="selected">도/시 선택</option>
-		            <option value='1'>서울</option>
+		            <option value='1'>서울
+		            </option>
 		            <option value='2'>부산</option>
 		            <option value='3'>대구</option>
 		            <option value='4'>인천</option>
@@ -35,7 +36,7 @@
 		    <div id="searchName">
 		    	<span>캠핑장명</span> 
 		    	<input type="text" id="inputText" name="cname" size="20">
-		    	<input type="button" id="mainBtn" value="검색">
+		    	<input type="button" id="mainBtn" value="검색" onclick="">
 		    </div>
 		    <!-- 검색버튼 onclick 함수 필요함 -->	    
 	    </div>    
@@ -44,73 +45,21 @@
 <!-- new 캠핑장 -->
 <div class="mainTitle">새로 추가된 캠핑장!!</div>
 <div class="newCampings">	
-	<div class="newCampCard">
-	<a href="camp.do?command=">
-		<div class="newCampImgs">		
-			<img class="campImg" src="images/newImg1.jpg">
-			<div class="imgCover">
-				<span>캠핑장정보</span><br>
-				<span>자세히보기</span>
-			</div>
-		</div>
-	</a>
-		<div class="newCampName">캠핑장 이름</div>
-		<div class="newCampInfo">율포해수녹차센터는 해수탕과 녹차탕을 갖췄다. 노천탕 앞에는 드넓은 득량만 바다와 솔숲이 펼쳐진다.</div>
-	</div>		
-	<div class="newCampCard">
-	<a href="camp.do?command=">
-		<div class="newCampImgs">		
-			<img class="campImg" src="images/newImg1.jpg">
-			<div class="imgCover">
-				<span>캠핑장정보</span><br>
-				<span>자세히보기</span>
-			</div>
-		</div>
-	</a>
-		<div class="newCampName">캠핑장 이름</div>
-		<div class="newCampInfo">율포해수녹차센터는 해수탕과 녹차탕을 갖췄다. 노천탕 앞에는 드넓은 득량만 바다와 솔숲이 펼쳐진다.</div>
-	</div>		
-	<div class="newCampCard">
-	<a href="camp.do?command=">
-		<div class="newCampImgs">		
-			<img class="campImg" src="images/newImg1.jpg">
-			<div class="imgCover">
-				<span>캠핑장정보</span><br>
-				<span>자세히보기</span>
-			</div>
-		</div>
-	</a>
-		<div class="newCampName">캠핑장 이름</div>
-		<div class="newCampInfo">율포해수녹차센터는 해수탕과 녹차탕을 갖췄다. 노천탕 앞에는 드넓은 득량만 바다와 솔숲이 펼쳐진다.</div>
-	</div>		
-	<div class="newCampCard">
-	<a href="camp.do?command=">
-		<div class="newCampImgs">		
-			<img class="campImg" src="images/newImg1.jpg">
-			<div class="imgCover">
-				<span>캠핑장정보</span><br>
-				<span>자세히보기</span>
-			</div>
-		</div>
-	</a>
-		<div class="newCampName">캠핑장 이름</div>
-		<div class="newCampInfo">율포해수녹차센터는 해수탕과 녹차탕을 갖췄다. 노천탕 앞에는 드넓은 득량만 바다와 솔숲이 펼쳐진다.</div>
-	</div>	
-	<%-- <c:forEach items="${newCamps}" var="Ncamp">
+	<c:forEach items="${newCampList}" var="newCamp">
 		<div class="newCampCard">
-			<a href="camp.do?command=?campDetial&bseq=${Ncamp.bseq}">
+			<a href="camp.do?command=campDetail&bseq=${newCamp.bseq}">
 				<div class="newCampImgs">		
-					<img class="campImg" src="images/${Ncamp.image}">
+					<img class="campImg" src="images/${newCamp.image}">
 					<div class="imgCover">
 						<span>캠핑장정보</span><br>
 						<span>자세히보기</span>
 					</div>
 				</div>
 			</a>
-			<div class="newCampName">${Ncamp.cname}</div>
-			<div class="newCampInfo">${Ncamp.content}</div>
+			<div class="newCampName">${newCamp.cname}</div>
+			<div class="newCampInfo">${newCamp.content}</div>
 		</div>
-	</c:forEach> --%>	
+	</c:forEach>	
 </div>
 
 <!-- 추천 캠핑장 -->

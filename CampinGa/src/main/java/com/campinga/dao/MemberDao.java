@@ -56,17 +56,35 @@ public class MemberDao {
 		} finally {Dbman.close(con, pstmt, rs);}		
 		return result;
 	}
-
+  
 	public void deleteMember(String mid) {
-		
 		String sql = "delete from member where mid=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mid);
 			pstmt.executeUpdate();
-		} catch (SQLException e) {e.printStackTrace();
-		} finally {Dbman.close(con, pstmt, rs);}
-		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+	}
+	
+	public void updateUserInfo(MemberVO mvo) {
+		String sql = "update member set name=?, mphone=?, email=? where mid=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mvo.getName());
+			pstmt.setString(2, mvo.getMphone());
+			pstmt.setString(3, mvo.getEmail());
+			pstmt.setString(4, mvo.getMid());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
 	}
 }

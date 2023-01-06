@@ -107,7 +107,7 @@ public class CampDao {
 		}
 		return list;
 	}
-	
+
 	public ArrayList<CampingVO> selectCamping() {
 		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
 		con = Dbman.getConnection();
@@ -125,6 +125,29 @@ public class CampDao {
 				cvo.setCaddress3(rs.getString("caddress3"));
 				cvo.setPhone(rs.getString("phone"));
 				cvo.setC_indate(rs.getTimestamp("c_indate"));
+        }
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);			
+		}
+		return list;
+	}
+        
+
+	public ArrayList<CampingVO> selectNewCampList() {
+		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
+		con = Dbman.getConnection();
+		String sql = "select bseq, cname, content, image "
+					+ "from (select * from camping_view order by c_indate desc) "
+					+ "where rownum<=4";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				CampingVO cvo = new CampingVO();
+				cvo.setBseq(rs.getInt("bseq"));
+				cvo.setCname(rs.getString("cname"));
+				cvo.setContent(rs.getString("content"));
+				cvo.setImage(rs.getString("image"));
 				list.add(cvo);
 			}
 		} catch (SQLException e) {e.printStackTrace();
@@ -132,6 +155,7 @@ public class CampDao {
 		}
 		return list;
 	}
+
 
 	public void deleteCamping(int cseq) {
 		String sql = "delete from camping where cseq=?";
