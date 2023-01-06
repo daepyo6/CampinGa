@@ -15,7 +15,7 @@
               <label>Password</label><input name="pwd" type="password"><br>
           </div>    
           <div class="login_radio">
-               <input type="radio" name="user" value="1"/>개인 &nbsp; &nbsp; 
+               <input type="radio" name="user" value="1" checked="checked"/>개인 &nbsp; &nbsp; 
                 <input type="radio" name="user" value="2"/>사업자
             </div>
       </fieldset>

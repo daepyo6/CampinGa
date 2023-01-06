@@ -336,14 +336,55 @@ footer{
 	width: 100%;
   	height: 200px;	
 }
-.foot{			
-	width: 100%;
-  	height: 100px;	
+#adBtn{
+	width:115px;
+	height:32px;
+	border:1px solid gray;
+	border-radius:3px;
+	text-align:center;
+	line-height:1.7;
+	font-size:1.1rem;
 }
-
-
-
-
+.foot{
+	display:flex;
+	width: 75%;
+  	height: 100px;	
+  	align-items: center;
+  	justify-content: space-between;
+  	margin:0 auto;
+}
+#fLogo{
+  width: 20%;
+  height: 40px;
+  padding-left:3%;	
+}
+#fLogo img{
+  width: 60%;
+  height: 100%;
+  opacity: 0.5;	
+}
+#copy{
+	margin-left:10px;
+	text-align:left;
+	line-height:1.5;
+	font-size:1rem;	
+}
+.upBtn{
+	width:52px;
+	height:52px;
+	border-radius:50%;
+	background-color:#ffd60a;
+	text-align:center;
+}
+.upBtn a{
+	color:#1d3557;
+	font-size:1.4rem;
+	font-weight:bold;
+	line-height:2;
+}
+.upBtn a:hover{
+	color:#1d3557;
+}
 
 /* login css */
 #loginTable{
