@@ -9,6 +9,7 @@ import com.campinga.dto.MemberVO;
 import com.campinga.util.Dbman;
 
 public class MemberDao {
+	
 	private MemberDao() {}
 	private static MemberDao itc = new MemberDao();
 	public static MemberDao getInstance() {return itc;}
@@ -39,7 +40,7 @@ public class MemberDao {
 	}
 
 	public int insertMember(MemberVO mvo) {
-		int rs = 0;
+		int result = 0;
 		con = Dbman.getConnection();
 		String sql = "insert into member(mid, pwd, name, mphone, email)"
 				+ "values(?, ?, ?, ?, ?)";
@@ -50,9 +51,23 @@ public class MemberDao {
 			pstmt.setString(3, mvo.getName());
 			pstmt.setString(4, mvo.getMphone());
 			pstmt.setString(5, mvo.getEmail());
-			rs = pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		} catch (SQLException e) {e.printStackTrace();
-		} finally {Dbman.close(con, pstmt, null);}		
-		return rs;
+		} finally {Dbman.close(con, pstmt, rs);}		
+		return result;
 	}
+
+	public void deleteMember(String mid) {
+		
+		String sql = "delete from member where mid=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+		
+	}
+
 }
