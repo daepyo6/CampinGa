@@ -56,6 +56,21 @@ public class MemberDao {
 		return rs;
 	}
 
+
+	public void deleteMember(String mid) {
+		String sql = "delete from member where mid=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+	}
+	
 	public void updateUserInfo(MemberVO mvo) {
 		String sql = "update member set name=?, mphone=?, email=? where mid=?";
 		con = Dbman.getConnection();
@@ -72,19 +87,5 @@ public class MemberDao {
 			Dbman.close(con, pstmt, rs);
 		}
 		
-	}
-
-	public void deleteMember(String mid) {
-		String sql = "delete from member where mid=?";
-		con = Dbman.getConnection();
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, mid);
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			Dbman.close(con, pstmt, rs);
-		}
 	}
 }

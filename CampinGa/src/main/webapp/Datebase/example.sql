@@ -239,6 +239,9 @@ SELECT cseq, cname, caddress1, caddress2, caddress3, phone
 FROM camping_view where rowid in (select max(rowid) from camping_view GROUP BY cname);
 
 
+select bseq, cname, content from (select * from camping_view order by c_indate desc) where rownum<=4;
+
+
 -- review 안의 정보로 캠핑장이름 
 create or replace view review_view
 as
