@@ -26,13 +26,9 @@ public class AdminNoticeListAction implements Action {
 			url = "camp.do?command=adminLogin";
 		else {
 			AdminDao adao = AdminDao.getInstance();
-
-		
-
 			NoticeDao Ndao = NoticeDao.getInstance();
 			ArrayList<NoticeVO> list = Ndao.selectAll();
 			request.setAttribute("noticeList", list);
-
 		}
 		
 		request.getRequestDispatcher(url).forward(request, response);

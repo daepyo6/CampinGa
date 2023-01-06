@@ -106,7 +106,6 @@ public class ActionFactory {
 		
 	    else if(command.equals("adminRestList")) ac = new AdminRestListAction();
 		
-		//--------------------------------------------------------------
 	    else if(command.equals("adminNoticeList")) ac = new AdminNoticeListAction();
 	    else if(command.equals("adminNoticeDetail")) ac = new AdminNoticeDetailAction();
 	    else if(command.equals("adminNoticeUpdateForm")) ac = new AdminNoticeUpdateFormAction();

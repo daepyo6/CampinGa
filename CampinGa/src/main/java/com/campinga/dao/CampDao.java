@@ -125,9 +125,12 @@ public class CampDao {
 				cvo.setCaddress3(rs.getString("caddress3"));
 				cvo.setPhone(rs.getString("phone"));
 				cvo.setC_indate(rs.getTimestamp("c_indate"));
-        }
-		} catch (SQLException e) {e.printStackTrace();
-		} finally {Dbman.close(con, pstmt, rs);			
+				list.add(cvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
 		}
 		return list;
 	}

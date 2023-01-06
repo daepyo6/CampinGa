@@ -26,7 +26,7 @@
 					<li><a href="camp.do?command=logout">Logout</a></li>
 				</c:when>
 				<c:when test="${not empty loginBusinessman}">
-					<li><a href="camp.do?command=mypage">
+					<li><a href="camp.do?command=businessMypage">
 						${loginBusinessman.name}(${loginBusinessman.bid})</a></li>
 					<li><a href="camp.do?command=logout">Logout</a></li>
 				</c:when>

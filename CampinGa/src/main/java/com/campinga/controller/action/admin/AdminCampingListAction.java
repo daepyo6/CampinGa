@@ -24,14 +24,9 @@ public class AdminCampingListAction implements Action {
 		if (adminId == null)
 			url = "camp.do?command=adminLogin";
 		else {
-			
-
-		
-
 			CampDao cdao = CampDao.getInstance();
 			ArrayList<CampingVO> list = cdao.selectCamping();
 			request.setAttribute("campingList", list);
-
 		}
 		
 		request.getRequestDispatcher(url).forward(request, response);
