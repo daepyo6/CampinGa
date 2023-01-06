@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.campinga.dto.ReviewVO;
 import com.campinga.util.Dbman;
+import com.campinga.util.Paging;
 
 public class ReviewDao {
 
@@ -38,16 +39,23 @@ public class ReviewDao {
 
 	   }
 
-	   public ArrayList<ReviewVO> selectReview(int bseq) {
+	   public ArrayList<ReviewVO> selectReview(int bseq, Paging paging2) {
 
 	      ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
 
-	      String sql = "select * from review where bseq=? order by rseq desc ";
+	      String sql = "select*from("
+					+ "select*from("
+					+ "select rownum as rn, r.*from("
+					+ "(select*from review where bseq=? order by rseq desc)r)"
+					+ ")where rn>=?"
+					+ ")where rn<=?";
 
 	      con = Dbman.getConnection();
 	      try {
 	         pstmt = con.prepareStatement(sql);
 	         pstmt.setInt(1, bseq);
+			 pstmt.setInt(2, paging2.getStartNum());
+			 pstmt.setInt(3, paging2.getEndNum());
 	         rs = pstmt.executeQuery();
 	         while (rs.next()) {
 	            ReviewVO rvo = new ReviewVO();
@@ -97,5 +105,19 @@ public class ReviewDao {
 	            pstmt.executeUpdate();
 	      } catch (Exception e) { e.printStackTrace();
 	      } finally { Dbman.close(con, pstmt, rs); }		
+	}
+
+	public int getCount(int bseq) {
+		int count = 0;
+		con = Dbman.getConnection();
+		String sql = "select count(*) as cnt from review where bseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bseq);
+			rs = pstmt.executeQuery();
+			if(rs.next()) count = rs.getInt("cnt");
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+		return count;
 	}
 }

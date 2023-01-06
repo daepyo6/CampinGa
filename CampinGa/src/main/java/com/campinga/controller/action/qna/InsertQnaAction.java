@@ -18,7 +18,7 @@ public class InsertQnaAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		int bseq = Integer.parseInt(request.getParameter("bseq"));
-		String url = "camp.do?command=campDetail&bseq="+bseq;
+		String url = "camp.do?command=campDetail&bseq="+bseq+"#qnabox";
 
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");

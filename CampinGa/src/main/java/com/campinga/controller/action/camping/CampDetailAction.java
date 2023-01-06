@@ -12,8 +12,8 @@ import com.campinga.controller.action.Action;
 import com.campinga.dao.Camp_qnaDao;
 import com.campinga.dao.ReviewDao;
 import com.campinga.dto.Camp_qnaVO;
-import com.campinga.dto.MemberVO;
 import com.campinga.dto.ReviewVO;
+import com.campinga.util.Paging;
 
 public class CampDetailAction implements Action {
 
@@ -23,8 +23,51 @@ public class CampDetailAction implements Action {
 		int bseq = Integer.parseInt(request.getParameter("bseq"));
 		String rseqs = request.getParameter("rseq");
 		String qseqs = request.getParameter("qseq");
-		ReviewDao rdao = ReviewDao.getInstance();
-		ArrayList<ReviewVO> reviewlist = rdao.selectReview(bseq);
+		
+		Camp_qnaDao qdao = Camp_qnaDao.getInstance();
+		// QnA paging
+		int page1 = 1;
+		HttpSession session = request.getSession();
+		if(request.getParameter("page1")!=null) {
+			page1=Integer.parseInt(request.getParameter("page1"));
+			session.setAttribute("page1", page1);
+		}else if(session.getAttribute("page1")!=null) {
+			page1 = (Integer)session.getAttribute("page1");
+		}else {
+			session.removeAttribute("page1");
+		}
+		
+		Paging paging1 = new Paging();
+		paging1.setPage(page1);
+		int count = qdao.getCount(bseq);
+		paging1.setTotalCount(count);		
+		
+		ArrayList<Camp_qnaVO> qnalist = qdao.selectAllQna(bseq, paging1);
+		if (qseqs != null) {			
+			int qseqi = Integer.parseInt(qseqs);
+			for (Camp_qnaVO qvo : qnalist) {
+				if (qseqi == qvo.getQseq())
+					request.setAttribute("updateQseq", qseqi);
+			}
+		}
+		
+		// Review paging
+		ReviewDao rdao = ReviewDao.getInstance();		
+		int page2 = 1;
+		if(request.getParameter("page2")!=null) {
+			page2=Integer.parseInt(request.getParameter("page2"));
+			session.setAttribute("page2", page2);
+		}else if(session.getAttribute("page2")!=null) {
+			page2 = (Integer)session.getAttribute("page2");
+		}else {
+			session.removeAttribute("page2");
+		}
+		
+		Paging paging2 = new Paging();
+		paging2.setPage(page2);
+		count = rdao.getCount(bseq);
+		paging2.setTotalCount(count);	
+		ArrayList<ReviewVO> reviewlist = rdao.selectReview(bseq,paging2);
 		if (rseqs != null) {
 			int rseqi = Integer.parseInt(rseqs);
 			for (ReviewVO rvo : reviewlist) {
@@ -32,15 +75,9 @@ public class CampDetailAction implements Action {
 					request.setAttribute("updateRseq", rseqi);
 			}
 		}
-		Camp_qnaDao qdao = Camp_qnaDao.getInstance();
-		ArrayList<Camp_qnaVO> qnalist = qdao.selectAllQna(bseq);
-		if (qseqs != null) {
-			int qseqi = Integer.parseInt(qseqs);
-			for (Camp_qnaVO qvo : qnalist) {
-				if (qseqi == qvo.getQseq())
-					request.setAttribute("updateQseq", qseqi);
-			}
-		}
+		
+		request.setAttribute("paging1", paging1);
+		request.setAttribute("paging2", paging2);
 		request.setAttribute("bseq", bseq);
 		request.setAttribute("qnalist", qnalist);
 		request.setAttribute("reviewList", reviewlist);

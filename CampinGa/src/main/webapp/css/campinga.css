@@ -761,6 +761,15 @@ h1 {
 	border: 1px solid #219ebc;
 	border-radius: 5px;
 }
+textarea:focus{
+	 outline: none;
+}
+.paging{
+	width:50%;
+	height: 35px;
+	margin:0 auto;
+}
+
 
 /* review css */
 .btns input{
@@ -772,5 +781,10 @@ h1 {
   	letter-spacing: 2px;
   	margin-right: 10px;
   	font-weight:bold;
+}
+
+/*회원가입약관*/
+.jv{
+   margin-top:2%;   
 }
 

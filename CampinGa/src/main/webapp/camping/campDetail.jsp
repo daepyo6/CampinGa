@@ -11,7 +11,7 @@
    
    
    <!-- Q&A -->
-   <div class="listBox">
+   <div class="listBox" id="qnabox">
       <h2>Q & A</h2>
       <table class="view">
          <tr>
@@ -54,25 +54,7 @@
             </c:if>
          </c:forEach>
       </table>
-<div id="paging1">
-	<c:url var="action" value="${param.command}"/>
-	<c:if test="${paging1.prev}">
-		<a href="${action}&page=${paging.beginPage-1}">◀</a>				
-	</c:if>
-	<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
-		<c:choose>
-			<c:when test="${index==paging.page}">
-				<span style="color: red;">${index}&nbsp;</span>
-			</c:when>
-			<c:otherwise>
-				<a href="${action}&page=${index}">${index}&nbsp;</a>
-			</c:otherwise>
-		</c:choose>
-	</c:forEach>
-	<c:if test="${paging.next}">
-		<a href="${action}&page=${paging.endPage+1}">▶</a>				
-	</c:if>		
-</div>
+
       <form name="frm" method="post" action="camp.do">
          <input type="hidden" name="command" value="insertQna">
          <input type="hidden" name="bseq" value="${bseq}"> 
@@ -86,11 +68,29 @@
          <div class="clear"></div>
          <br>
       </form>
+<div class="paging">
+	<c:if test="${paging1.prev}">
+		<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.beginPage-1}#qnabox">◀</a>				
+	</c:if>
+	<c:forEach begin="${paging1.beginPage}" end="${paging1.endPage}" var="index">
+		<c:choose>
+			<c:when test="${index==paging1.page}">
+				<span style="color: red;">${index}&nbsp;</span>
+			</c:when>
+			<c:otherwise>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${index}#qnabox">${index}&nbsp;</a>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+	<c:if test="${paging1.next}">
+		<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.endPage+1}#qnabox">▶</a>				
+	</c:if>		
+</div>
    </div>
 
 
    <!-- 리뷰 -->
-   <div class="listBox">
+   <div class="listBox" id="reviewbox">
       <h2>Review</h2>
       <table class="view">
          <tr>
@@ -129,7 +129,6 @@
             </c:if>
          </c:forEach>
       </table>
-
       <form name="form" method="post" action="camp.do">
          <input type="hidden" name="command" value="insertReview">
          <input type="hidden" name="bseq" value="${bseq}"> 
@@ -141,6 +140,25 @@
             </div>
          </fieldset>
       </form>
+      <br>
+<div class="paging">
+	<c:if test="${paging2.prev}">
+		<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.beginPage-1}#reviewbox">◀</a>				
+	</c:if>
+	<c:forEach begin="${paging2.beginPage}" end="${paging2.endPage}" var="index">
+		<c:choose>
+			<c:when test="${index==paging2.page}">
+				<span style="color: red;">${index}&nbsp;</span>
+			</c:when>
+			<c:otherwise>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${index}#reviewbox">${index}&nbsp;</a>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+	<c:if test="${paging2.next}">
+		<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.endPage+1}#reviewbox">▶</a>				
+	</c:if>		
+</div>
    </div> 
 </article>
 <%@ include file="../footer.jsp"%>
