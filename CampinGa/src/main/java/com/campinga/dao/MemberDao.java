@@ -69,5 +69,4 @@ public class MemberDao {
 		} finally {Dbman.close(con, pstmt, rs);}
 		
 	}
-
 }

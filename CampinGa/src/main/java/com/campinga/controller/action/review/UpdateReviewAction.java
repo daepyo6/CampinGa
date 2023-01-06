@@ -16,21 +16,21 @@ public class UpdateReviewAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	      
-		  String url = "camp.do?command=campDetail";
-	      HttpSession session = request.getSession();
-	      MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-	      
-	      if( mvo == null) url = "camp.do?command=index"; 
-	      else {
-	         ReviewVO rvo = new ReviewVO();
-	         rvo.setRseq(Integer.parseInt(request.getParameter("rseq")));
-	         rvo.setMid(request.getParameter("mid"));
-	         rvo.setContent(request.getParameter("content"));
-	         ReviewDao rdao = ReviewDao.getInstance();
-	         rdao.updateReview(rvo);      
-	      }
-	      response.sendRedirect(url);
+
+		String url = "camp.do?command=campDetail";
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+
+		if (mvo == null) url = "camp.do?command=index";
+		else {
+			ReviewVO rvo = new ReviewVO();
+			rvo.setRseq(Integer.parseInt(request.getParameter("rseq")));
+			rvo.setMid(request.getParameter("mid"));
+			rvo.setContent(request.getParameter("content"));
+			ReviewDao rdao = ReviewDao.getInstance();
+			rdao.updateReview(rvo);
+		}
+		response.sendRedirect(url);
 
 	}
 

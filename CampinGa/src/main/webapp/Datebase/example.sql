@@ -3,6 +3,7 @@ drop sequence businessman_seq;
 create sequence businessman_seq start with 1;
 
 select * from member;
+select * from qna_;
 
 -- 사업자 입력 --
 insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3) 
@@ -145,6 +146,7 @@ insert  into camp_qna(qseq, mid, bseq, content , reply, repyn)values
 (qna_seq.nextval, 'dp', 1,'수영장잇나요?','아니요 없습니다','y');
   
 select * from camp_qna;  
+select * from review;
 
 insert into member(mid, pwd, name,mphone,email)values
 ('aaa','aaa','김보나','1111-2222-3333','aaaa@naver.com');
@@ -156,6 +158,10 @@ insert into member(mid, pwd, name, mphone, email)values
 ('dp','1111','이대표','010-2222-3333','aaaa@naver.com');
 insert into member(mid, pwd, name,mphone,email)values
 ('eee','eee','정현우','1111-2222-3333','aaaa@naver.com');
+
+
+select * from reservation; 
+
 
 
 create sequence notice_seq start with 1; 
@@ -180,17 +186,14 @@ insert into notice (nseq,aid,subject,content)values
 자세한 사항은 지자체 관광과에 문의하여 주시기 바랍니다.');
 
  create sequence reservation_seq start with 1; 
-insert into reservation(reseq, cseq, mid, price, people, chk_in, chk_out)values
-(reservation_seq.nextval, 2, 'dp', 150000, 5, '2023/1/01','2023/1/03');
-insert into reservation(reseq,cseq,mid,price,people,chk_in,chk_out)values
-(reservation_seq.nextval,camping_seq.nextval,'aaa','200000','4','2023/1/11','2023/1/23');
-insert into reservation(reseq,cseq,mid,price,people,chk_in,chk_out)values
-(reservation_seq.nextval,camping_seq.nextval,'aaa','250000','8','2023/1/21','2023/2/03');
+insert into reservation(reseq, cseq, mid, price, people, chk_in, chk_out)
+values (reservation_seq.nextval, 23, 'dp', 200000, 5, '2023/2/01','2023/2/03');
 
 
-select * from RESERVATION;
-
-
+select * from RESERVATION where mid='dp';
+select * from member;
+select * from businessman;
+select * from camping;
 
 
 
@@ -208,11 +211,12 @@ select * from reservate_view;
 
 select res_date from reservate_view;
 
+select * from reservate_view;
 
 -- favorites 안의 사용자아이디와 캠핑장번호로 즐겨찾기 된 캠핑장정보를 조회하는 view 생성
 create or replace view favorites_view
 as
-select rownum as rn, f.fseq, m.mid, b.cname, b.phone, f.fav_check  
+select rownum as rn, f.fseq, f.bseq, m.mid, b.cname, b.phone, f.fav_check  
 from favorites f, member m, businessman b
 where f.mid = m.mid and f.bseq = b.bseq;
 
@@ -232,6 +236,13 @@ where b.bseq = c.bseq;
 select * from camping_view;
 
 SELECT cseq, cname, caddress1, caddress2, caddress3, phone 
-FROM camping_view where ROWID IN (SELECT MAX(ROWID) FROM camping_view GROUP BY cname);
+FROM camping_view where rowid in (select max(rowid) from camping_view GROUP BY cname);
 
+
+-- review 안의 정보로 캠핑장이름 
+create or replace view review_view
+as
+select r.rseq, r.mid, r.bseq, r.content, r.indate, b.bname
+from review r, businessman b
+where b.bseq = r.bseq;
 

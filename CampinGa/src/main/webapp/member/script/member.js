@@ -91,3 +91,19 @@ function go_next(){
     document.contractFrm.submit();
     }
 }
+
+function go_update(){
+	    document.updateInfo.action = "camp.do?command=updateUserInfo";
+	    document.updateInfo.submit();
+}
+
+function reservate_cancel(){
+	    document.reservateInfo.action = "camp.do?command=cancelReservate";
+	    document.reservateInfo.submit();
+}
+
+function delete_favorites( fseq ){
+	    document.favorites.action = "camp.do?command=deleteFavorites&fseq="+ fseq;
+	    document.favorites.submit();
+}
+

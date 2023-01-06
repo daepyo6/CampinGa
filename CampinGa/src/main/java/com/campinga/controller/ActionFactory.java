@@ -31,7 +31,12 @@ import com.campinga.controller.action.member.JoinFormAction;
 import com.campinga.controller.action.member.LoginAction;
 import com.campinga.controller.action.member.LoginFormAction;
 import com.campinga.controller.action.member.LogoutAction;
+import com.campinga.controller.action.mypage.CancelReservateAction;
+import com.campinga.controller.action.mypage.DeleteFavoritesAction;
+import com.campinga.controller.action.mypage.DeleteMemberAction;
+import com.campinga.controller.action.mypage.EditFormAction;
 import com.campinga.controller.action.mypage.MypageAction;
+import com.campinga.controller.action.mypage.UpdateUserInfoAction;
 import com.campinga.controller.action.qna.DeleteQnaAction;
 import com.campinga.controller.action.qna.InsertQnaAction;
 import com.campinga.controller.action.qna.QnaViewAction;
@@ -65,6 +70,11 @@ public class ActionFactory {
 		
 		// mypage action
 		else if(command.equals("mypage")) ac = new MypageAction();
+		else if(command.equals("editForm")) ac = new EditFormAction();
+		else if(command.equals("updateUserInfo")) ac = new UpdateUserInfoAction();
+		else if(command.equals("deleteMember")) ac = new DeleteMemberAction();
+		else if(command.equals("cancelReservate")) ac = new CancelReservateAction();
+		else if(command.equals("deleteFavorites")) ac = new DeleteFavoritesAction();
 		
 		// review action
 		else if(command.equals("reviewForm")) ac = new ReviewFormAction();
@@ -80,6 +90,7 @@ public class ActionFactory {
 		
 		// business action
 	    else if(command.equals("businessJoin")) ac = new BusinessJoinAction();
+	    else if(command.equals("contractForm")) ac = new ContractFormAction();
 		
 		// admin action
 	    else if(command.equals("admin")) ac = new AdminAction();

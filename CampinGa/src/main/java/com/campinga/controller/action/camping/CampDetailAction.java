@@ -20,9 +20,11 @@ public class CampDetailAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "camping/campDetail.jsp";
+		int bseq = Integer.parseInt(request.getParameter("bseq"));
 		String rseqs = request.getParameter("rseq");
+		String qseqs = request.getParameter("qseq");
 		ReviewDao rdao = ReviewDao.getInstance();
-		ArrayList<ReviewVO> reviewlist = rdao.selectReview();
+		ArrayList<ReviewVO> reviewlist = rdao.selectReview(bseq);
 		if (rseqs != null) {
 			int rseqi = Integer.parseInt(rseqs);
 			for (ReviewVO rvo : reviewlist) {
@@ -31,8 +33,15 @@ public class CampDetailAction implements Action {
 			}
 		}
 		Camp_qnaDao qdao = Camp_qnaDao.getInstance();
-		ArrayList<Camp_qnaVO> qnalist = qdao.selectAllQna();
-		
+		ArrayList<Camp_qnaVO> qnalist = qdao.selectAllQna(bseq);
+		if (qseqs != null) {
+			int qseqi = Integer.parseInt(qseqs);
+			for (Camp_qnaVO qvo : qnalist) {
+				if (qseqi == qvo.getQseq())
+					request.setAttribute("updateQseq", qseqi);
+			}
+		}
+		request.setAttribute("bseq", bseq);
 		request.setAttribute("qnalist", qnalist);
 		request.setAttribute("reviewList", reviewlist);
 

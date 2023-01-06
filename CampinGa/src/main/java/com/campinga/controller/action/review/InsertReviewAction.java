@@ -19,7 +19,8 @@ public class InsertReviewAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "camp.do?command=campDetail";
+		int bseq = Integer.parseInt(request.getParameter("bseq"));
+		String url = "camp.do?command=campDetail&bseq="+bseq;
 		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");    
@@ -30,10 +31,11 @@ public class InsertReviewAction implements Action {
 	    }else{
 	    	ReviewVO rvo = new ReviewVO();
 	    	rvo.setContent(request.getParameter("content"));
-	    	rvo.setMid( rvo.getMid() );
+	    	rvo.setMid(mvo.getMid());
+	    	rvo.setBseq(bseq);
 	    	
 	    	ReviewDao rdao = ReviewDao.getInstance();
-	    	rdao.insertReview(rvo, mvo.getMid());
+	    	rdao.insertReview(rvo);
 	    }
 	    response.sendRedirect(url);
 

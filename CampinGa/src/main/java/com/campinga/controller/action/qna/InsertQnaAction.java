@@ -17,21 +17,22 @@ public class InsertQnaAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "camp.do?command=campDetail";
-		String bseq = "1";
+		int bseq = Integer.parseInt(request.getParameter("bseq"));
+		String url = "camp.do?command=campDetail&bseq="+bseq;
 
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-
+		
 		if (mvo == null) {
 			url = "camp.do?command=loginForm";
 		} else {
 			Camp_qnaVO qvo = new Camp_qnaVO();
 			qvo.setContent(request.getParameter("content"));
 			qvo.setMid(mvo.getMid());
-
+			qvo.setBseq(bseq);
+			
 			Camp_qnaDao qdao = Camp_qnaDao.getInstance();
-			qdao.insertQna(qvo, 1);
+			qdao.insertQna(qvo);
 		}
 		response.sendRedirect(url);
 	}
