@@ -31,7 +31,7 @@ public class AdminLoginAction implements Action {
 	    else if( adminUserPwd.equals(adminPwd) ) {
 	    	HttpSession session = request.getSession();
 	    	session.setAttribute("loginAdmin", adminId );
-	    	url = "admin/header.jsp";
+	    	url = "camp.do?command=adminMemberList";
 	    }
 	    request.getRequestDispatcher(url).forward(request, response);
 

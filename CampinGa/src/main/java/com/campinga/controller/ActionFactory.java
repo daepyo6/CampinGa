@@ -3,9 +3,24 @@ package com.campinga.controller;
 import com.campinga.controller.action.Action;
 import com.campinga.controller.action.ContractFormAction;
 import com.campinga.controller.action.IndexAction;
+import com.campinga.controller.action.admin.AdminAction;
+import com.campinga.controller.action.admin.AdminCampingDeleteAction;
+import com.campinga.controller.action.admin.AdminCampingListAction;
 import com.campinga.controller.action.admin.AdminLoginAction;
 import com.campinga.controller.action.admin.AdminLoginFormAction;
 import com.campinga.controller.action.admin.AdminLogoutAction;
+import com.campinga.controller.action.admin.AdminMemberDeleteAction;
+import com.campinga.controller.action.admin.AdminMemberListAction;
+import com.campinga.controller.action.admin.AdminNoticeDeleteAction;
+import com.campinga.controller.action.admin.AdminNoticeDetailAction;
+import com.campinga.controller.action.admin.AdminNoticeListAction;
+import com.campinga.controller.action.admin.AdminNoticeUpdateAction;
+import com.campinga.controller.action.admin.AdminNoticeUpdateFormAction;
+import com.campinga.controller.action.admin.AdminNoticeWriteAction;
+import com.campinga.controller.action.admin.AdminNoticeWriteFormAction;
+import com.campinga.controller.action.admin.AdminRestListAction;
+import com.campinga.controller.action.admin.AdminReviewDeleteAction;
+import com.campinga.controller.action.admin.AdminReviewListAction;
 import com.campinga.controller.action.business.BusinessJoinAction;
 import com.campinga.controller.action.camping.CampDetailAction;
 import com.campinga.controller.action.camping.CategoryAction;
@@ -78,10 +93,31 @@ public class ActionFactory {
 	    else if(command.equals("contractForm")) ac = new ContractFormAction();
 		
 		// admin action
+	    else if(command.equals("admin")) ac = new AdminAction();
 		else if(command.equals("adminLoginForm")) ac = new AdminLoginFormAction();
 	    else if(command.equals("adminLogin")) ac = new AdminLoginAction();
 	    else if(command.equals("adminLogout")) ac = new AdminLogoutAction();
-	
+		
+	    else if(command.equals("adminMemberList")) ac = new AdminMemberListAction();
+	    else if(command.equals("adminMemberDelete")) ac = new AdminMemberDeleteAction();
+		
+	    else if(command.equals("adminReviewList")) ac = new AdminReviewListAction();		
+	    else if(command.equals("adminReviewDelete")) ac = new AdminReviewDeleteAction();
+		
+	    else if(command.equals("adminRestList")) ac = new AdminRestListAction();
+		
+		//--------------------------------------------------------------
+	    else if(command.equals("adminNoticeList")) ac = new AdminNoticeListAction();
+	    else if(command.equals("adminNoticeDetail")) ac = new AdminNoticeDetailAction();
+	    else if(command.equals("adminNoticeUpdateForm")) ac = new AdminNoticeUpdateFormAction();
+	    else if(command.equals("adminNoticeUpdate")) ac = new AdminNoticeUpdateAction();
+	    else if(command.equals("adminNoticeWriteForm")) ac = new AdminNoticeWriteFormAction();
+	    else if(command.equals("adminNoticeWrite")) ac = new AdminNoticeWriteAction();
+	    else if(command.equals("adminNoticeDelete")) ac = new AdminNoticeDeleteAction();
+	      
+	    else if(command.equals("adminCampingList")) ac = new AdminCampingListAction();
+	    else if(command.equals("adminCampingDelete")) ac = new AdminCampingDeleteAction();
+
 		return ac;
 	}
 	

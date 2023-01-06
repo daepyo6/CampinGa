@@ -19,7 +19,7 @@
 					<tr><td>비밀번호</td><td><input type="password" name="adminPwd" size="10"></td></tr>
 					<tr align="center" >
 						<td  colspan="2">	
-							<input class="btn" type="submit" value="로그인" onClick="return adminCheck();">
+							<input class="btn" type="submit" value="로그인" onClick="adminCheck();">
 							<br><br><h4 style="color:red">${message}</h4></td></tr>
 				</table>
 			</form>
