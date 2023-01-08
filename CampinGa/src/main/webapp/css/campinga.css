@@ -1,5 +1,8 @@
 @charset "UTF-8";
 @import "reset.css";
+.clear{
+    clear: both;
+}
 body {
 	width: 100%;
 	height:300%;
@@ -384,6 +387,58 @@ footer{
 }
 .upBtn a:hover{
 	color:#1d3557;
+}
+
+/* 캠핑장 검색 페이지 */
+#campSearch{
+	width:400px;
+	height:50px;
+	margin:0 auto;
+}
+#campSearch input{
+	width:250px;
+	height:34px;
+	outline: none;
+	border: 1px solid #48cae4;
+	border-radius: 17px;
+	padding-left:17px;
+	margin:	0 10px 0 85px;
+}
+#campSearch input::placeholder{
+	color:gray;
+	opacity: 0.5;
+}
+#campSearch input:focus::placeholder{
+	opacity: 0;
+}
+#searchBtn{
+    width: 20px;
+    height:20px;
+    vertical-align: middle;
+    opacity:0.6;
+}
+#searchResult{
+    width: 80%;
+    margin:0 auto;
+    display:flex;
+    flex-wrap : wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+#campInfo{
+	width:300px;
+	height:300px;
+    margin: 10px;
+}
+#campInfo_img{    
+    width: 300px;
+    height: 200px;
+    display: block;
+}
+#campInfo_text span{
+	float:left;
+    line-height: 1.5;
 }
 
 /* login css */
