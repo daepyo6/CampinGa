@@ -18,7 +18,7 @@
    </div>
    
    <!-- Q&A -->
-   <div id="QnaBox">
+   <div class="listBox" id="qnabox">
       <h2>Q & A</h2>
       <table class="view">
          <tr>
@@ -30,16 +30,16 @@
             <th>수정/삭제</th>
          </tr>
          <c:forEach items="${qnalist}" var="qnaVO">
-            <tr>
+            <tr class="listOne">
                <td>${qnaVO.qseq}</td>
                <td>${qnaVO.mid}</td>
                <td><fmt:formatDate value="${qnaVO.indate}" type="date" /></td>
-               <td align="left">${qnaVO.content}</td>
+               <td>&nbsp;&nbsp;&nbsp;${qnaVO.content}</td>
                <td><c:choose>
                      <c:when test="${qnaVO.repyn==y}">${qnaVO.reply}</c:when>
                      <c:otherwise>답변대기중</c:otherwise>
                   </c:choose></td>
-               <td colspan="2"><c:if test="${qnaVO.mid == loginUser.mid}">
+               <td><c:if test="${qnaVO.mid == loginUser.mid}">
                      <input type="submit" value="수정"
                         onclick="location.href='camp.do?command=campDetail&qseq=${qnaVO.qseq}&bseq=${bseq}'">
                      <input type="button" value="삭제"
@@ -61,25 +61,43 @@
             </c:if>
          </c:forEach>
       </table>
-      <div class="clear"></div>
+
       <form name="frm" method="post" action="camp.do">
          <input type="hidden" name="command" value="insertQna">
          <input type="hidden" name="bseq" value="${bseq}"> 
          <fieldset>
-            <legend>Q & A</legend>
+            <legend>Q & A 쓰기</legend>
             <textarea rows="8" cols="65" name="content"></textarea>
-            <div id="btns">
-               <input type="submit" class="submit" value="등록" >
+            <div class="btns">
+               <input class="submit" type="submit" value="등록" >
             </div>
          </fieldset>
          <div class="clear"></div>
          <br>
       </form>
+<div class="paging">
+	<c:if test="${paging1.prev}">
+		<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.beginPage-1}#qnabox">◀</a>				
+	</c:if>
+	<c:forEach begin="${paging1.beginPage}" end="${paging1.endPage}" var="index">
+		<c:choose>
+			<c:when test="${index==paging1.page}">
+				<span style="color: red;">${index}&nbsp;</span>
+			</c:when>
+			<c:otherwise>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${index}#qnabox">${index}&nbsp;</a>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+	<c:if test="${paging1.next}">
+		<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.endPage+1}#qnabox">▶</a>				
+	</c:if>		
+</div>
    </div>
 
 
    <!-- 리뷰 -->
-   <div id="ReviewBox" align="center">
+   <div class="listBox" id="reviewbox">
       <h2>Review</h2>
       <table class="view">
          <tr>
@@ -90,11 +108,11 @@
             <th>수정/삭제</th>
          </tr>
          <c:forEach items="${reviewList}" var="ReviewVO">
-            <tr align="center">
+            <tr class="listOne">
                <td>${ReviewVO.rseq}</td>
                <td>${ReviewVO.mid}</td>
                <td><fmt:formatDate value="${ReviewVO.indate}" /></td>
-               <td align="left">${ReviewVO.content}</td>
+               <td>&nbsp;&nbsp;&nbsp;${ReviewVO.content}</td>
                <td><c:if test="${ReviewVO.mid==loginUser.mid}">
                      <input type="button" value="수정" class="submit"
                         onclick="location.href='camp.do?command=campDetail&rseq=${ReviewVO.rseq}&bseq=${bseq}'">
@@ -118,18 +136,36 @@
             </c:if>
          </c:forEach>
       </table>
-
       <form name="form" method="post" action="camp.do">
          <input type="hidden" name="command" value="insertReview">
          <input type="hidden" name="bseq" value="${bseq}"> 
          <fieldset>
-            <legend>Review</legend>
+            <legend>Review 쓰기</legend>
             <textarea rows="8" cols="65" name="content"></textarea>
             <div class="btns">
                <input type="submit" class="submit" value="등록"> 
             </div>
          </fieldset>
       </form>
+      <br>
+<div class="paging">
+	<c:if test="${paging2.prev}">
+		<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.beginPage-1}#reviewbox">◀</a>				
+	</c:if>
+	<c:forEach begin="${paging2.beginPage}" end="${paging2.endPage}" var="index">
+		<c:choose>
+			<c:when test="${index==paging2.page}">
+				<span style="color: red;">${index}&nbsp;</span>
+			</c:when>
+			<c:otherwise>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${index}#reviewbox">${index}&nbsp;</a>
+			</c:otherwise>
+		</c:choose>
+	</c:forEach>
+	<c:if test="${paging2.next}">
+		<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.endPage+1}#reviewbox">▶</a>				
+	</c:if>		
+</div>
    </div> 
 </article>
 <%@ include file="../footer.jsp"%>

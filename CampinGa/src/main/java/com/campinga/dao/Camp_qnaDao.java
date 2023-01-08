@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.campinga.dto.Camp_qnaVO;
 import com.campinga.util.Dbman;
+import com.campinga.util.Paging;
 
 public class Camp_qnaDao {
 
@@ -40,14 +41,21 @@ public class Camp_qnaDao {
 
 	}
 
-	public ArrayList<Camp_qnaVO> selectAllQna(int bseq) {
+	public ArrayList<Camp_qnaVO> selectAllQna(int bseq, Paging paging1) {
 		ArrayList<Camp_qnaVO> list = new ArrayList<Camp_qnaVO>();
 
-		String sql = "select * from camp_qna where bseq=? order by qseq desc ";
+		String sql = "select*from("
+					+ "select*from("
+					+ "select rownum as rn, q.*from("
+					+ "(select*from camp_qna where bseq=? order by qseq desc)q)"
+					+ ")where rn>=?"
+					+ ")where rn<=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, bseq);
+			pstmt.setInt(2, paging1.getStartNum());
+			pstmt.setInt(3, paging1.getEndNum());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Camp_qnaVO qvo = new Camp_qnaVO();
@@ -102,6 +110,20 @@ public class Camp_qnaDao {
 			Dbman.close(con, pstmt, rs);
 		}
 
+	}
+
+	public int getCount(int bseq) {
+		int count = 0;
+		con = Dbman.getConnection();
+		String sql = "select count(*) as cnt from camp_qna where bseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bseq);
+			rs = pstmt.executeQuery();
+			if(rs.next()) count = rs.getInt("cnt");
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+		return count;
 	}
 
 }
