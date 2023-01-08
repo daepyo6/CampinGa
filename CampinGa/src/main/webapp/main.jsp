@@ -8,8 +8,8 @@
 		<div id="selects">
 		    <div id="selectAddress">
 		    	<span>지역별</span>
-		    	<select name="address1" class="selectAd" onchange="chDo(this.value)">
-				    <option selected="selected">도/시 선택</option>
+		    	<select id="sido" class="selectAd" onchange="chDo(this.value)">
+				    <option value="" selected="selected">도/시 선택</option>
 		            <option value='1'>서울
 		            </option>
 		            <option value='2'>부산</option>
@@ -28,17 +28,16 @@
 		            <option value='15'>충남</option>
 		            <option value='16'>충북</option>
 				</select>
-				<select name="address2" class="selectAd" id="gungu">
-				    <option value="0" selected="selected">시/군/구 선택</option>
+				<select id="gungu" class="selectAd">
+				    <option value="" selected="selected">시/군/구 선택</option>
 				</select>
 				<!-- 시/군/구 value는 한글 그대로임 -->
 		    </div><br>
 		    <div id="searchName">
 		    	<span>캠핑장명</span> 
 		    	<input type="text" id="inputText" name="cname" size="20">
-		    	<input type="button" id="mainBtn" value="검색" onclick="">
-		    </div>
-		    <!-- 검색버튼 onclick 함수 필요함 -->	    
+		    	<input type="button" id="mainBtn" value="검색" onclick="mainSearch()">
+		    </div>	    
 	    </div>    
 	</div>
 </div>

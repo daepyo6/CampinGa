@@ -21,3 +21,4 @@ $(function() {
 		$('.cards').animate({ left: dist }, 500)
 	})
 })
+

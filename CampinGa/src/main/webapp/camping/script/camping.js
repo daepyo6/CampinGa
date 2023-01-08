@@ -11,11 +11,11 @@ function QnaCheck(){
     document.frm.submit();
 }
 
-var cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
-var cat1_name = new Array('서울','부산','대구','인천','광주','대전','울산','강원','경기','경남','경북','전남','전북','제주','충남','충북');
+const cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+const cat1_name = new Array('서울','부산','대구','인천','광주','대전','울산','강원','경기','경남','경북','전남','전북','제주','충남','충북');
 
-var cat2_num = new Array();
-var cat2_name = new Array();
+const cat2_num = new Array();
+const cat2_name = new Array();
 
 cat2_name[1] = new Array('강남구','강동구','강북구','강서구','관악구','광진구','구로구','금천구','노원구','도봉구','동대문구','동작구','마포구','서대문구','서초구','성동구','성북구','송파구','양천구','영등포구','용산구','은평구','종로구','중구','중랑구');
 cat2_name[2] = new Array('강서구','금정구','남구','동구','동래구','부산진구','북구','사상구','사하구','서구','수영구','연제구','영도구','중구','해운대구','기장군');
@@ -51,5 +51,26 @@ function chDo(key){
 }
 
 
+function mainSearch() {
+	const sido = document.getElementById("sido").value;
+	const gungu = document.getElementById("gungu").value;
+	const cname = document.getElementById("inputText").value;
+    if (cname.length == 0) {
+        if (sido.length == 0) {
+            alert("시/도를 선택해주세요");
+            return;
+        } else if (gungu.length == 0) {
+            alert("시/군/구를 선택해주세요");
+            return;
+        } else {
+			const ad1 = cat1_name[sido-1];
+			console.log(ad1)
+			console.log(gungu)
+            location.href = "camp.do?command=mainSearch&address1=" + ad1 + "&address2=" + gungu;
+        }
+    } else {
+        location.href = "camp.do?command=searchResult&key=" + cname;
+    }
+}
 
 

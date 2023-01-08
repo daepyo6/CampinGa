@@ -170,4 +170,37 @@ public class CampDao {
 		} catch (Exception e) { e.printStackTrace();
 	    } finally { Dbman.close(con, pstmt, rs); }
 	}
+
+	public ArrayList<CampingVO> selectAddress(String address1, String address2) {
+		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
+		con = Dbman.getConnection();
+		String sql = "select*from("
+				+ "select*from("
+				+ "SELECT*FROM camping_view where ROWID "
+				+ "IN (SELECT MAX(ROWID) FROM camping_view GROUP BY bseq)"
+				+ ")where caddress1 = ?"
+				+ ")where caddress2 = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, address1);
+			pstmt.setString(2, address2);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				CampingVO cvo = new CampingVO();
+				cvo.setBseq(rs.getInt("bseq"));
+				cvo.setCategory(rs.getString("category"));
+				cvo.setCname(rs.getString("cname"));
+				cvo.setFacilities(rs.getString("facilities"));
+				cvo.setCaddress1(rs.getString("caddress1"));
+				cvo.setCaddress2(rs.getString("caddress2"));
+				cvo.setCaddress3(rs.getString("caddress3"));
+				cvo.setImage(rs.getString("image"));
+				cvo.setPhone(rs.getString("phone"));
+				list.add(cvo);
+			}
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);			
+		}
+		return list;
+	}
 }
