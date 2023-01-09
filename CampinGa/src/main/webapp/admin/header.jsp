@@ -5,19 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Administer</title>
+<link href="css/campinga.css" rel="stylesheet">
 <script src="admin/script/admin.js"></script>
 </head>
 <body>
 
 <div id="wrap">
-	<header>			
+	<header class="adminHeader">			
 		<div id="logo">
 			<a href="camp.do?command=index">
 				<img src="images/CampinGa_logo.png" width="220" height="50">
 			</a>
 		</div>
-		<input class="btn" type="button" value="logout" style="float: right;" 
-			onClick="location.href='camp.do?command=adminLogout'">			
+		<div class="adLogout">
+		<c:if test="${loginAdmin!=null}">
+			<input type="button" value="logout" 
+			onClick="location.href='camp.do?command=adminLogout'">
+		</c:if>				
+		</div>		
 	</header>
-	<div class="clear"></div>
