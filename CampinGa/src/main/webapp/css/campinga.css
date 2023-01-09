@@ -1,5 +1,9 @@
 @charset "UTF-8";
 @import "reset.css";
+@import "admin.css";
+.clear{
+    clear: both;
+}
 body {
 	width: 100%;
 	height:300%;
@@ -16,6 +20,13 @@ a{
 a:hover{
 	color:#f2542d;
 }
+textarea{
+	border:none;
+	resize:none;
+}
+textarea:focus{
+	outline:none;
+}
 #wrap{
 	position:relative;	
     width: 100%;
@@ -27,7 +38,7 @@ button:hover{
 header{	
     display:grid;
     width: 70%;
-    height: 200px;
+    height: 220px;
     margin : 1% 15%;
     row-gap: 10%;
     grid-template-areas:
@@ -55,8 +66,13 @@ header{
 }
 #logo{
     width: 100%;
+    height:100px;
+    padding: 10px 0;
 	grid-area: logo;
 	text-align: center;
+}
+#logo img{
+	margin-top:30px;
 }
 #category_menu{
 	width:100%;	
@@ -87,7 +103,7 @@ header{
 #main_img{	
 	width:100%;	
 	height:100%;
-	margin:0 auto;
+	margin:20px auto;
     text-align: center;
 }
 #mainImg{
@@ -229,12 +245,20 @@ header{
 	color:white;
 }
 .newCampInfo{	
-	width: 100%;
-  	height: 19%;  	
+	width: 98%;
+  	height: 19%;
+  	padding-left:2%;
   	font-size:0.9rem;
 	line-height:1.5;
 	background-color:#caf0f8;
 	color:black;
+	text-align:left;
+	word-wrap : break-word; 
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
 }
 
 /*추천 캠핑장*/
@@ -336,14 +360,132 @@ footer{
 	width: 100%;
   	height: 200px;	
 }
-.foot{			
-	width: 100%;
+#adBtn{
+	width:115px;
+	height:32px;
+	border:1px solid gray;
+	border-radius:3px;
+	text-align:center;
+	line-height:1.7;
+	font-size:1.1rem;
+}
+.foot{
+	display:flex;
+	width: 75%;
   	height: 100px;	
+  	align-items: center;
+  	justify-content: space-between;
+  	margin:0 auto;
+}
+#fLogo{
+  width: 20%;
+  height: 40px;
+  padding-left:3%;	
+}
+#fLogo img{
+  width: 60%;
+  height: 100%;
+  opacity: 0.5;	
+}
+#copy{
+	margin-left:10px;
+	text-align:left;
+	line-height:1.5;
+	font-size:1rem;	
+}
+.upBtn{
+	width:52px;
+	height:52px;
+	border-radius:50%;
+	background-color:#ffd60a;
+	text-align:center;
+}
+.upBtn a{
+	color:#1d3557;
+	font-size:1.4rem;
+	font-weight:bold;
+	line-height:2;
+}
+.upBtn a:hover{
+	color:#1d3557;
 }
 
-
-
-
+/* 캠핑장 검색 페이지 */
+#campSearch{
+	width:400px;
+	height:50px;
+	margin:0 auto;
+}
+#campSearch input{
+	width:250px;
+	height:34px;
+	outline: none;
+	border: 1px solid #48cae4;
+	border-radius: 17px;
+	padding-left:17px;
+	margin:	0 10px 0 85px;
+}
+#campSearch input::placeholder{
+	color:gray;
+	opacity: 0.5;
+}
+#campSearch input:focus::placeholder{
+	opacity: 0;
+}
+#searchBtn{
+    width: 20px;
+    height:20px;
+    vertical-align: middle;
+    opacity:0.6;
+}
+.bar{
+	width:100%;
+	height:2px;
+	margin-top: 15px;
+	margin-bottom:30px;
+	background-color:#1d3557;
+	opacity:0.5;
+}
+#searchResult{
+    width: 80%;
+    margin:0 auto;
+    display:flex;
+    flex-wrap : wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+#campInfo{
+	background-color:#e5e5e5a6;
+	width:300px;
+	height:310px;
+    margin: 20px 10px;
+    padding: 10px;
+    border-radius:3px;
+    box-shadow: 2px 2px 6px gray;
+}
+#campInfo_img{    
+    width: 300px;
+    height: 200px;
+    display: block;
+    /*box-shadow: 1px 1px 4px gray;*/
+}
+#campInfo_text{
+	margin-top:10px;
+}
+#campInfo_text span{
+	line-height:1.4;
+	font-size:0.8rem;
+	color: black;
+}
+#campInfo_text span:first-child{
+	color:#0077b6;
+	line-height:1.5;
+	font-size:1rem;
+}
+#campInfo_text span:first-child:hover{
+	color:crimson;
+}
 
 /* login css */
 #loginTable{
@@ -524,41 +666,60 @@ h1 {
 
 /*mypage css*/
 #mypage{
-  width: 90%;
-  height: 1000px;
-  background:white;
+  width: 1000px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin:0 auto;
 }
 
-.memberInfoList{
-  width: 90%;
-  height: 50px;
+
+.memberInfoList1, .memberInfoList2{
+  width: 900px;
   padding: 0px 20px;
-  border: 1px solid lightgray;
   outline: none;
   color:#0077b6;
   font-size: 20px;
   text-align:center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border-radius: 30px;
   letter-spacing: 2px;
 }
 
-.memberInfoList tr{
-   margin-top: 50px;
-   width:80%;
-   height: 50px;
-   line-height: 3rem;
-   
+.memberInfoList2 tr:first-child{
+   width:8%;
+   border-bottom:2px solid #023e8a;
+   font-size:1.2rem;
+   font-weight:600;
+   padding: 5px;
 }
-.memberInfoList tr td{
+
+.memberInfoList1 th{
+   width:30%;
+   border-right:1px dotted #023e8a;
+   font-size:1.2rem;
+   font-weight:600;
+   padding: 5px;
+}
+
+.memberInfoList1 tr, .memberInfoList2 tr{
+   width: 800px;
+   margin-top: 50px;
+   line-height: 3rem;
+   text-align:center;
+}
+
+.memberInfoList1 tr td, .memberInfoList2 tr td{
+   width: 800px;
    margin-top: 30px;
    line-height: 3rem;
 }
 
-.memberInfoList td input{
-  width: 50px;
+#mypagebtn input{
   height: 30px;
   border: 0;
   outline: none;
@@ -570,47 +731,93 @@ h1 {
   display :inline-block;
   margin-right: 10px;
   font-weight:bold;
+  text-align: center;
 }
 
-.memberInfoList td input:hover{
+#mypagebtn input:hover{
+   cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
+
+.memberInfoList2 td input{
+  height: 30px;
+  border: 0;
+  outline: none;
+  border-radius:5px;
+  background:  linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  display :inline-block;
+  margin-right: 10px;
+  font-weight:bold;
+  text-align: center;
+}
+
+.memberInfoList2 td input:hover{
     cursor: pointer;
     color: #0077b6;
     background-color:#e2edf6;
 }
 
-
 /*campdetail css*/
-#cmp_1{
-   border-radius: 30px;
+#campingdetail{
+	width:100%;
+	height:1000px;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	flex-direction: column;
+  	margin:0 auto;
+}
+#campMain{
+	width:75%;
+	height:500px;
+	margin:0 auto;
+	display: flex;
+  	justify-content:space-around;
+  	align-items: center;
+}
+#campMain_img{
+   border-radius: 10px;
    width:600px;
    height:400px;
-   float:left;
    overflow:hidden;
-   margin: 30px 30px 30px 30px;
+}
+#campMain_img img{
+	width:100%;
+    height:100%;
+}
+#campMain_info{
+    width:600px;
+    height:400px;
 }
 
-#cmp_2{
-   margin: 30px 30px 30px 30px;
-   border-radius: 30px;
-   float:left;
-   width:600px;
-   height:400px;
-   border: 1px solid lightgray;
-   box-sizing: border-box;
+#campMain_info-title{
+	width:300px;
+    height:50px;
+    margin:10px auto 20px auto;
+    border-bottom: 3px solid #3a0ca3;
+    text-align:center;
 }
-
-#cmp_2 label{
+#campMain_info-title h2{
+	line-height:1.7;
+}
+#campMain_info label{
    line-height: 1.5rem;
    margin-left:20px;
+   font-weight:750;
+}
+#campMain_info-btns{
+	width:540px;
+    height:50px;
+    padding:10px 30px;
+    text-align:right;
 }
 
-#cmp_2 h2{
-   margin:20px 20px 20px 20px;
-}
-
-#cmp_2 .submit, .view td input{
+#campMain_info .submit, .view td input{
 	margin:5px 5px 5px 5px;
-	float:right;
 	border: 0;
 	border-radius:5px;
 	background:linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
@@ -621,48 +828,37 @@ h1 {
 	font-weight:bold;
 }
 
-#cmp_2 .submit:hover, .view td input:hover, .btns input:hover{
+#campMain_info .submit:hover, .view td input:hover, .btns input:hover{
     cursor: pointer;
     color: #0077b6;
     background-color:#e2edf6;
 }
 
-#campingdetail{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin:0 auto;
-}
-
-.image{
-	width:100%;
-	height:100%;
-	object-fit:cover; 
-}
-
-
-#cmp_3{
-	margin: 30px 30px 30px 30px;
-	border-radius: 30px;
-	float:left;
-	width:1300px;
-	height:400px;
-	border: 1px solid lightgray;
-	box-sizing: border-box;
-	overflow:hidden;
+#campDetail{
+	width:80%;
+	height:400px;	
 	text-align:center;
+	margin:0 auto;
+	padding:30px;
+	border-top:2px solid #a8dadc;
+	border-bottom:2px solid #a8dadc;
 }
-
-.img{
-	margin: 30px 30px 30px 30px;
+#campDetail_imgs{
+	width:80%;
+	height:200px;
+	margin: 40px auto;
+}
+#campDetail_imgs img{
+	margin-left: 60px;
 	border-radius: 100%;
 	width:200px;
 	height:200px;
 }
+#campDetail_imgs img:first-child{
+	margin-left: 0;
+}
 
-/* room css */
-
+/*객실정보*/
 #roomBox_main{
 	border-radius: 30px;
 	width:1300px;
@@ -690,62 +886,99 @@ h1 {
     margin:0 auto;
     float: left;
 }
+
+#roomBox img{
+	margin-left: 60px;
+	border-radius: 100%;
+	width:200px;
+	height:200px;
+}
+
 .room_img{
 	float:left;
 }
 
 /* Q&A css */
-#QnaBox{
-	border-radius: 30px;
-	width:1300px;
-	height:600px;
-	border: 1px solid lightgray;
-   	box-sizing: border-box;
+.listBox{
+	width:75%;
     text-align:center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    margin:0 auto;
+    margin:4% auto;
 }
-
-.room_img{
-	float:left;
-}
-
 .view{
-   margin: 30px 50px 50px 50px;
-   text-align:center;
-   border: 1px solid lightgray;
-   line-height: 2.5rem;
+	width:80%;
+   	margin:3% auto;
+   	text-align:center;
+   	line-height:1.5;
 }
-
-.view tr,th,td{
-   margin: 30px 50px 50px 50px;
-   text-align:center;
-   border: 1px solid lightgray;
+.view th{
+	width:8%;
+	border-bottom:2px solid #023e8a;
+	font-size:1.2rem;
+	font-weight:600;
+	padding: 5px;
 }
-
-
+.view th:nth-child(3){
+	width:10%
+}
+.view th:nth-child(4){
+	width:45%
+}
+.view th:nth-child(5){
+	width:14%
+}
+.view th:last-child{
+	width:15%
+}
+.listOne td{
+	height:40px;
+	vertical-align: middle;
+}
+.listOne td:nth-child(4){
+	text-align:left;
+}
+.listBox form{
+	width:100%;
+	height: 100px;
+}
+.writeBox{
+	width:60%;
+	height:120px;
+	margin: 0 auto;
+	padding:10px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color:#edf2f4;
+	border-radius:5px;
+}
+.writeBox textarea{
+	width:830px;
+	height:80px;
+	background-color:transparent;
+}
+.writeBox div{
+	width:100%;
+	height:20px;
+	text-align:right;
+}
+.paging{
+	width:50%;
+	height: 35px;
+	margin:10px auto;
+}
+.bar2{
+	width:80%;
+	height:2px;
+	background-color:#a8dadc;
+	margin:0 auto;
+}
 
 /* review css */
-
-#ReviewBox{
-   	margin: 30px 30px 30px 30px;
-   	border-radius: 30px;
-   	width:1300px;
-   	height:600px;
-   	border: 1px solid lightgray;
-   	box-sizing: border-box;
-   	overflow:hidden;
-   	text-align:center;
-   	display: flex;
-	justify-content: center;
-  	align-items: center;
-  	flex-direction: column;
-  	margin:0 auto;
-}
-
 .btns input{
     border: 0;
     border-radius:5px;
@@ -755,5 +988,10 @@ h1 {
   	letter-spacing: 2px;
   	margin-right: 10px;
   	font-weight:bold;
+}
+
+/*회원가입약관*/
+.jv{
+   margin-top:2%;   
 }
 

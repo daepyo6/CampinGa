@@ -24,6 +24,7 @@ import com.campinga.controller.action.admin.AdminReviewListAction;
 import com.campinga.controller.action.business.BusinessJoinAction;
 import com.campinga.controller.action.camping.CampDetailAction;
 import com.campinga.controller.action.camping.CategoryAction;
+import com.campinga.controller.action.camping.MainSearchAction;
 import com.campinga.controller.action.camping.SearchResultAction;
 import com.campinga.controller.action.member.IdCheckFormAction;
 import com.campinga.controller.action.member.JoinAction;
@@ -68,6 +69,7 @@ public class ActionFactory {
 		else if(command.equals("category")) ac = new CategoryAction();
 	    else if(command.equals("searchResult")) ac = new SearchResultAction();
 	    else if(command.equals("campDetail")) ac = new CampDetailAction();
+	    else if(command.equals("mainSearch")) ac = new MainSearchAction();
 		
 		// reservation action
 	    else if(command.equals("reserveForm")) ac = new ReserveFormAction();

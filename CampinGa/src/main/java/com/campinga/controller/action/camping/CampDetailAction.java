@@ -14,8 +14,8 @@ import com.campinga.dao.Camp_qnaDao;
 import com.campinga.dao.ReviewDao;
 import com.campinga.dto.Camp_qnaVO;
 import com.campinga.dto.CampingVO;
-import com.campinga.dto.MemberVO;
 import com.campinga.dto.ReviewVO;
+import com.campinga.util.Paging;
 
 public class CampDetailAction implements Action {
 
@@ -26,14 +26,56 @@ public class CampDetailAction implements Action {
 		String rseqs = request.getParameter("rseq");
 		String qseqs = request.getParameter("qseq");
 		
+		
 		// 방정보 가져오기
 		CampDao cdao = CampDao.getInstance();
+		CampingVO cvo = cdao.selectOne(bseq);
 		ArrayList<CampingVO> campingList = cdao.selectCampingList(bseq);
 		
+		Camp_qnaDao qdao = Camp_qnaDao.getInstance();
+		// QnA paging
+		int page1 = 1;
+		HttpSession session = request.getSession();
+		if(request.getParameter("page1")!=null) {
+			page1=Integer.parseInt(request.getParameter("page1"));
+			session.setAttribute("page1", page1);
+		}else if(session.getAttribute("page1")!=null) {
+			page1 = (Integer)session.getAttribute("page1");
+		}else {
+			session.removeAttribute("page1");
+		}
 		
-		// 리뷰 가져오기
-		ReviewDao rdao = ReviewDao.getInstance();
-		ArrayList<ReviewVO> reviewlist = rdao.selectReview(bseq);
+		Paging paging1 = new Paging();
+		paging1.setPage(page1);
+		int count = qdao.getCount(bseq);
+		paging1.setTotalCount(count);		
+		
+		ArrayList<Camp_qnaVO> qnalist = qdao.selectAllQna(bseq, paging1);
+		if (qseqs != null) {			
+			int qseqi = Integer.parseInt(qseqs);
+			for (Camp_qnaVO qvo : qnalist) {
+				if (qseqi == qvo.getQseq())
+					request.setAttribute("updateQseq", qseqi);
+			}
+		}
+		
+		// Review paging
+		ReviewDao rdao = ReviewDao.getInstance();		
+		int page2 = 1;
+		if(request.getParameter("page2")!=null) {
+			page2=Integer.parseInt(request.getParameter("page2"));
+			session.setAttribute("page2", page2);
+		}else if(session.getAttribute("page2")!=null) {
+			page2 = (Integer)session.getAttribute("page2");
+		}else {
+			session.removeAttribute("page2");
+		}
+		
+		Paging paging2 = new Paging();
+		paging2.setPage(page2);
+		count = rdao.getCount(bseq);
+		paging2.setTotalCount(count);	
+		ArrayList<ReviewVO> reviewlist = rdao.selectReview(bseq,paging2);
 		if (rseqs != null) {
 			int rseqi = Integer.parseInt(rseqs);
 			for (ReviewVO rvo : reviewlist) {
@@ -42,18 +84,11 @@ public class CampDetailAction implements Action {
 			}
 		}
 		
-		// QnA 가져오기
-		Camp_qnaDao qdao = Camp_qnaDao.getInstance();
-		ArrayList<Camp_qnaVO> qnalist = qdao.selectAllQna(bseq);
-		if (qseqs != null) {
-			int qseqi = Integer.parseInt(qseqs);
-			for (Camp_qnaVO qvo : qnalist) {
-				if (qseqi == qvo.getQseq())
-					request.setAttribute("updateQseq", qseqi);
-			}
-		}
-		request.setAttribute("bseq", bseq);
+		request.setAttribute("campMain", cvo);
 		request.setAttribute("campingList", campingList);
+		request.setAttribute("paging1", paging1);
+		request.setAttribute("paging2", paging2);
+		request.setAttribute("bseq", bseq);
 		request.setAttribute("qnalist", qnalist);
 		request.setAttribute("reviewList", reviewlist);
 
