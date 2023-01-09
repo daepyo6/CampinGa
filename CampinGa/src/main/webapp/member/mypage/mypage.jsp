@@ -38,7 +38,7 @@
    <form method="post" name="reservateInfo">
       <h1>예약 조회</h1>
       <table class="memberInfoList2">
-         <tr>
+         <tr id="myrest">
             <th>예약일자</th>
             <th>예약장소</th>
             <th>인원</th>
@@ -68,7 +68,7 @@
    <form method="post" name="favorites">
       <h1>즐겨찾기</h1>
       <table class="memberInfoList2">
-         <tr>
+         <tr id="myfav">
             <th>번호</th>
             <th>캠핑장이름</th>
             <th>캠핑장 전화번호</th>

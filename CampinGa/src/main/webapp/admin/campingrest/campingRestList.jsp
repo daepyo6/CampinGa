@@ -1,17 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/admin/header.jsp"%>
 <%@ include file="/admin/sub_menu.jsp"%>
-<article>
+<article id="mypage" class="adminPage">
 	<h1>캠핑장 객실 예약 리스트</h1>
-	<form name="frm" method="post">
-	<table style="float:right;">
+	<form name="frm" method="post"><br><br>
+	<table class="adSearch" style="float:right;">
 		<tr>
-			<td>객실 이름<input type="text" name="key" value="${key1}">
-			<input class="btn" type="button" value="검색" onclik="go_search('adminRestList)">
-			<input class="btn" type="button" name="btn_total" value="전체보기" onClick="go_total('adminRestList')">
+			<td class="searchTd">객실 이름&nbsp;&nbsp;<input type="text" name="key" value="${key1}">&nbsp;
+			<input class="adpage_btn" type="button" value="검색" onclick="go_search('adminRestList)">
+			<input class="adpage_btn" type="button" name="btn_total" value="전체보기" onClick="go_total('adminRestList')">
 		</td></tr>
 	</table><br>
-	<table id="restList">
+	<table class="rentList">
 		<tr>
 			<th>예약 번호</th>
 			<th>예약 일자</th>
@@ -26,15 +26,15 @@
 		</tr>
 		<c:forEach items="${restList}" var="reservationVO">
 			<tr>
-				<td>${reservationVO.reseq}&nbsp;</td>
+				<td>${reservationVO.reseq}</td>
 				<td><fmt:formatDate value="${reservationVO.res_date}" type="both" dateStyle="short" timeStyle="short"/>&nbsp;&nbsp;</td>
-				<td>${reservationVO.cname}&nbsp;&nbsp;</td>
-				<td>${reservationVO.c_class}&nbsp;&nbsp;</td>
-				<td>${reservationVO.people}&nbsp;&nbsp;</td>
-				<td><fmt:formatDate value="${reservationVO.chk_in}"/>&nbsp;&nbsp;</td>
-				<td><fmt:formatDate value="${reservationVO.chk_out}"/>&nbsp;&nbsp;</td>
-				<td>${reservationVO.mid}&nbsp;&nbsp;</td>
-				<td>${reservationVO.price}&nbsp;&nbsp;</td>
+				<td>${reservationVO.cname}</td>
+				<td>${reservationVO.c_class}</td>
+				<td>${reservationVO.people}</td>
+				<td><fmt:formatDate value="${reservationVO.chk_in}"/></td>
+				<td><fmt:formatDate value="${reservationVO.chk_out}"/></td>
+				<td>${reservationVO.mid}</td>
+				<td>${reservationVO.price}</td>
 				<td>${reservationVO.res_sta}</td>
 			</tr>
 		</c:forEach>

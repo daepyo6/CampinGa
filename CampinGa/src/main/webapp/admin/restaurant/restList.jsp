@@ -4,11 +4,11 @@
 <%@ include file="/admin/sub_menu.jsp"%>
 
 
-<article>
+<article id="mypage" class="adminPage">
 	<h1>캠핑장 정보 관리</h1>
 	<form name="frm" method="post">
 
-         <table id="noticeList">
+         <table class="rentList" id="noticeList">
  <tr><th>사업자번호</th><th>이름</th><th>주소</th><th>연락처</th><th>등록일</th><th>삭제</th></tr>
 				<c:forEach items="${campingList}" var="campingList">
 					<tr>

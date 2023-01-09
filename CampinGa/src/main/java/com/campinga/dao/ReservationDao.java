@@ -69,4 +69,9 @@ public class ReservationDao {
 		}
 
 	}
+
+	public void insertReservation(ReservationVO rvo) {
+		// TODO Auto-generated method stub
+		
+	}
 }

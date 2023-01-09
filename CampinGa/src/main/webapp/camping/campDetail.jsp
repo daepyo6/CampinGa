@@ -11,7 +11,7 @@
 	<!-- 캠핑장 객실 정보 -->
 	<div id="roomBox_main">
 		<c:forEach items="${campingList}" var="campVO">
-			<div id="roomBox" onclick="location.href='camp.do?command=reserveForm'">
+			<div id="roomBox" onclick="location.href='camp.do?command=reserveForm&cseq=${campVO.cseq}'">
 				<div class="room_img">
 					<img src="images/${campVO.image}" class="img" />
 				</div>

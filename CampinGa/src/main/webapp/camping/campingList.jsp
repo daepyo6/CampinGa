@@ -17,11 +17,12 @@
 					onclick="location.href='camp.do?command=campDetail&bseq=${campVO.bseq}'">
 				<img id="campInfo_img" src="images/${campVO.image}">
 				<div id="campInfo_text">
-					<span>${campVO.cname}</span><br> <span> 주소 :
-						${campVO.caddress1} ${campVO.caddress2}</span><br> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						${campVO.caddress3}</span><br> <span>카테고리 :
-						${campVO.category}</span><br> <span>편의시설 :
-						${campVO.facilities}</span>
+					<span>${campVO.cname}</span><br> 
+					<span> 주소 : ${campVO.caddress1} ${campVO.caddress2}</span><br> 
+					<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						${campVO.caddress3}</span><br> 
+						<span>카테고리 : ${campVO.category}</span><br> 
+						<span>편의시설 : ${campVO.facilities}</span>
 				</div>
 			</div>
 		</c:forEach>

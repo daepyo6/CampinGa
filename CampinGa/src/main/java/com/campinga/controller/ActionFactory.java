@@ -43,6 +43,7 @@ import com.campinga.controller.action.qna.InsertQnaAction;
 import com.campinga.controller.action.qna.QnaViewAction;
 import com.campinga.controller.action.qna.UpdateQnaAction;
 import com.campinga.controller.action.reservation.ReserveFormAction;
+import com.campinga.controller.action.reservation.ReserveInsertAction;
 import com.campinga.controller.action.review.DeleteReviewAction;
 import com.campinga.controller.action.review.InsertReviewAction;
 import com.campinga.controller.action.review.ReviewFormAction;
@@ -73,6 +74,7 @@ public class ActionFactory {
 		
 		// reservation action
 	    else if(command.equals("reserveForm")) ac = new ReserveFormAction();
+	    else if(command.equals("reserveInsert")) ac = new ReserveInsertAction();
 		
 		// mypage action
 		else if(command.equals("mypage")) ac = new MypageAction();
