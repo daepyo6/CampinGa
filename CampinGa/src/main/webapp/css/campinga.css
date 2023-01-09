@@ -586,7 +586,6 @@ h2 {
 /* join css*/
 .joinTable{
   width: 30%;
-  height: 900px;
   background: white;
   border-radius: 20px;
   display: flex;
@@ -670,15 +669,16 @@ h1 {
   background: white;
   border-radius: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding-top:40px;
   flex-direction: column;
   margin:0 auto;
 }
 
 
 .memberInfoList1, .memberInfoList2{
-  width: 900px;
+  width: 1100px;
   padding: 0px 20px;
   outline: none;
   color:#0077b6;
@@ -691,15 +691,24 @@ h1 {
 }
 
 .memberInfoList2 tr:first-child{
-   width:8%;
    border-bottom:2px solid #023e8a;
    font-size:1.2rem;
    font-weight:600;
    padding: 5px;
 }
-
+#myrest th:first-child{
+	width:250px;
+}
+#myrest th:nth-child(3){
+	width:50px;
+}
+#myfav th:firtst-child{
+	width:50px;
+}
+#myfav th:last-child{
+	width:150px;
+}
 .memberInfoList1 th{
-   width:30%;
    border-right:1px dotted #023e8a;
    font-size:1.2rem;
    font-weight:600;
@@ -707,14 +716,12 @@ h1 {
 }
 
 .memberInfoList1 tr, .memberInfoList2 tr{
-   width: 800px;
    margin-top: 50px;
    line-height: 3rem;
    text-align:center;
 }
 
 .memberInfoList1 tr td, .memberInfoList2 tr td{
-   width: 800px;
    margin-top: 30px;
    line-height: 3rem;
 }
