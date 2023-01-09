@@ -15,14 +15,10 @@ public class BusinessJoinAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		// address부분 후에 수정 필요(도/시에따라서 시/군이 변하도록 수정해야함)
 		String caddress1 = request.getParameter("caddress1");
-		if(caddress1.equals("1")) caddress1 = "서울시";
-		else if(caddress1.equals("2")) caddress1 = "경기도";
-		
-		String caddress2 = request.getParameter("caddress2");
-		if(caddress2.equals("1")) caddress1 = "가평군";
-		else if(caddress2.equals("2")) caddress1 = "김포시";
+		String[] sido = {"","서울","부산","대구","인천","광주","대전","울산","강원",
+				         "경기","경남","경북","전남","전북","제주","충남","충북"};
+		caddress1 = sido[Integer.parseInt(caddress1)];		
 		
 		BusinessmanVO bvo = new BusinessmanVO();
 		bvo.setBid(request.getParameter("id"));
@@ -33,7 +29,7 @@ public class BusinessJoinAction implements Action {
 		bvo.setEmail(request.getParameter("email"));
 		bvo.setCaddress3(request.getParameter("caddress3"));
 		bvo.setCaddress1(caddress1);
-		bvo.setCaddress2(caddress2);	
+		bvo.setCaddress2(request.getParameter("caddress2"));	
 		
 		BusinessmanDao bdao = BusinessmanDao.getInstance();
 		bdao.insertBusiness(bvo);
