@@ -11,7 +11,7 @@
    
    <!-- 캠핑장 객실 정보 -->
    <div id="roomBox">
-  	 <h2>Room</h2>
+  	 <h2>캠핑장 예약</h2>
      <div></div>
      <div></div>
    </div>
@@ -64,16 +64,14 @@
       <form name="frm" method="post" action="camp.do">
          <input type="hidden" name="command" value="insertQna">
          <input type="hidden" name="bseq" value="${bseq}"> 
-         <fieldset>
-            <legend>Q & A 쓰기</legend>
+         <div class="writeBox">
             <textarea rows="8" cols="65" name="content"></textarea>
             <div class="btns">
-               <input class="submit" type="submit" value="등록" >
+               <input class="submit" type="submit" value="QnA쓰기" >
             </div>
-         </fieldset>
-         <div class="clear"></div>
-         <br>
+         </div>
       </form>
+      <br><br> <br>
 <div class="paging">
 	<c:if test="${paging1.prev}">
 		<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.beginPage-1}#qnabox">◀</a>				
@@ -94,6 +92,7 @@
 </div>
    </div>
 
+	<div class="bar2"></div>
 
    <!-- 리뷰 -->
    <div class="listBox" id="reviewbox">
@@ -138,33 +137,32 @@
       <form name="form" method="post" action="camp.do">
          <input type="hidden" name="command" value="insertReview">
          <input type="hidden" name="bseq" value="${bseq}"> 
-         <fieldset>
-            <legend>Review 쓰기</legend>
+         <div class="writeBox">         
             <textarea rows="8" cols="65" name="content"></textarea>
             <div class="btns">
-               <input type="submit" class="submit" value="등록"> 
+               <input type="submit" class="submit" value="리뷰쓰기"> 
             </div>
-         </fieldset>
+         </div>
       </form>
-      <br>
-<div class="paging">
-	<c:if test="${paging2.prev}">
-		<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.beginPage-1}#reviewbox">◀</a>				
-	</c:if>
-	<c:forEach begin="${paging2.beginPage}" end="${paging2.endPage}" var="index">
-		<c:choose>
-			<c:when test="${index==paging2.page}">
-				<span style="color: red;">${index}&nbsp;</span>
-			</c:when>
-			<c:otherwise>
-				<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${index}#reviewbox">${index}&nbsp;</a>
-			</c:otherwise>
-		</c:choose>
-	</c:forEach>
-	<c:if test="${paging2.next}">
-		<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.endPage+1}#reviewbox">▶</a>				
-	</c:if>		
-</div>
+      <br><br><br>
+	<div class="paging">
+		<c:if test="${paging2.prev}">
+			<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.beginPage-1}#reviewbox">◀</a>				
+		</c:if>
+		<c:forEach begin="${paging2.beginPage}" end="${paging2.endPage}" var="index">
+			<c:choose>
+				<c:when test="${index==paging2.page}">
+					<span style="color: red;">${index}&nbsp;</span>
+				</c:when>
+				<c:otherwise>
+					<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${index}#reviewbox">${index}&nbsp;</a>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${paging2.next}">
+			<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.endPage+1}#reviewbox">▶</a>				
+		</c:if>		
+	</div>
    </div> 
 </article>
 <%@ include file="../footer.jsp"%>
