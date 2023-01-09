@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
-<link href="camping/searchList.css" rel="stylesheet">
 <script type="text/javascript" src="camping/campingList.js"></script>
 <style>
 

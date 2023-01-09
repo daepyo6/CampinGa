@@ -473,6 +473,7 @@ footer{
 #campInfo_text span:first-child:hover{
 	color:crimson;
 }
+
 /* login css */
 #loginTable{
 	width: 40%;
@@ -708,35 +709,61 @@ h1 {
 
 
 /*campdetail css*/
-#cmp_1{
-   border-radius: 30px;
+#campingdetail{
+	width:100%;
+	height:1000px;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	flex-direction: column;
+  	margin:0 auto;
+}
+#campMain{
+	width:75%;
+	height:500px;
+	margin:0 auto;
+	display: flex;
+  	justify-content:space-around;
+  	align-items: center;
+}
+#campMain_img{
+   border-radius: 10px;
    width:600px;
    height:400px;
-   float:left;
    overflow:hidden;
-   margin: 30px 30px 30px 30px;
+}
+#campMain_img img{
+	width:100%;
+    height:100%;
+}
+#campMain_info{
+    width:600px;
+    height:400px;
 }
 
-#cmp_2{
-   margin: 30px 30px 30px 30px;
-   border-radius: 30px;
-   float:left;
-   width:600px;
-   height:400px;
-   border: 1px solid lightgray;
-   box-sizing: border-box;
+#campMain_info-title{
+	width:300px;
+    height:50px;
+    margin:10px auto 20px auto;
+    border-bottom: 3px solid #3a0ca3;
+    text-align:center;
 }
-
-#cmp_2 label{
+#campMain_info-title h2{
+	line-height:1.7;
+}
+#campMain_info label{
    line-height: 1.5rem;
    margin-left:20px;
+   font-weight:750;
+}
+#campMain_info-btns{
+	width:540px;
+    height:50px;
+    padding:10px 30px;
+    text-align:right;
 }
 
-#cmp_2 h2{
-   margin:20px 20px 20px 20px;
-}
-
-#cmp_2 .submit, .view td input{
+#campMain_info .submit, .view td input{
 	margin:5px 5px 5px 5px;
 	border: 0;
 	border-radius:5px;
@@ -748,46 +775,35 @@ h1 {
 	font-weight:bold;
 }
 
-#cmp_2 .submit:hover, .view td input:hover, .btns input:hover{
+#campMain_info .submit:hover, .view td input:hover, .btns input:hover{
     cursor: pointer;
     color: #0077b6;
     background-color:#e2edf6;
 }
 
-#campingdetail{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin:0 auto;
-}
-
-.image{
-	width:100%;
-	height:100%;
-	object-fit:cover; 
-}
-
-
-#cmp_3{
-	margin: 30px 30px 30px 30px;
-	border-radius: 30px;
-	float:left;
-	width:1300px;
-	height:400px;
-	border: 1px solid lightgray;
-	box-sizing: border-box;
-	overflow:hidden;
+#campDetail{
+	width:80%;
+	height:400px;	
 	text-align:center;
+	margin:0 auto;
+	padding:30px;
+	border-top:2px solid #a8dadc;
+	border-bottom:2px solid #a8dadc;
 }
-
-.img{
-	margin: 30px 30px 30px 30px;
+#campDetail_imgs{
+	width:80%;
+	height:200px;
+	margin: 40px auto;
+}
+#campDetail_imgs img{
+	margin-left: 60px;
 	border-radius: 100%;
 	width:200px;
 	height:200px;
 }
-
+#campDetail_imgs img:first-child{
+	margin-left: 0;
+}
 
 /* Q&A css */
 .listBox{

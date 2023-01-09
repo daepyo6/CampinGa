@@ -9,9 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.campinga.controller.action.Action;
+import com.campinga.dao.CampDao;
 import com.campinga.dao.Camp_qnaDao;
 import com.campinga.dao.ReviewDao;
 import com.campinga.dto.Camp_qnaVO;
+import com.campinga.dto.CampingVO;
 import com.campinga.dto.ReviewVO;
 import com.campinga.util.Paging;
 
@@ -23,6 +25,8 @@ public class CampDetailAction implements Action {
 		int bseq = Integer.parseInt(request.getParameter("bseq"));
 		String rseqs = request.getParameter("rseq");
 		String qseqs = request.getParameter("qseq");
+		CampDao cdao = CampDao.getInstance();
+		CampingVO cvo = cdao.selectOne(bseq);
 		
 		Camp_qnaDao qdao = Camp_qnaDao.getInstance();
 		// QnA paging
@@ -76,6 +80,7 @@ public class CampDetailAction implements Action {
 			}
 		}
 		
+		request.setAttribute("campMain", cvo);
 		request.setAttribute("paging1", paging1);
 		request.setAttribute("paging2", paging2);
 		request.setAttribute("bseq", bseq);

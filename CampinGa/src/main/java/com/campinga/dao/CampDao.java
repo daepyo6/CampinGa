@@ -203,4 +203,34 @@ public class CampDao {
 		}
 		return list;
 	}
+
+	public CampingVO selectOne(int bseq) {
+		CampingVO cvo = null;
+		con = Dbman.getConnection();
+		String sql = "select*from("
+				+ "select*from camping_view where ROWID "
+				+ "IN (SELECT MAX(ROWID) FROM camping_view GROUP BY bseq)"
+				+ ")where bseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bseq);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				cvo = new CampingVO();
+				cvo.setBseq(rs.getInt("bseq"));
+				cvo.setCategory(rs.getString("category"));
+				cvo.setCname(rs.getString("cname"));
+				cvo.setFacilities(rs.getString("facilities"));
+				cvo.setCaddress1(rs.getString("caddress1"));
+				cvo.setCaddress2(rs.getString("caddress2"));
+				cvo.setCaddress3(rs.getString("caddress3"));
+				cvo.setContent(rs.getString("content"));
+				cvo.setImage(rs.getString("image"));
+				cvo.setPhone(rs.getString("phone"));
+			}
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);			
+		}
+		return cvo;
+	}
 }
