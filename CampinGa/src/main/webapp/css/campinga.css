@@ -653,41 +653,60 @@ h1 {
 
 /*mypage css*/
 #mypage{
-  width: 90%;
-  height: 1000px;
-  background:white;
+  width: 1000px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin:0 auto;
 }
 
-.memberInfoList{
-  width: 90%;
-  height: 50px;
+
+.memberInfoList1, .memberInfoList2{
+  width: 900px;
   padding: 0px 20px;
-  border: 1px solid lightgray;
   outline: none;
   color:#0077b6;
   font-size: 20px;
   text-align:center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   border-radius: 30px;
   letter-spacing: 2px;
 }
 
-.memberInfoList tr{
-   margin-top: 50px;
-   width:80%;
-   height: 50px;
-   line-height: 3rem;
-   
+.memberInfoList2 tr:first-child{
+   width:8%;
+   border-bottom:2px solid #023e8a;
+   font-size:1.2rem;
+   font-weight:600;
+   padding: 5px;
 }
-.memberInfoList tr td{
+
+.memberInfoList1 th{
+   width:30%;
+   border-right:1px dotted #023e8a;
+   font-size:1.2rem;
+   font-weight:600;
+   padding: 5px;
+}
+
+.memberInfoList1 tr, .memberInfoList2 tr{
+   width: 800px;
+   margin-top: 50px;
+   line-height: 3rem;
+   text-align:center;
+}
+
+.memberInfoList1 tr td, .memberInfoList2 tr td{
+   width: 800px;
    margin-top: 30px;
    line-height: 3rem;
 }
 
-.memberInfoList td input{
-  width: 50px;
+#mypagebtn input{
   height: 30px;
   border: 0;
   outline: none;
@@ -699,14 +718,35 @@ h1 {
   display :inline-block;
   margin-right: 10px;
   font-weight:bold;
+  text-align: center;
 }
 
-.memberInfoList td input:hover{
-    cursor: pointer;
+#mypagebtn input:hover{
+   cursor: pointer;
     color: #0077b6;
     background-color:#e2edf6;
 }
 
+.memberInfoList2 td input{
+  height: 30px;
+  border: 0;
+  outline: none;
+  border-radius:5px;
+  background:  linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
+  color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  display :inline-block;
+  margin-right: 10px;
+  font-weight:bold;
+  text-align: center;
+}
+
+.memberInfoList2 td input:hover{
+    cursor: pointer;
+    color: #0077b6;
+    background-color:#e2edf6;
+}
 
 /*campdetail css*/
 #campingdetail{
