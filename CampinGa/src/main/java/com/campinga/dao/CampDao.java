@@ -178,8 +178,8 @@ public class CampDao {
 				+ "select*from("
 				+ "SELECT*FROM camping_view where ROWID "
 				+ "IN (SELECT MAX(ROWID) FROM camping_view GROUP BY bseq)"
-				+ ")where caddress1 = ?"
-				+ ")where caddress2 = ?";
+				+ ")where caddress1 like '%'||?||'%'"
+				+ ")where caddress2 like '%'||?||'%'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, address1);
