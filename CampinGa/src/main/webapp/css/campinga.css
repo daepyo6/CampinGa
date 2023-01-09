@@ -661,6 +661,38 @@ h1 {
 	height:200px;
 }
 
+/* room css */
+
+#roomBox_main{
+	border-radius: 30px;
+	width:1300px;
+	border: 1px solid lightgray;
+   	box-sizing: border-box;
+    text-align:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin:0 auto;
+}
+
+#roomBox{
+	border-radius: 30px;
+	width:600px;
+	height:300px;
+	border: 1px solid lightgray;
+   	box-sizing: border-box;
+    text-align:center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin:0 auto;
+    float: left;
+}
+.room_img{
+	float:left;
+}
 
 /* Q&A css */
 #QnaBox{
@@ -675,6 +707,10 @@ h1 {
     align-items: center;
     flex-direction: column;
     margin:0 auto;
+}
+
+.room_img{
+	float:left;
 }
 
 .view{

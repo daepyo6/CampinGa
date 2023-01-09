@@ -23,7 +23,7 @@ values(businessman_seq.nextval, 'hw', '1234', '정현우', '010-1111-5555', 'abc@ab
 '태안 굼벵이 캠핑농원', '충청남도','태안군', '이원면 꾸지나무길 103-10');
 
 select * from businessman;
-
+select * from camping;
 
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )

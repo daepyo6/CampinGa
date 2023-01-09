@@ -134,6 +134,36 @@ public class CampDao {
 		}
 		return list;
 	}
+	
+	public ArrayList<CampingVO> selectCampingList(int bseq) {
+		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
+		con = Dbman.getConnection();
+		String sql = "select * from camping where bseq=? order by cseq desc";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bseq);
+			rs = pstmt.executeQuery();
+			while( rs.next() ) {
+				CampingVO cvo = new CampingVO();
+				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setCname(rs.getString("cname"));	
+				cvo.setFacilities(rs.getString("facilities"));
+				cvo.setImage(rs.getString("image"));
+				cvo.setCategory(rs.getString("category"));
+				cvo.setC_class(rs.getString("c_class"));
+				cvo.setRes_sta(rs.getString("res_sta"));
+				cvo.setPrice(rs.getInt("price"));
+				cvo.setMin_people(rs.getInt("min_people"));
+				cvo.setMax_people(rs.getInt("max_people"));
+				list.add(cvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return list;
+	}
         
 
 	public ArrayList<CampingVO> selectNewCampList() {
@@ -170,4 +200,6 @@ public class CampDao {
 		} catch (Exception e) { e.printStackTrace();
 	    } finally { Dbman.close(con, pstmt, rs); }
 	}
+
+
 }
