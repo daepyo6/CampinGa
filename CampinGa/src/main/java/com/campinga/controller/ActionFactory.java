@@ -3,6 +3,8 @@ package com.campinga.controller;
 import com.campinga.controller.action.Action;
 import com.campinga.controller.action.ContractFormAction;
 import com.campinga.controller.action.IndexAction;
+import com.campinga.controller.action.NoticeDetialAction;
+import com.campinga.controller.action.NoticeListAction;
 import com.campinga.controller.action.admin.AdminAction;
 import com.campinga.controller.action.admin.AdminCampingDeleteAction;
 import com.campinga.controller.action.admin.AdminCampingListAction;
@@ -63,6 +65,8 @@ public class ActionFactory {
 		else if(command.equals("login")) ac = new LoginAction();
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		else if(command.equals("logout")) ac = new LogoutAction();
+		else if(command.equals("noticeList")) ac = new NoticeListAction();
+		else if(command.equals("noticeDetail")) ac = new NoticeDetialAction();
 		
 		// camping action
 		else if(command.equals("category")) ac = new CategoryAction();

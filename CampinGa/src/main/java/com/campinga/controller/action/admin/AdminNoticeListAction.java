@@ -12,24 +12,34 @@ import com.campinga.controller.action.Action;
 import com.campinga.dao.AdminDao;
 import com.campinga.dao.NoticeDao;
 import com.campinga.dto.NoticeVO;
+import com.campinga.util.Paging;
 
 public class AdminNoticeListAction implements Action {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	public void execute(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 		String url = "admin/notice/noticeList.jsp";
-		
+		NoticeDao ndao = NoticeDao.getInstance();
+		int page = 1;
 		HttpSession session = request.getSession();
-		String adminId = (String) session.getAttribute("loginAdmin");
-		if (adminId == null)
-			url = "camp.do?command=adminLogin";
-		else {
-			AdminDao adao = AdminDao.getInstance();
-			NoticeDao Ndao = NoticeDao.getInstance();
-			ArrayList<NoticeVO> list = Ndao.selectAll();
-			request.setAttribute("noticeList", list);
+		if(request.getParameter("page")!=null) {
+			page=Integer.parseInt(request.getParameter("page"));
+			session.setAttribute("page", page);
+		}else if(session.getAttribute("page")!=null) {
+			page = (Integer)session.getAttribute("page");
+		}else {
+			session.removeAttribute("page");
 		}
+		
+		Paging paging = new Paging();
+		paging.setPage(page);
+		int count = ndao.getCount();
+		paging.setTotalCount(count);		
+		
+		ArrayList<NoticeVO> list = ndao.selectAll(paging);
+		request.setAttribute("noticeList", list);
+		request.setAttribute("paging", paging);
 		
 		request.getRequestDispatcher(url).forward(request, response);
 
