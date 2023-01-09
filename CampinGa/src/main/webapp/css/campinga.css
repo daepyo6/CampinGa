@@ -1026,3 +1026,43 @@ h1 {
     color: #fff;
 }
 
+/* 공지사항 css */
+#noticeview{
+    width:90%;
+    height:800px;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin:0 auto;
+}
+
+#noticeview table{
+    width:70%;
+    height:600px;
+    border: 2px solid #023e8a;
+     margin:5% auto;
+     padding: 5px;
+      line-height: 24px;
+}
+
+#noticeview tr:first-child{
+    width:30%;
+    height:100px;
+    border: 2px solid #023e8a;
+    margin:10% auto;
+    padding: 5px;
+    line-height:100px;
+    font-size:20px;
+}
+
+#noticeview th{
+    text-align:center;
+    border-right:  2px solid #023e8a;
+    font-size:20px;
+    padding: 5px;
+    line-height:100px;
+    font-weight:bold;
+}
+
