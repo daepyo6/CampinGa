@@ -35,7 +35,7 @@
 					<li><a href="camp.do?command=contractForm">Join</a></li>
 				</c:otherwise>
 			</c:choose>
-			<li><a href="camp.do?command=reviewForm">Notice</a></li>
+			<li><a href="camp.do?command=noticeList">Notice</a></li>
 		</ul>
 	</nav>
 	
