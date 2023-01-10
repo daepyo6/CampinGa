@@ -44,4 +44,3 @@
 		</div>
 		<h3>${campMain.content}</h3>
 	</div>
-</div>
