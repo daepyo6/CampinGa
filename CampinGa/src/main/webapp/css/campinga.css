@@ -858,6 +858,13 @@ h1 {
     padding:10px 30px;
     text-align:right;
 }
+#campMain_info-btns span{
+	color:red;
+	font-size:2rem;
+}
+#campMain_info-btns span:hover{
+	cursor:pointer;
+}
 
 #campMain_info .submit, .view td input{
 	margin:5px 5px 5px 5px;

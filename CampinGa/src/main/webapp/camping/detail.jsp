@@ -13,9 +13,13 @@
 	      <label>운영기간 : </label><span>봄, 여름, 가을, 겨울</span><br><br> 
 	      <label>운영일 : </label><span>평일+주말</span><br><br> 
 	      <label>주변이용가능시설 : </label><span>${campMain.facilities}</span><br><br>
-	      <div id="campMain_info-btns">     
-	          <input type="button" value="즐겨찾기에 넣기" class="submit" onclick="">
-	          <input type="button" value="예약하기" class="submit" onclick="">
+	      <div id="campMain_info-btns">
+	      		<div class="myFav_btn" onclick="#">
+      			<c:choose>
+      				<c:when test="${myfav=='Y'}"><span>♥</span></c:when>
+      				<c:otherwise><span>♡</span></c:otherwise>
+      			</c:choose>	      			
+	      		</div>  
           </div>      
       </div>
    </div>
