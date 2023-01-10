@@ -4,8 +4,11 @@
 <%@ include file="/admin/sub_menu.jsp"%>
 <article id="mypage" class="adminPage">
 	<h1>공지사항 리스트</h1>
-	<form name="frm" method="post">		
-		<table id="noticeList" class="rentList">
+	<form name="frm" method="post">	
+		<div id="mypagebtn" style="text-align: right;" onclick="location.href='camp.do?command=adminNoticeWriteForm'">
+     		<input type="button" value="공지사항 쓰기">
+    	</div>	
+		<table id="noticeList" class="rentList">			
 			<tr><th>번호</th><th>제목</th><th>등록일</th></tr>
 			<c:forEach items="${noticeList}" var="notice">
 				<tr>
@@ -19,7 +22,7 @@
 				</tr>
 			</c:forEach>
 		</table>
-	</form>
+	</form>	
 	<div class="paging" style="font-size:120%; font-weight:bold; text-align: center">
 			<c:if test="${paging.prev}">
 				<a href="camp.do?command=adminNoticeList&page=${paging.beginPage-1}#logo">◀</a>&nbsp;
