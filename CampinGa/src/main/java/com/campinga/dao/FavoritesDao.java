@@ -62,4 +62,22 @@ public class FavoritesDao {
 		}
 		
 	}
+
+	public void insertFavorites(FavoritesVO fvo) {
+		String sql = "insert into favorites(fseq, bseq, mid, fav_check) "
+				+ "values(favorites_seq.nextVal, ?, ?, ?)";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fvo.getBseq());
+			pstmt.setString(2, fvo.getMid());
+			pstmt.setString(3, "y");
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		
+	}
 }

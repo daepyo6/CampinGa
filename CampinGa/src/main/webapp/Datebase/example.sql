@@ -25,6 +25,9 @@ values(businessman_seq.nextval, 'hw', '1234', 'Á¤Çö¿ì', '010-1111-5555', 'abc@ab
 select * from businessman;
 select * from camping;
 
+
+select count(*) from camping where cname='ÇØ¿©¸² ºô¸®Áö';
+
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
 values (camping_seq.nextval, 1,'ÇØ¿©¸² ºô¸®Áö','¹Ùº£Å¥Àå, ÁÖÂ÷Àå',
@@ -48,7 +51,7 @@ values (camping_seq.nextval, 4,'È«Ãµ ÇØ¼ÖÄ·ÇÎÀå','¹Ùº£Å¥Àå, ÁÖÂ÷Àå, ¿ÍÀÌÆÄÀÌ',
 'caravane','ÇØ¼ÖÄ·ÇÎÀå A', 'n', 200000, 4, 10);
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
-values (camping_seq.nextval, 4,'ÅÂ¾È ±Àº¬ÀÌ Ä·ÇÎ³ó¿ø','¹Ùº£Å¥Àå, ÁÖÂ÷Àå, ¿ÍÀÌÆÄÀÌ',
+values (camping_seq.nextval, 5,'ÅÂ¾È ±Àº¬ÀÌ Ä·ÇÎ³ó¿ø','¹Ùº£Å¥Àå, ÁÖÂ÷Àå, ¿ÍÀÌÆÄÀÌ',
 'camp01.jpg','´Ù¾çÇÑ ÄÁÅÙÃ÷·Î Áñ°Å¿î ÀÏ»óÅ»Ãâ ¸ÀÀÖ´Â À½½Ä°ú ±ú²ıÇÑ ½Ã¼³ Ä£ÀıÇÑ ¼­ºñ½º °í°´°¨µ¿ ¼­ºñ½º°¡ ½ÃÀÛµÇ´Â ¿©±â´Â Ä·ÇÎÀåÀÔ´Ï´Ù.',
 'campnic','Ä·ÇÎ³ó¿ø A', 'n', 200000, 4, 10);
 
@@ -162,7 +165,9 @@ insert into member(mid, pwd, name,mphone,email)values
 
 select * from reservation; 
 
+select * from camping_view where rowid IN (select max(rowid) from camping_view group by cname);
 
+select count(*) as cnt from camping_view where rowid IN (select max(rowid) from camping_view group by cname);
 
 create sequence notice_seq start with 1; 
 
@@ -248,4 +253,23 @@ as
 select r.rseq, r.mid, r.bseq, r.content, r.indate, b.bname
 from review r, businessman b
 where b.bseq = r.bseq;
+
+
+
+
+-- paging 
+
+select * from ( select * from ( select rownum as rn, c.* from ((select * from camping_view where rowid IN (select max(rowid) from camping_view group by cname)) c)) where rn>=1) where rn<=10;
+
+
+
+
+
+
+
+
+
+
+
+
 

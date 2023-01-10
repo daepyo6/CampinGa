@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import com.campinga.dto.CampingVO;
 import com.campinga.util.Dbman;
+import com.campinga.util.Paging;
 
 public class CampDao {
 	private CampDao() {
@@ -114,12 +115,20 @@ public class CampDao {
 		return list;
 	}
 
-	public ArrayList<CampingVO> selectCamping() {
+	public ArrayList<CampingVO> selectCamping(Paging paging) {
 		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
 		con = Dbman.getConnection();
-		String sql = "select * from camping_view order by cseq desc";
+		String sql = "select * from ( "
+					+ "select * from ( "
+					+ "select rownum as rn, c.* from (("
+					+ "select * from camping_view where rowid IN ("
+					+ "select max(rowid) from camping_view group by cname)) c)) "
+					+ "where rn>=?) "
+					+ "where rn<=?";		
 		try {
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, paging.getStartNum());
+			pstmt.setInt(2, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				CampingVO cvo = new CampingVO();
@@ -198,9 +207,11 @@ public class CampDao {
 	public ArrayList<CampingVO> selectAddress(String address1, String address2) {
 		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
 		con = Dbman.getConnection();
-		String sql = "select*from(" + "select*from(" + "SELECT*FROM camping_view where ROWID "
-				+ "IN (SELECT MAX(ROWID) FROM camping_view GROUP BY bseq)" + ")where caddress1 like '%'||?||'%'"
-				+ ")where caddress2 like '%'||?||'%'";
+		String sql = "select * from(select * from("
+				+ "SELECT * FROM camping_view where ROWID "
+				+ "IN (SELECT MAX(ROWID) FROM camping_view GROUP BY bseq))"
+				+ "where caddress1 like '%'||?||'%')"
+				+ "where caddress2 like '%'||?||'%'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, address1);
@@ -297,5 +308,22 @@ public class CampDao {
 		}
 		return cvo;
 	}
+
+	public int getAllCount() {
+		int count = 0;
+		con = Dbman.getConnection();
+		String sql = "select count(*) as cnt from camping_view "
+					+ "where rowid IN (select max(rowid) from camping_view group by cname)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				count = rs.getInt("cnt");
+		} catch (SQLException e) { e.printStackTrace();
+		}finally { Dbman.close(con, pstmt, rs);
+		}
+		return count;
+	}
+
 
 }
