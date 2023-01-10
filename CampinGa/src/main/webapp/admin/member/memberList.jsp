@@ -15,14 +15,15 @@
          <th> 이름 </th>
          <th>전화번호</th>
          <th>이메일</th>
+         <th>삭제</th>
       </tr>
        <c:forEach items="${memberList}" var="memberVO">
           <tr>
-             <td class="checkboxTd" style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="mid" value="${memberVO.mid}">${memberVO.mid}</td>
+             <td>${memberVO.mid}</td>
              <td>${memberVO.name}</td>
              <td>${memberVO.mphone}</td>
              <td>${memberVO.email}</td>
+             <td><input type="checkbox" name="mid" value="${memberVO.mid}"></td>      
           </tr>
      </c:forEach>
    </table>

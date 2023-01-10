@@ -34,8 +34,10 @@
 				<th colspan="6" style="text-align: right; border:none">
 					<a href="#" onClick="go_delete();"><h3>삭제하기&nbsp;&nbsp;&nbsp;</h3></a></th>
 			</tr>
-
 		</table>
+		<div style="float:right;" id="mypagebtn">
+		     	<input type="button" value="삭제" onClick="go_delete();">
+		</div>
 	</form>
 
 	<div class="clear"></div>

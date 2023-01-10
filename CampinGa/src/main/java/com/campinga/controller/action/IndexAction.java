@@ -23,8 +23,8 @@ public class IndexAction implements Action {
 		request.setAttribute("newCampList", newCampList);
 		// 즐겨찾기 많이된 캠핑장을 순서로 정렬
 		// "recoCampList"이름으로 camp 리스트 보내주세요.
-		
-		
+		ArrayList<CampingVO> recoCampList = cdao.selectRecoCampList(); 
+		request.setAttribute("recoCampList", recoCampList);
 		
 		request.getRequestDispatcher("main.jsp").forward(request, response);
 
