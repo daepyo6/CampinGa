@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.campinga.dto.CampingVO;
 import com.campinga.dto.MemberVO;
 import com.campinga.dto.NoticeVO;
 import com.campinga.dto.ReservationVO;
@@ -203,5 +204,43 @@ public class AdminDao {
 		} finally { Dbman.close(con, pstmt, rs);  
 		}
 		
+	}
+
+	public ArrayList<CampingVO> selectCamping(Paging paging) {
+		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
+		con = Dbman.getConnection();
+		String sql = " select + from ( "
+				+ " select + from ( "
+				+ " select rownum as rn p.* from "
+				+ " (( select * from camping where cname like '%'||?||'%' order by cseq desc) p) "
+				+ " ) where rn>=? "
+				+ " ) where rn<=? ";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, paging.getStartNum());
+			pstmt.setInt(2, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next() ) {
+				CampingVO cvo = new CampingVO();
+				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setBseq(rs.getInt("bseq"));
+				cvo.setCname(rs.getString("cname"));
+				cvo.setFacilities(rs.getString("facilities"));
+				cvo.setImage(rs.getString("image"));
+				cvo.setContent(rs.getString("content"));
+				cvo.setCategory(rs.getString("category"));
+				cvo.setC_class(rs.getString("c_class"));
+				cvo.setRes_sta(rs.getString("res_sta"));
+				cvo.setPrice(rs.getInt("price"));
+				cvo.setMin_people(rs.getInt("min_people"));
+				cvo.setMax_people(rs.getInt("max_people"));
+				cvo.setC_indate(rs.getTimestamp("c_indate"));
+				list.add(cvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);
+		}
+		return list;
 	}
 }

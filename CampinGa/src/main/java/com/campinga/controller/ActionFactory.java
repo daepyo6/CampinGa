@@ -22,6 +22,18 @@ import com.campinga.controller.action.admin.AdminRestListAction;
 import com.campinga.controller.action.admin.AdminReviewDeleteAction;
 import com.campinga.controller.action.admin.AdminReviewListAction;
 import com.campinga.controller.action.business.BusinessJoinAction;
+import com.campinga.controller.action.business.BusinessmanCampingListDetailAction;
+import com.campinga.controller.action.business.BusinessmanCampingListAction;
+import com.campinga.controller.action.business.BusinessmanCampingListUpdateAction;
+import com.campinga.controller.action.business.BusinessmanCampingtListInsertAction;
+import com.campinga.controller.action.business.BusinessmanEditFormAction;
+import com.campinga.controller.action.business.BusinessmanMypageAction;
+import com.campinga.controller.action.business.BusinessmanRestListAction;
+import com.campinga.controller.action.business.CampingQnaAction;
+import com.campinga.controller.action.business.CampingQnaFormAction;
+import com.campinga.controller.action.business.CampingQnaRepSaveAction;
+import com.campinga.controller.action.business.DeleteBusinessmanAction;
+import com.campinga.controller.action.business.UpdateBusinessInfoAction;
 import com.campinga.controller.action.camping.CampDetailAction;
 import com.campinga.controller.action.camping.CategoryAction;
 import com.campinga.controller.action.camping.SearchResultAction;
@@ -91,6 +103,20 @@ public class ActionFactory {
 		// business action
 	    else if(command.equals("businessJoin")) ac = new BusinessJoinAction();
 	    else if(command.equals("contractForm")) ac = new ContractFormAction();
+	    else if(command.equals("businessmanEditForm")) ac = new BusinessmanEditFormAction();
+	    else if(command.equals("businessmanMypage")) ac = new BusinessmanMypageAction();
+	    else if(command.equals("businessmanRestList")) ac = new BusinessmanRestListAction();
+	    else if(command.equals("deleteBusinessman")) ac = new DeleteBusinessmanAction();
+	    else if(command.equals("updateBusinessInfo")) ac = new UpdateBusinessInfoAction();
+	    else if(command.equals("businessmanCampingList")) ac = new BusinessmanCampingListAction();
+	    else if(command.equals("businessmanCampingListDetail")) ac = new BusinessmanCampingListDetailAction();
+	    else if(command.equals("businessmanCampingListUpdate")) ac = new BusinessmanCampingListUpdateAction();
+	    else if(command.equals("businessmanCampingListInsert")) ac = new BusinessmanCampingtListInsertAction();
+		
+	    else if(command.equals("campingQnaRepSave")) ac = new CampingQnaRepSaveAction();
+	    else if(command.equals("campingQnaForm")) ac = new CampingQnaFormAction();
+	    else if(command.equals("campingQna")) ac = new CampingQnaAction();
+	    else if(command.equals("campingQnaRepSave")) ac = new CampingQnaRepSaveAction();
 		
 		// admin action
 	    else if(command.equals("admin")) ac = new AdminAction();

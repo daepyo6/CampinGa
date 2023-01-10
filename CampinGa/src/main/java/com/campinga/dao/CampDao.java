@@ -167,4 +167,32 @@ public class CampDao {
 		} catch (Exception e) { e.printStackTrace();
 	    } finally { Dbman.close(con, pstmt, rs); }
 	}
+
+	public void insertList(CampingVO cvo) {
+		
+		String sql = " insert into camping (cseq, cname, caddress1, caddress2, caddress3, category, facilities) " 
+		+ " values(camping_seq.nextval, ? , ? , ? , ? , ? , ?)";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cvo.getCname());
+			pstmt.setString(2, cvo.getCaddress1());
+			pstmt.setString(3, cvo.getCaddress2());
+			pstmt.setString(4, cvo.getCaddress3());
+			pstmt.setString(5, cvo.getCategory());
+			pstmt.setString(6, cvo.getFacilities());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+	         Dbman.close(con, pstmt, rs);
+	    }
+		
+	}
+	
+	
+	public void updateCampingList(CampingVO cvo) {
+		
+	}
+
 }

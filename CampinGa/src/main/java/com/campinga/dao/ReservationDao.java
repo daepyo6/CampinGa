@@ -69,4 +69,34 @@ public class ReservationDao {
 		}
 
 	}
+
+	public ArrayList<ReservationVO> getBusinessRestList(String bid) {
+		ArrayList<ReservationVO> list = new ArrayList<ReservationVO>();
+		con = Dbman.getConnection();
+		String sql = "select * from reservate_view where bid=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bid);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ReservationVO revo = new ReservationVO();
+				revo.setReseq(rs.getInt("reseq"));
+				revo.setCname(rs.getString("cname"));
+				revo.setC_class(rs.getString("c_class"));
+				revo.setRes_sta(rs.getString("res_sta"));
+				revo.setMid(rs.getString("mid"));
+				revo.setPrice(rs.getInt("price"));
+				revo.setPeople(rs.getInt("people"));
+				revo.setRes_date(rs.getTimestamp("res_date"));
+				revo.setChk_in(rs.getTimestamp("chk_in"));
+				revo.setChk_out(rs.getTimestamp("chk_out"));
+				list.add(revo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return list;
+	}
 }
