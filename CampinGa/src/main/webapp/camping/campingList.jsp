@@ -3,7 +3,6 @@
 <%@ include file="../header.jsp"%>
 <script type="text/javascript" src="camping/campingList.js"></script>
 <article>
-	<!-- 지역 검색창 영역(예정) -->
 	<div class="clear"></div>
 	<div id="campSearch">
 		<input type="text" id="key" placeholder="캠핑장 이름을 입력해주세요"> <a

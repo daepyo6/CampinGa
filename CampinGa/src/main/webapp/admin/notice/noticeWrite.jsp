@@ -2,23 +2,29 @@
  <%@ include file="/admin/header.jsp"%>
 <%@ include file="/admin/sub_menu.jsp"%>
 
-<article>
-	<form name="frm" method="post"  >
+<article id="mypage" class="adminPage">
+	<h1>공지사항 작성</h1>
+	<div class="noticeWrite">
+	<form name="frm" method="post">
 	<input type="hidden" name="aid" value="${loginAdmin}">
-		<table id="list">
-			<tr>
-				<th>제목</th><td width="343" colspan="5">
-		       	<input type="text" name="subject" size="47" maxlength="100"></td>
-		    </tr>
-		    <tr>
-				<th>상세설명</th><td colspan="5">
-				<textarea name="content" rows="8" cols="70"></textarea></td>
-			</tr>
-			
-		</table>
-		<input class="btn" type="button" value="등록" onClick="go_save()">           
-		<input class="btn" type="button" value="목록" onClick="go_mov()"> 
+	<div class="writeSubject">		
+		<div><span>제 목</span></div>
+		<div>
+       		<input type="text" name="subject" maxlength="100" placeholder="제목을 입력해주세요.">
+       	</div>
+	</div>
+	<div class="writeContent">
+   		<div><span>내 용</span></div>
+   		<div>
+   			<textarea name="content" placeholder="공지사항 내용을 입력해주세요."></textarea>
+   		</div>			
+	</div>
+	<div class="writeBtns">
+		<input type="button" value="등록" onClick="go_save()">           
+		<input type="button" value="목록" onClick="go_mov()"> 
+	</div>
 	</form>
+	</div>
 </article>
 
 <%@ include file="/admin/footer.jsp"%>

@@ -10,35 +10,38 @@
 
 	<!-- 캠핑장 객실 정보 -->
 	<div id="roomBox_main">
+		<div class="detail_title"><span>객실안내/예약</span></div>
 		<c:forEach items="${campingList}" var="campVO">
-			<div id="roomBox" onclick="location.href='camp.do?command=reserveForm&cseq=${campVO.cseq}'">
+			<div id="roomBox">
 				<div class="room_img">
 					<img src="images/${campVO.image}" class="img" />
 				</div>
-				<div>
-					<table>
-						<tr>
-							<th colspan="2">${campVO.c_class}</th>
-						</tr>
-						<tr>
-							<td colspan="2">${campVO.category}</td>
-						</tr>
-						<tr>
-							<td colspan="2">남은자리</td>
-						</tr>
-						<tr>
-							<td>기준인원 ${campVO.min_people}명/최대인원 ${campVO.max_people}명</td>
-							<td>${campVO.price}원</td>
-						</tr>
-					</table>
+				<div class="room_info">
+					<div class="room_info-title"><span>${campVO.c_class}</span></div>
+					<div class="room_info-text">
+						<div><span>종류</span></div>
+						<div><span>${campVO.category}</span></div>
+					</div>
+					<div class="room_info-text">
+						<div><span>기준인원</span></div>
+						<div><span>${campVO.min_people}명/최대인원 ${campVO.max_people}명</span></div>
+					</div>
+					<div class="room_info-text">
+						<div><span>가격</span></div>
+						<div><span>${campVO.price}원</span></div>
+					</div>
+					<div class="roomInfo-bar"></div>					
+					<div class="resbtn" onclick="location.href='camp.do?command=reserveForm&cseq=${campVO.cseq}'">
+						<span>예약하기</span>
+					</div>				
 				</div>
 			</div>
 		</c:forEach>
 	</div>
-
+	<div class="bar2"></div>
 	<!-- Q&A -->
 	<div class="listBox" id="qnabox">
-		<h2>Q & A</h2>
+		<div class="detail_title"><span>Q & A</span></div>
 		<table class="view">
 			<tr>
 				<th>번호</th>
@@ -123,7 +126,7 @@
 
 	<!-- 리뷰 -->
 	<div class="listBox" id="reviewbox">
-		<h2>Review</h2>
+		<div class="detail_title"><span>리뷰</span></div>
 		<table class="view">
 			<tr>
 				<th>번호</th>

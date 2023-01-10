@@ -61,8 +61,8 @@
 					</div>
 				</div>
 			</a>
-			<div class="newCampName">${newCamp.cname}</div>
-			<div class="newCampInfo">${newCamp.content}</div>
+			<div class="newCampName"><span>${newCamp.cname}</span></div>
+			<div class="newCampInfo"><span>${newCamp.content}</span></div>
 		</div>
 	</c:forEach>	
 </div>
