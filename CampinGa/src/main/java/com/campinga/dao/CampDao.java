@@ -203,6 +203,31 @@ public class CampDao {
 		}
 		return list;
 	}
+	
+	public ArrayList<CampingVO> selectRecoCampList() {
+		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
+		con = Dbman.getConnection();
+		String sql = "select bseq, cname, content, image " 
+				+ "from (select * from camping_view order by c_indate desc) "
+				+ "where rownum<=4";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				CampingVO cvo = new CampingVO();
+				cvo.setBseq(rs.getInt("bseq"));
+				cvo.setCname(rs.getString("cname"));
+				cvo.setContent(rs.getString("content"));
+				cvo.setImage(rs.getString("image"));
+				list.add(cvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return list;
+	}
 
 	public ArrayList<CampingVO> selectAddress(String address1, String address2) {
 		ArrayList<CampingVO> list = new ArrayList<CampingVO>();

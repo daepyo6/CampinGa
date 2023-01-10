@@ -30,11 +30,10 @@
 						value="${campingList.cseq}"></td>
 				</tr>
 			</c:forEach>
-			<tr>
-				<th><a href="#" onClick="go_delete();"><h3>삭제하기</h3></a></th>
-			</tr>
-
 		</table>
+		<div style="float:right;" id="mypagebtn">
+		     	<input type="button" value="삭제" onClick="go_delete();">
+		</div>
 	</form>
 
 	<div class="clear"></div>
