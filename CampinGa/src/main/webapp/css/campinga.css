@@ -34,6 +34,12 @@ textarea:focus{
 button:hover{
     cursor: pointer;
 }
+span:hover{
+	cursor:default;
+}
+p:hover{
+	cursor:default;
+}
 /*header 메인 메뉴 부분*/
 header{	
     display:grid;
@@ -333,12 +339,24 @@ header{
 	margin-left:20px;	
 }
 .recoImg{
+	position:relative;
 	width: 250px;
-  	height: 85%; 	 	
+  	height: 85%;
+  	overflow:hidden;
+  	text-align:center;	 	
 }
 .recoImg img{
 	width:100%;
 	height:100%;
+}
+.recoImg img:hover{
+	display:block;
+	cursor:pointer;
+	width:120%;
+	height:120%;
+	position:absolute;
+	left:-10%;
+	top:-10%;
 }
 .btnA{
 	width: 10%;
@@ -470,8 +488,14 @@ footer{
     display: block;
     /*box-shadow: 1px 1px 4px gray;*/
 }
+#campInfo_img:hover{
+	cursor:pointer;
+}
 #campInfo_text{
 	margin-top:10px;
+}
+#campInfo_text span:hover{
+	cursor:pointer;
 }
 #campInfo_text span{
 	line-height:1.4;
@@ -769,9 +793,21 @@ h1 {
 }
 
 /*campdetail css*/
+.detail_title{
+	width:250px;
+	height:50px;
+	margin:50px auto;
+	text-align:center;	
+}
+.detail_title span{
+	font-size:2rem;
+	font-weight:bold;
+	color:#3a0ca3;
+	line-height:1.5;
+}
 #campingdetail{
 	width:100%;
-	height:1000px;
+	height:1100px;
 	display: flex;
   	justify-content: center;
   	align-items: center;
@@ -843,10 +879,10 @@ h1 {
 
 #campDetail{
 	width:80%;
-	height:400px;	
+	height:550px;	
 	text-align:center;
-	margin:0 auto;
-	padding:30px;
+	margin:20px auto 0 auto;
+	padding:0 30px;
 	border-top:2px solid #a8dadc;
 	border-bottom:2px solid #a8dadc;
 }
@@ -867,42 +903,82 @@ h1 {
 
 /*객실정보*/
 #roomBox_main{
-	border-radius: 30px;
 	width:1300px;
-	border: 1px solid lightgray;
-   	box-sizing: border-box;
-    text-align:center;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    margin:0 auto;
+    margin:0 auto 80px auto;
 }
-
 #roomBox{
-	border-radius: 30px;
-	width:600px;
+	border-radius: 5px;
+	width:1000px;
 	height:300px;
 	border: 1px solid lightgray;
-   	box-sizing: border-box;
     text-align:center;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    margin:10px auto;
+}
+.room_img{
+	width:400px;
+	height:300px;
+	text-align:center;
+	line-height:300px;
+}
+#roomBox img{
+	vertical-align:middle;
+	border-radius: 100%;
+	width:250px;
+	height:250px;
+}
+.room_info{
+	width:600px;
+	height:280px;
+	display: flex;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    margin:0 auto;
-    float: left;
+    margin: 10px 0;	
 }
-
-#roomBox img{
-	margin-left: 60px;
-	border-radius: 100%;
-	width:200px;
-	height:200px;
+.room_info-title{
+	height:45px;
+	line-height:45px;
+	width:570px;
+	font-size:1.5rem;
+	font-weight:700;
+	text-align:left;
+	color:black;
 }
-
-.room_img{
-	float:left;
+.room_info-text{
+	height:35px;
+	line-height:35px;
+	width:570px;
+	font-size:1.2rem;
+	font-weight:550;
+	text-align:right;
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.roomInfo-bar{
+	width:570px;
+	height:1px;
+	background-color:lightgray;
+}
+.resbtn{
+	width:570px;
+	height:45px;
+	background-color:#00b4d8;	
+	border-radius:5px;
+	text-align:center;
+	line-height:45px;
+	color:white;
+	font-size:1.2rem;	
+}
+.resbtn:hover{
+	cursor:pointer;
 }
 
 /* Q&A css */
@@ -964,8 +1040,10 @@ h1 {
 	border-radius:5px;
 }
 .writeBox textarea{
-	width:830px;
+	display:block;
+	width:90%;
 	height:80px;
+	font-size:1.2rem;
 	background-color:transparent;
 }
 .writeBox div{
