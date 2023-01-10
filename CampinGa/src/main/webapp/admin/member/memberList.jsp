@@ -18,8 +18,9 @@
       </tr>
        <c:forEach items="${memberList}" var="memberVO">
           <tr>
-             <td><input type="checkbox" name="mid" value="${memberVO.mid}">${memberVO.mid}</td>
-             <td>${memberVO.name}   </td>
+             <td class="checkboxTd" style="text-align: left">&nbsp;&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="mid" value="${memberVO.mid}">${memberVO.mid}</td>
+             <td>${memberVO.name}</td>
              <td>${memberVO.mphone}</td>
              <td>${memberVO.email}</td>
           </tr>

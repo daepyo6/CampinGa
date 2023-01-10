@@ -90,6 +90,13 @@
 	color:white;
 	background-color:#218380;
 }
+.checkboxTd{
+	line-height:50px;
+}
+.checkboxTd input{
+	vertical-align:middle;
+}
+
 .rentList,
 #reviewList,
 #noticeList{
@@ -109,6 +116,8 @@
 	font-size:1.2rem;
     font-weight:600;
     padding: 5px;
+    height:40px;
+    line-height:40px;
 }
 #reviewList tr:last-child th{
 	border:none;
@@ -117,8 +126,8 @@
 }
 .rentList td,
 #reviewList td{
-	height:30px;
-	line-height:1.5;
+	height:40px;
+	line-height:40px;
 	border-bottom:1px solid #cce3de;
 }
 .rentList td:nth-child(odd){

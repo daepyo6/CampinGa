@@ -13,14 +13,14 @@
 	</table><br>
 	<table id="reviewList">
 		<tr>
-			<th width="50">번호</th>
+			<th width="80">번호</th>
 			<th>내용</th>
 			<th>아이디</th>
 			<th>작성일</th>
 		</tr>
 	    <c:forEach items="${reviewList}" var="reviewVO">
 		    <tr>
-		    	<td><input type="checkbox" name="rseq" value="${reviewVO.rseq}">${reviewVO.rseq}</td>
+		    	<td class="checkboxTd" style="text-align: center;"><input type="checkbox" name="rseq" value="${reviewVO.rseq}">&nbsp;${reviewVO.rseq}</td>
 		    	<td>${reviewVO.content}</td>
 		    	<td>${reviewVO.mid}</td>
 		    	<td><fmt:formatDate value="${reviewVO.indate}"/></td>

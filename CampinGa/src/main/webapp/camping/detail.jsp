@@ -11,7 +11,7 @@
 			<div id="campMain_info-title">
 				<h2>${campMain.cname}</h2>
 			</div>
-			<label>주소 : </label><span>${campMain.caddress1}&nbsp;${campMain.caddress2}&nbsp;${campMain.caddress2}</span><br>
+			<label>주소 : </label><span>${campMain.caddress1}&nbsp;${campMain.caddress2}&nbsp;${campMain.caddress3}</span><br>
 			<br><label>문의처 : </label><span>${campMain.phone}</span><br>
 			<br><label>캠핑장 유형 : </label><span>${campMain.category}</span><br>
 			<br><label>운영기간 : </label><span>봄, 여름, 가을, 겨울</span><br>
@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<div id="campDetail">
-		<h2>캠핑장 소개</h2>
+		<div class="detail_title"><span>캠핑장 소개</span></div>
 		<!-- 아래 이미지 3개 DB에서 불러올거라면 수정해야 함 -->
 		<div id="campDetail_imgs">
 			<img src="images/camp01.jpg" class="campDetail_img" /> <img
@@ -44,3 +44,4 @@
 		</div>
 		<h3>${campMain.content}</h3>
 	</div>
+</div>

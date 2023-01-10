@@ -9,7 +9,7 @@
 	<h1>캠핑장 정보 관리</h1>
 	<form name="frm" method="post">
 
-		<table class="rentList" id="noticeList">
+		<table class="rentList">
 			<tr>
 				<th>사업자번호</th>
 				<th>이름</th>
@@ -31,7 +31,8 @@
 				</tr>
 			</c:forEach>
 			<tr>
-				<th><a href="#" onClick="go_delete();"><h3>삭제하기</h3></a></th>
+				<th colspan="6" style="text-align: right; border:none">
+					<a href="#" onClick="go_delete();"><h3>삭제하기&nbsp;&nbsp;&nbsp;</h3></a></th>
 			</tr>
 
 		</table>
