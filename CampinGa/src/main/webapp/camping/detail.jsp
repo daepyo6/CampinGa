@@ -21,11 +21,11 @@
 			<div id="campMain_info-btns">
 			<c:choose>
 				<c:when test="${chk_fav == 'y'}">
-					<input type="button" value="즐겨찾기 삭제" class="submit"
+					<input type="button" value="♥&nbsp;&nbsp;Delete" class="favDel"
 						onclick="location.href='camp.do?command=deleteFavorites&bseq=${bseq}'">
 				</c:when>
 				<c:otherwise>
-					<input type="button" value="즐겨찾기 추가" class="submit"
+					<input type="button" value="♡&nbsp;&nbsp;Like" class="favAdd"
 						onclick="location.href='camp.do?command=addFavorites&bseq=${bseq}'">
 				</c:otherwise>
 			</c:choose>
@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	<div id="campDetail">
-		<h2>캠핑장 소개</h2>
+		<div class="detail_title"><span>캠핑장 소개</span></div>
 		<!-- 아래 이미지 3개 DB에서 불러올거라면 수정해야 함 -->
 		<div id="campDetail_imgs">
 			<img src="images/camp01.jpg" class="campDetail_img" /> <img

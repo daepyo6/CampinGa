@@ -104,7 +104,7 @@ header{
 #mainSearch{
 	position:relative;	
 	width:100%;
-	height:700px;
+	height:750px;
 }
 #main_img{	
 	width:100%;	
@@ -113,7 +113,7 @@ header{
     text-align: center;
 }
 #mainImg{
-	width:75%;
+	width:1430px;
 	height:100%; 
     display:inline-block;        
 }
@@ -121,10 +121,10 @@ header{
 /*메인 검색창*/
 #main_searchbar{	
 	position:absolute;	
-	left:34%;
-	top:25%;
-	width:34%;
-	height:40%; 
+	left:33%;
+	top:220px;
+	width:620px;
+	height:280px; 
 	background-color:#1b4965c2;
 	z-index:10;	
     border-radius: 30px;
@@ -137,7 +137,7 @@ header{
 	margin-right: 30px;
 }
 #selects{	
-	padding-top:7%;
+	padding-top:43px;
 	display:inline-block;
 	margin: 5% 10%;
 	width:80%;
@@ -193,17 +193,17 @@ header{
 
 /*new 캠핑장*/
 .mainTitle{
-	width: 75%;
-	height: 7%;
-	margin: 3% auto 0.5% auto;
-	line-height:2;
+	width: 1430px;
+	height: 55px;
+	margin: 60px auto 20px auto;
+	line-height:55px;
 	font-size:1.7rem;
 	font-weight:bold;
 	text-align: center;
 }
 .newCampings{
-	width: 75%;
-  	height: 350px;
+	width: 1430px;
+  	height: 400px;
   	margin: 0 auto;
   	padding : 0 2%;
 }
@@ -216,8 +216,8 @@ header{
 }
 .newCampImgs{	
 	position:relative;
-	width:94%;
-	height:70%;
+	width: 260px;
+  	height: 255px;
   	border-radius:50%;
   	overflow: hidden;
   	margin:2%;
@@ -226,34 +226,37 @@ header{
 	cursor:pointer;
 }
 .campImg{
-	width:100%;
-	height:100%;
+	width:280px;
+	height:280px;
 }
 .imgCover{	
 	position:absolute;
 	top:100%;
-	width: 100%;
-  	height: 70%;
+	width: 270px;
+  	height: 270px;
   	background-color:rgba(0, 0, 0, 0.5); 
   	text-align: center;
   	color:white;
   	font-size:1.3rem;
-	line-height:1.5;
 	padding-top:30%;
 }
+.imgCover span{
+	line-height:1.5;
+}
 .newCampName{
-	width: 100%;
-  	height: 8%;
+	width: 285px;
+  	height: 35px;
   	font-size:1.2rem;
   	font-weight:600;
 	line-height:1.5;
 	background-color:#48cae4;
 	color:white;
+	margin-top:15px;
 }
 .newCampInfo{	
-	width: 98%;
-  	height: 19%;
-  	padding-left:2%;
+	width: 280px;
+  	height: 70px;
+  	padding: 5px 0 0 5px;
   	font-size:0.9rem;
 	line-height:1.5;
 	background-color:#caf0f8;
@@ -279,7 +282,7 @@ header{
   	margin-bottom: 2%;
 }
 .recoCampings{
-	width: 75%;
+	width: 1430px;
   	height: 400px;
   	margin: 0 auto;
   	text-align: center;
@@ -329,6 +332,7 @@ header{
   	height: 15%;
   	background-color:rgba(128, 128, 128, 0.8);  	
   	text-align:left;
+  	overflow:hidden;
   	border-bottom:1.5px solid #90e0ef;
 }
 .cardHeader span{
@@ -341,13 +345,18 @@ header{
 .recoImg{
 	position:relative;
 	width: 250px;
-  	height: 85%;
+  	height: 273px;
   	overflow:hidden;
   	text-align:center;	 	
 }
 .recoImg img{
-	width:100%;
-	height:100%;
+	display:block;
+	cursor:pointer;
+	width:105%;
+	height:105%;
+	position:absolute;
+	left:-2.5%;
+	top:-2.5%;
 }
 .recoImg img:hover{
 	display:block;
@@ -836,6 +845,40 @@ h1 {
     width:600px;
     height:400px;
 }
+.favDel,
+.favAdd{	
+   display: block;
+    margin: 40px auto 0px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px -8px rgb(240, 75, 113);
+    padding: 10px 17px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;	
+}
+.favDel{
+	 color: #ed2553;
+     background:white;
+     border:1px solid #ed2553;	
+}
+.favAdd{
+     background: #ed2553;
+     color:white;	
+}
+
+.favAdd:hover{
+    transform: translateY(-3px);
+    background: #ff0080;
+}   
+.favDel:hover{
+    transform: translateY(-3px);
+    background: #fff0f3;
+}   
 
 #campMain_info-title{
 	width:300px;
@@ -878,7 +921,7 @@ h1 {
 	font-weight:bold;
 }
 
-#campMain_info .submit:hover, .view td input:hover, .btns input:hover{
+#campMain_info .submit:hover, .view td input:hover{
     cursor: pointer;
     color: #0077b6;
     background-color:#e2edf6;
@@ -1073,14 +1116,19 @@ h1 {
 
 /* review css */
 .btns input{
-    border: 0;
-    border-radius:5px;
-  	background:linear-gradient(to bottom, rgba(148,213,239,1) 9%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 41%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 62%,rgba(73,192,240,1) 100%,rgba(44,175,227,1) 100%,rgba(73,192,240,1) 100%);
-  	color: white;
-  	font-size: 1rem;
-  	letter-spacing: 2px;
-  	margin-right: 10px;
-  	font-weight:bold;
+     border: 0;
+     border-radius:5px;
+     background:#3a0ca3;
+     color: white;
+     font-size: 1rem;
+     letter-spacing: 2px;
+     margin-right: 10px;
+     font-weight:bold;
+}   
+
+.btns input:hover{
+    cursor: pointer;
+    background:#2a1af2;
 }
 
 /*회원가입약관*/
@@ -1152,39 +1200,42 @@ h1 {
     font-weight:bold;
 }
 
-/* 예약페이지 css */
 
+/* 예약페이지 css */
 #reserveInfo{
-   width:80%;
-   height:600px;
-   
+    width:1300px;
+    height:600px;   
     text-align:center;
-    justify-content: center;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    flex-direction: column;
     margin:5% auto;
     padding:10px;
 }
 
 #reserveInfo1{
-    width:600px;
-   align-items: center;
-   height:500px;
-   display:inline-block;
-   line-height: 30px;
-   text-align:center;
-   position:absolute;
-   left:15%;
-   top:30%;
-   padding:2%;
+    width:550px;
+    height:400px;
+    align-items: center;
+    height:500px;
+    line-height: 30px;
+    text-align:center;
+    padding:2%;
 }
 
 #reserveInfo1 table{
     width:100%;
    height:300px;
-   font-size:20px;
+   font-size:25px;
 }
-
+#reserveInfo2{
+   width:500px;
+   height:700px;
+   line-height: 30px;
+   background-color:#e6eaed;
+   padding:2%;
+}
 #reserveInfo2 table{
     width:100%;
    height:500px;
@@ -1200,18 +1251,6 @@ h1 {
    text-align: left;
 }
 
-
-#reserveInfo2{
-   width:500px;
-   height:500px;
-   position:absolute;
-   right:20%;
-   top:30%;
-   line-height: 30px;
-   display:inline-block;
-   background-color:#e6eaed;
-   padding:2%;
-}
 
 
 
