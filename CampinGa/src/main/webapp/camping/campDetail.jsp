@@ -58,7 +58,7 @@
 					<td><fmt:formatDate value="${qnaVO.indate}" type="date" /></td>
 					<td>&nbsp;&nbsp;&nbsp;${qnaVO.content}</td>
 					<td><c:choose>
-							<c:when test="${qnaVO.repyn==y}">${qnaVO.reply}</c:when>
+							<c:when test="${qnaVO.repyn=='y'}">${qnaVO.reply}</c:when>
 							<c:otherwise>답변대기중</c:otherwise>
 						</c:choose></td>
 					<td>

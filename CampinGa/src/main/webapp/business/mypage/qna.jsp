@@ -16,19 +16,17 @@
 			<th>작성일</th>
 		</tr>
 
-		<c:forEach items="${qnalist}" var="Camp_qnaVO">
+		<c:forEach items="${qnalist}" var="camp_qnaVO">
 			<input type="hidden" name="bseq" value="${bseq}">
 			<tr>
-				<td>${Camp_qnaVO.qseq}<c:choose>
-						<c:when test='${Camp_qnaVO.repyn=="n"}'>(미처리)</c:when>
+				<td>${camp_qnaVO.qseq}<c:choose>
+						<c:when test='${camp_qnaVO.repyn=="n"}'>(미처리)</c:when>
 						<c:otherwise>(답변처리완료)</c:otherwise>
 					</c:choose></td>
-				<td><a href="#" onClick="go_view('${Camp_qnaVO.qseq}');">${Camp_qnaVO.content}</a></td>
-				<td>${Camp_qnaVO.mid}</td>
-				<td><fmt:formatDate value="${Camp_qnaVO.indate}" /></td>
-			</tr>
-
-			
+				<td><a href="#" onClick="go_view('${camp_qnaVO.qseq}');">${camp_qnaVO.content}</a></td>
+				<td>${camp_qnaVO.mid}</td>
+				<td><fmt:formatDate value="${camp_qnaVO.indate}" /></td>
+			</tr>		
 		</c:forEach>
 	</table>
 	<br>

@@ -15,6 +15,7 @@ public class ReservationVO {
 	private String cname;
 	private String c_class;
 	private String res_sta;
+	private String bid;
 	
 	public String getMid() {
 		return mid;
@@ -87,6 +88,12 @@ public class ReservationVO {
 	}
 	public void setBseq(Integer bseq) {
 		this.bseq = bseq;
+	}
+	public String getBid() {
+		return bid;
+	}
+	public void setBid(String bid) {
+		this.bid = bid;
 	}
 	
 	

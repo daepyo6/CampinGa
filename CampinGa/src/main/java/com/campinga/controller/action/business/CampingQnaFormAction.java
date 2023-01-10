@@ -26,7 +26,7 @@ public class CampingQnaFormAction implements Action {
 			String qseq = request.getParameter("qseq");
 			Camp_qnaDao qdao = Camp_qnaDao.getInstance();
 			Camp_qnaVO qvo = qdao.getQna(Integer.parseInt(qseq));
-			request.setAttribute("qnavo", qvo);
+			request.setAttribute("qnaVO", qvo);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 

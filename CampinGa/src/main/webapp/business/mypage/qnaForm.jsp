@@ -8,22 +8,22 @@
 <article>
 	<h1>Q&amp;A 게시판</h1>
 	<form name="frm" method="post">
-		<input type="hidden" name="qseq" value="${qnavo.qseq}">
+		<input type="hidden" name="qseq" value="${qnaVO.qseq}">
 		<table id="orderList">
 			<!-- 게시물의 내용 -->
 
 			<tr>
 				<th>등록일</th>
-				<td align="left"><fmt:formatDate value="${qnavo.indate}" /></td>
+				<td align="left"><fmt:formatDate value="${qnaVO.indate}" /></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td align="left">${qnavo.content}</td>
+				<td align="left">${qnaVO.content}</td>
 			</tr>
 		</table>
 		<!-- 관리자가 쓴 답글 또는 답글 쓰는 입력란 표시 -->
 		<c:choose>
-			<c:when test='${qnavo.repyn=="n"}'>
+			<c:when test='${qnaVO.repyn=="n"}'>
 				<table id="orderList">
 					<tr>
 						<td colspan="2"><textarea name="reply" rows="3" cols="50"></textarea>
@@ -35,7 +35,7 @@
 				<table id="orderList">
 					<tr>
 						<th>댓글</th>
-						<td>${qnavo.reply}</td>
+						<td>${qnaVO.reply}</td>
 					</tr>
 				</table>
 			</c:otherwise>

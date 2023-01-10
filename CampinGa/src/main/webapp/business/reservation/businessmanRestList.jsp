@@ -22,8 +22,14 @@
                      dateStyle="short" timeStyle="short"/></td>
                <td>${resVO.cname}&nbsp;${resVO.c_class}</td>
                <td>${resVO.people}명</td>
-               <td><fmt:formatDate value="${resVO.chk_in}" type="date"/></td>
-               <td><fmt:formatDate value="${resVO.chk_out}" type="date"/></td>
+               <td>
+            	  <fmt:parseDate value = "${resVO.chk_in}" var = "check_in" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type = "date" value="${check_in}"/>
+                </td>
+                <td>
+            	  <fmt:parseDate value = "${resVO.chk_out}" var = "check_out" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type = "date" value="${check_out}"/>
+                </td>
                <td>${resVO.price}</td>
             </tr>
          </c:forEach>
