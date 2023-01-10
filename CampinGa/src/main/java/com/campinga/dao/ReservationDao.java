@@ -88,8 +88,8 @@ public class ReservationDao {
 				revo.setPrice(rs.getInt("price"));
 				revo.setPeople(rs.getInt("people"));
 				revo.setRes_date(rs.getTimestamp("res_date"));
-				revo.setChk_in(rs.getTimestamp("chk_in"));
-				revo.setChk_out(rs.getTimestamp("chk_out"));
+				revo.setChk_in(rs.getString("chk_in"));
+				revo.setChk_out(rs.getString("chk_out"));
 				list.add(revo);
 			}
 		} catch (SQLException e) {

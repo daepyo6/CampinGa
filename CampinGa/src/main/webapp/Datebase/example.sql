@@ -259,7 +259,11 @@ where b.bseq = r.bseq;
 
 -- paging 
 
-select * from ( select * from ( select rownum as rn, c.* from ((select * from camping_view where rowid IN (select max(rowid) from camping_view group by cname)) c)) where rn>=1) where rn<=10;
+select * from ( 
+select * from ( 
+select rownum as rn, c.* from ((
+select * from camping_view where rowid IN (
+select max(rowid) from camping_view group by cname)) c)) where rn>=1) where rn<=10;
 
 
 

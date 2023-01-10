@@ -372,4 +372,9 @@ public class CampDao {
 		return count;
 	}
 
+	public void updateCampingList(CampingVO cvo) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
