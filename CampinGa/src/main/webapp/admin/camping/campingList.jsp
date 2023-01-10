@@ -15,7 +15,7 @@
 				<th>이름</th>
 				<th>주소</th>
 				<th>연락처</th>
-				<th>등록일</th>
+				<!-- <th>등록일</th> -->
 				<th>삭제</th>
 			</tr>
 			<c:forEach items="${campingList}" var="campingList">
@@ -25,9 +25,7 @@
 					<td height="2" align="center">${campingList.caddress1}
 						${campingList.caddress2} ${campingList.caddress3}</td>
 					<td height="2" align="center">${campingList.phone}</td>
-					<td><fmt:formatDate value="${campingList.c_indate}" />
-					<td><input type="checkbox" name="cseq"
-						value="${campingList.cseq}"></td>
+					<td><input type="checkbox" name="bseq" value="${campingList.bseq}"></td>
 				</tr>
 			</c:forEach>
 			<tr>

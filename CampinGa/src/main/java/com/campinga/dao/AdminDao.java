@@ -190,8 +190,8 @@ public class AdminDao {
 	}
 
 	public void insertNotice(NoticeVO nvo) {
-     String sql = "insert into notice( nseq,  subject, content ,aid)"
-     		+ " values( notice_seq.nextval, ? , ? ,? )";
+     String sql = "insert into notice( nseq, subject, content ,aid)"
+     		+ " values( notice_seq.nextval, ?, ?, ? )";
 		
 		con = Dbman.getConnection();
 		try {			
@@ -227,7 +227,7 @@ public class AdminDao {
 				cvo.setCname(rs.getString("cname"));
 				cvo.setFacilities(rs.getString("facilities"));
 				cvo.setImage(rs.getString("image"));
-				cvo.setContent(rs.getString("content"));
+				cvo.setC_content(rs.getString("c_content"));
 				cvo.setCategory(rs.getString("category"));
 				cvo.setC_class(rs.getString("c_class"));
 				cvo.setRes_sta(rs.getString("res_sta"));

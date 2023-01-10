@@ -44,10 +44,10 @@ public class Camp_qnaDao {
 	public ArrayList<Camp_qnaVO> selectAllQna(int bseq, Paging paging1) {
 		ArrayList<Camp_qnaVO> list = new ArrayList<Camp_qnaVO>();
 
-		String sql = "select*from(" + 
-					 "select*from(" + 
-					 "select rownum as rn, q.*from(" + 
-					 "(select*from camp_qna where bseq=? order by qseq desc)q)" 
+		String sql = "select * from(" + 
+					 "select * from(" + 
+					 "select rownum as rn, q.* from(" + 
+					 "(select * from camp_qna where bseq=? order by qseq desc) q)" 
 					 + ")where rn>=?" 
 					 + ")where rn<=?";
 		con = Dbman.getConnection();

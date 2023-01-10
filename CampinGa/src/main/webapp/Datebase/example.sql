@@ -2,37 +2,56 @@
 drop sequence businessman_seq;
 create sequence businessman_seq start with 1;
 
+insert into member(mid, pwd, name, mphone, email)
+values('qndrl12', '1234', '이준표', '010-8010-4755', 'qndrl12@naver.com');
+
 select * from member;
 select * from qna_;
 
 -- 사업자 입력 --
-insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3) 
-values(businessman_seq.nextval, 'bn', '1234', '김보나', '010-1111-1111', 'abc@abc.com' , 
-'해여림 빌리지', '경기도','여주시', '산북면 해여림로 78');
-insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3) 
-values(businessman_seq.nextval, 'wr', '1234', '김우리', '010-1111-2222', 'abc@abc.com' , 
-'경주 텐타우스', '경상북도',' 경주시', '강동면 왕신숲골안길 5');
-insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3) 
-values(businessman_seq.nextval, 'bh', '1234', '이병환', '010-1111-3333', 'abc@abc.com' , 
-'연천 써니힐즈', '경기도','연천군', '장남면 장백로330번길 137-28');
-insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3) 
-values(businessman_seq.nextval, 'dp', '1234', '이대표', '010-1111-4444', 'abc@abc.com' , 
-'홍천 해솔캠핑장', '강원도','홍천군', '내촌면 논골길 91');
-insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3) 
-values(businessman_seq.nextval, 'hw', '1234', '정현우', '010-1111-5555', 'abc@abc.com' , 
-'태안 굼벵이 캠핑농원', '충청남도','태안군', '이원면 꾸지나무길 103-10');
+insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3, facilities, image, content, category) 
+values(businessman_seq.nextval, 'dp', '1234', '이대표', '010-1111-1111', 'abc@abc.com' , 
+'해여림 빌리지', '경기도','여주시', '산북면 해여림로 78', '바베큐장, 주차장', 'camp01.jpg',
+'다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.', 'camping');
+
+insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3, facilities, image, content, category) 
+values(businessman_seq.nextval, 'bn', '1234', '김보나', '010-2222-1111', 'abc@abc.com' , 
+'경주 텐타우스', '경상북도','경주시', '강동면 왕신숲골안길 5', '바베큐장, 주차장', 'camp02.jpg',
+'안녕하세요 경주 텐타우스입니다.', 'campnic');
+
+insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3, facilities, image, content, category) 
+values(businessman_seq.nextval, 'bw', '1234', '김보임', '010-3333-1111', 'abc@abc.com' , 
+'연천 써니힐즈', '경기도','연천군', '장남면 장백로330번길 137-28', '바베큐장, 주차장', 'camp01.jpg',
+'안녕하세요 연천 써니힐즈입니다.', 'auto');
+
+insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3, facilities, image, content, category) 
+values(businessman_seq.nextval, 'bc', '1234', '김보정', '010-4444-1111', 'abc@abc.com' , 
+'홍천 해솔캠핑장', '강원도','홍천군', '내촌면 논골길 91', '바베큐장, 주차장', 'camp02.jpg',
+'안녕하세요 홍천 해솔캠핑장입니다.', 'caravane');
+
+insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3, facilities, image, content, category) 
+values(businessman_seq.nextval, 'ba', '1234', '김보점', '010-5555-1111', 'abc@abc.com' , 
+'태안 굼벵이 캠핑농원', '충청남도','태안군', '이원면 꾸지나무길 103-10', '바베큐장, 주차장', 'camp01.jpg',
+'안녕하세요 태안 굼벵이 캠핑농원입니다', 'camping');
 
 select * from businessman;
 select * from camping;
-
+delete from businessman where bseq=1;
 
 select count(*) from camping where cname='해여림 빌리지';
 
-insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
-				min_people, max_people  )
-values (camping_seq.nextval, 1,'해여림 빌리지','바베큐장, 주차장',
-'camp01.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
-'camping','해여림 AA', 'n', 200000, 4, 10);
+
+drop sequence camping_seq;
+create sequence camping_seq start with 1;
+
+insert  into camping(cseq, bseq, cname, c_image, c_content, c_class, res_sta, price, min_people, max_people)
+values (camping_seq.nextval, 1,'해여림 빌리지', 'camp02.jpg','해여림 AA방입니다.','해여림 AA', 'n', 200000, 4, 10);
+
+insert  into camping(cseq, bseq, cname, c_image, c_content, c_class, res_sta, price, min_people, max_people)
+values (camping_seq.nextval, 1,'해여림 빌리지', 'camp02.jpg','해여림 BB방입니다.','해여림 BB', 'n', 150000, 4, 8);
+
+insert  into camping(cseq, bseq, cname, c_image, c_content, c_class, res_sta, price, min_people, max_people)
+values (camping_seq.nextval, 1,'해여림 빌리지', 'camp02.jpg','해여림 CC방입니다.','해여림 CC', 'n', 250000, 6, 12);
 
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
@@ -68,9 +87,9 @@ create sequence favorites_seq start with 1;
 
 
 insert into favorites(fseq, mid, bseq)
-values(favorites_seq.nextval, 'dp', 1);
+values(favorites_seq.nextval, 'qndrl12', 1);
 insert into favorites(fseq, mid, bseq)
-values(favorites_seq.nextval, 'dp', 2);
+values(favorites_seq.nextval, 'qndrl12', 2);
 insert into favorites(fseq, mid, bseq)
 values(favorites_seq.nextval, 'dp', 3);
 insert into favorites(fseq, mid, bseq)
@@ -86,9 +105,9 @@ drop sequence review_seq;
 create sequence review_seq start with 1;
 
 insert into review(rseq, bseq, mid, content)
-values(review_seq.nextval, 2, 'dp', '아주 좋아요');
-
-
+values(review_seq.nextval, 1, 'qndrl12', '아주 좋아요');
+insert into review(rseq, bseq, mid, content)
+values(review_seq.nextval, 1, 'qndrl12', '캠핑장이 아주 좋아요');
 
 -- 공지사항 시퀀스 생성 --
 drop sequence notice_seq;
@@ -139,14 +158,14 @@ values (camping_seq.nextval, 4,'홍천 해솔캠핑장','바베큐장, 주차장',
 
 
 select * from camping;
-s
+
 drop sequence qna_seq;
 create sequence qna_seq start with 1;
 
-insert  into camp_qna(qseq, mid, bseq, content , repyn)values
-(qna_seq.nextval, 'dp', 1,'바베큐장 있나요?','n');
-insert  into camp_qna(qseq, mid, bseq, content , reply, repyn)values
-(qna_seq.nextval, 'dp', 1,'수영장잇나요?','아니요 없습니다','y');
+insert into camp_qna(qseq, mid, bseq, content , repyn)
+values (qna_seq.nextval, 'qndrl12', 1,'바베큐장 있나요?','n');
+insert into camp_qna(qseq, mid, bseq, content , reply, repyn)
+values (qna_seq.nextval, 'qndrl12', 1,'수영장잇나요?','아니요 없습니다','n');
   
 select * from camp_qna;  
 select * from review;
@@ -169,14 +188,15 @@ select * from camping_view where rowid IN (select max(rowid) from camping_view g
 
 select count(*) as cnt from camping_view where rowid IN (select max(rowid) from camping_view group by cname);
 
+drop sequence notice_seq;
 create sequence notice_seq start with 1; 
 
 insert into notice (nseq,aid,subject,content)values
-(notice_seq.nextval,'scott', '[조기종료][EVENT]2022 만만한 캠핑 이벤트!',
+(notice_seq.nextval,'scott', '캠핑 이벤트',
 '[안전한 캠핑을 응원하는 만만한 캠핑 EVENT] 고캠핑 등록 캠핑장을 네이버에서 예약하고,1만 원 이상 N페이로 결제 후 
 이용완료한 선착순 1만 명에게 한국관광공사가 네이버페이 1만 원을 적립해 드립니다! 자세한 이벤트 기간 및 참여방법은 게시된 
 이미지를 통해 확인해 보세요~! 예약 관련문의 : 1644-5690 (네이버 고객센터 운영시간 09:00~18:00)
-이벤트 관련문의 : 02- 6429-3801 )');
+이벤트 관련문의 : 02-6429-3801 )');
 insert into notice (nseq,aid,subject,content)values
 (notice_seq.nextval,'scott','초캠러(초보캠퍼)를 위한 동계안전캠핑 5대수칙 알리기 이벤트>',
 '미션1. 고캠핑 SNS 팔로우 하기! 미션2. 게시글 댓글에 친구 태그하여 동계안전 캠핑 5대 기본수칙 널리~ 널리~ 알리기!
@@ -192,11 +212,11 @@ insert into notice (nseq,aid,subject,content)values
 
  create sequence reservation_seq start with 1; 
 insert into reservation(reseq, cseq, mid, price, people, chk_in, chk_out)
-values (reservation_seq.nextval, 23, 'dp', 200000, 5, '2023/2/01','2023/2/03');
+values (reservation_seq.nextval, 1, 'qndrl12', 200000, 5, '2023/2/01','2023/2/03');
 
 
 select * from RESERVATION where mid='dp';
-select * from member;
+select * from reservation;
 select * from businessman;
 select * from camping;
 
@@ -235,12 +255,13 @@ select * from favorites_view;
 -- camping 안의 캠핑장 이름으로 정보 조회하는 view
 create or replace view camping_view
 as
-select c.cseq, c.bseq, c.cname, b.caddress1, b.caddress2, b.caddress3, c.facilities,
-		b.phone, c.image, c.content, c.category, c.c_class, c.res_sta, c.price,
+select c.cseq, c.bseq, c.cname, b.caddress1, b.caddress2, b.caddress3, b.facilities,
+		b.phone, b.image, c.c_image, b.content, c.c_content, b.category, c.c_class, c.res_sta, c.price,
 		c.min_people, c.max_people, c.c_indate
 from businessman b, camping c
 where b.bseq = c.bseq;
 
+DROP view camping_view CASCADE CONSTRAINTS;
 select * from camping_view;
 
 SELECT cseq, cname, caddress1, caddress2, caddress3, phone 
@@ -271,12 +292,15 @@ select max(rowid) from camping_view group by cname)) c)) where rn>=1) where rn<=
 
 
 
+select bseq, cname, content, image from businessman where rownum<=4 order by bseq desc;
+
+select bseq, cname, content, image 
+from (select * from businessman order by bseq desc) 
+where rownum<=4;
 
 
-
-
-
-
+select * from ( select * from ( 
+select rownum as rn, b.* from ((select * from businessman) b)) where rn>=1) where rn<=5;
 
 
 
