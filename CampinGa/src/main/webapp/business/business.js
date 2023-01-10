@@ -37,3 +37,65 @@ function busiJoinCheck(){
         document.joinForm.submit();
     }
 }
+
+
+function go_update(){
+	    document.updateBusinessInfo.action = "camp.do?command=updateBusinessInfo";
+	    document.updateBusinessInfo.submit();
+}
+
+function reservate_cancel(){
+	    document.reservateInfo.action = "camp.do?command=businessmanCancelReservate";
+	    document.reservateInfo.submit();
+}
+
+function delete_favorites( fseq ){
+	    document.favorites.action = "camp.do?command=BusinessmanDeleteFavorites&fseq="+ fseq;
+	    document.favorites.submit();
+}
+
+
+function go_view( qseq ){
+	location.href = "camp.do?command=campingQnaForm&qseq=" + qseq;
+}
+
+function go_rep(){
+	document.frm.action="camp.do?command=campingQnaRepSave";
+	document.frm.submit();
+	// 답변 글 등록 & rep 필드를 2로 업데이트
+}
+
+
+function roomCheck(){
+	if( document.frm.cname.value=="" ){
+		alert("이름 필수사항입니다");
+		document.frm.cname.focus();
+		return false;
+	}
+	if( document.frm.facilities.value=="" ){
+		alert("부대시설 필수사항입니다");
+		document.frm.facilities.focus();
+		return false;
+	}
+	if( document.frm.category.value=="" ){
+		alert("카테고리 필수사항입니다");
+		document.frm.category.focus();
+		return false;
+	}
+	if( document.frm.content.value=="" ){
+		alert("내용을 입력해주세요");
+		document.frm.content.focus();
+		return false;
+	}
+	if( document.frm.c_class.value=="" ){
+		alert("숙소종류 입력해주세요");
+		document.frm.c_class.focus();
+		return false;
+	}
+	return true;
+	}
+
+
+
+
+
