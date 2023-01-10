@@ -23,7 +23,10 @@ values(businessman_seq.nextval, 'hw', '1234', '정현우', '010-1111-5555', 'abc@ab
 '태안 굼벵이 캠핑농원', '충청남도','태안군', '이원면 꾸지나무길 103-10');
 
 select * from businessman;
+select * from camping;
 
+
+select count(*) from camping where cname='해여림 빌리지';
 
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
@@ -48,7 +51,7 @@ values (camping_seq.nextval, 4,'홍천 해솔캠핑장','바베큐장, 주차장, 와이파이',
 'caravane','해솔캠핑장 A', 'n', 200000, 4, 10);
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
-values (camping_seq.nextval, 4,'태안 굼벵이 캠핑농원','바베큐장, 주차장, 와이파이',
+values (camping_seq.nextval, 5,'태안 굼벵이 캠핑농원','바베큐장, 주차장, 와이파이',
 'camp01.jpg','다양한 컨텐츠로 즐거운 일상탈출 맛있는 음식과 깨끗한 시설 친절한 서비스 고객감동 서비스가 시작되는 여기는 캠핑장입니다.',
 'campnic','캠핑농원 A', 'n', 200000, 4, 10);
 
@@ -162,7 +165,9 @@ insert into member(mid, pwd, name,mphone,email)values
 
 select * from reservation; 
 
+select * from camping_view where rowid IN (select max(rowid) from camping_view group by cname);
 
+select count(*) as cnt from camping_view where rowid IN (select max(rowid) from camping_view group by cname);
 
 create sequence notice_seq start with 1; 
 
@@ -202,7 +207,7 @@ select * from camping;
 -- reservation 안의 사용자아이디와 캠핑장번호로 예약정보와 캠핑장정보를 조회하는 view를 생성
 create or replace view reservate_view
 as
-select r.reseq, c.cname, c.c_class, c.res_sta, r.mid, r.price, r.people, r.res_date, r.chk_in, r.chk_out
+select r.reseq, c.cname, c.c_class, c.res_sta, r.mid, m.name, r.price, r.people, r.res_date, r.chk_in, r.chk_out
 from reservation r, member m, businessman b, camping c
 where m.mid = r.mid and r.cseq = c.cseq and b.bseq = c.bseq;
 
@@ -248,4 +253,23 @@ as
 select r.rseq, r.mid, r.bseq, r.content, r.indate, b.bname
 from review r, businessman b
 where b.bseq = r.bseq;
+
+
+
+
+-- paging 
+
+select * from ( select * from ( select rownum as rn, c.* from ((select * from camping_view where rowid IN (select max(rowid) from camping_view group by cname)) c)) where rn>=1) where rn<=10;
+
+
+
+
+
+
+
+
+
+
+
+
 

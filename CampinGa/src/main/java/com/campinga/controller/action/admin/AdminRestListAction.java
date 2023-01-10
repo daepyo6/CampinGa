@@ -18,7 +18,7 @@ public class AdminRestListAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "admin/campingrest/campingRestList.jsp";
+		String url = "admin/camping/campingRestList.jsp";
 		
 		HttpSession session = request.getSession();
 		String avo = (String)session.getAttribute("loginAdmin");

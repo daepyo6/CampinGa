@@ -48,12 +48,12 @@ public class FavoritesDao {
 		return list;
 	}
 
-	public void deleteFavorites(int fseq) {
-		String sql = "delete from favorites where fseq=?";
+	public void deleteFavorites(String fieldName, int seq) {
+		String sql = "delete from favorites where "+ fieldName +"=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, fseq);
+			pstmt.setInt(1, seq);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -61,5 +61,42 @@ public class FavoritesDao {
 			Dbman.close(con, pstmt, rs);
 		}
 		
+	}
+
+	public void insertFavorites(FavoritesVO fvo) {
+		String sql = "insert into favorites(fseq, bseq, mid, fav_check) "
+				+ "values(favorites_seq.nextVal, ?, ?, ?)";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fvo.getBseq());
+			pstmt.setString(2, fvo.getMid());
+			pstmt.setString(3, "y");
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		
+	}
+
+	public String checkFav(int bseq) {
+		String check = "";
+		con = Dbman.getConnection();
+		String sql = "select * from favorites where bseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bseq);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				check = rs.getString("fav_check");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return check;
 	}
 }

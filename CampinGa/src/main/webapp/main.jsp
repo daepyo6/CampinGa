@@ -1,65 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="header.jsp"%>
 <div id="mainSearch">
 	<div id="main_img">
-		<img id="mainImg" src="images/main.png"> 	
+		<img id="mainImg" src="images/main.png">
 	</div>
 	<div id="main_searchbar">
 		<div id="selects">
-		    <div id="selectAddress">
-		    	<span>지역별</span>
-		    	<select name="address1" class="selectAd" onchange="chDo(this.value)">
-				    <option selected="selected">도/시 선택</option>
-		            <option value='1'>서울
-		            </option>
-		            <option value='2'>부산</option>
-		            <option value='3'>대구</option>
-		            <option value='4'>인천</option>
-		            <option value='5'>광주</option>
-		            <option value='6'>대전</option>
-		            <option value='7'>울산</option>
-		            <option value='8'>강원</option>
-		            <option value='9'>경기</option>
-		            <option value='10'>경남</option>
-		            <option value='11'>경북</option>
-		            <option value='12'>전남</option>
-		            <option value='13'>전북</option>
-		            <option value='14'>제주</option>
-		            <option value='15'>충남</option>
-		            <option value='16'>충북</option>
-				</select>
-				<select name="address2" class="selectAd" id="gungu">
-				    <option value="0" selected="selected">시/군/구 선택</option>
+			<div id="selectAddress">
+				<span>지역별</span> <select id="sido" class="selectAd"
+					onchange="chDo(this.value)">
+					<option value="" selected="selected">도/시 선택</option>
+					<option value="1">서울</option>
+					<option value="2">부산</option>
+					<option value="3">대구</option>
+					<option value="4">인천</option>
+					<option value="5">광주</option>
+					<option value="6">대전</option>
+					<option value="7">울산</option>
+					<option value="8">강원</option>
+					<option value="9">경기</option>
+					<option value="10">경남</option>
+					<option value="11">경북</option>
+					<option value="12">전남</option>
+					<option value="13">전북</option>
+					<option value="14">제주</option>
+					<option value="15">충남</option>
+					<option value="16">충북</option>
+				</select> <select id="gungu" class="selectAd">
+					<option value="" selected="selected">시/군/구 선택</option>
 				</select>
 				<!-- 시/군/구 value는 한글 그대로임 -->
-		    </div><br>
-		    <div id="searchName">
-		    	<span>캠핑장명</span> 
-		    	<input type="text" id="inputText" name="cname" size="20">
-		    	<input type="button" id="mainBtn" value="검색" onclick="">
-		    </div>
-		    <!-- 검색버튼 onclick 함수 필요함 -->	    
-	    </div>    
+			</div>
+			<br>
+			<div id="searchName">
+				<span>캠핑장명</span> <input type="text" id="inputText" name="cname"
+					size="20"> <input type="button" id="mainBtn" value="검색"
+					onclick="mainSearch()">
+			</div>
+		</div>
 	</div>
 </div>
 <!-- new 캠핑장 -->
 <div class="mainTitle">새로 추가된 캠핑장!!</div>
-<div class="newCampings">	
+<div class="newCampings">
 	<c:forEach items="${newCampList}" var="newCamp">
 		<div class="newCampCard">
 			<a href="camp.do?command=campDetail&bseq=${newCamp.bseq}">
-				<div class="newCampImgs">		
-					<img class="campImg" src="images/${newCamp.image}">
+				<div class="newCampImgs">
+					<c:choose>
+						<c:when test="${newCamp.image==null}">
+							<img class="campImg" src="images/camp01.jpg">
+						</c:when>
+						<c:otherwise>
+							<img class="campImg" src="images/${newCamp.image}">
+						</c:otherwise>
+					</c:choose>
 					<div class="imgCover">
-						<span>캠핑장정보</span><br>
-						<span>자세히보기</span>
+						<span>캠핑장정보</span><br> <span>자세히보기</span>
 					</div>
 				</div>
 			</a>
-			<div class="newCampName">${newCamp.cname}</div>
-			<div class="newCampInfo">${newCamp.content}</div>
+			<div class="newCampName">
+				<span>${newCamp.cname}</span>
+			</div>
+			<div class="newCampInfo">
+				<span>${newCamp.content}</span>
+			</div>
 		</div>
-	</c:forEach>	
+	</c:forEach>
 </div>
 
 <!-- 추천 캠핑장 -->
@@ -69,22 +78,24 @@
 		<div class="recoTheme">
 			<span>추천 테마 : 겨울 감성 캠핑!</span>
 		</div>
-		<div class="recoview">	
+		<div class="recoview">
+			<!-- recoCampList -->
 			<div class="btnA" id="btnL">
 				<img src="images/arrL.png">
 			</div>
 			<div class="cardView">
 				<div class="cards">
-					<a href="#">
-						<div class="recoCampCard">
+					<c:forEach items="${recoCampList}" var="recoCamp">
+						<div class="recoCampCard" 
+							onclick="location.href='camp.do?command=campDetail&bseq=${recoCamp.bseq}'">
 							<div class="cardHeader">
-								<span>ㅇㅇ캠핑장</span>
+								<span>${recoCamp.cname}</span>
 							</div>
 							<div class="recoImg">
-								<img src="images/newImg1.jpg">
+								<img src="images/${recoCamp.image}">
 							</div>
 						</div>
-					</a>
+					</c:forEach>
 					<div class="recoCampCard">
 						<div class="cardHeader">
 							<span>ㅇㅇ캠핑장</span>
@@ -101,47 +112,8 @@
 							<img src="images/newImg1.jpg">
 						</div>
 					</div>
-					<div class="recoCampCard">
-						<div class="cardHeader">
-							<span>ㅇㅇ캠핑장</span>
-						</div>
-						<div class="recoImg">
-							<img src="images/newImg1.jpg">
-						</div>
-					</div>
-					<div class="recoCampCard">
-						<div class="cardHeader">
-							<span>ㅇㅇ캠핑장</span>
-						</div>
-						<div class="recoImg">
-							<img src="images/newImg1.jpg">
-						</div>
-					</div>
-					<div class="recoCampCard">
-						<div class="cardHeader">
-							<span>ㅇㅇ캠핑장</span>
-						</div>
-						<div class="recoImg">
-							<img src="images/newImg1.jpg">
-						</div>
-					</div>
-					<div class="recoCampCard">
-						<div class="cardHeader">
-							<span>ㅇㅇ캠핑장</span>
-						</div>
-						<div class="recoImg">
-							<img src="images/newImg1.jpg">
-						</div>
-					</div>
-					<div class="recoCampCard">
-						<div class="cardHeader">
-							<span>ㅇㅇ캠핑장</span>
-						</div>
-						<div class="recoImg">
-							<img src="images/newImg1.jpg">
-						</div>
-					</div>
-				</div>			
+
+				</div>
 			</div>
 			<div class="btnA" id="btnR">
 				<img src="images/arrR.png">
@@ -151,4 +123,4 @@
 </div>
 
 
-<%@ include file="footer.jsp" %>
+<%@ include file="footer.jsp"%>

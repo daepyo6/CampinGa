@@ -156,8 +156,8 @@ public class AdminDao {
 				revo.setRes_date(rs.getTimestamp("res_date") );
 				revo.setPrice(rs.getInt("price") );
 				revo.setPeople(rs.getInt("people") );
-				revo.setChk_in(rs.getTimestamp("chk_in") );
-				revo.setChk_out(rs.getTimestamp("chk_out") );
+				revo.setChk_in(rs.getString("chk_in") );
+				revo.setChk_out(rs.getString("chk_out") );
 				revo.setCname(rs.getString("cname") );
 				revo.setC_class(rs.getString("c_class") );
 				revo.setRes_sta(rs.getString("res_sta") );

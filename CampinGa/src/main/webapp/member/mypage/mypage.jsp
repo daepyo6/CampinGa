@@ -3,43 +3,42 @@
 <%@ include file="../../header.jsp" %>
 
 
-
 <article id="mypage">
    <!-- 회원 간단한 정보 + 정보수정 버튼-->
    <form method="post" name="memberInfo">
+    <div>
       <h1>회원정보</h1>
-      <table class="memberInfoList">
+      <table class="memberInfoList1">
          <tr>
-            <td>이름</td>
+            <th>이름</th>
             <td>${loginUser.name}</td>
          </tr>
          <tr>
-            <td>이메일</td>
+            <th>이메일</th>
             <td>${loginUser.email}</td>
          </tr>
          <tr>
-            <td>전화번호</td>
+            <th>전화번호</th>
             <td>${loginUser.mphone}</td>
          </tr>
-         <tr>
-			<td>
-				<input type="button" value="정보수정"
-						onclick="location.href='camp.do?command=editForm'">
-			</td>
-			<td>
-				<input type="button" value="회원탈퇴"
-						onclick="location.href='camp.do?command=deleteMember'">
-			</td>
-		</tr>
+        
       </table>
+      </div>
+      <div style="float:right;" id="mypagebtn">
+            <input type="button" value="정보수정"
+                  onclick="location.href='camp.do?command=editForm'">
+            <input type="button" value="회원탈퇴"
+                  onclick="location.href='camp.do?command=deleteMember'">      
+         </div>         
+         
    </form>
 
 
    <!-- "예약 조회" 현재 예약조회, 지난 예약조회-->
    <form method="post" name="reservateInfo">
       <h1>예약 조회</h1>
-      <table class="memberInfoList">
-         <tr>
+      <table class="memberInfoList2">
+         <tr id="myrest">
             <th>예약일자</th>
             <th>예약장소</th>
             <th>인원</th>
@@ -55,10 +54,16 @@
                      dateStyle="short" timeStyle="short"/></td>
                <td><a href="#">${resVO.cname}&nbsp;${resVO.c_class}</a></td>
                <td>${resVO.people}명</td>
-               <td><fmt:formatDate value="${resVO.chk_in}" type="date"/></td>
-               <td><fmt:formatDate value="${resVO.chk_out}" type="date"/></td>
+               <td>
+            	  <fmt:parseDate value = "${resVO.chk_in}" var = "check_in" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type = "date" value="${check_in}"/>
+               </td>
+               <td>
+            	  <fmt:parseDate value = "${resVO.chk_out}" var = "check_out" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type = "date" value="${check_out}"/>
+               </td>
                <td>${resVO.price}</td>
-               <td><input type="button" value="취소" onclick="reservate_cancel();"></td>
+               <td><input type="button" value="취소" onclick="reservate_cancel('${resVO.reseq}');"></td>
             </tr>
          </c:forEach>
       </table>
@@ -68,8 +73,8 @@
    <!-- "내 즐겨찾기" 현재 회원이 즐겨찾기한 캠핑장의 내역을 출력 -->
    <form method="post" name="favorites">
       <h1>즐겨찾기</h1>
-      <table class="memberInfoList">
-         <tr>
+      <table class="memberInfoList2">
+         <tr id="myfav">
             <th>번호</th>
             <th>캠핑장이름</th>
             <th>캠핑장 전화번호</th>
@@ -82,7 +87,7 @@
                <td><a href="#">${favorVO.cname}</a></td>
                <td>${favorVO.phone}</td>
                <td><input type="button" value="취소"
-                    	 onclick="delete_favorites( '${favorVO.fseq}' );">
+                        onclick="delete_favorites( '${favorVO.fseq}' );">
                </td>
 
             </tr>

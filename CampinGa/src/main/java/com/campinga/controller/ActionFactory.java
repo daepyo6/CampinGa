@@ -3,6 +3,8 @@ package com.campinga.controller;
 import com.campinga.controller.action.Action;
 import com.campinga.controller.action.ContractFormAction;
 import com.campinga.controller.action.IndexAction;
+import com.campinga.controller.action.NoticeDetailAction;
+import com.campinga.controller.action.NoticeListAction;
 import com.campinga.controller.action.admin.AdminAction;
 import com.campinga.controller.action.admin.AdminCampingDeleteAction;
 import com.campinga.controller.action.admin.AdminCampingListAction;
@@ -36,7 +38,9 @@ import com.campinga.controller.action.business.DeleteBusinessmanAction;
 import com.campinga.controller.action.business.UpdateBusinessInfoAction;
 import com.campinga.controller.action.camping.CampDetailAction;
 import com.campinga.controller.action.camping.CategoryAction;
+import com.campinga.controller.action.camping.MainSearchAction;
 import com.campinga.controller.action.camping.SearchResultAction;
+import com.campinga.controller.action.favorites.AddFavoritesAction;
 import com.campinga.controller.action.member.IdCheckFormAction;
 import com.campinga.controller.action.member.JoinAction;
 import com.campinga.controller.action.member.JoinFormAction;
@@ -53,6 +57,8 @@ import com.campinga.controller.action.qna.DeleteQnaAction;
 import com.campinga.controller.action.qna.InsertQnaAction;
 import com.campinga.controller.action.qna.QnaViewAction;
 import com.campinga.controller.action.qna.UpdateQnaAction;
+import com.campinga.controller.action.reservation.ReserveFormAction;
+import com.campinga.controller.action.reservation.ReserveInsertAction;
 import com.campinga.controller.action.review.DeleteReviewAction;
 import com.campinga.controller.action.review.InsertReviewAction;
 import com.campinga.controller.action.review.ReviewFormAction;
@@ -74,11 +80,18 @@ public class ActionFactory {
 		else if(command.equals("login")) ac = new LoginAction();
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		else if(command.equals("logout")) ac = new LogoutAction();
+		else if(command.equals("noticeList")) ac = new NoticeListAction();
+		else if(command.equals("noticeDetail")) ac = new NoticeDetailAction();
 		
 		// camping action
 		else if(command.equals("category")) ac = new CategoryAction();
 	    else if(command.equals("searchResult")) ac = new SearchResultAction();
 	    else if(command.equals("campDetail")) ac = new CampDetailAction();
+	    else if(command.equals("mainSearch")) ac = new MainSearchAction();
+		
+		// reservation action
+	    else if(command.equals("reserveForm")) ac = new ReserveFormAction();
+	    else if(command.equals("reserveInsert")) ac = new ReserveInsertAction();
 		
 		// mypage action
 		else if(command.equals("mypage")) ac = new MypageAction();
@@ -86,6 +99,10 @@ public class ActionFactory {
 		else if(command.equals("updateUserInfo")) ac = new UpdateUserInfoAction();
 		else if(command.equals("deleteMember")) ac = new DeleteMemberAction();
 		else if(command.equals("cancelReservate")) ac = new CancelReservateAction();
+		else if(command.equals("deleteFavorites")) ac = new DeleteFavoritesAction();
+		
+		// favorites action
+		else if(command.equals("addFavorites")) ac = new AddFavoritesAction();
 		else if(command.equals("deleteFavorites")) ac = new DeleteFavoritesAction();
 		
 		// review action
@@ -132,7 +149,6 @@ public class ActionFactory {
 		
 	    else if(command.equals("adminRestList")) ac = new AdminRestListAction();
 		
-		//--------------------------------------------------------------
 	    else if(command.equals("adminNoticeList")) ac = new AdminNoticeListAction();
 	    else if(command.equals("adminNoticeDetail")) ac = new AdminNoticeDetailAction();
 	    else if(command.equals("adminNoticeUpdateForm")) ac = new AdminNoticeUpdateFormAction();

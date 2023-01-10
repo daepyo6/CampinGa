@@ -10,8 +10,8 @@ public class ReservationVO {
 	private Timestamp res_date;
 	private Integer price;
 	private Integer people;
-	private Timestamp chk_in;
-	private Timestamp chk_out;
+	private String chk_in;
+	private String chk_out;
 	private String cname;
 	private String c_class;
 	private String res_sta;
@@ -70,16 +70,16 @@ public class ReservationVO {
 	public void setPeople(Integer people) {
 		this.people = people;
 	}
-	public Timestamp getChk_in() {
+	public String getChk_in() {
 		return chk_in;
 	}
-	public void setChk_in(Timestamp chk_in) {
+	public void setChk_in(String chk_in) {
 		this.chk_in = chk_in;
 	}
-	public Timestamp getChk_out() {
+	public String getChk_out() {
 		return chk_out;
 	}
-	public void setChk_out(Timestamp chk_out) {
+	public void setChk_out(String chk_out) {
 		this.chk_out = chk_out;
 	}
 	public Integer getBseq() {

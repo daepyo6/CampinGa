@@ -1,31 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="admin/css/admin.css">
-<script src="admin/script/admin.js"></script>
-</head>
-<body>
+<%@ include file="header.jsp" %>
+
 <div id="wrap">
 
-	<article>
-		<div id="loginform">
-			<form name="frm" method="post" action="camp.do">
-				<input type="hidden" name="command" value="adminLogin">
-				<table>
-					<tr><td>아 이 디</td><td><input type="text" name="adminId" size="10"></td></tr>
-					<tr><td>비밀번호</td><td><input type="password" name="adminPwd" size="10"></td></tr>
-					<tr align="center" >
-						<td  colspan="2">	
-							<input class="btn" type="submit" value="로그인" onClick="adminCheck();">
-							<br><br><h4 style="color:red">${message}</h4></td></tr>
-				</table>
-			</form>
-		</div>
-	</article>
+   <article>
+      <div class="login">
+       <h2>Admin Login</h2>
+         <form name="frm" method="post" action="camp.do">
+            <input type="hidden" name="command" value="adminLogin">
+            
+               <div class="login_id">
+               <label>아 이 디</label><input type="text" name="adminId" size="10">
+               </div>
+               <div class="login_pwd">
+               <label>비밀번호</label><input type="password" name="adminPwd" size="10">
+               </div><br>
+               <div class="buttons">
+                     <input class="button" type="submit" value="로그인" onClick="adminCheck();">
+               </div>      
+                     <br><br><h4 style="color:red">${message}</h4>
+            
+         </form>
+      </div>
+   </article>
 </div>
 
-</body>
-</html>
+
+<%@ include file="footer.jsp" %>

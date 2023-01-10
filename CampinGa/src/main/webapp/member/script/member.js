@@ -97,8 +97,8 @@ function go_update(){
 	    document.updateInfo.submit();
 }
 
-function reservate_cancel(){
-	    document.reservateInfo.action = "camp.do?command=cancelReservate";
+function reservate_cancel( reseq ){
+	    document.reservateInfo.action = "camp.do?command=cancelReservate&reseq="+ reseq;
 	    document.reservateInfo.submit();
 }
 

@@ -1,44 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<div class="bar"></div>
 <div id="campingdetail">
-   <form method="post" name="formm">
-      <fieldset >
-      <div id="cmp_1" >
-            <img src="images/camp01.jpg" class="image" />
-      </div>   
-      <div id="cmp_2">
-         <h2>행복한 캠핑장</h2>
-         <label>주소 : </label>인천 서구 첨단서로 190 (청라동)<br><br> 
-         <label>문의처 : </label>032-567-4968 , 010-4247-4968<br> <br> 
-         <label>캠핑장 환경 : </label>도심 / 지자체<br> <br> 
-         <label>캠핑장 유형 : </label>일반야영장<br><br> 
-         <label>운영기간 : </label>봄, 여름, 가을, 겨울<br> <br> 
-         <label>운영일 : </label>평일+주말<br> <br> 
-         <label>주변이용가능시설 : </label>산책로, 운동장, 청소년체험시설, 농어촌체험시설<br>
-         <br>
-            <input type="button" value="즐겨찾기에 넣기" class="submit" onclick="">
-            <input type="button" value="예약하기" class="submit" onclick="">
-         </div>
-         <br>
-      </fieldset>
-      <br>
-      <br>
-      <br>
-      <br>
-      <fieldset>
-      <div id="cmp_3">
-         <h2>detail Info</h2>
-         <img src="images/camp01.jpg" class="img"/>
-         <img src="images/camp02.jpg" class="img" />
-         <img src="images/camp01.jpg" class="img" /><br>
-         <h3>청라국제도시의 해변공원 내에 위치한 도심 캠핑장 캠핑을 위해 이동하는 거리가 아까운 이들에게 최적인 도심지
-            캠핑장이다. 청라국제도시의 해변공원 내에 위치한 캠핑장으로 저렴한 가격과 일박 예약이 가능해서 당일 캠핑을 즐기기도 좋다.
-            캠핑장 옆으로 서해와 영종도가 바라 보이는 산책코스가 있는 노을공원이 있다. 도심 공원 특성상 캠핑장비와 준비물 없는
-            이들을 위해 캠핑장비와 취사시설등 일체를 대여해 주는 서비스도 마련되어 있다. 이외에도 바비큐 존, 텐트카라반존, 어린이
-            놀시시설등을 갖추고 있다.</h3>
-      </div>
-      
-         
-      </fieldset>
-   </form>
+	<div id="campMain">
+		<div id="campMain_img">
+			<img src="images/camp01.jpg" />
+		</div>
+		<div id="campMain_info">
+			<div id="campMain_info-title">
+				<h2>${campMain.cname}</h2>
+			</div>
+			<label>주소 : </label><span>${campMain.caddress1}&nbsp;${campMain.caddress2}&nbsp;${campMain.caddress3}</span><br>
+			<br><label>문의처 : </label><span>${campMain.phone}</span><br>
+			<br><label>캠핑장 유형 : </label><span>${campMain.category}</span><br>
+			<br><label>운영기간 : </label><span>봄, 여름, 가을, 겨울</span><br>
+			<br><label>운영일 : </label><span>평일+주말</span><br>
+			<br><label>주변이용가능시설 : </label><span>${campMain.facilities}</span><br>
+			<br>
+			<div id="campMain_info-btns">
+			<c:choose>
+				<c:when test="${chk_fav == 'y'}">
+					<input type="button" value="♥&nbsp;&nbsp;Delete" class="favDel"
+						onclick="location.href='camp.do?command=deleteFavorites&bseq=${bseq}'">
+				</c:when>
+				<c:otherwise>
+					<input type="button" value="♡&nbsp;&nbsp;Like" class="favAdd"
+						onclick="location.href='camp.do?command=addFavorites&bseq=${bseq}'">
+				</c:otherwise>
+			</c:choose>
+				
+
+			</div>
+		</div>
+	</div>
+	<div id="campDetail">
+		<div class="detail_title"><span>캠핑장 소개</span></div>
+		<!-- 아래 이미지 3개 DB에서 불러올거라면 수정해야 함 -->
+		<div id="campDetail_imgs">
+			<img src="images/camp01.jpg" class="campDetail_img" /> <img
+				src="images/camp02.jpg" class="campDetail_img" /> <img
+				src="images/camp01.jpg" class="campDetail_img" /><br>
+		</div>
+		<h3>${campMain.content}</h3>
+	</div>
 </div>
