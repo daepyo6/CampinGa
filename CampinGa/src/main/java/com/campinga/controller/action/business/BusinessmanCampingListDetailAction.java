@@ -40,8 +40,6 @@ public class BusinessmanCampingListDetailAction implements Action {
 				session.removeAttribute("page");
 			}
 			
-			
-			
 			Paging paging = new Paging();
 			paging.setPage(page);
 			
