@@ -23,6 +23,9 @@ $(function() {
 });
 
 function go_reserve(){
-    document.reserve.action="camp.do?command=reserveInsert";
-    document.reserve.submit();
+	var input = confirm('예약하시겠습니까?');
+	if(input){
+		document.reserve.action="camp.do?command=reserveInsert";
+    	document.reserve.submit();
+	}
 }

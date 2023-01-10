@@ -32,9 +32,7 @@ function call() {
 <article>
 	<form method="post" name="reserve">
    		<input type="hidden" name="command" value="reserveInsert" />
-   		<input type="hidden" name="name" value="${loginUser.name}">
-   		<input type="hidden" name="mphone" value="${loginUser.mphone}">
-   		<input type="hidden" name="email" value="${loginUser.email}">
+   		<input type="hidden" name="mid" value="${loginUser.mid}">
 		<!-- 예약자 정보 (예약자, 전화번호, 이메일) -->
 		<div>
 			<table>
@@ -55,10 +53,10 @@ function call() {
 
 		<!-- 캠핑장 정보 (캠핑장이름, 객실정보, 체크인, 체크아웃, 결제금액)-->
 		<div>
-		<input type="hidden" name="cname" value="${loginUser.name}">
-   		<input type="hidden" name="c_class" value="${loginUser.mphone}">
-   		<input type="hidden" name="email" value="${loginUser.email}">
-   		<input type="hidden" id="price" name="price" value="">
+		<input type="hidden" name="cseq" value="${campVO.cseq}">
+		<input type="hidden" name="cname" value="${campVO.cname}">
+   		<input type="hidden" name="c_class" value="${campVO.c_class}">
+   		<input type="hidden" id="price" name="price" value="0">
 			<table>
 				<tr>
 					<th>캠핑장 이름</th>
@@ -70,15 +68,15 @@ function call() {
 				</tr>
 				<tr>
 					<th>체크인</th>
-					<td><input id="beginDate" name="checkin" onchange="call()"></td>
+					<td><input id="beginDate" name="chk_in" onchange="call()"></td>
 				</tr>
 				<tr>
 					<th>체크아웃</th>
-					<td><input id="endDate" name="checkout" onchange="call()"></td>
+					<td><input id="endDate" name="chk_out" onchange="call()"></td>
 				</tr>
 				<tr>
 					<th>인원</th>
-					<td><input type="text" name="personnel" size="4">명</td>
+					<td><input type="text" name="people" size="4">명</td>
 				</tr>
 				<tr>
 					<th>결제금액</th>

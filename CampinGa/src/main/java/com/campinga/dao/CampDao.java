@@ -281,6 +281,7 @@ public class CampDao {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				cvo = new CampingVO();
+				cvo.setCseq(rs.getInt("cseq"));
 				cvo.setBseq(rs.getInt("bseq"));
 				cvo.setCategory(rs.getString("category"));
 				cvo.setCname(rs.getString("cname"));

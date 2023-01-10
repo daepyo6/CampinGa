@@ -31,8 +31,14 @@
 				<td>${reservationVO.cname}</td>
 				<td>${reservationVO.c_class}</td>
 				<td>${reservationVO.people}</td>
-				<td><fmt:formatDate value="${reservationVO.chk_in}"/></td>
-				<td><fmt:formatDate value="${reservationVO.chk_out}"/></td>
+				<td>
+            	  <fmt:parseDate value = "${reservationVO.chk_in}" var = "check_in" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type = "date" value="${check_in}"/>
+                </td>
+                <td>
+            	  <fmt:parseDate value = "${reservationVO.chk_out}" var = "check_out" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type = "date" value="${check_out}"/>
+                </td>
 				<td>${reservationVO.mid}</td>
 				<td>${reservationVO.price}</td>
 				<td>${reservationVO.res_sta}</td>
