@@ -18,7 +18,7 @@ public class CancelReservateAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "camp.do?command=mypage";
-
+		int reseq = Integer.parseInt(request.getParameter("reseq"));
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 
@@ -26,8 +26,7 @@ public class CancelReservateAction implements Action {
 			url = "camp.do?command=loginForm";
 		} else {
 			ReservationDao redao = ReservationDao.getInstance();
-			redao.cancelReservate( mvo.getMid() );
-			
+			redao.cancelReservate( reseq );
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}

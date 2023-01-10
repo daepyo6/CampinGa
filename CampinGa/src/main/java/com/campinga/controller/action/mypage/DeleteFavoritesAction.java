@@ -18,7 +18,7 @@ public class DeleteFavoritesAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "camp.do?command=mypage";
 		int fseq = Integer.parseInt(request.getParameter("fseq"));
-		
+
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 

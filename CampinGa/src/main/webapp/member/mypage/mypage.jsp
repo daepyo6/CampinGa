@@ -54,10 +54,16 @@
                      dateStyle="short" timeStyle="short"/></td>
                <td><a href="#">${resVO.cname}&nbsp;${resVO.c_class}</a></td>
                <td>${resVO.people}명</td>
-               <td><fmt:formatDate value="${resVO.chk_in}" type="date"/></td>
-               <td><fmt:formatDate value="${resVO.chk_out}" type="date"/></td>
+               <td>
+            	  <fmt:parseDate value = "${resVO.chk_in}" var = "check_in" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type = "date" value="${check_in}"/>
+               </td>
+               <td>
+            	  <fmt:parseDate value = "${resVO.chk_out}" var = "check_out" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type = "date" value="${check_out}"/>
+               </td>
                <td>${resVO.price}</td>
-               <td><input type="button" value="취소" onclick="reservate_cancel();"></td>
+               <td><input type="button" value="취소" onclick="reservate_cancel('${resVO.reseq}');"></td>
             </tr>
          </c:forEach>
       </table>

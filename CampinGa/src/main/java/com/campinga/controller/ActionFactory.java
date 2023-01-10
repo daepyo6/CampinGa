@@ -28,6 +28,7 @@ import com.campinga.controller.action.camping.CampDetailAction;
 import com.campinga.controller.action.camping.CategoryAction;
 import com.campinga.controller.action.camping.MainSearchAction;
 import com.campinga.controller.action.camping.SearchResultAction;
+import com.campinga.controller.action.favorites.AddFavoritesAction;
 import com.campinga.controller.action.member.IdCheckFormAction;
 import com.campinga.controller.action.member.JoinAction;
 import com.campinga.controller.action.member.JoinFormAction;
@@ -86,6 +87,10 @@ public class ActionFactory {
 		else if(command.equals("updateUserInfo")) ac = new UpdateUserInfoAction();
 		else if(command.equals("deleteMember")) ac = new DeleteMemberAction();
 		else if(command.equals("cancelReservate")) ac = new CancelReservateAction();
+		else if(command.equals("deleteFavorites")) ac = new DeleteFavoritesAction();
+		
+		// favorites action
+		else if(command.equals("addFavorites")) ac = new AddFavoritesAction();
 		else if(command.equals("deleteFavorites")) ac = new DeleteFavoritesAction();
 		
 		// review action

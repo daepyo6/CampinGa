@@ -42,8 +42,8 @@ public class ReservationDao {
 				revo.setPrice(rs.getInt("price"));
 				revo.setPeople(rs.getInt("people"));
 				revo.setRes_date(rs.getTimestamp("res_date"));
-				revo.setChk_in(rs.getTimestamp("chk_in"));
-				revo.setChk_out(rs.getTimestamp("chk_out"));
+				revo.setChk_in(rs.getString("chk_in"));
+				revo.setChk_out(rs.getString("chk_out"));
 				list.add(revo);
 			}
 		} catch (SQLException e) {
@@ -55,12 +55,12 @@ public class ReservationDao {
 		return list;
 	}
 
-	public void cancelReservate(String mid) {
-		String sql = "delete from reservation where mid=?";
+	public void cancelReservate(int reseq) {
+		String sql = "delete from reservation where reseq=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, mid);
+			pstmt.setInt(1, reseq);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -71,7 +71,22 @@ public class ReservationDao {
 	}
 
 	public void insertReservation(ReservationVO rvo) {
-		// TODO Auto-generated method stub
+		String sql = "insert into reservation( reseq, cseq, mid, price, people, chk_in, chk_out )"
+	     		+ " values( reservation_seq.nextval, ?, ?, ?, ?, ?, ? )";
+			con = Dbman.getConnection();
+			try {			
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, rvo.getCseq());
+				pstmt.setString(2, rvo.getMid());
+				pstmt.setInt(3, rvo.getPrice());
+				pstmt.setInt(4, rvo.getPeople());
+				pstmt.setString(5, rvo.getChk_in());
+				pstmt.setString(6, rvo.getChk_out());
+			    pstmt.executeUpdate();
+			} catch (SQLException e) {e.printStackTrace();
+			} finally { Dbman.close(con, pstmt, rs);  
+			}
+			
 		
 	}
 }

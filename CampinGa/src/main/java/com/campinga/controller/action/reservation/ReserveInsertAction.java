@@ -1,6 +1,7 @@
 package com.campinga.controller.action.reservation;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,13 @@ public class ReserveInsertAction implements Action {
 	    	url = "camp.do?command=loginForm";
 	    } else {
 	    	// 예약정보 등록
+	    	rvo.setCseq(Integer.parseInt(request.getParameter("cseq")));
+	    	rvo.setMid(request.getParameter("mid"));
+	    	rvo.setPrice(Integer.parseInt(request.getParameter("price")));
+	    	rvo.setPeople(Integer.parseInt(request.getParameter("people")));
+	    	rvo.setChk_in(request.getParameter("chk_in"));
+	    	rvo.setChk_out(request.getParameter("chk_out"));
+	    	
 	    	ReservationDao redao = ReservationDao.getInstance();
 	    	redao.insertReservation(rvo);
 	    }	    
