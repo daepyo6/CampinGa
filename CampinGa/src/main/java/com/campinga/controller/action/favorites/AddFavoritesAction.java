@@ -19,11 +19,13 @@ public class AddFavoritesAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int bseq = Integer.parseInt(request.getParameter("bseq"));
 		String url = "camp.do?command=campDetail";
 		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-		int bseq = Integer.parseInt(request.getParameter("bseq"));
+		
 		
 	    if(mvo == null) {
 	    	url = "camp.do?command=loginForm";
@@ -34,8 +36,6 @@ public class AddFavoritesAction implements Action {
 	    	
 	    	FavoritesDao fdao = FavoritesDao.getInstance();
 	    	fdao.insertFavorites(fvo);
-	    	request.setAttribute("favorVO", fvo);
-	    	
 	    }
 	    request.getRequestDispatcher(url).forward(request, response);
 	}

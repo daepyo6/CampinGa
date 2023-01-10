@@ -11,9 +11,11 @@ import javax.servlet.http.HttpSession;
 import com.campinga.controller.action.Action;
 import com.campinga.dao.CampDao;
 import com.campinga.dao.Camp_qnaDao;
+import com.campinga.dao.FavoritesDao;
 import com.campinga.dao.ReviewDao;
 import com.campinga.dto.Camp_qnaVO;
 import com.campinga.dto.CampingVO;
+import com.campinga.dto.FavoritesVO;
 import com.campinga.dto.ReviewVO;
 import com.campinga.util.Paging;
 
@@ -26,6 +28,10 @@ public class CampDetailAction implements Action {
 		String rseqs = request.getParameter("rseq");
 		String qseqs = request.getParameter("qseq");
 		
+		// 즐겨찾기 정보 가져오기
+		FavoritesDao fdao = FavoritesDao.getInstance();
+		FavoritesVO fvo = new FavoritesVO();
+		String check_fav = fdao.checkFav(bseq);
 		
 		// 방정보 가져오기
 		CampDao cdao = CampDao.getInstance();
@@ -84,6 +90,7 @@ public class CampDetailAction implements Action {
 			}
 		}
 		
+		request.setAttribute("chk_fav", check_fav);
 		request.setAttribute("campMain", cvo);
 		request.setAttribute("campingList", campingList);
 		request.setAttribute("paging1", paging1);
