@@ -42,7 +42,7 @@ function call() {
       <div id="reserveInfo1">
          <table>
             <tr>
-            <th><예약자 정보></th>
+            <th style="font-size: 30px">예약자 정보</th>
             </tr>
             <tr>
                <th>예약자 이름</th>

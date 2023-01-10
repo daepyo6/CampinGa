@@ -125,7 +125,8 @@
 	padding-right:20px;
 }
 .rentList td,
-#reviewList td{
+#reviewList td,
+.memberInfoList2 td{
 	height:40px;
 	line-height:40px;
 	border-bottom:1px solid #cce3de;

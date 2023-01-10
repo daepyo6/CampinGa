@@ -21,11 +21,11 @@
 			<div id="campMain_info-btns">
 			<c:choose>
 				<c:when test="${chk_fav == 'y'}">
-					<input type="button" value="즐겨찾기 삭제" class="submit"
+					<input type="button" value="♥&nbsp;&nbsp;Delete" class="favDel"
 						onclick="location.href='camp.do?command=deleteFavorites&bseq=${bseq}'">
 				</c:when>
 				<c:otherwise>
-					<input type="button" value="즐겨찾기 추가" class="submit"
+					<input type="button" value="♡&nbsp;&nbsp;Like" class="favAdd"
 						onclick="location.href='camp.do?command=addFavorites&bseq=${bseq}'">
 				</c:otherwise>
 			</c:choose>

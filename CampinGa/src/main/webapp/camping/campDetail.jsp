@@ -61,14 +61,18 @@
 							<c:when test="${qnaVO.repyn==y}">${qnaVO.reply}</c:when>
 							<c:otherwise>답변대기중</c:otherwise>
 						</c:choose></td>
-					<td><c:if test="${qnaVO.mid == loginUser.mid}">
+					<td>
+					<div class="btns">				
+						<c:if test="${qnaVO.mid == loginUser.mid}">					
 							<input type="submit" value="수정"
 								onclick="location.href='camp.do?command=campDetail
 											&qseq=${qnaVO.qseq}&bseq=${bseq}'">
 							<input type="button" value="삭제"
 								onclick="location.href='camp.do?command=deleteQna
 											&qseq=${qnaVO.qseq}&bseq=${bseq}'">
-						</c:if></td>
+						</c:if>
+						</div>
+					</td>
 				</tr>
 				<c:if test="${qnaVO.qseq==updateQseq}">
 					<tr>
@@ -141,14 +145,16 @@
 					<td>${ReviewVO.mid}</td>
 					<td><fmt:formatDate value="${ReviewVO.indate}" /></td>
 					<td>&nbsp;&nbsp;&nbsp;${ReviewVO.content}</td>
-					<td><c:if test="${ReviewVO.mid==loginUser.mid}">
+					<td><div class="btns">
+					<c:if test="${ReviewVO.mid==loginUser.mid}">
+						
 							<input type="button" value="수정" class="submit"
 								onclick="location.href='camp.do?command=campDetail
 											&rseq=${ReviewVO.rseq}&bseq=${bseq}'">
 							<input type="button" value="삭제" class="submit"
 								onclick="location.href='camp.do?command=deleteReview
 											&rseq=${ReviewVO.rseq}&bseq=${bseq}'">
-						</c:if>	
+						</c:if>	</div>
 				</tr>
 
 				<c:if test="${ReviewVO.rseq==updateRseq}">

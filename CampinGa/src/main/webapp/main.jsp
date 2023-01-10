@@ -56,8 +56,9 @@
 					</c:otherwise>
 				</c:choose>									
 					<div class="imgCover">
-						<span>캠핑장정보</span><br>
-						<span>자세히보기</span>
+						<span>
+						캠핑장정보<br>
+						자세히보기</span>
 					</div>
 				</div>
 			</a>
