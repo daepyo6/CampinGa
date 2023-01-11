@@ -76,7 +76,7 @@
 				<c:if test="${qnaVO.qseq==updateQseq}">
 				<tr>
 					<td  colspan="3">&nbsp;&nbsp;</td>
-					<td id="updateQnaTd" colspan="3">
+					<td id="updateTd" colspan="3">
 						<form name="frm" method="post">
 							<input type="hidden" name="qseq" value="${qnaVO.qseq}">
 							<input type="hidden" name="bseq" value="${bseq}"> 
@@ -163,7 +163,8 @@
 
 				<c:if test="${ReviewVO.rseq==updateRseq}">
 					<tr>
-						<td colspan="5">
+						<td colspan="3">&nbsp;&nbsp;</td>
+						<td id="updateTd" colspan="2">
 							<form name="frm" method="post">
 								<input type="hidden" name="rseq" value="${ReviewVO.rseq}">
 								<input type="hidden" name="bseq" value="${bseq}"> <input

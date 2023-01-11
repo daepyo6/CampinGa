@@ -1138,12 +1138,12 @@ h1 {
 .listOne td:nth-child(4){
 	text-align:left;
 }
-#updateQnaTd{
+#updateTd{
 	background-color:#e2eafc;
 	height:80px;
 	text-align:left;
 }
-#updateQnaTd textarea{
+#updateTd textarea{
 	background-color: transparent;
 	resize: none;
 	width:650px;
