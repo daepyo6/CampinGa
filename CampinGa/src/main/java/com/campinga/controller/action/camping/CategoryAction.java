@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.campinga.controller.action.Action;
 import com.campinga.dao.CampDao;
+import com.campinga.dto.BusinessmanVO;
 import com.campinga.dto.CampingVO;
 
 public class CategoryAction implements Action {
@@ -17,7 +18,7 @@ public class CategoryAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String url = "camping/campingList.jsp";
-		ArrayList<CampingVO> list = null;
+		ArrayList<BusinessmanVO> list = null;
 		// All=1, auto=2, camping=3, caravane=4, campnic=5
 		int category = Integer.parseInt(request.getParameter("kind"));
 		String kind = "";

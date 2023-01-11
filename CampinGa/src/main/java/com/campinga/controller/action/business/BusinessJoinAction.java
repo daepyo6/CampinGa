@@ -28,8 +28,8 @@ public class BusinessJoinAction implements Action {
 		bvo.setPhone(request.getParameter("phone"));
 		bvo.setEmail(request.getParameter("email"));
 		bvo.setCaddress3(request.getParameter("caddress3"));
+		bvo.setCaddress2(request.getParameter("caddress2"));
 		bvo.setCaddress1(caddress1);
-		bvo.setCaddress2(request.getParameter("caddress2"));	
 		
 		BusinessmanDao bdao = BusinessmanDao.getInstance();
 		bdao.insertBusiness(bvo);

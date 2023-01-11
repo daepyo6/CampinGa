@@ -143,7 +143,7 @@ public class BusinessmanDao {
 				cvo.setCname(rs.getString("cname"));
 				cvo.setFacilities(rs.getString("facilities"));
 				cvo.setImage(rs.getString("image"));
-				cvo.setContent(rs.getString("content"));
+				cvo.setC_content(rs.getString("c_content"));
 				cvo.setCategory(rs.getString("category"));
 				cvo.setC_class(rs.getString("c_class"));
 				cvo.setRes_sta(rs.getString("res_sta"));
@@ -219,7 +219,7 @@ public class BusinessmanDao {
 	}
 
 	public void insertRoom(CampingVO cvo) {
-		String sql = "insert into camping( cseq, bseq, cname, facilities, image, content, category, c_class )"
+		String sql = "insert into camping( cseq, bseq, cname, facilities, image, c_content, category, c_class )"
 				+ "	values( camping_seq.nextval, ? , ? , ? , ? , ? , ? , ?)";
 		con = Dbman.getConnection();
 		try {
@@ -229,7 +229,7 @@ public class BusinessmanDao {
 			pstmt.setString(2, cvo.getCname());
 			pstmt.setString(3, cvo.getFacilities());
 			pstmt.setString(4, cvo.getImage());
-			pstmt.setString(5, cvo.getContent());
+			pstmt.setString(5, cvo.getC_content());
 			pstmt.setString(6, cvo.getCategory());
 			pstmt.setString(7, cvo.getC_class());
 			pstmt.executeUpdate();
@@ -240,4 +240,34 @@ public class BusinessmanDao {
 		}
 
 	}
+	
+	public BusinessmanVO selectOne(int bseq) {
+		BusinessmanVO bmvo = null;
+		con = Dbman.getConnection();
+		String sql = "select * from businessman where bseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bseq);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bmvo = new BusinessmanVO();
+				bmvo.setBseq(rs.getInt("bseq"));
+				bmvo.setCategory(rs.getString("category"));
+				bmvo.setCname(rs.getString("cname"));
+				bmvo.setFacilities(rs.getString("facilities"));
+				bmvo.setCaddress1(rs.getString("caddress1"));
+				bmvo.setCaddress2(rs.getString("caddress2"));
+				bmvo.setCaddress3(rs.getString("caddress3"));
+				bmvo.setContent(rs.getString("content"));
+				bmvo.setImage(rs.getString("image"));
+				bmvo.setPhone(rs.getString("phone"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return bmvo;
+	}
+	
 }

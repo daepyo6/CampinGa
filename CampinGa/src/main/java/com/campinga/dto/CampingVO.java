@@ -6,10 +6,8 @@ public class CampingVO {
 	private Integer cseq;
 	private Integer bseq;
 	private String cname;
-	private String facilities;
-	private String image;
-	private String content;
-	private String category;
+	private String c_image;
+	private String c_content;
 	private String c_class;
 	private String res_sta;
 	private Integer price;
@@ -19,8 +17,29 @@ public class CampingVO {
 	private String caddress1;
 	private String caddress2;
 	private String caddress3;
-	private String phone;
+	private String phone;	
+	private String Category;
+	private String Facilities;
+	private String Image;
 	
+	public String getCategory() {
+		return Category;
+	}
+	public void setCategory(String category) {
+		Category = category;
+	}
+	public String getFacilities() {
+		return Facilities;
+	}
+	public void setFacilities(String facilities) {
+		Facilities = facilities;
+	}
+	public String getImage() {
+		return Image;
+	}
+	public void setImage(String image) {
+		Image = image;
+	}
 	public String getCaddress1() {
 		return caddress1;
 	}
@@ -63,29 +82,17 @@ public class CampingVO {
 	public void setCname(String cname) {
 		this.cname = cname;
 	}
-	public String getFacilities() {
-		return facilities;
+	public String getC_image() {
+		return c_image;
 	}
-	public void setFacilities(String facilities) {
-		this.facilities = facilities;
+	public void setC_image(String c_image) {
+		this.c_image = c_image;
 	}
-	public String getImage() {
-		return image;
+	public String getC_content() {
+		return c_content;
 	}
-	public void setImage(String image) {
-		this.image = image;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setC_content(String c_content) {
+		this.c_content = c_content;
 	}
 	public String getC_class() {
 		return c_class;

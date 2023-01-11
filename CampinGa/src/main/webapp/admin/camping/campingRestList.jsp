@@ -22,7 +22,6 @@
 			<th>체크 아웃</th>
 			<th>예약자</th>
 			<th>금액</th>
-			<th>예약 상태</th>
 		</tr>
 		<c:forEach items="${restList}" var="reservationVO">
 			<tr>
@@ -41,7 +40,6 @@
                 </td>
 				<td>${reservationVO.mid}</td>
 				<td>${reservationVO.price}</td>
-				<td>${reservationVO.res_sta}</td>
 			</tr>
 		</c:forEach>
 	</table>
