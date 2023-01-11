@@ -39,6 +39,8 @@
 		</c:forEach>
 	</div>
 	<div class="bar2"></div>
+	
+	
 	<!-- Q&A -->
 	<div class="listBox" id="qnabox">
 		<div class="detail_title"><span>Q & A</span></div>

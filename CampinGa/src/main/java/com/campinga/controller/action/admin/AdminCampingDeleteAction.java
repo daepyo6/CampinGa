@@ -22,15 +22,10 @@ public class AdminCampingDeleteAction implements Action {
 		if( avo == null) { 
 			url = "camp.do?command=admin"; 
 		}else {
-			
-			String [] cseqArr = request.getParameterValues("cseq");
-			
+			String [] bseqArr = request.getParameterValues("bseq");
 			CampDao cdao = CampDao.getInstance();
-			for( String cseq : cseqArr ) {
-				cdao.deleteCamping( Integer.parseInt(cseq) );
-		     
-		   
-			
+			for( String bseq : bseqArr ) {
+				cdao.deleteBusinessman( Integer.parseInt(bseq) );
 		     }
 		request.getRequestDispatcher(url).forward(request, response);
 

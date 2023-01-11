@@ -14,8 +14,6 @@
             <th>체크아웃</th>
             <th>금액</th>
          </tr>
-         <!-- 가짜데이터 이후 c:forEach 사용하여 테이블 조회할 것.-->
-         
          <c:forEach items="${reList}" var="resVO">
             <tr>
                <td><fmt:formatDate value="${resVO.res_date}" type="both" 
