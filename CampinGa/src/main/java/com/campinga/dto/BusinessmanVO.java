@@ -11,7 +11,35 @@ public class BusinessmanVO {
 	private String caddress1;	// 전체, 특별시, 도
 	private String caddress2;	// 시, 군
 	private String caddress3;	// 세부주소
+	private String facilities;
+	private String image;
+	private String content;
+	private String category;
 	
+	public String getFacilities() {
+		return facilities;
+	}
+	public void setFacilities(String facilities) {
+		this.facilities = facilities;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	public Integer getBseq() {
 		return bseq;
 	}

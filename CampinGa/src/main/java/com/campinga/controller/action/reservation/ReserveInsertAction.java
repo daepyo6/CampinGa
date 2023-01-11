@@ -20,7 +20,7 @@ public class ReserveInsertAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "camping/reserve/reserve.jsp";
+		String url = "camp.do?command=mypage";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		ReservationVO rvo = new ReservationVO();

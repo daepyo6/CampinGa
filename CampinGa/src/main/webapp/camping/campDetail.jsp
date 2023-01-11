@@ -64,12 +64,10 @@
 					<td>
 					<div class="btns">				
 						<c:if test="${qnaVO.mid == loginUser.mid}">					
-							<input type="submit" value="수정"
-								onclick="location.href='camp.do?command=campDetail
-											&qseq=${qnaVO.qseq}&bseq=${bseq}'">
+							<input type="button" value="수정"
+								onclick="location.href='camp.do?command=campDetail&qseq=${qnaVO.qseq}&bseq=${bseq}#qnabox'">
 							<input type="button" value="삭제"
-								onclick="location.href='camp.do?command=deleteQna
-											&qseq=${qnaVO.qseq}&bseq=${bseq}'">
+								onclick="location.href='camp.do?command=deleteQna&qseq=${qnaVO.qseq}&bseq=${bseq}#qnabox'">
 						</c:if>
 						</div>
 					</td>
@@ -79,8 +77,8 @@
 						<td colspan="6">
 							<form name="frm" method="post">
 								<input type="hidden" name="qseq" value="${qnaVO.qseq}">
-								<input type="hidden" name="bseq" value="${bseq}"> <input
-									type="hidden" name="mid" value="${qnaVO.mid}">
+								<input type="hidden" name="bseq" value="${bseq}"> 
+								<input type="hidden" name="mid" value="${qnaVO.mid}">
 								<textarea rows="8" cols="65" name="content">${qnaVO.content}</textarea>
 								<input type="submit" value="확인" onclick="QnaCheck();">
 							</form>
@@ -149,11 +147,9 @@
 					<c:if test="${ReviewVO.mid==loginUser.mid}">
 						
 							<input type="button" value="수정" class="submit"
-								onclick="location.href='camp.do?command=campDetail
-											&rseq=${ReviewVO.rseq}&bseq=${bseq}'">
+								onclick="location.href='camp.do?command=campDetail&rseq=${ReviewVO.rseq}&bseq=${bseq}#reviewbox'">
 							<input type="button" value="삭제" class="submit"
-								onclick="location.href='camp.do?command=deleteReview
-											&rseq=${ReviewVO.rseq}&bseq=${bseq}'">
+								onclick="location.href='camp.do?command=deleteReview&rseq=${ReviewVO.rseq}&bseq=${bseq}#reviewbox'">
 						</c:if>	</div>
 				</tr>
 

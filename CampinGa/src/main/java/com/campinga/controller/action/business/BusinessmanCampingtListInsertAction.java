@@ -25,16 +25,16 @@ public class BusinessmanCampingtListInsertAction implements Action {
 		if( bvo == null ) {
 			url = "camp.do?command=loginForm";
 		} else {
-			CampingVO cvo = new CampingVO();
-			cvo.setCname(request.getParameter("cname"));
-			cvo.setCaddress1(request.getParameter("caddress1"));
-			cvo.setCaddress2(request.getParameter("caddress2"));
-			cvo.setCaddress3(request.getParameter("caddress3"));
-			cvo.setCategory(request.getParameter("category"));
-			cvo.setFacilities(request.getParameter("facilities"));
+			BusinessmanVO bmvo = new BusinessmanVO();
+			bmvo.setCname(request.getParameter("cname"));
+			bmvo.setCaddress1(request.getParameter("caddress1"));
+			bmvo.setCaddress2(request.getParameter("caddress2"));
+			bmvo.setCaddress3(request.getParameter("caddress3"));
+			bmvo.setCategory(request.getParameter("category"));
+			bmvo.setFacilities(request.getParameter("facilities"));
 			
 			CampDao cdao = CampDao.getInstance();
-			cdao.insertList(cvo);
+			cdao.insertList(bmvo);
 		}
 		response.sendRedirect(url);
 

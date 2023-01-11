@@ -12,7 +12,7 @@
    <table class="memberInfoList2">
       <tr>
          <th>아이디</th>
-         <th> 이름 </th>
+         <th>이름</th>
          <th>전화번호</th>
          <th>이메일</th>
          <th>삭제</th>

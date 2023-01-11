@@ -34,6 +34,7 @@ public class AdminReviewListAction implements Action {
 			}else {
 				session.removeAttribute("page");
 			}
+			
 			String key="";
 			if( request.getParameter("key")!=null) {
 				key = request.getParameter("key");
