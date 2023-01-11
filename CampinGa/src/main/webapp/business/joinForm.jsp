@@ -58,14 +58,13 @@
 				    <option value="" selected="selected">시/군/구 선택</option>
 				</select> <br>          
             <input type="text" name="caddress3" placeholder="상세주소를 입력해주세요">
-         </div>        
-      </div>
-       <div class="buttons">
-      <input type="button" value="가입하기" onclick="busiJoinCheck()" class="button">
-      <input type="button" value="메인으로" onclick="location.href='camp.do?command=index'" class="button">
-        </div>
+         </div>  
+         <div class="buttons">
+      		<input type="button" value="가입하기" onclick="busiJoinCheck()" class="button">
+      		<input type="button" value="메인으로" onclick="location.href='camp.do?command=index'" class="button">
+        </div>      
+      </div>       
    </form>
-   <br><br><br><br>
 </article>
 
 <%@ include file="../footer.jsp" %>
