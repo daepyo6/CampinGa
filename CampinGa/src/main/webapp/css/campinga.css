@@ -109,21 +109,39 @@ header{
 	cursor:pointer;	
 }
 .icons{
-	position:relative;
+	position:relative;	
 }
 .iconImg1,
 .iconImg2{
-	width:60px;
-	height:65px;
-	display:block;
+	width:95px;
+	height:90px;
+	display:flex;
 	position:absolute;
-	padding:12.5px 17.5px;
-	transition: opacity 1s linear;
-	opacity:0;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
 }
-.iconImg1,
-.iconImg2:hover{
-	opacity:1;
+.iconImg1{
+	color:#004E98;
+}
+.iconImg2{
+	opacity:0;
+	color:white;
+}
+.iconImg1 img,
+.iconImg2 img{
+	width:60px;
+	height:55px;
+	display:block;
+}
+.iconImg1 span,
+.iconImg2 span{
+	display:block;
+	width:65px;
+	height:20px;
+	line-height:20px;
+	font-size:16px;
+	font-weight:700;
 }
 
 /*메인 이미지*/
@@ -1055,7 +1073,12 @@ h1 {
 .resbtn:hover{
 	cursor:pointer;
 }
-
+.bmresbtns{
+	width:570px;
+	height: 45px;
+	display:flex;
+	justify-content:space-evenly;
+}
 .bmresbtn{
 	width:220px;
 	height:45px;
@@ -1074,7 +1097,7 @@ h1 {
 
 /* Q&A css */
 .listBox{
-	width:75%;
+	width:1450px;
     text-align:center;
     display: flex;
     flex-direction: column;
@@ -1094,6 +1117,7 @@ h1 {
 	font-size:1.2rem;
 	font-weight:600;
 	padding: 5px;
+	line-height:42px;
 }
 .view th:nth-child(3){
 	width:10%
@@ -1107,12 +1131,39 @@ h1 {
 .view th:last-child{
 	width:15%
 }
-.listOne td{
-	height:40px;
+.view td{
+	height:42px;
 	vertical-align: middle;
 }
 .listOne td:nth-child(4){
 	text-align:left;
+}
+#updateQnaTd{
+	background-color:#e2eafc;
+	height:80px;
+	text-align:left;
+}
+#updateQnaTd textarea{
+	background-color: transparent;
+	resize: none;
+	width:650px;
+	height:60px;
+	padding:20px 25px 0 25px;
+	text-align:left;
+	vertical-align:base-line;
+	font-size:1rem;
+}
+#replyTr{
+	border-top:1px solid #e2eafc;
+	border-bottom:1px solid #e2eafc;
+}
+#replyTr td{
+	padding-left:25px;
+	font-size:1.2rem;
+	line-height:40px;
+}
+#replyTr td:first-child{
+	font-weight:700;	
 }
 .listBox form{
 	width:100%;
@@ -1127,7 +1178,7 @@ h1 {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color:#edf2f4;
+	background-color:#e2eafc;
 	border-radius:5px;
 }
 .writeBox textarea{

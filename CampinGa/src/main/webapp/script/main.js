@@ -20,4 +20,16 @@ $(function() {
 		dist = -1 * 253 * num;
 		$('.cards').animate({ left: dist }, 500)
 	})
+	
+	$('.icons').mouseenter(function(){
+		$(this).children('.iconImg1').animate({opacity:"0"}, 500)
+		$(this).children('.iconImg2').animate({opacity:"1"}, 500)
+	})
+	$('.icons').mouseleave(function(){
+		$(this).children('.iconImg1').animate({opacity:"1"}, 500)
+		$(this).children('.iconImg2').animate({opacity:"0"}, 500)
+	})
+	
+	
+	
 })
