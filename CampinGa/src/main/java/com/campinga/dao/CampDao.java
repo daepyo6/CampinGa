@@ -326,6 +326,7 @@ public class CampDao {
 		
 	}
 
+
 	public CampingVO selectOneInfo(int cseq) {
 		CampingVO cvo = null;
 		con = Dbman.getConnection();
@@ -369,10 +370,7 @@ public class CampDao {
 		return count;
 	}
 
-	public void updateCampingList(BusinessmanVO bmvo) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	public void deleteCampingRoom(int cseq) {
 		String sql = "delete from camping where cseq=?";
