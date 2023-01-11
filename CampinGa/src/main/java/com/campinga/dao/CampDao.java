@@ -207,7 +207,7 @@ public class CampDao {
 		con = Dbman.getConnection();
 		String sql = "select bseq, cname, content, image from "
 				+ "(select * from businessman order by bseq desc) "
-				+ "where rownum<=4";
+				+ "where rownum<=8";
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
