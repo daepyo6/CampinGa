@@ -306,9 +306,8 @@ public class CampDao {
 	}
   
 	public void insertList(BusinessmanVO bmvo) {
-		
-		String sql = " insert into businessman (cseq, cname, caddress1, caddress2, caddress3, category, facilities) " 
-		+ " values(camping_seq.nextval, ? , ? , ? , ? , ? , ?)";
+		String sql = " insert into businessman (bseq, cname, caddress1, caddress2, caddress3, category, facilities) " 
+		+ " values(businessman_seq.nextval, ? , ? , ? , ? , ? , ?)";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -341,6 +340,8 @@ public class CampDao {
 				cvo.setBseq(rs.getInt("bseq"));
 				cvo.setCname(rs.getString("cname"));
 				cvo.setC_class(rs.getString("c_class"));
+				cvo.setC_content(rs.getString("c_content"));
+				cvo.setC_image(rs.getString("c_image"));
 				cvo.setPrice(rs.getInt("price"));
 				cvo.setMin_people(rs.getInt("min_people"));
 				cvo.setMax_people(rs.getInt("max_people"));
@@ -385,5 +386,49 @@ public class CampDao {
 		} finally {
 			Dbman.close(con, pstmt, rs);
 		}		
+	}
+
+	public void insertCampingRoom(CampingVO cvo) {
+		String sql = " insert into camping(cseq, bseq, cname, c_image, c_content, c_class, price, min_people, max_people) "
+				+ " values(camping_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cvo.getBseq());
+			pstmt.setString(2, cvo.getCname());
+			pstmt.setString(3, cvo.getC_image());
+			pstmt.setString(4, cvo.getC_content());
+			pstmt.setString(5, cvo.getC_class());
+			pstmt.setInt(6, cvo.getPrice());
+			pstmt.setInt(7, cvo.getMin_people());
+			pstmt.setInt(8, cvo.getMax_people());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+
+	}
+
+	public void updateCampingRoom(CampingVO cvo) {
+		String sql = "update camping set c_image=?, c_content=?, c_class=?, price=?, min_people=?, max_people=? where cseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, cvo.getC_image());
+			pstmt.setString(2, cvo.getC_content());
+			pstmt.setString(3, cvo.getC_class());
+			pstmt.setInt(4, cvo.getPrice());
+			pstmt.setInt(5, cvo.getMin_people());
+			pstmt.setInt(6, cvo.getMax_people());
+			pstmt.setInt(7, cvo.getCseq());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		
 	}
 }

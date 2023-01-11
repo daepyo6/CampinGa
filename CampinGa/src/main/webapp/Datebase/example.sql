@@ -311,5 +311,5 @@ select * from(select * from(SELECT * FROM businessman) where caddress1 like '%°æ
 
 
 
-
+select * from camping_view where bseq=1 order by cseq desc;
 

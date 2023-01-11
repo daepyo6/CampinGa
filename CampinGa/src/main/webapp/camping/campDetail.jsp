@@ -104,8 +104,7 @@
 		<br> <br>
 		<div class="paging">
 			<c:if test="${paging1.prev}">
-				<a
-					href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.beginPage-1}#qnabox">◀</a>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.beginPage-1}#qnabox">◀</a>
 			</c:if>
 			<c:forEach begin="${paging1.beginPage}" end="${paging1.endPage}"
 				var="index">
@@ -185,8 +184,7 @@
 		<br>
 		<div class="paging">
 			<c:if test="${paging2.prev}">
-				<a
-					href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.beginPage-1}#reviewbox">◀</a>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.beginPage-1}#reviewbox">◀</a>
 			</c:if>
 			<c:forEach begin="${paging2.beginPage}" end="${paging2.endPage}"
 				var="index">
@@ -195,14 +193,12 @@
 						<span style="color: red;">${index}&nbsp;</span>
 					</c:when>
 					<c:otherwise>
-						<a
-							href="camp.do?command=campDetail&bseq=${bseq}&page2=${index}#reviewbox">${index}&nbsp;</a>
+						<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${index}#reviewbox">${index}&nbsp;</a>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
 			<c:if test="${paging2.next}">
-				<a
-					href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.endPage+1}#reviewbox">▶</a>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.endPage+1}#reviewbox">▶</a>
 			</c:if>
 		</div>
 	</div>
