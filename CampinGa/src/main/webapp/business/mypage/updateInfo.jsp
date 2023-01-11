@@ -4,19 +4,28 @@
 
 <script src="business/business.js"></script>
 <article>
-<h2>Update Information</h2>
 <form method="post" name="updateBusinessInfo">
 	<input type="hidden" name="command" value="updateBusinessInfo" />
+	<div class="joinTable">
+	<h2>Update Information</h2> <br><br>
 	<fieldset>
-		<legend>Basic Info</legend>
+		<div class="inputDiv" style="padding-left: 30px;">
 		<label>User ID </label><input type="text" name="bid" value="${loginBusinessman.bid}" readonly><br>
+		</div>
+		<div class="inputDiv" style="padding-left: 30px;">
         <label>Name </label><input type="text" name="name"  value="${loginBusinessman.name}"><br> 
+		</div>
+		<div class="inputDiv" style="padding-left: 30px;">
         <label>Phone Number </label><input  type="text" name="phone"  value="${loginBusinessman.phone}"><br>
-        <label>E-Mail </label><input type="text" name="email" value="${loginBusinessman.email}"><br>
-	</fieldset>
-	<div id="buttons">
+		</div>
+		<div class="inputDiv" style="padding-left: 30px;">
+        <label>E-Mail </label><input type="text" name="email" value="${loginBusinessman.email}">
+		</div>
+	</fieldset><br><br>
+	<div id="mypagebtn">
 		<input type="button" value="정보수정" class="submit" onclick="go_update();"> 
 		<input type="reset" value="취소" class="cancel" onclick="location.href='camp.do?command=businessmanMypage'">
+	</div>
 	</div>
 </form>
 </article>
