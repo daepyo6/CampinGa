@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /*사업자 댓글*/
 #replyTable{
 	width:1000px;
@@ -15,3 +16,4 @@
 #replyTable td{
 	padding-left:30px;
 }
+

@@ -1056,6 +1056,22 @@ h1 {
 	cursor:pointer;
 }
 
+.bmresbtn{
+	width:220px;
+	height:45px;
+	background-color:#00b4d8;	
+	border-radius:5px;
+	text-align:center;
+	line-height:45px;
+	color:white;
+	font-size:1.2rem;
+	float:left;
+}
+
+.bmresbtn:hover{
+	cursor:pointer;
+}
+
 /* Q&A css */
 .listBox{
 	width:75%;

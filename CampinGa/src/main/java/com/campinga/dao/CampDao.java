@@ -156,9 +156,11 @@ public class CampDao {
 			while (rs.next()) {
 				CampingVO cvo = new CampingVO();
 				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setBseq(rs.getInt("bseq"));
 				cvo.setCname(rs.getString("cname"));
 				cvo.setFacilities(rs.getString("facilities"));
-				cvo.setImage(rs.getString("image"));
+				cvo.setC_image(rs.getString("c_image"));
+				cvo.setC_content(rs.getString("c_content"));
 				cvo.setCategory(rs.getString("category"));
 				cvo.setC_class(rs.getString("c_class"));
 				cvo.setRes_sta(rs.getString("res_sta"));
@@ -289,12 +291,12 @@ public class CampDao {
 		return cvo;
 	}
 
-	public void deleteCamping(int cseq) {
-		String sql = "delete from camping where cseq=?";
+	public void deleteBusinessman(int bseq) {
+		String sql = "delete from businessman where bseq=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, cseq);
+			pstmt.setInt(1, bseq);
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -371,4 +373,17 @@ public class CampDao {
 		
 	}
 
+	public void deleteCampingRoom(int cseq) {
+		String sql = "delete from camping where cseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cseq);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}		
+	}
 }

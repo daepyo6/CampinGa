@@ -4,7 +4,6 @@
 <%@ include file="/admin/header.jsp"%>
 <%@ include file="/admin/sub_menu.jsp"%>
 
-
 <article id="mypage" class="adminPage">
 	<h1>캠핑장 정보 관리</h1>
 	<form name="frm" method="post">
@@ -28,10 +27,6 @@
 					<td><input type="checkbox" name="bseq" value="${campingList.bseq}"></td>
 				</tr>
 			</c:forEach>
-			<tr>
-				<th colspan="6" style="text-align: right; border:none">
-					<a href="#" onClick="go_delete();"><h3>삭제하기&nbsp;&nbsp;&nbsp;</h3></a></th>
-			</tr>
 		</table>
 		<div style="float:right;" id="mypagebtn">
 		     	<input type="button" value="삭제" onClick="go_delete();">

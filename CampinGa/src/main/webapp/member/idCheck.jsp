@@ -12,6 +12,7 @@
 	<h1>ID 중복 확인</h1>
 	<form method="post" name="idCheckForm" action="camp.do">
 		<input type="hidden" name="command" value="idCheckForm"/>
+		<input type="hidden" name="type" value="${type}">
 		ID : <input type="text" name="id" value="${id}">
 		<input type="submit" value="검색" class="submit"> <br><br><br>
 		
