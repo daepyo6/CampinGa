@@ -269,5 +269,115 @@ public class BusinessmanDao {
 		}
 		return bmvo;
 	}
+
+	public void updateCampingList(BusinessmanVO bmvo) {
+		String sql = "update businessman set image=? , content=? , category=? , facilities=? where bseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bmvo.getImage());
+			pstmt.setString(2, bmvo.getContent());
+			pstmt.setString(3, bmvo.getCategory());
+			pstmt.setString(4, bmvo.getFacilities());
+			pstmt.setInt(5, bmvo.getBseq());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+	}
+
+	public BusinessmanVO getBusinessman(int bseq) {
+		BusinessmanVO bvo = null;
+		String sql = "select * from businessman where bseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, bseq);
+			rs = pstmt.executeQuery();
+			if( rs.next()) {
+				bvo = new BusinessmanVO();
+				bvo.setBseq(rs.getInt("bseq"));
+				bvo.setBid(rs.getString("bid"));
+				bvo.setPwd(rs.getNString("pwd"));
+				bvo.setName(rs.getString("name"));
+				bvo.setPhone(rs.getString("phone"));
+				bvo.setEmail(rs.getString("email"));
+				bvo.setCname(rs.getString("cname"));
+				bvo.setCaddress1(rs.getString("caddress1"));
+				bvo.setCaddress2(rs.getString("caddress2"));
+				bvo.setCaddress3(rs.getString("caddress3"));
+				bvo.setFacilities(rs.getString("facilities"));
+				bvo.setImage(rs.getString("image"));
+				bvo.setContent(rs.getString("content"));
+				bvo.setCategory(rs.getString("category"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally { Dbman.close(con, pstmt, rs);  }
+		return bvo;
+	}
+
+	public int getAllCount(String tableName, String fieldName, String key) {
+		int count = 0;
+		con = Dbman.getConnection();
+		String sql = "select count(*) as cnt from " + tableName + " where " + fieldName + " like '%'||?||'%'";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			rs = pstmt.executeQuery();
+			if (rs.next())
+				count = rs.getInt("cnt");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return count;
+	}
+
+	public ArrayList<BusinessmanVO> selectCamping(Paging paging, String key) {
+		ArrayList<BusinessmanVO> list = new ArrayList<BusinessmanVO>();
+		con = Dbman.getConnection();
+		String sql = " select * from ("
+				+ " select * from ("
+				+ " select rownum as rn, b.* from "
+				+ " ((select * from businessman where name like '%'||?||'%' order by bseq desc) b)"
+				+ " ) where rn>=?"
+				+ " ) where rn<=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,  key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3,  paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				BusinessmanVO bvo = new BusinessmanVO();
+    	    	bvo.setBseq(rs.getInt("bseq"));
+    	    	bvo.setBid(rs.getString("bid"));
+    	    	bvo.setPwd(rs.getString("pwd"));
+    	    	bvo.setName(rs.getString("name"));
+    	    	bvo.setPhone(rs.getString("phone"));
+    	    	bvo.setEmail(rs.getString("email"));
+    	    	bvo.setCname(rs.getString("cname"));
+    	    	bvo.setCaddress1(rs.getString("caddress1"));
+    	    	bvo.setCaddress2(rs.getString("caddress2"));
+    	    	bvo.setCaddress3(rs.getString("caddress3"));
+    	    	bvo.setFacilities(rs.getString("facilities"));
+    	        bvo.setImage(rs.getString("image"));
+    	        bvo.setContent(rs.getString("content"));
+    	        bvo.setCategory(rs.getString("category"));
+    	    	list.add(bvo);
+			} 
+		}catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);  }
+		return list;
+	}
+
+
+	
+	
+	
 	
 }

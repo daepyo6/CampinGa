@@ -24,10 +24,9 @@ import com.campinga.controller.action.admin.AdminRestListAction;
 import com.campinga.controller.action.admin.AdminReviewDeleteAction;
 import com.campinga.controller.action.admin.AdminReviewListAction;
 import com.campinga.controller.action.business.BusinessJoinAction;
-import com.campinga.controller.action.business.BusinessmanCampingListDetailAction;
 import com.campinga.controller.action.business.BusinessmanCampingListAction;
+import com.campinga.controller.action.business.BusinessmanCampingListDetailAction;
 import com.campinga.controller.action.business.BusinessmanCampingListUpdateAction;
-import com.campinga.controller.action.business.BusinessmanCampingtListInsertAction;
 import com.campinga.controller.action.business.BusinessmanEditFormAction;
 import com.campinga.controller.action.business.BusinessmanMypageAction;
 import com.campinga.controller.action.business.BusinessmanRestListAction;
@@ -128,7 +127,6 @@ public class ActionFactory {
 	    else if(command.equals("businessmanCampingList")) ac = new BusinessmanCampingListAction();
 	    else if(command.equals("businessmanCampingListDetail")) ac = new BusinessmanCampingListDetailAction();
 	    else if(command.equals("businessmanCampingListUpdate")) ac = new BusinessmanCampingListUpdateAction();
-	    else if(command.equals("businessmanCampingListInsert")) ac = new BusinessmanCampingtListInsertAction();
 		
 	    else if(command.equals("campingQnaRepSave")) ac = new CampingQnaRepSaveAction();
 	    else if(command.equals("campingQnaForm")) ac = new CampingQnaFormAction();

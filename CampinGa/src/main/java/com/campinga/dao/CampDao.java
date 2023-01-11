@@ -302,28 +302,7 @@ public class CampDao {
 			Dbman.close(con, pstmt, rs);
 		}
 	}
-  
-	public void insertList(BusinessmanVO bmvo) {
 		
-		String sql = " insert into businessman (cseq, cname, caddress1, caddress2, caddress3, category, facilities) " 
-		+ " values(camping_seq.nextval, ? , ? , ? , ? , ? , ?)";
-		con = Dbman.getConnection();
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, bmvo.getCname());
-			pstmt.setString(2, bmvo.getCaddress1());
-			pstmt.setString(3, bmvo.getCaddress2());
-			pstmt.setString(4, bmvo.getCaddress3());
-			pstmt.setString(5, bmvo.getCategory());
-			pstmt.setString(6, bmvo.getFacilities());
-			pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-	         Dbman.close(con, pstmt, rs);
-	    }
-		
-	}
 
 	public CampingVO selectOneInfo(int cseq) {
 		CampingVO cvo = null;
@@ -366,9 +345,6 @@ public class CampDao {
 		return count;
 	}
 
-	public void updateCampingList(BusinessmanVO bmvo) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }
