@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../../header.jsp"%>
 <%@ include file="/business/sub_menu.jsp"%>
-<article>
-<!-- "예약 조회" 현재 예약조회, 지난 예약조회-->
-   <form method="post" name="reservateInfo">
-      <h1>예약 조회</h1>
-      <table class="memberInfoList">
+<article id="mypage" class="adminPage">
+	<h1>예약 조회</h1>
+   <form method="post" name="reservateInfo">      
+      <table class="rentList">
          <tr>
             <th>예약일자</th>
             <th>예약장소</th>
@@ -34,7 +33,6 @@
             </tr>
          </c:forEach>
       </table>
-      <div class="clear"></div>
    </form>
 </article>
 <%@ include file="../../footer.jsp"%>

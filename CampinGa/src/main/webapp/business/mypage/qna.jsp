@@ -3,12 +3,9 @@
 <%@ include file="../../header.jsp"%>
 <script src="business/business.js"></script>
 <%@ include file="/business/sub_menu.jsp"%>
-
-
-
-<article>
+<article id="mypage" class="adminPage">
 	<h1>Q&amp;A 게시글 리스트</h1>
-  <table id="orderList">
+  <table id="reviewList">
 		<tr>
 			<th>번호(답변여부)</th>
 			<th>내용</th>

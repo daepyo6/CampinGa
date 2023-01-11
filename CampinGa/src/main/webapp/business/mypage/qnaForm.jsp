@@ -2,46 +2,42 @@
 <%@ include file="../../header.jsp"%>
 <script src="business/business.js"></script>
 <%@ include file="/business/sub_menu.jsp"%>
-
-
-
-<article>
+<article id="mypage" class="adminPage">
 	<h1>Q&amp;A 게시판</h1>
-	<form name="frm" method="post">
+	<form name="frm" method="post" >
 		<input type="hidden" name="qseq" value="${qnaVO.qseq}">
-		<table id="orderList">
-			<!-- 게시물의 내용 -->
-
+		<table id="reviewList">
 			<tr>
-				<th>등록일</th>
-				<td align="left"><fmt:formatDate value="${qnaVO.indate}" /></td>
+				<th width="170">등록일</th><th>내용</th>				
 			</tr>
 			<tr>
-				<th>내용</th>
-				<td align="left">${qnaVO.content}</td>
+				<td><fmt:formatDate value="${qnaVO.indate}" /></td>
+				<td align="left" style="padding-left: 30px">${qnaVO.content}</td>
 			</tr>
 		</table>
 		<!-- 관리자가 쓴 답글 또는 답글 쓰는 입력란 표시 -->
 		<c:choose>
-			<c:when test='${qnaVO.repyn=="n"}'>
-				<table id="orderList">
-					<tr>
-						<td colspan="2"><textarea name="reply" rows="3" cols="50"></textarea>
-							<input type="button" class="btn" value="저장" onClick="go_rep()"></td>
-					</tr>
-				</table>
+			<c:when test='${qnaVO.repyn=="n"}'>					
+				<div class="writeBox">
+					<textarea name="reply" rows="3" cols="50" name="content"></textarea>
+					<div class="btns">
+						<input type="button" class="submit" value="저장" onClick="go_rep()">
+					</div>
+				</div>
 			</c:when>
 			<c:otherwise>
-				<table id="orderList">
+				<table id="replyTable">
 					<tr>
-						<th>댓글</th>
+						<th width="180">↳ 관리자의 답변 :</th>
 						<td>${qnaVO.reply}</td>
 					</tr>
 				</table>
 			</c:otherwise>
 		</c:choose>
-		<input type="button" class="btn" value="목록"
+		<div id="mypagebtn" style="width: 1000px">
+		<input type="button" class="btn" value="목록" style="float: right;"
 			onClick="location.href='camp.do?command=campingQna'">
+		</div>
 	</form>
 </article>
 

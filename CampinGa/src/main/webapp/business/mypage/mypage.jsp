@@ -4,31 +4,29 @@
 
 <article id="mypage">
    <!-- 회원 간단한 정보 + 정보수정 버튼-->
-   <form method="post" name="memberInfo">
-      <h1>회원정보</h1>
-      <table class="memberInfoList">
+   <h1>회원정보</h1>
+   <form method="post" name="memberInfo">      
+      <table class="memberInfoList1">
          <tr>
-            <td>이름</td>
+            <th>이름</th>
             <td>${loginBusinessman.name}</td>
          </tr>
          <tr>
-            <td>아이디</td>
+            <th>아이디</th>
             <td>${loginBusinessman.bid}</td>
          </tr>
          <tr>
-            <td>이메일</td>
+            <th>이메일</th>
             <td>${loginBusinessman.email}</td>
          </tr>
          <tr>
-            <td>전화번호</td>
+            <th>전화번호</th>
             <td>${loginBusinessman.phone}</td>
          </tr>
          <tr>
-			<td>
+			<td colspan="2" id="mypagebtn"  height="80" style="line-height: 80px">
 				<input type="button" value="정보수정"
-						onclick="location.href='camp.do?command=businessmanEditForm'">
-			</td>
-			<td>
+						onclick="location.href='camp.do?command=businessmanEditForm'">			
 				<input type="button" value="회원탈퇴"
 						onclick="location.href='camp.do?command=deleteBusinessman'">
 			</td>

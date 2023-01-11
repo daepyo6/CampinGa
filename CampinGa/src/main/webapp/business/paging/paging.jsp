@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<div id="paging" style="font-size:120%; font-weight:bold; margin-left:300px">
+	<div class="paging">
 			<c:url var="action" value="${param.command}" />
 			<c:if test="${paging.prev}">
 				<a href="${action}&page=${paging.beginPage-1}">◀</a>&nbsp;
