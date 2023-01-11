@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import "reset.css";
 @import "admin.css";
+@import "business.css";
 .clear{
     clear: both;
 }
@@ -42,20 +43,18 @@ p:hover{
 }
 /*header 메인 메뉴 부분*/
 header{	
-    display:grid;
-    width: 70%;
-    height: 220px;
-    margin : 1% 15%;
-    row-gap: 10%;
-    grid-template-areas:
-    "login"
-    "logo"
-    "cate";
-    margin-bottom:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-around;
+    width: 1400px;
+    height: 280px;
+    padding: 20px 0 35px 0;
+    margin :0 auto 40px auto;
 }
 #top_menu{
-    width: 100%;
-    grid-area: login;    
+    width: 1350px;
+    height: 35px;  
 }
 #top_menu ul{
 	width:33%;
@@ -68,37 +67,47 @@ header{
 	margin-left: 30px;
 	line-height:1.5;
 	font-size:1.2rem;
-	font-weight:bold;	
+	font-weight:bold;
+	color:white;	
 }
 #logo{
-    width: 100%;
-    height:100px;
-    padding: 10px 0;
-	grid-area: logo;
+    width: 1350px;
+    height:150px;
 	text-align: center;
+	line-height:130px;
 }
 #logo img{
-	margin-top:30px;
+	width:220px;
+	height:50px;
+	vertical-align:middle;
 }
 #category_menu{
-	width:100%;	
-	height:100%;
-	grid-area: cate;
+	width: 1000px;
+	height:90px;
+	display:flex;
+	justify-content: space-between;
 }
-#category_menu ul{	
-	width:100%;	
-	height:100%;
-    text-align: center;
+#category_menu div{
+	background-color:#cae9ff;
+	width:95px;
+	height:90px;
+	font-size:1.3rem;
+	font-weight:bold;
+	line-height:90px;
+	text-align:center;
+	border:1px solid #0077b6;
+	border-radius:5px;
 }
-#category_menu li{
-	font-size:1.5rem;
-	font-weight:bold;	
-	display:inline-block;
-	margin-left:30px;
+#category_menu div:hover{
+	border:1px solid lightgray;
+	background-color:#0077b6;
+	color:white;
+	cursor:pointer;
 }
-#category_menu li:first-child{
-    margin-left:0;
+#category_menu span:hover{
+	cursor:pointer;	
 }
+
 
 /*메인 이미지*/
 #mainSearch{
@@ -113,7 +122,7 @@ header{
     text-align: center;
 }
 #mainImg{
-	width:1430px;
+	width:1400px;
 	height:100%; 
     display:inline-block;        
 }
@@ -193,7 +202,7 @@ header{
 
 /*new 캠핑장*/
 .mainTitle{
-	width: 1430px;
+	width: 1400px;
 	height: 55px;
 	margin: 60px auto 20px auto;
 	line-height:55px;
@@ -202,7 +211,7 @@ header{
 	text-align: center;
 }
 .newCampings{
-	width: 1430px;
+	width: 1400px;
   	height: 400px;
   	margin: 0 auto;
   	padding : 0 2%;
@@ -618,14 +627,14 @@ h2 {
 
 /* join css*/
 .joinTable{
-  width: 30%;
+  width: 600px;
   background: white;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin:0 auto;
+  margin:60px auto 90px auto;
 }
 
 h1 {
