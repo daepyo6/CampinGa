@@ -304,3 +304,9 @@ select rownum as rn, b.* from ((select * from businessman) b)) where rn>=1) wher
 
 
 
+select * from(select * from(SELECT * FROM businessman) where caddress1 like '%경기%')where caddress2 like '%여주%';
+
+
+
+
+

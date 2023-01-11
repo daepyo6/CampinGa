@@ -17,13 +17,15 @@
 			<th>내용</th>
 			<th>아이디</th>
 			<th>작성일</th>
+			<th>삭제</th>
 		</tr>
 	    <c:forEach items="${reviewList}" var="reviewVO">
 		    <tr>
-		    	<td class="checkboxTd" style="text-align: center;"><input type="checkbox" name="rseq" value="${reviewVO.rseq}">&nbsp;${reviewVO.rseq}</td>
+		    	<td>${reviewVO.rseq}</td>
 		    	<td>${reviewVO.content}</td>
 		    	<td>${reviewVO.mid}</td>
 		    	<td><fmt:formatDate value="${reviewVO.indate}"/></td>
+		    	<td><input type="checkbox" name="rseq" value="${reviewVO.rseq}"></td>
 		    </tr>
 	  </c:forEach>
 	  <tr>
