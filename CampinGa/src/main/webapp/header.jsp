@@ -41,19 +41,17 @@
 	
 	<div id="logo"><!-- 로고시작 -->
 		<a href="camp.do?command=index">
-			<img src="images/CampinGa_logo.png" width="220" height="50">
+			<img src="images/CampinGa_logo.png">
 		</a>
 	</div><!-- 로고 끝 -->
 	
-	<nav id="category_menu"> <!-- 카테고리 메뉴 시작  -->
-		<ul>
-			<li><a href="camp.do?command=category&kind=1">전체</a></li>
-			<li><a href="camp.do?command=category&kind=2">오토캠핑</a></li>
-			<li><a href="camp.do?command=category&kind=3">글램핑</a></li>
-			<li><a href="camp.do?command=category&kind=4">카라반</a></li>
-			<li><a href="camp.do?command=category&kind=5">캠프닉</a></li>
-		</ul>
-	</nav> <!-- 카테고리 메뉴 끝 -->
+	<nav id="category_menu">		
+		<div onclick="location.href='camp.do?command=category&kind=1'"><span>전체</span></div>
+		<div onclick="location.href='camp.do?command=category&kind=2'"><span>오토캠핑</span></div>
+		<div onclick="location.href='camp.do?command=category&kind=3'"><span>글램핑</span></div>
+		<div onclick="location.href='camp.do?command=category&kind=4'"><span>카라반</span></div>
+		<div onclick="location.href='camp.do?command=category&kind=5'"><span>캠프닉</span></div>	
+	</nav>
 	</header>
 
 
