@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/*사업자 댓글*/
+#replyTable{
+	width:1000px;
+	height:100px;
+	margin: 20px auto;
+	background-color:#edf2fb;
+	font-size: 1.1rem;
+	line-height: 100px;
+}
+#replyTable th{
+	font-weight: 700;
+	color:black;
+}
+#replyTable td{
+	padding-left:30px;
+}
+

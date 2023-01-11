@@ -1,5 +1,7 @@
 @charset "UTF-8";
 .adminHeader{
+	width:1400px;
+	margin:0 auto;
 	background-color:#463f3a;
 	display:flex;
 	flex-direction: column;
@@ -29,7 +31,7 @@
 
 /* sub menu */
 .sub_menus{
-	width:70%;
+	width:1400px;
 	height:50px;
 	margin:0 auto;
 	background-color:black;

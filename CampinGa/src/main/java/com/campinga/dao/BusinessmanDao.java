@@ -269,7 +269,7 @@ public class BusinessmanDao {
 		}
 		return bmvo;
 	}
-
+  
 	public void updateCampingList(BusinessmanVO bmvo) {
 		String sql = "update businessman set image=? , content=? , category=? , facilities=? where bseq=?";
 		con = Dbman.getConnection();
@@ -375,9 +375,23 @@ public class BusinessmanDao {
 		return list;
 	}
 
-
-	
-	
-	
+	public String getCname(String bid) {
+		String cname = "";
+		String sql = "select cname from businessman where bid=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bid);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				cname = rs.getString("cname");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return cname;
+  }
 	
 }

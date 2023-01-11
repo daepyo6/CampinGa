@@ -41,19 +41,53 @@
 	
 	<div id="logo"><!-- 로고시작 -->
 		<a href="camp.do?command=index">
-			<img src="images/CampinGa_logo.png" width="220" height="50">
+			<img src="images/CampinGa_logo.png">
 		</a>
 	</div><!-- 로고 끝 -->
 	
-	<nav id="category_menu"> <!-- 카테고리 메뉴 시작  -->
-		<ul>
-			<li><a href="camp.do?command=category&kind=1">전체</a></li>
-			<li><a href="camp.do?command=category&kind=2">오토캠핑</a></li>
-			<li><a href="camp.do?command=category&kind=3">글램핑</a></li>
-			<li><a href="camp.do?command=category&kind=4">카라반</a></li>
-			<li><a href="camp.do?command=category&kind=5">캠프닉</a></li>
-		</ul>
-	</nav> <!-- 카테고리 메뉴 끝 -->
+	<nav id="category_menu">		
+		<div onclick="location.href='camp.do?command=category&kind=1'"><span>ALL</span></div>
+		<div class="icons" onclick="location.href='camp.do?command=category&kind=2'">
+			<div class="iconImg1">
+				<img src="images/icon/autoB.png">
+				<span>오토캠핑</span>
+			</div>
+			<div class="iconImg2">
+				<img src="images/icon/autoW.png">
+				<span>오토캠핑</span>
+			</div>				
+		</div>
+		<div class="icons" onclick="location.href='camp.do?command=category&kind=3'">
+			<div class="iconImg1">
+				<img src="images/icon/glamB.png">
+				<span>글램핑</span>
+			</div>
+			<div class="iconImg2">
+				<img src="images/icon/glamW.png">
+				<span>글램핑</span>
+			</div>
+		</div>
+		<div class="icons" onclick="location.href='camp.do?command=category&kind=4'">
+			<div class="iconImg1">
+				<img src="images/icon/caraB.png">
+				<span>카라반</span>
+			</div>
+			<div class="iconImg2">
+				<img src="images/icon/caraW.png">
+				<span>카라반</span>
+			</div>
+		</div>
+		<div class="icons" onclick="location.href='camp.do?command=category&kind=5'">
+			<div class="iconImg1">
+				<img src="images/icon/picB.png">
+				<span>캠프닉</span>
+			</div>
+			<div class="iconImg2">
+				<img src="images/icon/picW.png">
+				<span>캠프닉</span>
+			</div>
+		</div>	
+	</nav>
 	</header>
 
 

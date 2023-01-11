@@ -96,23 +96,6 @@
 							</div>
 						</div>
 					</c:forEach>
-					<div class="recoCampCard">
-						<div class="cardHeader">
-							<span>ㅇㅇ캠핑장</span>
-						</div>
-						<div class="recoImg">
-							<img src="images/newImg1.jpg">
-						</div>
-					</div>
-					<div class="recoCampCard">
-						<div class="cardHeader">
-							<span>ㅇㅇ캠핑장</span>
-						</div>
-						<div class="recoImg">
-							<img src="images/newImg1.jpg">
-						</div>
-					</div>
-
 				</div>
 			</div>
 			<div class="btnA" id="btnR">

@@ -53,6 +53,9 @@ values (camping_seq.nextval, 1,'해여림 빌리지', 'camp02.jpg','해여림 BB방입니다.
 insert  into camping(cseq, bseq, cname, c_image, c_content, c_class, res_sta, price, min_people, max_people)
 values (camping_seq.nextval, 1,'해여림 빌리지', 'camp02.jpg','해여림 CC방입니다.','해여림 CC', 'n', 250000, 6, 12);
 
+
+
+
 insert  into camping(cseq, bseq, cname, facilities, image, content, category, c_class, res_sta, price, 
 				min_people, max_people  )
 values (camping_seq.nextval, 2,'경주 텐타우스','바베큐장, 주차장, 와이파이',
@@ -308,5 +311,5 @@ select * from(select * from(SELECT * FROM businessman) where caddress1 like '%경
 
 
 
-
+select * from camping_view where bseq=1 order by cseq desc;
 

@@ -38,7 +38,8 @@
 			</div>
 		</c:forEach>
 	</div>
-	<div class="bar2"></div>
+	<div class="bar2"></div>	
+	
 	<!-- Q&A -->
 	<div class="listBox" id="qnabox">
 		<div class="detail_title"><span>Q & A</span></div>
@@ -56,9 +57,9 @@
 					<td>${qnaVO.qseq}</td>
 					<td>${qnaVO.mid}</td>
 					<td><fmt:formatDate value="${qnaVO.indate}" type="date" /></td>
-					<td>&nbsp;&nbsp;&nbsp;${qnaVO.content}</td>
+					<td style="padding-left: 25px;">${qnaVO.content}</td>
 					<td><c:choose>
-							<c:when test="${qnaVO.repyn=='y'}">${qnaVO.reply}</c:when>
+							<c:when test="${qnaVO.repyn=='y'}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</c:when>
 							<c:otherwise>답변대기중</c:otherwise>
 						</c:choose></td>
 					<td>
@@ -73,17 +74,24 @@
 					</td>
 				</tr>
 				<c:if test="${qnaVO.qseq==updateQseq}">
-					<tr>
-						<td colspan="6">
-							<form name="frm" method="post">
-								<input type="hidden" name="qseq" value="${qnaVO.qseq}">
-								<input type="hidden" name="bseq" value="${bseq}"> 
-								<input type="hidden" name="mid" value="${qnaVO.mid}">
-								<textarea rows="8" cols="65" name="content">${qnaVO.content}</textarea>
-								<input type="submit" value="확인" onclick="QnaCheck();">
-							</form>
-						</td>
-					</tr>
+				<tr>
+					<td  colspan="3">&nbsp;&nbsp;</td>
+					<td id="updateTd" colspan="3">
+						<form name="frm" method="post">
+							<input type="hidden" name="qseq" value="${qnaVO.qseq}">
+							<input type="hidden" name="bseq" value="${bseq}"> 
+							<input type="hidden" name="mid" value="${qnaVO.mid}">
+							<textarea name="content">${qnaVO.content}</textarea>
+							<input type="submit" value="확인" onclick="QnaCheck();">
+						</form>
+					</td>
+				</tr>
+				</c:if>
+				<c:if test="${qnaVO.repyn=='y'}">
+				<tr id="replyTr">
+					<td colspan="3">↳ 캠핑장 사장님의 답변 &nbsp;&nbsp;: </td>
+					<td colspan="3" style="text-align: left;">${qnaVO.reply}</td>
+				</tr>
 				</c:if>
 			</c:forEach>
 		</table>
@@ -102,8 +110,7 @@
 		<br> <br>
 		<div class="paging">
 			<c:if test="${paging1.prev}">
-				<a
-					href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.beginPage-1}#qnabox">◀</a>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.beginPage-1}#qnabox">◀</a>
 			</c:if>
 			<c:forEach begin="${paging1.beginPage}" end="${paging1.endPage}"
 				var="index">
@@ -155,7 +162,8 @@
 
 				<c:if test="${ReviewVO.rseq==updateRseq}">
 					<tr>
-						<td colspan="5">
+						<td colspan="3">&nbsp;&nbsp;</td>
+						<td id="updateTd" colspan="2">
 							<form name="frm" method="post">
 								<input type="hidden" name="rseq" value="${ReviewVO.rseq}">
 								<input type="hidden" name="bseq" value="${bseq}"> <input
@@ -183,8 +191,7 @@
 		<br>
 		<div class="paging">
 			<c:if test="${paging2.prev}">
-				<a
-					href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.beginPage-1}#reviewbox">◀</a>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.beginPage-1}#reviewbox">◀</a>
 			</c:if>
 			<c:forEach begin="${paging2.beginPage}" end="${paging2.endPage}"
 				var="index">
@@ -193,14 +200,12 @@
 						<span style="color: red;">${index}&nbsp;</span>
 					</c:when>
 					<c:otherwise>
-						<a
-							href="camp.do?command=campDetail&bseq=${bseq}&page2=${index}#reviewbox">${index}&nbsp;</a>
+						<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${index}#reviewbox">${index}&nbsp;</a>
 					</c:otherwise>
 				</c:choose>
 			</c:forEach>
 			<c:if test="${paging2.next}">
-				<a
-					href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.endPage+1}#reviewbox">▶</a>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.endPage+1}#reviewbox">▶</a>
 			</c:if>
 		</div>
 	</div>
