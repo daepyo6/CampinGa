@@ -18,8 +18,8 @@ public class IdCheckFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		String id = request.getParameter("id");
-	
 		String type = request.getParameter("type");
+		
 		if(type.equals("1")) {				
 			MemberDao mdao = MemberDao.getInstance();
 			MemberVO mvo = mdao.getMember(id);

@@ -12,7 +12,7 @@
          <div class="inputDiv">
          <label>아이디</label> 
             <input type="text" class="joinInput" name="id" size="20">
-            <input type="button" value="ID중복체크" onclick="idcheck();" class="btn">
+            <input type="button" value="ID중복체크" onclick="idcheck(1);" class="btn">
             <input type="hidden" name="reid">
          </div>                  
          <br>
