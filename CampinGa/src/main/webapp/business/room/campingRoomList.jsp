@@ -24,9 +24,12 @@
 						<div><span>기준인원 ${campVO.min_people}명/최대인원 ${campVO.max_people}명</span></div>
 						<div><span>${campVO.price}원</span></div>
 					</div>
-					<div class="roomInfo-bar"></div>					
-					<span class="bmresbtn" onclick="location.href='camp.do?command=updateCampingRoomForm&cseq=${campVO.cseq}'">수정</span>
-					<span class="bmresbtn" onclick="location.href='camp.do?command=deleteCampingRoom&cseq=${campVO.cseq}'">삭제</span>				
+
+					<div class="roomInfo-bar"></div>
+					<div class="bmresbtns">				
+					<span class="bmresbtn" onclick="location.href='camp.do?command=updateCampingRoomList&cseq=${campVO.cseq}'">수정</span>
+					<span class="bmresbtn" onclick="location.href='camp.do?command=deleteCampingRoomList&cseq=${campVO.cseq}'">삭제</span>				
+					</div>	
 				</div>
 			</div>
 		</c:forEach>

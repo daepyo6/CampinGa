@@ -48,20 +48,44 @@
 	<nav id="category_menu">		
 		<div onclick="location.href='camp.do?command=category&kind=1'"><span>ALL</span></div>
 		<div class="icons" onclick="location.href='camp.do?command=category&kind=2'">
-			<img class="iconImg1" src="images/icon/autoB.png">
-			<img class="iconImg2" src="images/icon/autoW.png">
+			<div class="iconImg1">
+				<img src="images/icon/autoB.png">
+				<span>오토캠핑</span>
+			</div>
+			<div class="iconImg2">
+				<img src="images/icon/autoW.png">
+				<span>오토캠핑</span>
+			</div>				
 		</div>
-		<div onclick="location.href='camp.do?command=category&kind=3'">
-			<img class="iconImg1" src="images/icon/glamB.png">
-			<img class="iconImg2" src="images/icon/glamW.png">
+		<div class="icons" onclick="location.href='camp.do?command=category&kind=3'">
+			<div class="iconImg1">
+				<img src="images/icon/glamB.png">
+				<span>글램핑</span>
+			</div>
+			<div class="iconImg2">
+				<img src="images/icon/glamW.png">
+				<span>글램핑</span>
+			</div>
 		</div>
-		<div onclick="location.href='camp.do?command=category&kind=4'">
-			<img class="iconImg1" src="images/icon/caraB.png">
-			<img class="iconImg2" src="images/icon/caraW.png">
+		<div class="icons" onclick="location.href='camp.do?command=category&kind=4'">
+			<div class="iconImg1">
+				<img src="images/icon/caraB.png">
+				<span>카라반</span>
+			</div>
+			<div class="iconImg2">
+				<img src="images/icon/caraW.png">
+				<span>카라반</span>
+			</div>
 		</div>
-		<div onclick="location.href='camp.do?command=category&kind=5'">
-			<img class="iconImg1" src="images/icon/picB.png">
-			<img class="iconImg2" src="images/icon/picW.png">
+		<div class="icons" onclick="location.href='camp.do?command=category&kind=5'">
+			<div class="iconImg1">
+				<img src="images/icon/picB.png">
+				<span>캠프닉</span>
+			</div>
+			<div class="iconImg2">
+				<img src="images/icon/picW.png">
+				<span>캠프닉</span>
+			</div>
 		</div>	
 	</nav>
 	</header>
