@@ -34,12 +34,14 @@ import com.campinga.controller.action.business.BusinessmanRestListAction;
 import com.campinga.controller.action.business.CampingQnaAction;
 import com.campinga.controller.action.business.CampingQnaFormAction;
 import com.campinga.controller.action.business.CampingQnaRepSaveAction;
-import com.campinga.controller.action.business.CampingRoomInfoAction;
+import com.campinga.controller.action.business.CampingRoomListAction;
 import com.campinga.controller.action.business.DeleteBusinessmanAction;
-import com.campinga.controller.action.business.DeleteCampingRoomListAction;
-import com.campinga.controller.action.business.InsertCampingRoomListAction;
+import com.campinga.controller.action.business.DeleteCampingRoomAction;
+import com.campinga.controller.action.business.InsertCampingRoomAction;
+import com.campinga.controller.action.business.InsertCampingRoomFormAction;
 import com.campinga.controller.action.business.UpdateBusinessInfoAction;
-import com.campinga.controller.action.business.UpdateCampingRoomListAction;
+import com.campinga.controller.action.business.UpdateCampingRoomAction;
+import com.campinga.controller.action.business.UpdateCampingRoomFormAction;
 import com.campinga.controller.action.camping.CampDetailAction;
 import com.campinga.controller.action.camping.CategoryAction;
 import com.campinga.controller.action.camping.MainSearchAction;
@@ -139,10 +141,12 @@ public class ActionFactory {
 	    else if(command.equals("campingQna")) ac = new CampingQnaAction();
 	    else if(command.equals("campingQnaRepSave")) ac = new CampingQnaRepSaveAction();
 		
-	    else if(command.equals("campingRoomInfo")) ac = new CampingRoomInfoAction();
-	    else if(command.equals("insertCampingRoomList")) ac = new InsertCampingRoomListAction();
-	    else if(command.equals("updateCampingRoomList")) ac = new UpdateCampingRoomListAction();
-	    else if(command.equals("deleteCampingRoomList")) ac = new DeleteCampingRoomListAction();
+	    else if(command.equals("campingRoomList")) ac = new CampingRoomListAction();
+	    else if(command.equals("insertCampingRoomForm")) ac = new InsertCampingRoomFormAction();
+	    else if(command.equals("insertCampingRoom")) ac = new InsertCampingRoomAction();
+	    else if(command.equals("updateCampingRoomForm")) ac = new UpdateCampingRoomFormAction();
+	    else if(command.equals("updateCampingRoom")) ac = new UpdateCampingRoomAction();
+	    else if(command.equals("deleteCampingRoom")) ac = new DeleteCampingRoomAction();
 		
 		// admin action
 	    else if(command.equals("admin")) ac = new AdminAction();

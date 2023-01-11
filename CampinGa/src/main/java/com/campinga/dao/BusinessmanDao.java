@@ -269,5 +269,24 @@ public class BusinessmanDao {
 		}
 		return bmvo;
 	}
+
+	public String getCname(String bid) {
+		String cname = "";
+		String sql = "select cname from businessman where bid=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bid);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				cname = rs.getString("cname");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return cname;
+	}
 	
 }
