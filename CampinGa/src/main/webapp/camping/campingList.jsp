@@ -21,7 +21,7 @@
 					<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						${campVO.caddress3}</span><br> 
 						<span>카테고리 : ${campVO.category}</span><br> 
-						<span>편의시설 : ${campVO.facilities}</span>
+						<span>부대시설 : ${campVO.facilities}</span>
 				</div>
 			</div>
 		</c:forEach>
