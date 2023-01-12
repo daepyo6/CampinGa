@@ -5,50 +5,72 @@
 <%@ include file="../../header.jsp"%>
 <%@ include file="/business/sub_menu.jsp"%>
 
-<article>
+<article style="height: 1100px">
 	<form action="camp.do?command=businessmanCampingListUpdate" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="bseq" value="${BusinessmanVO.bseq}">
-		<fieldset>
-			<div> <br><br>
-				<div>
-					<label>이미지 <img src="images/${BusinessmanVO.image}" style="width: 300px; height: 200px;"></label> <br>
-					<input type="file" size="20" name="image">
+		<input type="hidden" name="oldimg" value="${BusinessmanVO.image}" >
+		<div class="roomInsert">
+			<div class="roomInsert_title">
+				<span>캠핑장 정보수정</span>
+			</div>
+			<div class="roomInput">
+				<span>캠핑장 이름</span>
+				<div class="roomInput_div">
+					<input type="text" name="cname" size="20" placeholder="${BusinessmanVO.cname}">
 				</div>
-				<br><br>
-				<div>
-					<label>소개</label> <br>
-					<textarea rows="8" cols="65" name="content">${BusinessmanVO.content}</textarea>
+			</div>
+			<div class="roomInput">
+				<span>현재 캠핑장 사진</span><br>
+				<div style="text-align: center; margin-top: 15px;">
+					<img src="images/${BusinessmanVO.image}" 
+					style="width: 300px; height: 200px; border-radius: 10px;">
 				</div>
-				<br><br>
-				<div>
-					<label>카테고리</label> <br>
-					<select name="category">
-						<option value="" selected="selected">카테고리를 선택하세요</option>
-						<option value="auto">오토캠핑</option>
-						<option value="camping">캠핑</option>
-						<option value="caravane">카라반</option>
-						<option value="campnic">캠프닉</option>
-					</select>
+				<div class="filebox">
+				    <input class="upload-name" value="첨부파일" placeholder="첨부파일">
+				    <label for="file">파일찾기</label> 
+				    <input type="file" id="file" name="newimg">
 				</div>
-				<br><br>
-				<div>
-					<label>부대시설</label> <br>
-					공용주차장<input type="checkbox" name="facilities" value="공용주차장"/>&nbsp;
-     			    공용샤워실<input type="checkbox" name="facilities" value="공용샤워실"/>&nbsp;
-     			    공용화장실<input type="checkbox" name="facilities" value="공용화장실"/>&nbsp;
-     			   	카페<input type="checkbox" name="facilities" value="카페"/>&nbsp;
-     			    편의점<input type="checkbox" name="facilities" value="편의점/매점"/>&nbsp;<br>
-     			    개수대<input type="checkbox" name="facilities" value="개수대"/>&nbsp;
-     			    바베큐장<input type="checkbox" name="facilities" value="바베큐장"/>&nbsp;
-     			    수영장<input type="checkbox" name="facilities" value="수영장"/>&nbsp;
-     			    개수대<input type="checkbox" name="facilities" value="개수대"/>&nbsp;
+			</div>
+			<div class="roomInput">
+				<span>캠핑장 소개</span>
+				<div class="roomInput_div">
+				<textarea name="content">${BusinessmanVO.content}</textarea>
 				</div>
-				<br>
+			</div>
+			<div class="roomInput">
+				<span>카테고리</span>
+				<div class="roomInput_div">
+				<select name="category">
+					<c:forEach items="${cateMap}" var="map">
+						<c:choose>
+							<c:when test="${map.value==BusinessmanVO.category}">
+								<option value="${map.value}" selected="selected">${map.key}</option>
+							</c:when>
+							<c:otherwise>
+								<option value="${map.value}">${map.key}</option>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</select>
+				</div>
+			</div>
+			<div class="roomInput">
+				<span>부대시설</span>
+				<div class="roomInput_div" style="text-align: left;">
+					<input type="checkbox" name="facilities" value="공용주차장"/>&nbsp;공용주차장&nbsp;&nbsp;
+    			    <input type="checkbox" name="facilities" value="공용화장실"/>&nbsp;공용화장실&nbsp;&nbsp;
+    			    <input type="checkbox" name="facilities" value="편의점/매점"/>&nbsp;편의점&nbsp;&nbsp;
+    			   	<input type="checkbox" name="facilities" value="카페"/>&nbsp;카페&nbsp;&nbsp;<br>
+    			    <input type="checkbox" name="facilities" value="공용샤워실"/>&nbsp;공용샤워실&nbsp;&nbsp;
+    			    <input type="checkbox" name="facilities" value="바베큐장"/>&nbsp;바베큐장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    			    <input type="checkbox" name="facilities" value="수영장"/>&nbsp;수영장&nbsp;&nbsp;
+    			    <input type="checkbox" name="facilities" value="개수대"/>&nbsp;개수대&nbsp;&nbsp;
+				</div>
+			</div>
 				<div class="buttons">
 					<input type="submit" value="등록하기">
 				</div>
-			</div>
-		</fieldset>
+		</div>
 	</form>
 </article>
 <%@ include file="../../footer.jsp"%>

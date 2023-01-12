@@ -4,34 +4,53 @@
 
 <article>
 	<form method="post" name="campingRoom" enctype="multipart/form-data" action="camp.do?command=insertCampingRoom">
-		<div class="joinTable">
-			<h1>객실 등록</h1>
-			<div>
-				<label>객실 이름</label>
-				<input type="text" name="c_class" size="20">
+		<div class="roomInsert">
+			<div class="roomInsert_title">
+				<span>객실 등록</span>
 			</div>
-			<div>
-				<label>객실 사진</label>
-				<input type="file" name="c_image" size="20"><br>
+			<div class="roomInput">
+				<span>객실 이름</span>
+				<div class="roomInput_div">
+					<input type="text" name="c_class" size="20">
+				</div>
 			</div>
-			<div>
-				<label>객실 설명</label> 
-				<textarea rows="8" cols="65" name="c_content"></textarea>
+			<div class="roomInput">
+				<span>객실 사진</span><br>
+				<div class="filebox">
+				    <input class="upload-name" value="첨부파일" placeholder="첨부파일">
+				    <label for="file">파일찾기</label> 
+				    <input type="file" id="file" name="c_image">
+				</div>
+			</div>
+			<div class="roomInput">
+				<span>객실 설명</span>
+				<div class="roomInput_div">
+				<textarea name="c_content"></textarea>
+				</div>
 			</div>
 			<br>
-			<div>
-				<label>객실 가격</label> 
-				<input type="text" name="price" size="20">
+			<div class="roomInput">
+				<span>객실 가격</span>
+				<div class="roomInput_div">
+				<input type="text" name="price" size="20" placeholder="0">
+				<span>&nbsp;원</span>
+				</div>
 			</div>
 			<br>
-			<div>
-				<label>기준인원</label> 
-				<input type="text" name="min_people" size="5">
+			<div class="roomInput">
+				<span>기준인원</span>
+				<div class="roomInput_div"> 
+				<input type="text" name="min_people" size="5" placeholder="0">
+				<span>&nbsp;명</span>
+				</div>
 			</div>
 			<br>
-			<div>
-				<label>최대인원</label> 
-				<input type="text" name="max_people" size="5">
+			<div class="roomInput">
+				<span>최대인원</span>
+				<div class="roomInput_div">
+				<input type="text" name="max_people" size="5" placeholder="0">
+				<span>&nbsp;명</span>
+				</div>
 			</div>
 			<br>
 			<div class="buttons">

@@ -24,6 +24,7 @@ a:hover{
 textarea{
 	border:none;
 	resize:none;
+	font-family: '맑은 고딕', 'Malgun Gothic', verdana; 
 }
 textarea:focus{
 	outline:none;
@@ -40,6 +41,12 @@ span:hover{
 }
 p:hover{
 	cursor:default;
+}
+input{
+	font-family: '맑은 고딕', 'Malgun Gothic', verdana; 
+}
+select{
+	font-family: '맑은 고딕', 'Malgun Gothic', verdana; 
 }
 /*header 메인 메뉴 부분*/
 header{	

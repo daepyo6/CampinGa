@@ -33,13 +33,19 @@ public class BusinessmanCampingListUpdateAction implements Action {
 		    MultipartRequest multi = new MultipartRequest(
 		    		request, path, 5*1024*1024, "UTF-8",	 new DefaultFileRenamePolicy() );			
 		    bmvo.setBseq(Integer.parseInt(multi.getParameter("bseq")));
+		    bmvo.setCname(multi.getParameter("cname"));
 			bmvo.setContent(multi.getParameter("content"));
 			bmvo.setCategory(multi.getParameter("category"));
 			
 			String [] fac = multi.getParameterValues("facilities");
 			String facilities = String.join(", ", fac);
 			bmvo.setFacilities(facilities);
-			bmvo.setImage(multi.getFilesystemName("image"));
+			String newImg = multi.getFilesystemName("newimg");
+			String oldImg = multi.getParameter("oldimg");
+			if(newImg!=null) 
+				bmvo.setImage(newImg);
+			else
+				bmvo.setImage(oldImg);
 			
 			BusinessmanDao bdao = BusinessmanDao.getInstance();
 			bdao.updateCampingList(bmvo);
