@@ -17,7 +17,7 @@
           <div class="login_radio">
                <input type="radio" name="user" value="1" checked="checked"/>개인 &nbsp; &nbsp; 
                 <input type="radio" name="user" value="2"/>사업자
-            </div>
+          </div>
       </fieldset>
       <div class="buttons">
            <input type="submit" value="login" class="button" onclick="return loginCheck()">

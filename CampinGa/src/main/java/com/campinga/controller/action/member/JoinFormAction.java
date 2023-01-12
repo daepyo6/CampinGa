@@ -13,13 +13,7 @@ public class JoinFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		String user = request.getParameter("user");
-		String url = "camp.do?command=index";
-		if(user.equals("1")) {
-			url = "member/joinForm.jsp";
-		} else if(user.equals("2")) {
-			url = "business/joinForm.jsp";
-		}
+		String url = "camp.do?command=contractForm";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 }
