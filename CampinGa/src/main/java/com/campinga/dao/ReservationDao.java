@@ -35,6 +35,8 @@ public class ReservationDao {
 			while (rs.next()) {
 				ReservationVO revo = new ReservationVO();
 				revo.setReseq(rs.getInt("reseq"));
+				revo.setBseq(rs.getInt("bseq"));
+				revo.setCseq(rs.getInt("cseq"));
 				revo.setCname(rs.getString("cname"));
 				revo.setC_class(rs.getString("c_class"));
 				revo.setRes_sta(rs.getString("res_sta"));

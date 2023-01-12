@@ -22,17 +22,12 @@ public class BusinessmanCampingListAction implements Action {
 String url = "business/camping/campingList.jsp";
 		
 		HttpSession session = request.getSession();
-		BusinessmanVO bvo = (BusinessmanVO) session.getAttribute("loginBusinessman");
+		BusinessmanVO bvo = (BusinessmanVO)session.getAttribute("loginBusinessman");
 		if( bvo == null ) {
 			url = "camp.do?command=loginForm";
 		} else {
 			BusinessmanDao bdao = BusinessmanDao.getInstance();
-			
-			
-		
-			
-			
-			BusinessmanVO list = bdao.getBusinessman( bvo.getBseq());
+			BusinessmanVO list = bdao.getBusinessman(bvo.getBid());
 			
 			request.setAttribute("BusinessmanVO", list);
 		}

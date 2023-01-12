@@ -13,8 +13,6 @@ public class BusinessmanEditFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("business/mypage/updateInfo.jsp").forward(request, response);
-		
-
 	}
 
 }

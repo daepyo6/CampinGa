@@ -52,7 +52,7 @@
             <tr>
                <td><fmt:formatDate value="${resVO.res_date}" type="both" 
                      dateStyle="short" timeStyle="short"/></td>
-               <td><a href="#">${resVO.cname}&nbsp;${resVO.c_class}</a></td>
+               <td><a href="camp.do?command=campDetail&bseq=${resVO.bseq}">${resVO.cname}&nbsp;${resVO.c_class}</a></td>
                <td>${resVO.people}명</td>
                <td>
             	  <fmt:parseDate value = "${resVO.chk_in}" var = "check_in" pattern = "yy-MM-dd" />
@@ -84,7 +84,7 @@
          <c:forEach items="${favorList}" var="favorVO">
             <tr>
                <td>${favorVO.fseq}</td>
-               <td><a href="#">${favorVO.cname}</a></td>
+               <td><a href="camp.do?command=campDetail&bseq=${favorVO.bseq}">${favorVO.cname}</a></td>
                <td>${favorVO.phone}</td>
                <td><input type="button" value="취소"
                         onclick="delete_favorites( '${favorVO.fseq}' );">
