@@ -2,6 +2,7 @@ package com.campinga.controller.action.business;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -58,6 +59,13 @@ public class BusinessmanCampingListDetailAction implements Action {
 			request.setAttribute("BusinessmanVO", campingList);
 			request.setAttribute("paging", paging);
 		}
+		HashMap<String, String> cateMap = new HashMap<String, String>();
+		cateMap.put("¿ÀÅäÄ·ÇÎ", "auto");
+		cateMap.put("Ä·ÇÎ", "camping");
+		cateMap.put("Ä«¶ó¹Ý", "caravane");
+		cateMap.put("Ä·ÇÁ´Ð", "campnic");
+		
+		request.setAttribute("cateMap", cateMap);
 		request.getRequestDispatcher(url).forward(request, response);
 	} 
 
