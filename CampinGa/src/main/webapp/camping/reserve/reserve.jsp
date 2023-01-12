@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../../header.jsp"%>
-<script
-   src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
-   integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
-   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<link rel="stylesheet"
-   href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
-   integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
-   crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
 <link href="camping/reserve/reserve.css" rel="stylesheet">
 <script type="text/javascript" src="camping/reserve/reserve.js"></script>
 <script type="text/javascript">
+
 	$.datepicker.setDefaults({
 		dateFormat: 'yy-mm-dd',
 		prevText: '이전 달',
@@ -23,20 +18,43 @@
 		showMonthAfterYear: true,
 		showOtherMonths: true,
 		yearSuffix: '년',
-		minDate: "0D",
-
+		minDate: "0D"
 	});
 
-	
 	$(function() {
 		$('#beginDate').datepicker({
 			
 		});
 		$('#endDate').datepicker({
-			
+			beforeShowDay: my_check
 		});
-	});
 
+		var my_array = [ "2023-01-17", "2023-01-19" ]
+		
+		function my_check(in_date) {
+			in_date = in_date.getFullYear() + '-'
+					+ String((in_date.getMonth() + 1)).padStart(2, '0') + '-'
+					+ String(in_date.getDate()).padStart(2, '0')
+			if (my_array.indexOf(in_date) >= 0) {
+				return [ false, "notav", 'Not Available' ];
+			} else {
+				return [ true, "av", "available" ];
+			}
+		}
+		
+		 function disableDates(date){
+	 		 var dateRange = [];
+	         var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+
+	  		 var sdate = "2021-01-29";
+	 		 var edate = "2021-01-31";
+
+			 for (var d = new Date(sdate); d <= new Date(edate); d.setDate(d.getDate() + 1)) {
+	  			dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
+	 			 }
+	  		return [dateRange.indexOf(dateString) == -1];
+	 	}
+	});
 
 	function call() {
 		var beginDate = document.getElementById("beginDate").value;
@@ -55,14 +73,11 @@
 					.toLocaleString('ko-KR');
 		}
 	}
-	
-	function to_date(date_str)
-	{
-	    var bd = date_str.split('-');
-	    return new Date(bd[0], bd[1], bd[2]);
+
+	function to_date(date_str) {
+		var bd = date_str.split('-');
+		return new Date(bd[0], bd[1], bd[2]);
 	}
-	
-	
 </script>
 <div class="bar"></div>
 <article>

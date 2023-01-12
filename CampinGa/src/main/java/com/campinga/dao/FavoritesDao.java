@@ -81,13 +81,14 @@ public class FavoritesDao {
 		
 	}
 
-	public String checkFav(int bseq) {
+	public String checkFav(int bseq, String mid) {
 		String check = "";
 		con = Dbman.getConnection();
-		String sql = "select * from favorites where bseq=?";
+		String sql = "select * from favorites where bseq=? and mid=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, bseq);
+			pstmt.setString(2, mid);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				check = rs.getString("fav_check");
