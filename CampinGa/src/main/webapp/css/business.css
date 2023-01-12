@@ -59,13 +59,10 @@
 	border-radius:10px;
 }
 
-/*캠핑장 정보수정*/
-
-
 /*객실 추가*/
 .roomInsert{
 	width:700px;
-	height:900px;
+	height:1400px;
 	margin:0 auto 60px auto;
 }
 .roomInsert_title,

@@ -29,10 +29,19 @@ $(function() {
 		$(this).children('.iconImg1').animate({opacity:"1"}, 500)
 		$(this).children('.iconImg2').animate({opacity:"0"}, 500)
 	})
-	$("#file").on('change',function(){
-  	var fileName = $("#file").val();
-  	$(".upload-name").val(fileName);
-});
+	$("#file").on('change',function(event){
+	  	var fileName = $("#file").val();
+	  	$(".upload-name").val(fileName);
+    
+		var file = event.target.files[0];
+
+	    var reader = new FileReader(); 
+	    reader.onload = function(e) {	
+	        $("#previewImg").attr("src", e.target.result);
+	    }
+	
+	    reader.readAsDataURL(file);
+	});
 	
 	
 })

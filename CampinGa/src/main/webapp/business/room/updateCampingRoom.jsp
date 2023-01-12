@@ -4,38 +4,63 @@
 
 <article>
 	<form method="post" name="campingRoom" enctype="multipart/form-data" action="camp.do?command=updateCampingRoom">
-		<input type="hidden" name="cseq" value="${campVO.cseq}">
-		<div class="joinTable">
-			<h1>객실 등록</h1>
-			<div>
-				<label>객실 이름</label>
-				<input type="text" name="c_class" size="20" value="${campVO.c_class}">
-			</div>
-			<div>
-				<label>객실 사진</label>
-				<input type="file" name="c_image" size="20"><br>
-				<input type="hidden" name="oldc_image" value="${campVO.c_image}">
-				이전 파일 : ${campVO.c_image}
-			</div>
-			<div>
-				<label>객실 설명</label> 
-				<textarea rows="8" cols="65" name="c_content" >${campVO.c_content}</textarea>
+		<input type="hidden" name="cseq" value="${campVO.cseq}">		
+		<div class="roomInsert">
+			<div class="roomInsert_title">
+				<span>객실 수정</span>
 			</div>
 			<br>
-			<div>
-				<label>객실 가격</label> 
-				<input type="text" name="price" size="20" value="${campVO.price}">
+			<div class="roomInput">
+				<span>객실 이름</span>
+				<div class="roomInput_div">
+					<input type="text" name="c_class" size="20" value="${campVO.c_class}">
+				</div>
 			</div>
 			<br>
-			<div>
-				<label>기준인원</label> 
-				<input type="text" name="min_people" size="5" value="${campVO.min_people}">
+			<div class="roomInput">
+				<span>현재 객실 사진</span><br>
+				<div style="text-align: center; margin-top: 15px;">
+					<img src="images/${campVO.c_image}" 
+					style="width: 300px; height: 200px; border-radius: 10px;">
+				</div>
 			</div>
 			<br>
-			<div>
-				<label>최대인원</label> 
-				<input type="text" name="max_people" size="5" value="${campVO.max_people}">
+			<div class="roomInput">
+				<span>이미지 파일 선택</span><br>
+				<div style="text-align: center; margin-top: 15px;">
+					<img id="previewImg" src="images/imgfile.png" 
+					style="width: 300px; height: 200px; border-radius: 10px;">
+				</div>
+				<div class="filebox">
+				    <input class="upload-name" value="첨부파일" placeholder="첨부파일">
+				    <label for="file">파일찾기</label> 
+				    <input type="file" id="file" name="c_image">
+				</div>
 			</div>
+			<br>
+			<div class="roomInput">
+				<span>객실 가격</span>
+				<div class="roomInput_div">
+				<input type="text" name="price" size="20" placeholder="${campVO.price}">
+				<span>&nbsp;원</span>
+				</div>
+			</div>
+			<br>
+			<div class="roomInput">
+				<span>기준인원</span>
+				<div class="roomInput_div"> 
+				<input type="text" name="min_people" size="5" placeholder="${campVO.min_people}">
+				<span>&nbsp;명</span>
+				</div>
+			</div>
+			<br>
+			<div class="roomInput">
+				<span>최대인원</span>
+				<div class="roomInput_div">
+				<input type="text" name="max_people" size="5" placeholder="${campVO.max_people}">
+				<span>&nbsp;명</span>
+				</div>
+			</div>			
 			<br>
 			<div class="buttons">
 				<input type="submit" value="객실수정" class="button">

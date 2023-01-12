@@ -8,20 +8,27 @@
 			<div class="roomInsert_title">
 				<span>객실 등록</span>
 			</div>
+			<br>
 			<div class="roomInput">
 				<span>객실 이름</span>
 				<div class="roomInput_div">
 					<input type="text" name="c_class" size="20">
 				</div>
 			</div>
+			<br>
 			<div class="roomInput">
 				<span>객실 사진</span><br>
+				<div style="text-align: center; margin-top: 15px;">
+					<img id="previewImg" src="images/imgfile.png" 
+					style="width: 300px; height: 200px; border-radius: 10px;">
+				</div>
 				<div class="filebox">
 				    <input class="upload-name" value="첨부파일" placeholder="첨부파일">
 				    <label for="file">파일찾기</label> 
 				    <input type="file" id="file" name="c_image">
 				</div>
 			</div>
+			<br>
 			<div class="roomInput">
 				<span>객실 설명</span>
 				<div class="roomInput_div">
