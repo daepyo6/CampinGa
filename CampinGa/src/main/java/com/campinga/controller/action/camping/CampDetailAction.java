@@ -18,6 +18,7 @@ import com.campinga.dto.BusinessmanVO;
 import com.campinga.dto.Camp_qnaVO;
 import com.campinga.dto.CampingVO;
 import com.campinga.dto.FavoritesVO;
+import com.campinga.dto.MemberVO;
 import com.campinga.dto.ReviewVO;
 import com.campinga.util.Paging;
 
@@ -29,8 +30,13 @@ public class CampDetailAction implements Action {
 		int bseq = Integer.parseInt(request.getParameter("bseq"));
 		
 		// 즐겨찾기 정보 가져오기
-		FavoritesDao fdao = FavoritesDao.getInstance();
-		String check_fav = fdao.checkFav(bseq);
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		if(mvo != null) {
+			FavoritesDao fdao = FavoritesDao.getInstance();
+			String check_fav = fdao.checkFav(bseq);
+			request.setAttribute("chk_fav", check_fav);
+		}
 		
 		// 캠핑장 정보 가져오기
 		BusinessmanDao bdao = BusinessmanDao.getInstance();
@@ -42,7 +48,6 @@ public class CampDetailAction implements Action {
 		
 		// QnA paging
 		int page1 = 1;
-		HttpSession session = request.getSession();
 		if(request.getParameter("page1")!=null) {
 			page1=Integer.parseInt(request.getParameter("page1"));
 			session.setAttribute("page1", page1);
@@ -95,7 +100,6 @@ public class CampDetailAction implements Action {
 		request.setAttribute("paging1", paging1);
 		request.setAttribute("paging2", paging2);
 		request.setAttribute("bseq", bseq);
-		request.setAttribute("chk_fav", check_fav);
 		request.setAttribute("campMain", bvo);
 		request.setAttribute("campingList", campingList);
 		request.setAttribute("qnalist", qnalist);
