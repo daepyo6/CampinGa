@@ -29,7 +29,7 @@ public class BusinessmanMypageAction implements Action {
 		
 		if(bvo == null ) {
 			url = "camp.do?command=loginForm";
-		}else {
+		} else {
 			
 		}
 		request.getRequestDispatcher(url).forward(request, response);

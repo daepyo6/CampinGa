@@ -26,7 +26,6 @@ public class BusinessmanCampingListDetailAction implements Action {
 		if( bvo == null ) {
 			url = "camp.do?command=loginForm";
 		} else {
-			
 			BusinessmanDao bdao = BusinessmanDao.getInstance();
 			
 			if( request.getParameter("start")!=null ) {
@@ -45,16 +44,17 @@ public class BusinessmanCampingListDetailAction implements Action {
 				session.removeAttribute("page");
 			}
 			
-			
 			Paging paging = new Paging();
 			paging.setDisplayPage(10);
 			paging.setDisplayRow(10);
 			paging.setPage(page);
 			
-			int count = bdao.getAllCount("businessman", "bseq", bvo.getBseq());
+			int bseq = bdao.getBseq(bvo.getBid());
+			
+			int count = bdao.getAllCount("businessman", "bseq", bseq);
 			paging.setTotalCount(count);
 			
-			BusinessmanVO campingList = bdao.selectOne(bvo.getBseq());
+			BusinessmanVO campingList = bdao.selectOne(bseq);
 			
 			request.setAttribute("BusinessmanVO", campingList);
 			request.setAttribute("paging", paging);

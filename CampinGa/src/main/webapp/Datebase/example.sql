@@ -233,7 +233,7 @@ delete from BUSINESSMAN where bseq=10;
 -- reservation 안의 사용자아이디와 캠핑장번호로 예약정보와 캠핑장정보를 조회하는 view를 생성
 create or replace view reservate_view
 as
-select r.reseq, b.bid, c.cname, c.c_class, c.res_sta, r.mid, m.name, r.price, r.people, r.res_date, r.chk_in, r.chk_out
+select r.reseq, b.bseq, c.cseq, b.bid, c.cname, c.c_class, c.res_sta, r.mid, m.name, r.price, r.people, r.res_date, r.chk_in, r.chk_out
 from reservation r, member m, businessman b, camping c
 where m.mid = r.mid and r.cseq = c.cseq and b.bseq = c.bseq;
 

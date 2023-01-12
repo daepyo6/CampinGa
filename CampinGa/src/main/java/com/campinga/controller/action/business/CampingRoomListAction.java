@@ -26,8 +26,9 @@ public class CampingRoomListAction implements Action {
 		if(bvo == null){
 			url = "camp.do?command=loginForm";
 		} else {
-			int bseq = bvo.getBseq();
 			CampDao cdao = CampDao.getInstance();
+			BusinessmanDao bdao = BusinessmanDao.getInstance();
+			int bseq = bdao.getBseq(bvo.getBid());
 			ArrayList<CampingVO> campingList = cdao.selectCampingList(bseq);
 			request.setAttribute("campingList", campingList);
 		}
