@@ -60,11 +60,11 @@
 		<div class="icons" onclick="location.href='camp.do?command=category&kind=3'">
 			<div class="iconImg1">
 				<img src="images/icon/glamB.png">
-				<span>글램핑</span>
+				<span>캠핑</span>
 			</div>
 			<div class="iconImg2">
 				<img src="images/icon/glamW.png">
-				<span>글램핑</span>
+				<span>캠핑</span>
 			</div>
 		</div>
 		<div class="icons" onclick="location.href='camp.do?command=category&kind=4'">
