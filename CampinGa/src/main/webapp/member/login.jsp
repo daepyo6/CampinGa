@@ -22,7 +22,7 @@
       <div class="buttons">
            <input type="submit" value="login" class="button" onclick="return loginCheck()">
            <input type="button" value="join" class="button" 
-              onclick="location.href='camp.do?command=joinForm'">  
+              onclick="location.href='camp.do?command=contractForm'">  
        </div><br><br>
        <div>&nbsp;&nbsp;&nbsp;${message}</div>  
    </div>
