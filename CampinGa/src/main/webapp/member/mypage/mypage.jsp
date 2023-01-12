@@ -33,7 +33,7 @@
          
    </form>
 
-
+	<br><br>
    <!-- "예약 조회" 현재 예약조회, 지난 예약조회-->
    <form method="post" name="reservateInfo">
       <h1>예약 조회</h1>
@@ -55,12 +55,12 @@
                <td><a href="camp.do?command=campDetail&bseq=${resVO.bseq}">${resVO.cname}&nbsp;${resVO.c_class}</a></td>
                <td>${resVO.people}명</td>
                <td>
-            	  <fmt:parseDate value = "${resVO.chk_in}" var = "check_in" pattern = "yy-MM-dd" />
-            	  <fmt:formatDate type = "date" value="${check_in}"/>
+            	  <fmt:parseDate value="${resVO.chk_in}" var = "check_in" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type="date" value="${check_in}"/>
                </td>
                <td>
-            	  <fmt:parseDate value = "${resVO.chk_out}" var = "check_out" pattern = "yy-MM-dd" />
-            	  <fmt:formatDate type = "date" value="${check_out}"/>
+            	  <fmt:parseDate value="${resVO.chk_out}" var = "check_out" pattern = "yy-MM-dd" />
+            	  <fmt:formatDate type="date" value="${check_out}"/>
                </td>
                <td>${resVO.price}</td>
                <td><input type="button" value="취소" onclick="reservate_cancel('${resVO.reseq}');"></td>
@@ -72,10 +72,9 @@
 
    <!-- "내 즐겨찾기" 현재 회원이 즐겨찾기한 캠핑장의 내역을 출력 -->
    <form method="post" name="favorites">
-      <h1>즐겨찾기</h1>
+      <h1>내 즐겨찾기</h1>
       <table class="memberInfoList2">
          <tr id="myfav">
-            <th>번호</th>
             <th>캠핑장이름</th>
             <th>캠핑장 전화번호</th>
             <th>즐겨찾기 해제</th>
@@ -83,10 +82,9 @@
          <!-- 가짜데이터 이후 c:forEach 사용하여 테이블 조회할 것.-->
          <c:forEach items="${favorList}" var="favorVO">
             <tr>
-               <td>${favorVO.fseq}</td>
                <td><a href="camp.do?command=campDetail&bseq=${favorVO.bseq}">${favorVO.cname}</a></td>
                <td>${favorVO.phone}</td>
-               <td><input type="button" value="취소"
+               <td><input type="button" value="해제"
                         onclick="delete_favorites( '${favorVO.fseq}' );">
                </td>
 

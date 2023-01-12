@@ -7,7 +7,6 @@
 		<h2>회원 가입 약관</h2>
 		<form id="join" method="post" name="contractFrm">
 			<div class="btns">
-				<div class="jv">가입유형</div>
 				<input type="button" value="일반 회원" onclick="joinChoose(1)">
 				<input type="button" value="사업자 회원" onclick="joinChoose(2)">
 				<input type="hidden" name="user" value=""> <br>

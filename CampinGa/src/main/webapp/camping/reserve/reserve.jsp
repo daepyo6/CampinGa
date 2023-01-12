@@ -10,25 +10,60 @@
    crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link href="camping/reserve/reserve.css" rel="stylesheet">
 <script type="text/javascript" src="camping/reserve/reserve.js"></script>
-<script>
-function call() {
-   var beginDate = document.getElementById("beginDate").value;
-   var endDate = document.getElementById("endDate").value;
-   var bd = beginDate.split('-');
-   var ed = endDate.split('-');
-   var bd_date = new Date(bd[0], bd[1], bd[2]);
-   var ed_date = new Date(ed[0], ed[1], ed[2]);
-   var dif = ed_date - bd_date;
-   var cDay = 24 * 60 * 60 * 1000;// 시 * 분 * 초 * 밀리세컨
+<script type="text/javascript">
+	$.datepicker.setDefaults({
+		dateFormat: 'yy-mm-dd',
+		prevText: '이전 달',
+		nextText: '다음 달',
+		monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		showMonthAfterYear: true,
+		showOtherMonths: true,
+		yearSuffix: '년',
+		minDate: "0D",
 
-   if (beginDate && endDate) {
-      const price = parseInt(dif/cDay) * parseInt('${campVO.price}');
-      document.getElementById('price').value  = price
-      document.getElementById('totalPrice').innerHTML  = price.toLocaleString('ko-KR');
-   }
-}
+	});
+
+	
+	$(function() {
+		$('#beginDate').datepicker({
+			
+		});
+		$('#endDate').datepicker({
+			
+		});
+	});
+
+
+	function call() {
+		var beginDate = document.getElementById("beginDate").value;
+		var endDate = document.getElementById("endDate").value;
+		var bd = beginDate.split('-');
+		var ed = endDate.split('-');
+		var bd_date = new Date(bd[0], bd[1], bd[2]);
+		var ed_date = new Date(ed[0], ed[1], ed[2]);
+		var dif = ed_date - bd_date;
+		var cDay = 24 * 60 * 60 * 1000;// 시 * 분 * 초 * 밀리세컨
+
+		if (beginDate && endDate) {
+			const price = parseInt(dif / cDay) * parseInt('${campVO.price}');
+			document.getElementById('price').value = price
+			document.getElementById('totalPrice').innerHTML = price
+					.toLocaleString('ko-KR');
+		}
+	}
+	
+	function to_date(date_str)
+	{
+	    var bd = date_str.split('-');
+	    return new Date(bd[0], bd[1], bd[2]);
+	}
+	
+	
 </script>
-
 <div class="bar"></div>
 <article>
    <form method="post" name="reserve">
@@ -75,11 +110,11 @@ function call() {
             </tr>
             <tr class="chk">
                <th>체크인</th>
-               <td><input id="beginDate" name="chk_in" onchange="call()"></td>
+               <td><input id="beginDate" name="chk_in" onchange="call()" readonly></td>
             </tr>
             <tr class="chk">
                <th>체크아웃</th>
-               <td><input id="endDate" name="chk_out" onchange="call()"></td>
+               <td><input id="endDate" name="chk_out" onchange="call()" readonly></td>
             </tr>
             <tr class="chk2">
                <th>인원</th>
