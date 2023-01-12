@@ -62,6 +62,7 @@ function call() {
       	 <input type="hidden" name="cseq" value="${campVO.cseq}">
       	 <input type="hidden" name="cname" value="${campVO.cname}">
          <input type="hidden" name="c_class" value="${campVO.c_class}">
+         <input type="hidden" name="max_people" value="${campVO.max_people}">
          <input type="hidden" id="price" name="price" value="">
          <table>
             <tr>
