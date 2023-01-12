@@ -27,7 +27,8 @@ String url = "business/camping/campingList.jsp";
 			url = "camp.do?command=loginForm";
 		} else {
 			BusinessmanDao bdao = BusinessmanDao.getInstance();
-			BusinessmanVO list = bdao.getBusinessman(bvo.getBid());
+			int bseq = bdao.getBseq(bvo.getBid());
+			BusinessmanVO list = bdao.getBusinessman(bseq);
 			
 			request.setAttribute("BusinessmanVO", list);
 		}
