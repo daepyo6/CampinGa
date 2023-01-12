@@ -35,7 +35,10 @@ public class BusinessmanCampingListUpdateAction implements Action {
 		    bmvo.setBseq(Integer.parseInt(multi.getParameter("bseq")));
 			bmvo.setContent(multi.getParameter("content"));
 			bmvo.setCategory(multi.getParameter("category"));
-			bmvo.setFacilities(multi.getParameter("facilities"));
+			
+			String [] fac = multi.getParameterValues("facilities");
+			String facilities = String.join(", ", fac);
+			bmvo.setFacilities(facilities);
 			bmvo.setImage(multi.getFilesystemName("image"));
 			
 			BusinessmanDao bdao = BusinessmanDao.getInstance();
