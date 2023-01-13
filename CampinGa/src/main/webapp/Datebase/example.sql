@@ -171,6 +171,15 @@ insert into camp_qna(qseq, mid, bseq, content , reply, repyn)
 values (qna_seq.nextval, 'qndrl12', 1,'수영장잇나요?','아니요 없습니다','n');
   
 select * from camp_qna;  
+
+select * from(select * from(
+					 select rownum as rn, q.* from(
+					 (select * from camp_qna where bseq=1 order by qseq desc) q)
+					 )where rn>=1
+					 )where rn<=5;
+
+
+
 select * from review;
 
 insert into member(mid, pwd, name,mphone,email)values
@@ -231,7 +240,6 @@ delete from BUSINESSMAN where bseq=8;
 delete from BUSINESSMAN where bseq=9;
 delete from BUSINESSMAN where bseq=10;
 
-
 -- 뷰 생성
 
 -- reservation 안의 사용자아이디와 캠핑장번호로 예약정보와 캠핑장정보를 조회하는 view를 생성
@@ -242,7 +250,7 @@ from reservation r, member m, businessman b, camping c
 where m.mid = r.mid and r.cseq = c.cseq and b.bseq = c.bseq;
 
 DROP view reservate_view CASCADE CONSTRAINTS;
-select * from reservate_view;
+select count(*) from reservate_view where bid = 'dp';
 
 select res_date from reservate_view;
 
@@ -334,4 +342,4 @@ select * from ( select * from ( select rownum as rn, f.mid from (
 select * from favorites_view
 SELECT DISTINCT cname, COUNT(cname) OVER (PARTITION BY cname) AS cnt_fav
 				FROM favorites_view where rownum<=8 order by cnt_fav desc;				
-				
+

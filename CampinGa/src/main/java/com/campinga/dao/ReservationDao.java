@@ -80,13 +80,21 @@ public class ReservationDao {
 
 	}
 
-	public ArrayList<ReservationVO> getBusinessRestList(String bid) {
+	public ArrayList<ReservationVO> getBusinessRestList(String bid, Paging paging) {
 		ArrayList<ReservationVO> list = new ArrayList<ReservationVO>();
 		con = Dbman.getConnection();
-		String sql = "select * from reservate_view where bid=?";
+		String sql = "select * from(" 
+			  	+ "select * from(" 
+			  	+ "select rownum as rn, re.* from("
+			  	+ "(select * from reservate_view where bid=? order by res_date) re)" 
+			  	+ ")where rn>=?" 
+			  	+ ") where rn<=?";
+		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, bid);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				ReservationVO revo = new ReservationVO();
@@ -152,6 +160,21 @@ public class ReservationDao {
 		}
 		return list;
 	}
+
+	public int getCount(String bid) {
+		int count = 0;
+		con = Dbman.getConnection();
+		String sql = "select count(*) as cnt from reservate_view where bid=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, bid);
+			rs = pstmt.executeQuery();
+			if(rs.next()) count = rs.getInt("cnt");
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+		return count;
+	}
+
 
 	
 }

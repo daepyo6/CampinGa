@@ -32,5 +32,10 @@
          </c:forEach>
       </table>
    </form>
+   
+   <jsp:include page="/business/paging/paging.jsp">
+		<jsp:param name="command" value="camp.do?command=businessmanRestList" />
+	</jsp:include>
+	
 </article>
 <%@ include file="../../footer.jsp"%>

@@ -17,14 +17,9 @@
 						<div><span>${campVO.category}</span></div>
 					</div>
 					<div class="room_info-text">
-						<div><span>객실설명</span></div>
-						<div><span>${campVO.c_content}</span></div>
-					</div>
-					<div class="room_info-text">
 						<div><span>기준인원 ${campVO.min_people}명/최대인원 ${campVO.max_people}명</span></div>
 						<div><span>${campVO.price}원</span></div>
 					</div>
-
 					<div class="roomInfo-bar"></div>
 					<div class="bmresbtns">				
 					<span class="bmresbtn" onclick="location.href='camp.do?command=updateCampingRoomForm&cseq=${campVO.cseq}'">수정</span>

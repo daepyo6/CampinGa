@@ -53,9 +53,6 @@ public class MypageAction implements Action {
 			ReservationDao redao = ReservationDao.getInstance();
 			ArrayList<ReservationVO> reList = redao.getReservateList(paging, mvo.getMid());
 			
-			
-			
-			
 			int page1=1;
 			if( request.getParameter("page1")!=null) {
 				page1 = Integer.parseInt( request.getParameter("page1") );

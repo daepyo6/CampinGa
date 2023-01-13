@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
-<script type="text/javascript" src="camping/campingList.js"></script>
 <style>
 </style>
 <article>
@@ -14,7 +13,7 @@
 		<c:forEach items="${campingList}" var="campVO">
 			<div id="roomBox">
 				<div class="room_img">
-					<img src="images/${campVO.c_image}" class="img" />
+					<img src="campingImage/${campVO.c_image}" class="img" />
 				</div>
 				<div class="room_info">
 					<div class="room_info-title"><span>${campVO.c_class}</span></div>
@@ -77,12 +76,12 @@
 				<tr>
 					<td  colspan="3">&nbsp;&nbsp;</td>
 					<td id="updateTd" colspan="3">
-						<form name="frm" method="post">
+						<form name="frm1" method="post">
 							<input type="hidden" name="qseq" value="${qnaVO.qseq}">
 							<input type="hidden" name="bseq" value="${bseq}"> 
 							<input type="hidden" name="mid" value="${qnaVO.mid}">
 							<textarea name="content">${qnaVO.content}</textarea>
-							<input type="submit" value="확인" onclick="QnaCheck();">
+							<input type="submit" value="확인" onclick="QnaCheck('${bseq}');">
 						</form>
 					</td>
 				</tr>
@@ -97,8 +96,8 @@
 		</table>
 
 		<form name="frm" method="post" action="camp.do">
-			<input type="hidden" name="command" value="insertQna"> <input
-				type="hidden" name="bseq" value="${bseq}">
+			<input type="hidden" name="command" value="insertQna"> 
+			<input type="hidden" name="bseq" value="${bseq}">
 			<div class="writeBox">
 				<textarea rows="8" cols="65" name="content"></textarea>
 				<div class="btns">
@@ -125,8 +124,7 @@
 				</c:choose>
 			</c:forEach>
 			<c:if test="${paging1.next}">
-				<a href="camp.do?command=campDetail&bseq=${bseq}
-									&page1=${paging1.endPage+1}#qnabox">▶</a>
+				<a href="camp.do?command=campDetail&bseq=${bseq}&page1=${paging1.endPage+1}#qnabox">▶</a>
 			</c:if>
 		</div>
 	</div>
@@ -152,7 +150,6 @@
 					<td>&nbsp;&nbsp;&nbsp;${ReviewVO.content}</td>
 					<td><div class="btns">
 					<c:if test="${ReviewVO.mid==loginUser.mid}">
-						
 							<input type="button" value="수정" class="submit"
 								onclick="location.href='camp.do?command=campDetail&rseq=${ReviewVO.rseq}&bseq=${bseq}#reviewbox'">
 							<input type="button" value="삭제" class="submit"
@@ -164,12 +161,12 @@
 					<tr>
 						<td colspan="3">&nbsp;&nbsp;</td>
 						<td id="updateTd" colspan="2">
-							<form name="frm" method="post">
+							<form name="frm2" method="post">
 								<input type="hidden" name="rseq" value="${ReviewVO.rseq}">
 								<input type="hidden" name="bseq" value="${bseq}"> <input
 									type="hidden" name="mid" value="${ReviewVO.mid}">
 								<textarea rows="8" cols="65" name="content">${ReviewVO.content}</textarea>
-								<input type="submit" value="확인" onclick="reviewCheck();">
+								<input type="submit" value="확인" onclick="reviewCheck('${bseq}');">
 							</form>
 						</td>
 					</tr>

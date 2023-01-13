@@ -16,8 +16,10 @@ public class UpdateReviewAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String url = "camp.do?command=campDetail";
+		
+		int bseq = Integer.parseInt(request.getParameter("bseq"));
+		String url = "camp.do?command=campDetail&bseq="+bseq+"#reviewbox";
+		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 

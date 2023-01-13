@@ -12,6 +12,7 @@ import com.campinga.controller.action.Action;
 import com.campinga.dao.ReservationDao;
 import com.campinga.dto.BusinessmanVO;
 import com.campinga.dto.ReservationVO;
+import com.campinga.util.Paging;
 
 public class BusinessmanRestListAction implements Action {
 
@@ -27,7 +28,23 @@ public class BusinessmanRestListAction implements Action {
 			url = "camp.do?command=loginForm";
 		} else {
 			ReservationDao redao = ReservationDao.getInstance();
-			ArrayList<ReservationVO> reList = redao.getBusinessRestList(bvo.getBid());
+			
+			int page = 1;
+			if (request.getParameter("page") != null) {
+				page = Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			} else if (session.getAttribute("page") != null) {
+				page = (Integer) session.getAttribute("page");
+			} else {
+				session.removeAttribute("page");
+			}
+			Paging paging = new Paging();
+			paging.setPage(page);  
+			int count = redao.getCount(bvo.getBid());
+			paging.setTotalCount(count);
+
+			ArrayList<ReservationVO> reList = redao.getBusinessRestList(bvo.getBid(), paging);
+			request.setAttribute("paging", paging);
 			request.setAttribute("reList", reList);
 		}
 		request.getRequestDispatcher(url).forward(request, response);

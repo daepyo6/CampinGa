@@ -27,8 +27,14 @@ public class CampDetailAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "camping/campDetail.jsp";
-		int bseq = Integer.parseInt(request.getParameter("bseq"));
+		int bseq = 0;
 		
+		if(request.getParameter("bseq") == "") {
+			
+		} else {
+			bseq = Integer.parseInt(request.getParameter("bseq"));
+		}
+				
 		// 즐겨찾기 정보 가져오기
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");

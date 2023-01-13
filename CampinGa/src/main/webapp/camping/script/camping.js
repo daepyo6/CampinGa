@@ -1,14 +1,14 @@
 // camping JavaScript 
 
 
-function reviewCheck(){
-    document.frm.action="camp.do?command=updateReview";
-    document.frm.submit();
+function reviewCheck(bseq){
+    document.frm2.action="camp.do?command=updateReview&bseq" + bseq;
+    document.frm2.submit();
 }
 
-function QnaCheck(){
-    document.frm.action="camp.do?command=updateQna";
-    document.frm.submit();
+function QnaCheck(bseq){
+    document.frm1.action="camp.do?command=updateQna&bseq" + bseq;
+    document.frm1.submit();
 }
 
 const cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);

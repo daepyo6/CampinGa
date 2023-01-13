@@ -74,9 +74,6 @@
 <div id="recoBox">
 	<div style="position: relative;" class="mainTitle">이달의 추천 캠핑장!!</div>
 	<div class="recoCampings">
-		<div class="recoTheme">
-			<span>추천 테마 : 사람들이 많이 찾는 인기 캠핑장</span>
-		</div>
 		<div class="recoview">
 			<!-- recoCampList -->
 			<div class="btnA" id="btnL">

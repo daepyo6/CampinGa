@@ -17,8 +17,9 @@ public class UpdateQnaAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String url = "camp.do?command=CampDetail";
+		
+		int bseq = Integer.parseInt(request.getParameter("bseq"));
+		String url = "camp.do?command=campDetail&bseq="+bseq+"#qnabox";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 
@@ -28,8 +29,10 @@ public class UpdateQnaAction implements Action {
 			qvo.setQseq(Integer.parseInt(request.getParameter("qseq")));
 			qvo.setMid(request.getParameter("mid"));
 			qvo.setContent(request.getParameter("content"));
+			System.out.println(request.getParameter("content"));
 			Camp_qnaDao qnadao = Camp_qnaDao.getInstance();
 			qnadao.updateQna(qvo);
+
 		}
 		response.sendRedirect(url);
 	}
