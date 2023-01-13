@@ -12,7 +12,7 @@ function QnaCheck(){
 }
 
 const cat1_num = new Array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
-const cat1_name = new Array('서울','부산','대구','인천','광주','대전','울산','강원','경기','경남','경북','전남','전북','제주','충남','충북');
+const cat1_name = new Array('서울시','부산시','대구광역시','인천광역시','광주광역시','대전광역시','울산광역시','강원도','경기도','경상남도','경상북도','전라남도','전라북도','제주도','충청남도','충청북도');
 
 const cat2_num = new Array();
 const cat2_name = new Array();
@@ -39,6 +39,20 @@ function chDo(key){
     let val = cat2_name[key];
 	let target = document.getElementById("gungu");
 	console.log(val);
+	
+	target.options.length = 0;
+	
+	for (x in val) {
+		var opt = document.createElement("option");
+		opt.value = val[x];
+		opt.innerHTML = val[x];
+		target.appendChild(opt);
+	}
+}
+
+function updateAddress(key){
+    let val = cat2_name[key];
+	let target = document.getElementById("updateAD2");
 	
 	target.options.length = 0;
 	

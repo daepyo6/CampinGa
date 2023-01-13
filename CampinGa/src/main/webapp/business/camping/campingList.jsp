@@ -15,17 +15,24 @@
 		<td><img class="myCampInfo_img" src="images/${BusinessmanVO.image}"></td>
 	</tr>
 	<tr>
-		<th height="150">소개 : </th>
+		<th height="150">소 개 : </th>
 		<td>${BusinessmanVO.content}</td>
 	</tr>
+	<tr>
+		<th height="45">주 소 : </th>
+		<td>${BusinessmanVO.caddress1}&nbsp;${BusinessmanVO.caddress2}&nbsp;${BusinessmanVO.caddress3}</td>
+	</tr>
+	<tr height="15"></tr>
 	<tr>
 		<th height="45">카테고리 : </th>
 		<td>${BusinessmanVO.category}</td>
 	</tr>
+	<tr height="20"></tr>
 	<tr>
 		<th height="45">부대시설 : </th>
 		<td>${BusinessmanVO.facilities}</td>
 	</tr>
+	<tr height="20"></tr>
 	</table>
 	<div>
 		<input type="button" value="수정하기" class="adpage_btn"
