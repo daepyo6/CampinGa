@@ -3,7 +3,7 @@
 <script src="business/business.js"></script>
 <%@ include file="/business/sub_menu.jsp"%>
 <article id="mypage" class="adminPage">
-	<h1>Q&amp;A 게시판</h1>
+	<h1>Q&amp;A</h1>
 	<form name="frm" method="post" >
 		<input type="hidden" name="qseq" value="${qnaVO.qseq}">
 		<table id="reviewList">

@@ -3,7 +3,7 @@
 <%@ include file="/business/sub_menu.jsp"%>
 
 
-	<div class="myCampInfo_title"><h1>캠핑장 정보 관리</h1></div>
+<div class="myCampInfo_title"><h1>캠핑장 정보</h1></div>
 <div class="myCampInfo">
 	<table class="myCampInfo_table">
 	<tr>

@@ -7,7 +7,7 @@
    <!-- 회원 간단한 정보 + 정보수정 버튼-->
    <form method="post" name="memberInfo">
     <div>
-      <h1>회원정보</h1>
+      <h1>사용자 정보</h1>
       <table class="memberInfoList1">
          <tr>
             <th>이름</th>

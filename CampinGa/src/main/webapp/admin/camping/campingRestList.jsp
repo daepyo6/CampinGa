@@ -2,7 +2,7 @@
 <%@ include file="/admin/header.jsp"%>
 <%@ include file="/admin/sub_menu.jsp"%>
 <article id="mypage" class="adminPage">
-	<h1>캠핑장 객실 예약 리스트</h1>
+	<h1>객실 예약리스트</h1>
 	<form name="frm" method="post"><br><br>
 	<table class="adSearch" style="float:right;">
 		<tr>

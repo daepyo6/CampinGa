@@ -5,7 +5,7 @@
     <form method="post" action="camp.do" name="loginFrm" id="loginTable">
       <input type="hidden" name="command" value="login" />
       <div class="login">
-      <h2>Login</h2>
+      <h2>로그인</h2>
       <fieldset>
          <legend></legend>
          <div class="login_id">

@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/admin/header.jsp"%>
 <%@ include file="/admin/sub_menu.jsp"%>
+
 <article>
    <div  id="noticeview" >
-   <h1>공지사항 상세 </h1> 
+   <h1>공지사항</h1> 
    <table>
  
       <tr><th align="center" >제목</th><td colspan="5">${noticeVO.subject}</td></tr>

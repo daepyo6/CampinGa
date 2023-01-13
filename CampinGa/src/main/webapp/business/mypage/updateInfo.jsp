@@ -7,7 +7,7 @@
 <form method="post" name="updateBusinessInfo">
 	<input type="hidden" name="command" value="updateBusinessInfo" />
 	<div class="joinTable">
-	<h2>Update Information</h2> <br><br>
+	<h2>사업자 정보 수정</h2> <br><br>
 	<fieldset>
 		<div class="inputDiv" style="padding-left: 30px;">
 		<label>User ID </label><input type="text" name="bid" value="${loginBusinessman.bid}" readonly><br>
