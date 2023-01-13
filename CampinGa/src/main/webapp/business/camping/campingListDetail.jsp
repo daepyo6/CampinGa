@@ -41,13 +41,13 @@
 				<span>카테고리</span>
 				<div class="roomInput_div">
 				<select name="category">
-					<c:forEach items="${cateMap}" var="map">
+					<c:forEach items="${cateMap}" var="cate">
 						<c:choose>
-							<c:when test="${map.value==BusinessmanVO.category}">
-								<option value="${map.value}" selected="selected">${map.key}</option>
+							<c:when test="${cate==BusinessmanVO.category}">
+								<option value="${cate}" selected="selected">${cate}</option>
 							</c:when>
 							<c:otherwise>
-								<option value="${map.value}">${map.key}</option>
+								<option value="${cate}">${cate}</option>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>

@@ -19,7 +19,7 @@ public class CategoryAction implements Action {
 		request.setCharacterEncoding("UTF-8");
 		String url = "camping/campingList.jsp";
 		ArrayList<BusinessmanVO> list = null;
-		// All=1, auto=2, camping=3, caravane=4, campnic=5
+		// All=1, ¿ÀÅäÄ·ÇÎ=2, camping=3, caravane=4, campnic=5
 		int category = Integer.parseInt(request.getParameter("kind"));
 		String kind = "";
 		CampDao cdao = CampDao.getInstance();
@@ -27,16 +27,16 @@ public class CategoryAction implements Action {
 			list = cdao.selectAll();
 			request.setAttribute("campList", list);
 		} else if (category == 2) {
-			kind = "auto";
+			kind = "¿ÀÅäÄ·ÇÎ";
 			list = cdao.selectCategory(kind);
 		} else if (category == 3) {
-			kind = "camping";
+			kind = "Ä·ÇÎ";
 			list = cdao.selectCategory(kind);
 		} else if (category == 4) {
-			kind = "caravane";
+			kind = "Ä«¶ó¹Ý";
 			list = cdao.selectCategory(kind);
 		} else if (category == 5) {
-			kind = "campnic";
+			kind = "Ä·ÇÁ´Ð";
 			list = cdao.selectCategory(kind);
 		}
 		request.setAttribute("campList", list);
