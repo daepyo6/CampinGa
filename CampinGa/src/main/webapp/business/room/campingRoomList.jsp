@@ -8,7 +8,7 @@
 		<c:forEach items="${campingList}" var="campVO">
 			<div id="roomBox">
 				<div class="room_img">
-					<img src="images/${campVO.c_image}" class="img" />
+					<img src="campingImage/${campVO.c_image}" class="img" />
 				</div>
 				<div class="room_info">
 					<div class="room_info-title"><span>${campVO.c_class}</span></div>

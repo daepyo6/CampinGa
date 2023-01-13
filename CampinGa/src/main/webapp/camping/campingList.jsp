@@ -14,7 +14,12 @@
 		<c:forEach items="${campList}" var="campVO">
 			<div id="campInfo"
 					onclick="location.href='camp.do?command=campDetail&bseq=${campVO.bseq}'">
-				<img id="campInfo_img" src="images/${campVO.image}">
+				<c:if test="${campVO.image != null}">
+					<img id="campInfo_img" src="campingImage/${campVO.image}">
+				</c:if>
+				<c:if test="${campVO.image == null}">
+					<img id="campInfo_img" src="images/imgfile.png">
+				</c:if>
 				<div id="campInfo_text">
 					<span>${campVO.cname}</span><br> 
 					<span> 주소 : ${campVO.caddress1} ${campVO.caddress2}</span><br> 

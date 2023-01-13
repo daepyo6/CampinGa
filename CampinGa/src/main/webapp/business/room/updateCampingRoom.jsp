@@ -4,7 +4,8 @@
 
 <article style="height: 1400px">
 	<form method="post" name="campingRoom" enctype="multipart/form-data" action="camp.do?command=updateCampingRoom">
-		<input type="hidden" name="cseq" value="${campVO.cseq}">		
+		<input type="hidden" name="cseq" value="${campVO.cseq}">
+		<input type="hidden" name="oldc_image" value="${campVO.c_image}">			
 		<div class="roomInsert">
 			<div class="roomInsert_title">
 				<span>객실 수정</span>
@@ -20,7 +21,7 @@
 			<div class="roomInput">
 				<span>현재 객실 사진</span><br>
 				<div style="text-align: center; margin-top: 15px;">
-					<img src="images/${campVO.c_image}" 
+					<img src="campingImage/${campVO.c_image}" 
 					style="width: 300px; height: 200px; border-radius: 10px;">
 				</div>
 			</div>

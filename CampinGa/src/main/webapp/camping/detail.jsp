@@ -5,7 +5,12 @@
 <div id="campingdetail">
 	<div id="campMain">
 		<div id="campMain_img">
-			<img src="images/${campMain.image}" />
+			<c:if test="${campMain.image != null}">
+				<img id="campInfo_img" src="campingImage/${campMain.image}">
+			</c:if>
+			<c:if test="${campMain.image == null}">
+				<img id="campInfo_img" src="images/imgfile.png">
+			</c:if>
 		</div>
 		<div id="campMain_info">
 			<div id="campMain_info-title">

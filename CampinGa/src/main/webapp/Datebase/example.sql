@@ -202,14 +202,18 @@ insert into notice (nseq,aid,subject,content)values
 이벤트 관련문의 : 02-6429-3801 )');
 insert into notice (nseq,aid,subject,content)values
 (notice_seq.nextval,'scott','초캠러(초보캠퍼)를 위한 동계안전캠핑 5대수칙 알리기 이벤트>',
-'미션1. 고캠핑 SNS 팔로우 하기! 미션2. 게시글 댓글에 친구 태그하여 동계안전 캠핑 5대 기본수칙 널리~ 널리~ 알리기!
- 미션1,2 모두 참여한 불들 중 100분 에게 일산화탄소 경보기와 불멍이 마스크를!
+'미션1. CampinGa SNS 팔로우 하기! 
+미션2. 게시글 댓글에 친구 태그하여 동계안전 캠핑 5대 기본수칙 널리~ 널리~ 알리기!
+미션1,2 모두 참여한 불들 중 100분 에게 일산화탄소 경보기와 불멍이 마스크를!
 미션2만 참여한 분들 중 200분께 손세정제와 불멍이 인형을 드립니다!
 많은 참여 부탁드립니다.');
 insert into notice (nseq,aid,subject,content)values
 (notice_seq.nextval,'scott','2022년 등록 야영장 지원사업(1차) 추진계획 안내',
-' 추진일정 : 1. 기초지자체 공고 및 접수*(~21.9.30.), 2. 광역지자체 심사 후 문체부 요청(~10.7.)
- 3. 지원대상 확정(~10.22.), 4. 보조금 교부(11월~)     
+' 추진일정 : 
+1. 기초지자체 공고 및 접수*(~21.9.30.)
+2. 광역지자체 심사 후 문체부 요청(~10.7.)
+3. 지원대상 확정(~10.22.) 
+4. 보조금 교부(11월~)     
 * 지역별로 일정이 상이할 수 있으며, 지방비 확보가 어려운 지역은 공모에 참가가 불가할 수 있는 바,
 자세한 사항은 지자체 관광과에 문의하여 주시기 바랍니다.');
 
@@ -253,10 +257,10 @@ where f.mid = m.mid and f.bseq = b.bseq;
 
 DROP view favorites_view CASCADE CONSTRAINTS;
 select * from favorites_view;
-SELECT cname, COUNT(cname) AS cnt, FROM favorites_view GROUP BY cname;
+SELECT COUNT(cname) AS cnt, FROM favorites_view;
 
 SELECT DISTINCT cname, COUNT(cname) OVER (PARTITION BY cname) AS cnt_fav, image, bseq
-FROM favorites_view where rownum<=8 order by cnt_fav desc;
+FROM favorites_view where rownum<=9 order by cnt_fav desc;
 
 
 
@@ -326,3 +330,8 @@ select * from ( select * from ( select rownum as rn, f.mid from (
 				(select * from favorites_view where mid='qndrl12' order by fseq desc) f)
 				)where rn>=1
 				)where rn<=5;
+
+select * from favorites_view
+SELECT DISTINCT cname, COUNT(cname) OVER (PARTITION BY cname) AS cnt_fav
+				FROM favorites_view where rownum<=8 order by cnt_fav desc;				
+				

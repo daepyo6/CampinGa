@@ -38,7 +38,7 @@ public class UpdateCampingRoomAction implements Action {
 		    cvo.setMin_people( Integer.parseInt( multi.getParameter("min_people")));
 		    cvo.setMax_people( Integer.parseInt( multi.getParameter("max_people")));
 		    if(multi.getFilesystemName("c_image") == null) {
-		    	cvo.setC_image( multi.getFilesystemName("oldc_image"));
+		    	cvo.setC_image( multi.getParameter("oldc_image"));
 		    } else {
 		    	cvo.setC_image( multi.getFilesystemName("c_image"));
 		    }

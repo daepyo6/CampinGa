@@ -128,7 +128,7 @@ public class BusinessmanDao {
 		ArrayList<CampingVO> list = new ArrayList<CampingVO>();
 		con = Dbman.getConnection();
 		String sql = " select * from ( " + " select * from ( " + " select rownum as rn, p.* from "
-				+ " (( select * from camping where bseq=? order by cseq desc) p) " + " ) where rn>=? "
+				+ " (( select * from camping where bseq=? order by cseq) p) " + " ) where rn>=? "
 				+ " ) where rn<=? ";
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -343,7 +343,7 @@ public class BusinessmanDao {
 		String sql = " select * from ("
 				+ " select * from ("
 				+ " select rownum as rn, b.* from "
-				+ " ((select * from businessman where name like '%'||?||'%' order by bseq desc) b)"
+				+ " ((select * from businessman where name like '%'||?||'%' order by bseq) b)"
 				+ " ) where rn>=?"
 				+ " ) where rn<=?";
 		try {

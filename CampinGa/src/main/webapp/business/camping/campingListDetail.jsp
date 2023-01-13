@@ -18,15 +18,19 @@
 			<div class="roomInput">
 				<span>캠핑장 이름</span>
 				<div class="roomInput_div">
-					<input type="text" name="cname" size="20" value="${BusinessmanVO.cname}">
+					<input type="text" name="cname" size="40" value="${BusinessmanVO.cname}">
 				</div>
 			</div>
 			<br>
 			<div class="roomInput">
 				<span>현재 캠핑장 사진</span><br>
 				<div style="text-align: center; margin-top: 15px;">
-					<img src="images/${BusinessmanVO.image}" 
-					style="width: 300px; height: 200px; border-radius: 10px;">
+					<c:if test="${BusinessmanVO.image != null}">
+						<img src="campingImage/${BusinessmanVO.image}" style="width: 300px; height: 200px; border-radius: 10px;">
+					</c:if>
+					<c:if test="${BusinessmanVO.image == null}">
+						<img src="images/imgfile.png" style="width: 300px; height: 200px; border-radius: 10px;">
+					</c:if>
 				</div>
 			</div>
 			<br>
@@ -39,7 +43,7 @@
 				<div class="filebox">
 				    <input class="upload-name" value="첨부파일" placeholder="첨부파일">
 				    <label for="file">파일찾기</label> 
-				    <input type="file" id="file" name="c_image">
+				    <input type="file" id="file" name="newimg">
 				</div>
 			</div>
 			<br>
@@ -63,7 +67,7 @@
 					</select>
 				</div>
 				<div class="roomInput_div">
-					<input type="text" name="caddress3" size="20" value="${BusinessmanVO.caddress3}">
+					<input type="text" name="caddress3" size="50" value="${BusinessmanVO.caddress3}">
 				</div>
 			</div>
 			<br>

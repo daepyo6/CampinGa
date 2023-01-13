@@ -1,6 +1,8 @@
 drop sequence businessman_seq;
 create sequence businessman_seq start with 1;
 
+select * from businessman;
+
 insert into businessman(bseq, bid, pwd, name, phone, email, cname, caddress1, caddress2, caddress3, facilities, image, content, category) 
 values(businessman_seq.nextval, 'dp', '1234', '이대표', '010-1111-1111', 'abc@abc.com' , 
 '해여림 빌리지', '경기도','여주시', '산북면 해여림로 78', '바베큐장, 주차장', 'camp01.jpg',

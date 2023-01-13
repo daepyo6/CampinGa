@@ -42,7 +42,7 @@ CREATE TABLE businessman
 	category varchar2(20),
 	PRIMARY KEY (bseq)
 );
-
+ALTER TABLE businessman modify cname VARCHAR2(60);
 
 CREATE TABLE camping
 (
@@ -59,7 +59,7 @@ CREATE TABLE camping
 	c_indate date DEFAULT sysdate,
 	PRIMARY KEY (cseq)
 );
-
+ALTER TABLE camping modify cname VARCHAR2(60);
 
 CREATE TABLE camp_qna
 (

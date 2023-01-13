@@ -38,6 +38,7 @@ CREATE TABLE businessman
 	caddress3 varchar2(100) NOT NULL,
 	PRIMARY KEY (bseq)
 );
+ALTER TABLE businessman MODIFY cname VARCHAR2(100);
 
 
 CREATE TABLE camping
@@ -57,7 +58,7 @@ CREATE TABLE camping
 	c_indate date DEFAULT sysdate,
 	PRIMARY KEY (cseq)
 );
-
+ALTER TABLE camping MODIFY cname VARCHAR2(100);
 
 CREATE TABLE camp_qna
 (
@@ -102,7 +103,7 @@ CREATE TABLE notice
 	indate date DEFAULT sysdate,
 	PRIMARY KEY (nseq)
 );
-
+ALTER TABLE notice MODIFY subject VARCHAR2(100);
 
 CREATE TABLE reservation
 (

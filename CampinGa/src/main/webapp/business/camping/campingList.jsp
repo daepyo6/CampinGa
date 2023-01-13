@@ -12,7 +12,14 @@
 	</tr>
 	<tr>
 		<th height="220">이미지 : </th>
-		<td><img class="myCampInfo_img" src="images/${BusinessmanVO.image}"></td>
+		<td>	
+			<c:if test="${BusinessmanVO.image != null}">
+				<img id="campInfo_img" src="campingImage/${BusinessmanVO.image}">
+			</c:if>
+			<c:if test="${BusinessmanVO.image == null}">
+				<img id="campInfo_img" src="images/imgfile.png">
+			</c:if>
+		</td>
 	</tr>
 	<tr>
 		<th height="150">소 개 : </th>

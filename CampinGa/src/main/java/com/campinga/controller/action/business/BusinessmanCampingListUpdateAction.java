@@ -29,7 +29,7 @@ public class BusinessmanCampingListUpdateAction implements Action {
 		} else {
 			BusinessmanVO bmvo = new BusinessmanVO();
 			ServletContext context = session.getServletContext();
-		    String path = context.getRealPath("images");
+		    String path = context.getRealPath("campingImage");
 		    MultipartRequest multi = new MultipartRequest(
 		    		request, path, 5*1024*1024, "UTF-8",	 new DefaultFileRenamePolicy() );			
 		    bmvo.setBseq(Integer.parseInt(multi.getParameter("bseq")));

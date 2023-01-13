@@ -34,9 +34,8 @@
 			</div>
 			<br>
 			<div id="searchName">
-				<span>캠핑장명</span> <input type="text" id="inputText" name="cname"
-					size="20"> <input type="button" id="mainBtn" value="검색"
-					onclick="mainSearch()">
+				<span>캠핑장명</span> <input type="text" id="inputText" name="cname" size="20"> 
+				<input type="button" id="mainBtn" value="검색" onclick="mainSearch()">
 			</div>
 		</div>
 	</div>
@@ -50,10 +49,10 @@
 				<div class="newCampImgs">
 					<c:choose>
 						<c:when test="${newCamp.image==null}">
-							<img class="campImg" src="images/camp01.jpg">
+							<img class="campImg" src="images/imgfile.jpg">
 						</c:when>
 						<c:otherwise>
-							<img class="campImg" src="images/${newCamp.image}">
+							<img class="campImg" src="campingImage/${newCamp.image}">
 						</c:otherwise>
 					</c:choose>
 					<div class="imgCover">
@@ -92,7 +91,7 @@
 								<span>${recoCamp.cname}</span>
 							</div>
 							<div class="recoImg">
-								<img src="images/${recoCamp.image}">
+								<img src="campingImage/${recoCamp.image}">
 							</div>
 						</div>
 					</c:forEach>
