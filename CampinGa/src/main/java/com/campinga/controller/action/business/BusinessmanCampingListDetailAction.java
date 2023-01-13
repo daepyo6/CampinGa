@@ -58,12 +58,9 @@ public class BusinessmanCampingListDetailAction implements Action {
 			
 			request.setAttribute("BusinessmanVO", campingList);
 			request.setAttribute("paging", paging);
-		}
-		HashMap<String, String> cateMap = new HashMap<String, String>();
-		cateMap.put("¿ÀÅäÄ·ÇÎ", "auto");
-		cateMap.put("Ä·ÇÎ", "camping");
-		cateMap.put("Ä«¶ó¹İ", "caravane");
-		cateMap.put("Ä·ÇÁ´Ğ", "campnic");
+		}		
+		
+		String [] cateMap = {"¿ÀÅäÄ·ÇÎ","Ä·ÇÎ","Ä«¶ó¹İ","Ä·ÇÁ´Ğ"};
 		
 		request.setAttribute("cateMap", cateMap);
 		request.getRequestDispatcher(url).forward(request, response);
