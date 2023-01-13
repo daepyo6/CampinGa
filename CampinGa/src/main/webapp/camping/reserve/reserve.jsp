@@ -5,47 +5,50 @@
 <link href="camping/reserve/reserve.css" rel="stylesheet">
 <script type="text/javascript" src="camping/reserve/reserve.js"></script>
 <script type="text/javascript">
+	$.datepicker.setDefaults({
+		dateFormat: 'yy-mm-dd',
+		prevText: '이전 달',
+		nextText: '다음 달',
+		monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+		dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		showMonthAfterYear: true,
+		showOtherMonths: true,
+		yearSuffix: '년',
+		minDate: "0D",
+		beforeShowDay: disableDates
+	});
 
 	$(function() {
 		$('#beginDate').datepicker({
 			
 		});
 		$('#endDate').datepicker({
-			beforeShowDay: disableDates
+			
 		});
-
-		var my_array = [ "2023-01-17", "2023-01-19" ]
 		
-		function my_check(in_date) {
-			in_date = in_date.getFullYear() + '-'
-					+ String((in_date.getMonth() + 1)).padStart(2, '0') + '-'
-					+ String(in_date.getDate()).padStart(2, '0')
-			if (my_array.indexOf(in_date) >= 0) {
-				return [ false, "notav", 'Not Available' ];
-			} else {
-				return [ true, "av", "available" ];
-			}
-		}
-		
-		function disableDates(date){
-			var dateRange = [];
-			var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-			<c:forEach var = "reList" items="${reDateList}">		
-			    var startdate = "${reList.chk_in}"
-			    var enddate = "${reList.chk_out}";
-				
-			    console.log(startdate);
-			    console.log(enddate);
-			    
-			    for (var d = new Date(startdate); d <= new Date(enddate); d.setDate(d.getDate() + 1)) {
-			        dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
-			    }
-			    return [dateRange.indexOf(dateString) == -1];
-			</c:forEach>
-		}
-
 	});
 
+	function disableDates(date){
+		var dateRange = [];
+		var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+		<c:forEach var = "reList" items="${reDateList}">
+		    var startdate = "${reList.chk_in}"
+		    var enddate = "${reList.chk_out}";
+			
+		    console.log(startdate);
+		    console.log(enddate);
+		    
+		    for (var d = new Date(startdate); d <= new Date(enddate); d.setDate(d.getDate() + 1)) {
+		        dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
+		    }
+		</c:forEach>
+		    return [dateRange.indexOf(dateString) == -1];
+	}
+	
+	
 	function call() {
 		var beginDate = document.getElementById("beginDate").value;
 		var endDate = document.getElementById("endDate").value;

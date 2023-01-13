@@ -125,7 +125,8 @@ public class ReservationDao {
 		ArrayList<ReservationVO> list = new ArrayList<ReservationVO>();
 		con = Dbman.getConnection();
 		String sql = "select to_char(chk_in,'yyyy-mm-dd') as cin,"
-				+ " to_char(chk_out,'yyyy-mm-dd') as cout from reservation where cseq=?";
+				+ " to_char(chk_out,'yyyy-mm-dd') as cout from reservation "
+				+ "where cseq=? and chk_out>=sysdate order by chk_in";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, cseq);

@@ -139,7 +139,7 @@ public class AdminDao {
 		String sql = "select * from ( "
 				+ " select * from ( "
 				+ " select rownum as rn, re.* from "
-				+ " ((select * from reservate_view where cname like '%'||?||'%' order by reseq desc) re) "
+				+ " ((select * from reservate_view where c_class like '%'||?||'%' order by reseq desc) re) "
 				+ " ) where rn>=? "
 				+ " ) where rn<=? ";
 		con = Dbman.getConnection();
