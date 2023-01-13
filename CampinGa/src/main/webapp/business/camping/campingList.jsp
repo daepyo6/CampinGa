@@ -16,7 +16,7 @@
 	</tr>
 	<tr>
 		<th height="150">소 개 : </th>
-		<td>${BusinessmanVO.content}</td>
+		<td style="line-height: 1.5;">${BusinessmanVO.content}</td>
 	</tr>
 	<tr>
 		<th height="45">주 소 : </th>
