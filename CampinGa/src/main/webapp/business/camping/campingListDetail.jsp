@@ -12,7 +12,7 @@
 		<input type="hidden" name="oldimg" value="${BusinessmanVO.image}" >
 		<div class="roomInsert">
 			<div class="roomInsert_title">
-				<span>캠핑장 정보수정</span>
+				<span>캠핑장 정보 수정</span>
 			</div>
 			<br>
 			<div class="roomInput">

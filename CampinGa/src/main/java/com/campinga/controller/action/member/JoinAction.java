@@ -17,7 +17,6 @@ public class JoinAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		
 		MemberVO mvo = new MemberVO();
 		mvo.setMid(request.getParameter("id"));
 		mvo.setName(request.getParameter("name"));
@@ -28,12 +27,11 @@ public class JoinAction implements Action {
 		int rs =  mdao.insertMember(mvo);
 		
 		String url = "camp.do?command=loginForm";
-		HttpSession session = request.getSession();
 		
 		if(rs==1) {
-			session.setAttribute("message", "회원가입이 완료되었습니다. 로그인해주세요");			
+			request.setAttribute("message", "회원가입이 완료되었습니다. 로그인해주세요");			
 		} else {
-			session.setAttribute("message", "회원가입에 실패했습니다.");
+			request.setAttribute("message", "회원가입에 실패했습니다.");
 			url = "camp.do?command=joinForm";
 		}
 		

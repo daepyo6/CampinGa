@@ -5,7 +5,7 @@
 <br><br>
 <article >
    <div  id="noticeview" >
-   <h1>공지사항 상세 </h1> 
+   <h1>공지사항</h1> 
    <table>
 
       <tr><th align="center" >제목</th><td colspan="5">${noticeVO.subject}</td></tr>

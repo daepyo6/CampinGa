@@ -2,7 +2,7 @@
 <%@ include file="/admin/header.jsp"%>
 <%@ include file="/admin/sub_menu.jsp"%>
 <article  id="mypage" class="adminPage">
-   <h1>회원리스트</h1>  
+   <h1>회원목록</h1>  
    <form name="frm" method="post">
    <table class="adSearch" style="float:right;"><br><br>
       <tr><td class="searchTd">회원 이름 <input type="text" name="key" value="${key1}">

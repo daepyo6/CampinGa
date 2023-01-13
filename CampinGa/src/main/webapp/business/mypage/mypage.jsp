@@ -4,7 +4,7 @@
 
 <article id="mypage">
    <!-- 회원 간단한 정보 + 정보수정 버튼-->
-   <h1>회원정보</h1>
+   <h1>사업자 정보</h1>
    <form method="post" name="memberInfo">      
       <table class="memberInfoList1">
          <tr>

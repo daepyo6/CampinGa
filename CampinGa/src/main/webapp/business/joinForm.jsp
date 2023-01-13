@@ -4,7 +4,7 @@
 <article>
    <form method="post" name="joinForm"> 
       <div class="joinTable">
-         <h1>입점 신청</h1>
+         <h1>사업자 신청</h1>
          <div class="inputDiv">
          <label>아이디</label>
             <input type="text" class="joinInput" name="id" size="20">

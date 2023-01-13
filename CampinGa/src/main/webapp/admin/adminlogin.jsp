@@ -5,7 +5,7 @@
 
    <article>
       <div class="login">
-       <h2>Admin Login</h2>
+       <h2>관리자 로그인</h2>
          <form name="frm" method="post" action="camp.do">
             <input type="hidden" name="command" value="adminLogin">
             

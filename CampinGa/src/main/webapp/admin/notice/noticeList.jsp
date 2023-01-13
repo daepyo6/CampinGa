@@ -2,11 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/admin/header.jsp"%>
 <%@ include file="/admin/sub_menu.jsp"%>
+
 <article id="mypage" class="adminPage">
-	<h1>공지사항 리스트</h1>
+	<h1>공지사항</h1>
 	<form name="frm" method="post">	
 		<div id="mypagebtn" style="text-align: right;" onclick="location.href='camp.do?command=adminNoticeWriteForm'">
-     		<input type="button" value="공지사항 쓰기">
+     		<input type="button" value="글쓰기">
     	</div>	
 		<table id="noticeList" class="rentList">			
 			<tr><th>번호</th><th>제목</th><th>등록일</th></tr>

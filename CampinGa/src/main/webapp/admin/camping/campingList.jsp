@@ -5,7 +5,7 @@
 <%@ include file="/admin/sub_menu.jsp"%>
 
 <article id="mypage" class="adminPage">
-	<h1>캠핑장 정보 관리</h1>
+	<h1>캠핑장 정보</h1>
 	<form name="frm" method="post">
 
 		<table class="rentList">
