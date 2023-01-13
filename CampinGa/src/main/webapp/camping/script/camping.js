@@ -38,7 +38,6 @@ function chDo(key){
     if(key == null) return;
     let val = cat2_name[key];
 	let target = document.getElementById("gungu");
-	console.log(val);
 	
 	target.options.length = 0;
 	
@@ -49,21 +48,6 @@ function chDo(key){
 		target.appendChild(opt);
 	}
 }
-
-function updateAddress(key){
-    let val = cat2_name[key];
-	let target = document.getElementById("updateAD2");
-	
-	target.options.length = 0;
-	
-	for (x in val) {
-		var opt = document.createElement("option");
-		opt.value = val[x];
-		opt.innerHTML = val[x];
-		target.appendChild(opt);
-	}
-}
-
 
 function mainSearch() {
 	const sido = document.getElementById("sido").value;

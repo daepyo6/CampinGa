@@ -2,7 +2,7 @@
 <%@ include file="../../header.jsp"%>
 <%@ include file="/business/sub_menu.jsp"%>
 
-<article>
+<article style="height: 1350px;">
 	<form method="post" name="campingRoom" enctype="multipart/form-data" action="camp.do?command=insertCampingRoom">
 		<div class="roomInsert">
 			<div class="roomInsert_title">
@@ -39,7 +39,7 @@
 			<div class="roomInput">
 				<span>객실 가격</span>
 				<div class="roomInput_div">
-				<input type="text" name="price" size="20" placeholder="0">
+				<input type="text" name="price" size="20" value="0">
 				<span>&nbsp;원</span>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 			<div class="roomInput">
 				<span>기준인원</span>
 				<div class="roomInput_div"> 
-				<input type="text" name="min_people" size="5" placeholder="0">
+				<input type="text" name="min_people" size="5" value="0">
 				<span>&nbsp;명</span>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 			<div class="roomInput">
 				<span>최대인원</span>
 				<div class="roomInput_div">
-				<input type="text" name="max_people" size="5" placeholder="0">
+				<input type="text" name="max_people" size="5" value="0">
 				<span>&nbsp;명</span>
 				</div>
 			</div>
