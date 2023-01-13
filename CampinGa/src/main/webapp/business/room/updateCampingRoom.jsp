@@ -2,7 +2,7 @@
 <%@ include file="../../header.jsp"%>
 <%@ include file="/business/sub_menu.jsp"%>
 
-<article>
+<article style="height: 1400px">
 	<form method="post" name="campingRoom" enctype="multipart/form-data" action="camp.do?command=updateCampingRoom">
 		<input type="hidden" name="cseq" value="${campVO.cseq}">		
 		<div class="roomInsert">
@@ -41,7 +41,7 @@
 			<div class="roomInput">
 				<span>객실 가격</span>
 				<div class="roomInput_div">
-				<input type="text" name="price" size="20" placeholder="${campVO.price}">
+				<input type="text" name="price" size="20" value="${campVO.price}">
 				<span>&nbsp;원</span>
 				</div>
 			</div>
@@ -49,7 +49,7 @@
 			<div class="roomInput">
 				<span>기준인원</span>
 				<div class="roomInput_div"> 
-				<input type="text" name="min_people" size="5" placeholder="${campVO.min_people}">
+				<input type="text" name="min_people" size="5" value="${campVO.min_people}">
 				<span>&nbsp;명</span>
 				</div>
 			</div>
@@ -57,7 +57,7 @@
 			<div class="roomInput">
 				<span>최대인원</span>
 				<div class="roomInput_div">
-				<input type="text" name="max_people" size="5" placeholder="${campVO.max_people}">
+				<input type="text" name="max_people" size="5" value="${campVO.max_people}">
 				<span>&nbsp;명</span>
 				</div>
 			</div>			

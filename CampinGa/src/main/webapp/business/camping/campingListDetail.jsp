@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../../header.jsp"%>
 <%@ include file="/business/sub_menu.jsp"%>
 
@@ -17,7 +18,7 @@
 			<div class="roomInput">
 				<span>캠핑장 이름</span>
 				<div class="roomInput_div">
-					<input type="text" name="cname" size="20" placeholder="${BusinessmanVO.cname}">
+					<input type="text" name="cname" size="20" value="${BusinessmanVO.cname}">
 				</div>
 			</div>
 			<br>
@@ -45,7 +46,7 @@
 			<div class="roomInput">
 				<span>캠핑장 주소</span>
 				<div class="roomInput_div">
-					<select name="caddress1" id="sido" style="width: 200px" onchange="updateAddress(this.value)">
+					<select name="caddress1" id="sido" style="width: 200px" onchange="chDo(this.value)">
 					<c:forTokens var="item" varStatus="status" items="서울시,부산시,대구광역시,인천광역시,광주광역시,대전광역시,울산광역시,강원도,경기도,경상남도,경상북도,전라남도,전라북도,제주도,충청남도,충청북도"  delims=",">
 						<c:choose>
 							<c:when test="${item==BusinessmanVO.caddress1}">
@@ -57,7 +58,7 @@
 						</c:choose>
 					</c:forTokens>
 					</select>
-					<select style="width: 200px" name="caddress2" id="updateAD2">
+					<select style="width: 200px" name="caddress2" id="gungu">
 						<option>${BusinessmanVO.caddress2}</option>
 					</select>
 				</div>
@@ -77,13 +78,13 @@
 				<span>카테고리</span>
 				<div class="roomInput_div">
 				<select name="category">
-					<c:forEach items="${cateMap}" var="map">
+					<c:forEach items="${cateMap}" var="cate">
 						<c:choose>
-							<c:when test="${map.value==BusinessmanVO.category}">
-								<option value="${map.value}" selected="selected">${map.key}</option>
+							<c:when test="${cate==BusinessmanVO.category}">
+								<option value="${cate}" selected="selected">${cate}</option>
 							</c:when>
 							<c:otherwise>
-								<option value="${map.value}">${map.key}</option>
+								<option value="${cate}">${cate}</option>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
@@ -93,15 +94,28 @@
 			<br>
 			<div class="roomInput">
 				<span>부대시설</span>
+				${BusinessmanVO.facilities}
 				<div class="roomInput_div" style="text-align: left;">
-					<input type="checkbox" name="facilities" value="공용주차장"/>&nbsp;공용주차장&nbsp;&nbsp;
-    			    <input type="checkbox" name="facilities" value="공용화장실"/>&nbsp;공용화장실&nbsp;&nbsp;
-    			    <input type="checkbox" name="facilities" value="편의점/매점"/>&nbsp;편의점&nbsp;&nbsp;
-    			   	<input type="checkbox" name="facilities" value="카페"/>&nbsp;카페&nbsp;&nbsp;<br>
-    			    <input type="checkbox" name="facilities" value="공용샤워실"/>&nbsp;공용샤워실&nbsp;&nbsp;
-    			    <input type="checkbox" name="facilities" value="바베큐장"/>&nbsp;바베큐장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    			    <input type="checkbox" name="facilities" value="수영장"/>&nbsp;수영장&nbsp;&nbsp;
-    			    <input type="checkbox" name="facilities" value="개수대"/>&nbsp;개수대&nbsp;&nbsp;
+    			<c:forTokens var="item" items="공용주차장,공용화장실,편의점/매점,카페" delims=",">
+    				<c:choose>
+    			 	<c:when test="${fn:contains(BusinessmanVO.facilities, item)}">
+    			 		<input checked="checked" type="checkbox" name="facilities" value="${item}"/>&nbsp;${item}&nbsp;&nbsp;&nbsp;
+    			 	</c:when>
+    			 	<c:otherwise>
+    			 		<input type="checkbox" name="facilities" value="${item}"/>&nbsp;${item}&nbsp;&nbsp;&nbsp;
+    			 	</c:otherwise>
+    			 </c:choose>        			
+    			</c:forTokens> <br>
+    			<c:forTokens var="item" items="공용샤워실,바베큐장,수영장,개수대" delims=",">
+    				<c:choose>
+    			 	<c:when test="${fn:contains(BusinessmanVO.facilities, item)}">
+    			 		<input checked="checked" type="checkbox" name="facilities" value="${item}"/>&nbsp;${item}&nbsp;&nbsp;&nbsp;
+    			 	</c:when>
+    			 	<c:otherwise>
+    			 		<input type="checkbox" name="facilities" value="${item}"/>&nbsp;${item}&nbsp;&nbsp;&nbsp;
+    			 	</c:otherwise>
+    			 </c:choose>        			
+    			</c:forTokens>
 				</div>
 			</div>
 				<div class="buttons">
