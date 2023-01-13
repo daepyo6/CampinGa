@@ -6,27 +6,12 @@
 <script type="text/javascript" src="camping/reserve/reserve.js"></script>
 <script type="text/javascript">
 
-	$.datepicker.setDefaults({
-		dateFormat: 'yy-mm-dd',
-		prevText: '이전 달',
-		nextText: '다음 달',
-		monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
-		dayNames: ['일', '월', '화', '수', '목', '금', '토'],
-		dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
-		dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-		showMonthAfterYear: true,
-		showOtherMonths: true,
-		yearSuffix: '년',
-		minDate: "0D"
-	});
-
 	$(function() {
 		$('#beginDate').datepicker({
 			
 		});
 		$('#endDate').datepicker({
-			beforeShowDay: my_check
+			beforeShowDay: disableDates
 		});
 
 		var my_array = [ "2023-01-17", "2023-01-19" ]
@@ -42,18 +27,23 @@
 			}
 		}
 		
-		 function disableDates(date){
-	 		 var dateRange = [];
-	         var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+		function disableDates(date){
+			var dateRange = [];
+			var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+			<c:forEach var = "reList" items="${reDateList}">		
+			    var startdate = "${reList.chk_in}"
+			    var enddate = "${reList.chk_out}";
+				
+			    console.log(startdate);
+			    console.log(enddate);
+			    
+			    for (var d = new Date(startdate); d <= new Date(enddate); d.setDate(d.getDate() + 1)) {
+			        dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
+			    }
+			    return [dateRange.indexOf(dateString) == -1];
+			</c:forEach>
+		}
 
-	  		 var sdate = "2021-01-29";
-	 		 var edate = "2021-01-31";
-
-			 for (var d = new Date(sdate); d <= new Date(edate); d.setDate(d.getDate() + 1)) {
-	  			dateRange.push($.datepicker.formatDate('yy-mm-dd', d));
-	 			 }
-	  		return [dateRange.indexOf(dateString) == -1];
-	 	}
 	});
 
 	function call() {
