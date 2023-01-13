@@ -34,7 +34,7 @@ public class CampDetailAction implements Action {
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if(mvo != null) {
 			FavoritesDao fdao = FavoritesDao.getInstance();
-			String check_fav = fdao.checkFav(bseq);
+			String check_fav = fdao.checkFav(bseq, mvo.getMid());
 			request.setAttribute("chk_fav", check_fav);
 		}
 		

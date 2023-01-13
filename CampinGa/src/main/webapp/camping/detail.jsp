@@ -16,7 +16,7 @@
 			<br><label>캠핑장 유형 : </label><span>${campMain.category}</span><br>
 			<br><label>운영기간 : </label><span>봄, 여름, 가을, 겨울</span><br>
 			<br><label>운영일 : </label><span>평일+주말</span><br>
-			<br><label>주변이용가능시설 : </label><span>${campMain.facilities}</span><br>
+			<br><label>부대시설 : </label><span>${campMain.facilities}</span><br>
 			<br>
 			<div id="campMain_info-btns">
 			<c:choose>

@@ -120,4 +120,28 @@ public class ReservationDao {
 			
 	
 	}
+
+	public ArrayList<ReservationVO> selectReserveCheckDate(int cseq) {
+		ArrayList<ReservationVO> list = new ArrayList<ReservationVO>();
+		con = Dbman.getConnection();
+		String sql = "select to_char(chk_in,'yyyy-mm-dd') as cin,"
+				+ " to_char(chk_out,'yyyy-mm-dd') as cout from reservation "
+				+ "where cseq=? and chk_out>=sysdate order by chk_in";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cseq);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ReservationVO revo = new ReservationVO();
+				revo.setChk_in(rs.getString("cin"));
+				revo.setChk_out(rs.getString("cout"));
+				list.add(revo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return list;
+	}
 }
