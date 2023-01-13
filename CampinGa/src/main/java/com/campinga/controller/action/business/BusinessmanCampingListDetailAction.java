@@ -59,7 +59,6 @@ public class BusinessmanCampingListDetailAction implements Action {
 			request.setAttribute("BusinessmanVO", campingList);
 			request.setAttribute("paging", paging);
 		}		
-		
 		String [] cateMap = {"¿ÀÅäÄ·ÇÎ","Ä·ÇÎ","Ä«¶ó¹Ý","Ä·ÇÁ´Ð"};
 		
 		request.setAttribute("cateMap", cateMap);

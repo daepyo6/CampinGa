@@ -34,7 +34,7 @@
 			</div>
 		</c:forEach>
 		<div class="resbtn" onclick="location.href='camp.do?command=insertCampingRoomForm'">
-			<span>객실 추가</span>
+			<span style="cursor: pointer;">객실 추가</span>
 		</div>	
 	</div>
 
