@@ -97,4 +97,22 @@ public class MemberDao {
 			Dbman.close(con, pstmt, rs);
 		}
 	}
+
+	public int getAllCount(String tableName, String mid) {
+		int count = 0;
+		con = Dbman.getConnection();
+		String sql = "select count(*) as cnt from " + tableName + " where mid=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			if(rs.next() )
+				count = rs.getInt("cnt");
+		} catch (SQLException e) { e.printStackTrace();
+		}finally { Dbman.close(con, pstmt, rs);
+		}
+		return count;
+	}
+
+	
 }
