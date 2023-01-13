@@ -16,8 +16,9 @@ public class BusinessJoinAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		String caddress1 = request.getParameter("caddress1");
-		String[] sido = {"","서울","부산","대구","인천","광주","대전","울산","강원",
-				         "경기","경남","경북","전남","전북","제주","충남","충북"};
+		String[] sido = {"","서울시","부산시","대구광역시","인천광역시","광주광역시","대전광역시",
+						"울산광역시","강원도","경기도","경상남도","경상북도","전라남도","전라북도",
+						"제주도","충청남도","충청북도"};
 		caddress1 = sido[Integer.parseInt(caddress1)];		
 		
 		BusinessmanVO bvo = new BusinessmanVO();
