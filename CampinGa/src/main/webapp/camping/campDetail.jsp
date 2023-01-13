@@ -193,8 +193,7 @@
 			<c:if test="${paging2.prev}">
 				<a href="camp.do?command=campDetail&bseq=${bseq}&page2=${paging2.beginPage-1}#reviewbox">◀</a>
 			</c:if>
-			<c:forEach begin="${paging2.beginPage}" end="${paging2.endPage}"
-				var="index">
+			<c:forEach begin="${paging2.beginPage}" end="${paging2.endPage}" var="index">
 				<c:choose>
 					<c:when test="${index==paging2.page}">
 						<span style="color: red;">${index}&nbsp;</span>

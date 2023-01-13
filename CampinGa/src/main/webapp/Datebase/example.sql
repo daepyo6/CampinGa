@@ -319,7 +319,10 @@ select * from(select * from(SELECT * FROM businessman) where caddress1 like '%°æ
 
 select * from camping_view where bseq=1 order by cseq desc;
 
-
-
 select to_char(chk_in,'yyyy-mm-dd') as cin, to_char(chk_out,'yyyy-mm-dd') as cout from reservation where cseq=2 and chk_out>=sysdate order by chk_in;
 
+
+select * from ( select * from ( select rownum as rn, f.mid from (
+				(select * from favorites_view where mid='qndrl12' order by fseq desc) f)
+				)where rn>=1
+				)where rn<=5;
