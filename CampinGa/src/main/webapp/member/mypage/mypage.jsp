@@ -6,6 +6,7 @@
 <article id="mypage">
    <!-- 회원 간단한 정보 + 정보수정 버튼-->
    <form method="post" name="memberInfo">
+   
     <div>
       <h1>회원정보</h1>
       <table class="memberInfoList1">
@@ -32,7 +33,6 @@
          </div>         
          
    </form>
-
 	<br><br>
    <!-- "예약 조회" 현재 예약조회, 지난 예약조회-->
    <form method="post" name="reservateInfo">
@@ -69,7 +69,24 @@
       </table>
       <div class="clear"></div>
    </form>
-
+	<div class="paging" style="font-size:120%; font-weight:bold; text-align: center">
+			<c:if test="${paging.prev}">
+				<a href="camp.do?command=mypage&page=${paging.beginPage-1}#logo">◀</a>&nbsp;
+			</c:if>
+			<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
+				<c:choose>
+					<c:when test="${paging.page==index}">
+						<span style="color:red">${index}&nbsp;</span>
+					</c:when>
+					<c:otherwise>
+						<a href="camp.do?command=mypage&page=${index}#logo">${index}</a>&nbsp;
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${paging.next}">
+				<a href="camp.do?command=mypage&page=${paging.endPage+1}#logo">▶</a>&nbsp;
+			</c:if>
+	</div>
    <!-- "내 즐겨찾기" 현재 회원이 즐겨찾기한 캠핑장의 내역을 출력 -->
    <form method="post" name="favorites">
       <h1>내 즐겨찾기</h1>
@@ -93,5 +110,23 @@
       </table>
       <div class="clear"></div>
    </form>
+   <div class="paging" style="font-size:120%; font-weight:bold; text-align: center">
+			<c:if test="${paging1.prev}">
+				<a href="camp.do?command=mypage&page1=${paging1.beginPage-1}#logo">◀</a>&nbsp;
+			</c:if>
+			<c:forEach begin="${paging1.beginPage}" end="${paging1.endPage}" var="index">
+				<c:choose>
+					<c:when test="${paging1.page==index}">
+						<span style="color:red">${index}&nbsp;</span>
+					</c:when>
+					<c:otherwise>
+						<a href="camp.do?command=mypage&page1=${index}#logo">${index}</a>&nbsp;
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${paging1.next}">
+				<a href="camp.do?command=mypage&page1=${paging1.endPage+1}#logo">▶</a>&nbsp;
+			</c:if>
+	</div>
 </article>
 <%@ include file="../../footer.jsp"%>

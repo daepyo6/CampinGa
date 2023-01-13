@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.campinga.dto.FavoritesVO;
 import com.campinga.dto.ReservationVO;
 import com.campinga.util.Dbman;
+import com.campinga.util.Paging;
 
 public class ReservationDao {
 	private ReservationDao() {
@@ -24,28 +25,35 @@ public class ReservationDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 
-	public ArrayList<ReservationVO> getReservateList(String mid) {
+	public ArrayList<ReservationVO> getReservateList(Paging paging, String mid) {
 		ArrayList<ReservationVO> list = new ArrayList<ReservationVO>();
 		con = Dbman.getConnection();
-		String sql = "select * from reservate_view where mid=?";
+		String sql = "select * from ( "
+				+ " select * from ( "
+				+ " select rownum as rn, re. * from "
+				+ " (( select * from reservate_view where mid=? order by reseq desc) re) "
+				+ " ) where rn >=? "
+				+ " ) where rn <=? ";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mid);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				ReservationVO revo = new ReservationVO();
 				revo.setReseq(rs.getInt("reseq"));
 				revo.setBseq(rs.getInt("bseq"));
 				revo.setCseq(rs.getInt("cseq"));
+				revo.setMid(rs.getString("mid"));
+				revo.setRes_date(rs.getTimestamp("res_date"));
+				revo.setPrice(rs.getInt("price"));
+				revo.setPeople(rs.getInt("people"));
+				revo.setChk_in(rs.getString("chk_in"));
+				revo.setChk_out(rs.getString("chk_out"));
 				revo.setCname(rs.getString("cname"));
 				revo.setC_class(rs.getString("c_class"));
 				revo.setRes_sta(rs.getString("res_sta"));
-				revo.setMid(rs.getString("mid"));
-				revo.setPrice(rs.getInt("price"));
-				revo.setPeople(rs.getInt("people"));
-				revo.setRes_date(rs.getTimestamp("res_date"));
-				revo.setChk_in(rs.getString("chk_in"));
-				revo.setChk_out(rs.getString("chk_out"));
 				list.add(revo);
 			}
 		} catch (SQLException e) {
@@ -143,4 +151,6 @@ public class ReservationDao {
 		}
 		return list;
 	}
+
+	
 }

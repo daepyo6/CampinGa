@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.campinga.dto.FavoritesVO;
 import com.campinga.dto.ReservationVO;
 import com.campinga.util.Dbman;
+import com.campinga.util.Paging;
 
 public class FavoritesDao {
 	private FavoritesDao() {}
@@ -21,13 +22,20 @@ public class FavoritesDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public ArrayList<FavoritesVO> getFavoritesList(String mid) {
+	public ArrayList<FavoritesVO> getFavoritesList(Paging paging, String mid) {
 		ArrayList<FavoritesVO> list = new ArrayList<FavoritesVO>();
 		con = Dbman.getConnection();
-		String sql = "select * from favorites_view where mid=?";
+		String sql = "select * from ( "
+				+ " select * from ( "
+				+ " select rownum as rn, f.fseq, f.bseq, f.mid, f.cname, f.fav_check, f.phone from "
+				+ " (( select * from favorites_view where mid=? order by fseq desc) f) "
+				+ " ) where rn>=? "
+				+ " ) where rn<=? ";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, mid);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				FavoritesVO fvo = new FavoritesVO();
@@ -100,4 +108,5 @@ public class FavoritesDao {
 		}
 		return check;
 	}
+
 }
