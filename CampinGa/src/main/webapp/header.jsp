@@ -41,7 +41,7 @@
 	
 	<div id="logo"><!-- 로고시작 -->
 		<a href="camp.do?command=index">
-			<img src="images/CampinGa_logo.png">
+			<img src="images/logoH.png">
 		</a>
 	</div><!-- 로고 끝 -->
 	
