@@ -11,13 +11,13 @@ $(function() {
 	$('#btnL').click(function() {
 		if (num == 0) return;
 		num--;
-		dist = -1 * 253 * num;
+		dist = -1 * 252 * num;
 		$('.cards').animate({ left: dist }, 500)
 	})
 	$('#btnR').click(function() {
 		if (num == 4) return;
 		num++;
-		dist = -1 * 253 * num;
+		dist = -1 * 252 * num;
 		$('.cards').animate({ left: dist }, 500)
 	})
 	

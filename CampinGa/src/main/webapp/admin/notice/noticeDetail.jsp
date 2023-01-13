@@ -3,20 +3,26 @@
 <%@ include file="/admin/sub_menu.jsp"%>
 
 <article>
-   <div  id="noticeview" >
-   <h1>공지사항</h1> 
-   <table>
- 
-      <tr><th align="center" >제목</th><td colspan="5">${noticeVO.subject}</td></tr>
-         <tr><th>상세설명</th><td colspan="5"><pre>${noticeVO.content}</pre></td></tr>
-         
-   </table>
-   <div class="buttons">
-    <input class="btn"  type="button" value="수정" onClick="go_mod('${noticeVO.nseq}')">
-	<input class="btn"  type="button" value="삭제" onClick="go_dod('${noticeVO.nseq}')">
-	<input class="btn"  type="button" value="목록" onClick="go_mov()">
-   </div>
+<div id="noticeview">
+   <div class="noticeTitle">
+		<h1>공지사항</h1>
+	</div> 
+	<div class="noticeOne">
+		<div class="noticeOne_title">
+		 <div><span>제목</span></div>
+		 <div><span>${noticeVO.subject}</span></div>
+		</div>
+		<div class="noticeOne_content">
+			<pre>${noticeVO.content}</pre>
+		</div>   
+	</div>
+    <div class="buttons" style="height: 80px; line-height: 80px;">
+    	<input class="btn"  type="button" value="수정" onClick="go_mod('${noticeVO.nseq}')">
+		<input class="btn"  type="button" value="삭제" onClick="go_dod('${noticeVO.nseq}')">
+		<input class="btn"  type="button" value="목록" onClick="go_mov()">    	
+    </div>   
+   <div class="buttons">   
 </div>
-</article> <br><br><br><br>
+</article>
 
 <%@ include file="/admin/footer.jsp"%>
