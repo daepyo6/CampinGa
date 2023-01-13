@@ -15,7 +15,7 @@
    <header class="adminHeader">         
       <div id="logo">
          <a href="camp.do?command=index">
-            <img src="images/CampinGa_logo.png" width="220" height="50">
+            <img src="images/logoF.png" width="220" height="50">
          </a>
       </div>
       <div class="adLogout">

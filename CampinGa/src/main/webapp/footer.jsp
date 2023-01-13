@@ -6,7 +6,7 @@
 <footer>
 	<div class="foot">
 		<div id="fLogo">
-			<img src="images/CampinGa_logo.png">
+			<img src="images/logoF.png">
 		</div>
 		<div id="adBtn">
 			<a href="camp.do?command=admin">administrator</a>
