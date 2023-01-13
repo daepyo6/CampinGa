@@ -63,7 +63,7 @@
 					</select>
 				</div>
 				<div class="roomInput_div">
-					<input type="text" name="caddress3" size="20" placeholder="${BusinessmanVO.caddress3}">
+					<input type="text" name="caddress3" size="20" value="${BusinessmanVO.caddress3}">
 				</div>
 			</div>
 			<br>

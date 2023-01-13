@@ -247,12 +247,18 @@ select * from reservate_view;
 -- favorites 안의 사용자아이디와 캠핑장번호로 즐겨찾기 된 캠핑장정보를 조회하는 view 생성
 create or replace view favorites_view
 as
-select rownum as rn, f.fseq, f.bseq, m.mid, b.cname, b.phone, f.fav_check  
+select rownum as rn, f.fseq, f.bseq, m.mid, b.cname, b.image, b.phone, f.fav_check  
 from favorites f, member m, businessman b
 where f.mid = m.mid and f.bseq = b.bseq;
 
 DROP view favorites_view CASCADE CONSTRAINTS;
 select * from favorites_view;
+SELECT cname, COUNT(cname) AS cnt, FROM favorites_view GROUP BY cname;
+
+SELECT DISTINCT cname, COUNT(cname) OVER (PARTITION BY cname) AS cnt_fav, image, bseq
+FROM favorites_view where rownum<=8 order by cnt_fav desc;
+
+
 
 
 -- camping 안의 캠핑장 이름으로 정보 조회하는 view

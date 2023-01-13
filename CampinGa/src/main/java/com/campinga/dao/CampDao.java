@@ -205,9 +205,8 @@ public class CampDao {
 	public ArrayList<BusinessmanVO> selectRecoCampList() {
 		ArrayList<BusinessmanVO> list = new ArrayList<BusinessmanVO>();
 		con = Dbman.getConnection();
-		String sql = "select bseq, cname, content, image from "
-				+ "(select * from businessman order by bseq desc) "
-				+ "where rownum<=8";
+		String sql = "SELECT DISTINCT cname, COUNT(cname) OVER (PARTITION BY cname) AS cnt_fav, image, bseq "
+				+ "FROM favorites_view where rownum<=8 order by cnt_fav desc";
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -215,7 +214,6 @@ public class CampDao {
 				BusinessmanVO bmvo = new BusinessmanVO();
 				bmvo.setBseq(rs.getInt("bseq"));
 				bmvo.setCname(rs.getString("cname"));
-				bmvo.setContent(rs.getString("content"));
 				bmvo.setImage(rs.getString("image"));
 				list.add(bmvo);
 			}
