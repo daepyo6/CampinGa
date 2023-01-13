@@ -5,7 +5,7 @@
 <div id="campingdetail">
 	<div id="campMain">
 		<div id="campMain_img">
-			<img src="images/camp01.jpg" />
+			<img src="images/${campMain.image}" />
 		</div>
 		<div id="campMain_info">
 			<div id="campMain_info-title">
