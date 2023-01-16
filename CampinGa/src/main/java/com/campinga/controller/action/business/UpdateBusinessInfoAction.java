@@ -20,12 +20,13 @@ public class UpdateBusinessInfoAction implements Action {
 		
 		HttpSession session = request.getSession();
 		BusinessmanVO bvo = (BusinessmanVO) session.getAttribute("loginBusinessman");
-
+		int bseq = bvo.getBseq();
 		if( bvo == null ) {
 			url = "camp.do?command=loginForm";
 		} else {
 			bvo = new BusinessmanVO();
 			BusinessmanDao bdao = BusinessmanDao.getInstance();
+			bvo.setBseq(bseq);
 			bvo.setBid(request.getParameter("bid"));
 			bvo.setName(request.getParameter("name"));
 			bvo.setPhone(request.getParameter("phone"));

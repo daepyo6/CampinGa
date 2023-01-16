@@ -45,6 +45,7 @@ public class InsertCampingRoomAction implements Action {
 		    cvo.setC_image( multi.getFilesystemName("c_image"));
 		    
 		    CampDao cdao = CampDao.getInstance();
+		    System.out.println(cvo.getBseq());
 		    cdao.insertCampingRoom(cvo);
 		}
 		response.sendRedirect(url);
