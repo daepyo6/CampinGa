@@ -8,8 +8,7 @@
 	<div id="main_searchbar">
 		<div id="selects">
 			<div id="selectAddress">
-				<span>지역별</span> <select id="sido" class="selectAd"
-					onchange="chDo(this.value)">
+				<span>지역별</span> <select id="sido" class="selectAd" onchange="chDo(this.value)">
 					<option value="" selected="selected">도/시 선택</option>
 					<option value="1">서울</option>
 					<option value="2">부산</option>

@@ -36,7 +36,7 @@ values(businessman_seq.nextval, 'ba', '1234', '±èº¸Á¡', '010-5555-1111', 'abc@ab
 
 select * from businessman;
 select * from camping;
-delete from businessman where bseq=1;
+delete from businessman where bseq=21;
 
 select count(*) from camping where cname='ÇØ¿©¸² ºô¸®Áö';
 

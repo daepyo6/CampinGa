@@ -12,7 +12,7 @@
 			<div class="roomInput">
 				<span>객실 이름</span>
 				<div class="roomInput_div">
-					<input type="text" name="c_class" size="20">
+					<input type="text" name="c_class" size="60" placeholder="캠핑장 이름을 등록하세요.">
 				</div>
 			</div>
 			<br>
